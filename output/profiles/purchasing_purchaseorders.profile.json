@@ -1,0 +1,1070 @@
+{
+  "profile_id": "prof_purchasing_purchaseorders_20260518130907",
+  "table_name": "purchasing_purchaseorders",
+  "profiling_metadata": {
+    "profiled_at": "2026-05-18T13:09:07.364874",
+    "profiler_version": "1.0.0",
+    "execution_time_ms": 38.779258728027344,
+    "sample_based": true,
+    "sample_size": 100,
+    "canonical_table_id": "purchasing_purchaseorders"
+  },
+  "table_profile": {
+    "row_count_estimate": 100,
+    "column_count": 12,
+    "completeness_score": 1.0,
+    "quality_score": 0.85,
+    "pk_candidates": [
+      "purchaseorderid"
+    ],
+    "fk_candidates": [
+      "supplierid",
+      "deliverymethodid",
+      "contactpersonid"
+    ],
+    "total_quality_flags": 12,
+    "columns_with_issues": 6
+  },
+  "columns": [
+    {
+      "column_name": "purchaseorderid",
+      "original_name": "PurchaseOrderID",
+      "position": 0,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "medium",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.94,
+      "pk_evidence": {
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "All 100 values are distinct"
+        ],
+        "warnings": []
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 100,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 6.6438561897747395,
+        "entropy_normalized": 1.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 2075.0,
+        "max_value": 2174.0,
+        "mean": 2124.5,
+        "median": 2124.5,
+        "std_dev": 29.011491975882016,
+        "variance": 841.6666666666666,
+        "quantiles": {
+          "p25": 2099.25,
+          "p50": 2124.5,
+          "p75": 2149.75,
+          "p90": 2164.1,
+          "p99": 2173.01
+        },
+        "skewness": 0.0,
+        "kurtosis": -1.2360552475247524,
+        "top_values": [
+          [
+            "2075",
+            1
+          ],
+          [
+            "2076",
+            1
+          ],
+          [
+            "2077",
+            1
+          ],
+          [
+            "2078",
+            1
+          ],
+          [
+            "2079",
+            1
+          ],
+          [
+            "2080",
+            1
+          ],
+          [
+            "2081",
+            1
+          ],
+          [
+            "2082",
+            1
+          ],
+          [
+            "2083",
+            1
+          ],
+          [
+            "2084",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "2075",
+        "2076",
+        "2077",
+        "2078",
+        "2079",
+        "2080",
+        "2081",
+        "2082",
+        "2083",
+        "2084"
+      ]
+    },
+    {
+      "column_name": "supplierid",
+      "original_name": "SupplierID",
+      "position": 1,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.04,
+      "entropy_normalized": 0.2603687769942209,
+      "cardinality_class": "low",
+      "relational_role": "foreign_key",
+      "pk_candidate": false,
+      "pk_confidence": 0.2970553165491332,
+      "pk_evidence": null,
+      "fk_candidate": true,
+      "fk_confidence": 0.8190553165491331,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "supplier",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'supplier' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: supplier",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "Moderate uniqueness (4.00%) - typical FK pattern"
+        ],
+        "warnings": []
+      },
+      "quality_flags": [
+        "weak_identifier"
+      ],
+      "quality_score": 0.9,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 0.04,
+        "cardinality_ratio": 0.04,
+        "duplicate_count": 96,
+        "entropy": 1.7298527106571293,
+        "entropy_normalized": 0.2603687769942209,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 1.0,
+        "max_value": 12.0,
+        "mean": 4.33,
+        "median": 4.0,
+        "std_dev": 2.748939189335891,
+        "variance": 7.556666666666667,
+        "quantiles": {
+          "p25": 1.0,
+          "p50": 4.0,
+          "p75": 7.0,
+          "p90": 7.0,
+          "p99": 12.0
+        },
+        "skewness": 0.42015360462974904,
+        "kurtosis": -0.2420232539364875,
+        "top_values": [
+          [
+            "4",
+            34
+          ],
+          [
+            "7",
+            33
+          ],
+          [
+            "1",
+            30
+          ],
+          [
+            "12",
+            3
+          ]
+        ]
+      },
+      "sample_values": [
+        "4",
+        "7",
+        "4",
+        "7",
+        "4",
+        "7",
+        "4",
+        "7",
+        "1",
+        "4"
+      ]
+    },
+    {
+      "column_name": "orderdate",
+      "original_name": "OrderDate",
+      "position": 2,
+      "physical_type": "datetime",
+      "semantic_type": "timestamp",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.34,
+      "entropy_normalized": 0.762747611396455,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.5074121417094682,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 34,
+        "uniqueness_ratio": 0.34,
+        "cardinality_ratio": 0.34,
+        "duplicate_count": 66,
+        "entropy": 5.067585439212223,
+        "entropy_normalized": 0.762747611396455,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "01-07-2016 00:00:00",
+            4
+          ],
+          [
+            "02-07-2016 00:00:00",
+            4
+          ],
+          [
+            "03-07-2016 00:00:00",
+            4
+          ],
+          [
+            "05-06-2016 00:00:00",
+            3
+          ],
+          [
+            "06-06-2016 00:00:00",
+            3
+          ],
+          [
+            "07-06-2016 00:00:00",
+            3
+          ],
+          [
+            "08-06-2016 00:00:00",
+            3
+          ],
+          [
+            "09-06-2016 00:00:00",
+            3
+          ],
+          [
+            "10-06-2016 00:00:00",
+            3
+          ],
+          [
+            "11-06-2016 00:00:00",
+            3
+          ]
+        ]
+      },
+      "sample_values": [
+        "01-06-2016 00:00:00",
+        "01-06-2016 00:00:00",
+        "02-06-2016 00:00:00",
+        "02-06-2016 00:00:00",
+        "03-06-2016 00:00:00",
+        "03-06-2016 00:00:00",
+        "04-06-2016 00:00:00",
+        "04-06-2016 00:00:00",
+        "05-06-2016 00:00:00",
+        "05-06-2016 00:00:00"
+      ]
+    },
+    {
+      "column_name": "deliverymethodid",
+      "original_name": "DeliveryMethodID",
+      "position": 3,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.02,
+      "entropy_normalized": 0.1377101410153717,
+      "cardinality_class": "low",
+      "relational_role": "foreign_key",
+      "pk_candidate": false,
+      "pk_confidence": 0.26965652115230576,
+      "pk_evidence": null,
+      "fk_candidate": true,
+      "fk_confidence": 0.8006565211523058,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "deliverymethod",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'deliverymethod' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: deliverymethod",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "Moderate uniqueness (2.00%) - typical FK pattern"
+        ],
+        "warnings": []
+      },
+      "quality_flags": [
+        "weak_identifier",
+        "low_cardinality"
+      ],
+      "quality_score": 0.8,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.02,
+        "cardinality_ratio": 0.02,
+        "duplicate_count": 98,
+        "entropy": 0.9149263727797274,
+        "entropy_normalized": 0.1377101410153717,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 2.0,
+        "max_value": 7.0,
+        "mean": 5.35,
+        "median": 7.0,
+        "std_dev": 2.3629078131263044,
+        "variance": 5.583333333333333,
+        "quantiles": {
+          "p25": 2.0,
+          "p50": 7.0,
+          "p75": 7.0,
+          "p90": 7.0,
+          "p99": 7.0
+        },
+        "skewness": -0.712258002894012,
+        "kurtosis": -1.5074641791044785,
+        "top_values": [
+          [
+            "7",
+            67
+          ],
+          [
+            "2",
+            33
+          ]
+        ]
+      },
+      "sample_values": [
+        "7",
+        "2",
+        "7",
+        "2",
+        "7",
+        "2",
+        "7",
+        "2",
+        "7",
+        "7"
+      ]
+    },
+    {
+      "column_name": "contactpersonid",
+      "original_name": "ContactPersonID",
+      "position": 4,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.01,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "foreign_key",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": true,
+      "fk_confidence": 0.78,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "contactperson",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'contactperson' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: contactperson",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "Moderate uniqueness (1.00%) - typical FK pattern"
+        ],
+        "warnings": []
+      },
+      "quality_flags": [
+        "weak_identifier",
+        "constant_column",
+        "low_cardinality"
+      ],
+      "quality_score": 0.5,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.01,
+        "cardinality_ratio": 0.01,
+        "duplicate_count": 99,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 2.0,
+        "max_value": 2.0,
+        "mean": 2.0,
+        "median": 2.0,
+        "std_dev": 0.0,
+        "variance": 0.0,
+        "quantiles": {
+          "p25": 2.0,
+          "p50": 2.0,
+          "p75": 2.0,
+          "p90": 2.0,
+          "p99": 2.0
+        },
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "2",
+            100
+          ]
+        ]
+      },
+      "sample_values": [
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2",
+        "2"
+      ]
+    },
+    {
+      "column_name": "expecteddeliverydate",
+      "original_name": "ExpectedDeliveryDate",
+      "position": 5,
+      "physical_type": "datetime",
+      "semantic_type": "timestamp",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.34,
+      "entropy_normalized": 0.762747611396455,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.5074121417094682,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 34,
+        "uniqueness_ratio": 0.34,
+        "cardinality_ratio": 0.34,
+        "duplicate_count": 66,
+        "entropy": 5.067585439212223,
+        "entropy_normalized": 0.762747611396455,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "21-07-2016 00:00:00",
+            4
+          ],
+          [
+            "22-07-2016 00:00:00",
+            4
+          ],
+          [
+            "23-07-2016 00:00:00",
+            4
+          ],
+          [
+            "25-06-2016 00:00:00",
+            3
+          ],
+          [
+            "26-06-2016 00:00:00",
+            3
+          ],
+          [
+            "27-06-2016 00:00:00",
+            3
+          ],
+          [
+            "28-06-2016 00:00:00",
+            3
+          ],
+          [
+            "29-06-2016 00:00:00",
+            3
+          ],
+          [
+            "30-06-2016 00:00:00",
+            3
+          ],
+          [
+            "01-07-2016 00:00:00",
+            3
+          ]
+        ]
+      },
+      "sample_values": [
+        "21-06-2016 00:00:00",
+        "21-06-2016 00:00:00",
+        "22-06-2016 00:00:00",
+        "22-06-2016 00:00:00",
+        "23-06-2016 00:00:00",
+        "23-06-2016 00:00:00",
+        "24-06-2016 00:00:00",
+        "24-06-2016 00:00:00",
+        "25-06-2016 00:00:00",
+        "25-06-2016 00:00:00"
+      ]
+    },
+    {
+      "column_name": "supplierreference",
+      "original_name": "SupplierReference",
+      "position": 6,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.04,
+      "entropy_normalized": 0.2603687769942209,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.2970553165491332,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 0.04,
+        "cardinality_ratio": 0.04,
+        "duplicate_count": 96,
+        "entropy": 1.7298527106571293,
+        "entropy_normalized": 0.2603687769942209,
+        "min_length": 6,
+        "max_length": 9,
+        "avg_length": 7.38,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "293092",
+            34
+          ],
+          [
+            "BC0280982",
+            33
+          ],
+          [
+            "AA20384",
+            30
+          ],
+          [
+            "237408032",
+            3
+          ]
+        ]
+      },
+      "sample_values": [
+        "293092",
+        "BC0280982",
+        "293092",
+        "BC0280982",
+        "293092",
+        "BC0280982",
+        "293092",
+        "BC0280982",
+        "AA20384",
+        "293092"
+      ]
+    },
+    {
+      "column_name": "isorderfinalized",
+      "original_name": "IsOrderFinalized",
+      "position": 7,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.01,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column",
+        "low_cardinality"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.01,
+        "cardinality_ratio": 0.01,
+        "duplicate_count": 99,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 4,
+        "max_length": 4,
+        "avg_length": 4.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "True",
+            100
+          ]
+        ]
+      },
+      "sample_values": [
+        "True",
+        "True",
+        "True",
+        "True",
+        "True",
+        "True",
+        "True",
+        "True",
+        "True",
+        "True"
+      ]
+    },
+    {
+      "column_name": "comments",
+      "original_name": "Comments",
+      "position": 8,
+      "physical_type": "unknown",
+      "semantic_type": "numeric",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "zero_entropy",
+        "low_cardinality"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 0,
+        "uniqueness_ratio": 0.0,
+        "cardinality_ratio": 0.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": null
+      },
+      "sample_values": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "column_name": "internalcomments",
+      "original_name": "InternalComments",
+      "position": 9,
+      "physical_type": "unknown",
+      "semantic_type": "numeric",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "zero_entropy",
+        "low_cardinality"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 0,
+        "uniqueness_ratio": 0.0,
+        "cardinality_ratio": 0.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": null
+      },
+      "sample_values": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "column_name": "lasteditedby",
+      "original_name": "LastEditedBy",
+      "position": 10,
+      "physical_type": "integer",
+      "semantic_type": "identifier",
+      "logical_type": "audit",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.14,
+      "entropy_normalized": 0.5209736994953783,
+      "cardinality_class": "low",
+      "relational_role": "audit_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 14,
+        "uniqueness_ratio": 0.14,
+        "cardinality_ratio": 0.14,
+        "duplicate_count": 86,
+        "entropy": 3.4612743381022066,
+        "entropy_normalized": 0.5209736994953783,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 2.0,
+        "max_value": 19.0,
+        "mean": 9.73,
+        "median": 8.0,
+        "std_dev": 4.47857977127535,
+        "variance": 20.057676767676767,
+        "quantiles": {
+          "p25": 7.0,
+          "p50": 8.0,
+          "p75": 13.0,
+          "p90": 17.0,
+          "p99": 19.0
+        },
+        "skewness": 0.36662550007337646,
+        "kurtosis": -0.9218835895208852,
+        "top_values": [
+          [
+            "7",
+            21
+          ],
+          [
+            "13",
+            15
+          ],
+          [
+            "8",
+            11
+          ],
+          [
+            "14",
+            9
+          ],
+          [
+            "6",
+            9
+          ],
+          [
+            "4",
+            6
+          ],
+          [
+            "17",
+            6
+          ],
+          [
+            "12",
+            6
+          ],
+          [
+            "2",
+            3
+          ],
+          [
+            "5",
+            3
+          ]
+        ]
+      },
+      "sample_values": [
+        "8",
+        "8",
+        "8",
+        "8",
+        "8",
+        "8",
+        "8",
+        "8",
+        "8",
+        "8"
+      ]
+    },
+    {
+      "column_name": "lasteditedwhen",
+      "original_name": "LastEditedWhen",
+      "position": 11,
+      "physical_type": "datetime",
+      "semantic_type": "timestamp",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.24,
+      "entropy_normalized": 0.6533079540596962,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.44599619310895444,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 24,
+        "uniqueness_ratio": 0.24,
+        "cardinality_ratio": 0.24,
+        "duplicate_count": 76,
+        "entropy": 4.340484094408574,
+        "entropy_normalized": 0.6533079540596962,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "04-07-2016 07:00:00",
+            12
+          ],
+          [
+            "13-06-2016 07:00:00",
+            9
+          ],
+          [
+            "20-06-2016 07:00:00",
+            9
+          ],
+          [
+            "27-06-2016 07:00:00",
+            9
+          ],
+          [
+            "06-06-2016 07:00:00",
+            7
+          ],
+          [
+            "07-06-2016 07:00:00",
+            3
+          ],
+          [
+            "08-06-2016 07:00:00",
+            3
+          ],
+          [
+            "09-06-2016 07:00:00",
+            3
+          ],
+          [
+            "10-06-2016 07:00:00",
+            3
+          ],
+          [
+            "14-06-2016 07:00:00",
+            3
+          ]
+        ]
+      },
+      "sample_values": [
+        "02-06-2016 07:00:00",
+        "02-06-2016 07:00:00",
+        "03-06-2016 07:00:00",
+        "03-06-2016 07:00:00",
+        "06-06-2016 07:00:00",
+        "06-06-2016 07:00:00",
+        "06-06-2016 07:00:00",
+        "06-06-2016 07:00:00",
+        "06-06-2016 07:00:00",
+        "06-06-2016 07:00:00"
+      ]
+    }
+  ],
+  "source_canonical_path": "output\\canonical\\purchasing_purchaseorders.canonical.json"
+}

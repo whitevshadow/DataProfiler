@@ -1,0 +1,736 @@
+{
+  "profile_id": "prof_warehouse_vehicletemperatures_20260518130907",
+  "table_name": "warehouse_vehicletemperatures",
+  "profiling_metadata": {
+    "profiled_at": "2026-05-18T13:09:07.570979",
+    "profiler_version": "1.0.0",
+    "execution_time_ms": 27.086257934570312,
+    "sample_based": true,
+    "sample_size": 100,
+    "canonical_table_id": "warehouse_vehicletemperatures"
+  },
+  "table_profile": {
+    "row_count_estimate": 100,
+    "column_count": 8,
+    "completeness_score": 1.0,
+    "quality_score": 0.85,
+    "pk_candidates": [
+      "vehicletemperatureid",
+      "temperature",
+      "recordedwhen"
+    ],
+    "fk_candidates": [],
+    "total_quality_flags": 7,
+    "columns_with_issues": 4
+  },
+  "columns": [
+    {
+      "column_name": "vehicletemperatureid",
+      "original_name": "VehicleTemperatureID",
+      "position": 0,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "medium",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.94,
+      "pk_evidence": {
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "All 100 values are distinct"
+        ],
+        "warnings": []
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 100,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 6.6438561897747395,
+        "entropy_normalized": 1.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 78774.0,
+        "max_value": 79026.0,
+        "mean": 78921.38,
+        "median": 78951.0,
+        "std_dev": 82.62337331640374,
+        "variance": 6826.6218181818185,
+        "quantiles": {
+          "p25": 78836.5,
+          "p50": 78951.0,
+          "p75": 78990.75,
+          "p90": 79012.1,
+          "p99": 79025.01
+        },
+        "skewness": -0.4707399041759221,
+        "kurtosis": -1.3587546289798116,
+        "top_values": [
+          [
+            "78925",
+            1
+          ],
+          [
+            "78926",
+            1
+          ],
+          [
+            "78928",
+            1
+          ],
+          [
+            "78929",
+            1
+          ],
+          [
+            "78935",
+            1
+          ],
+          [
+            "78936",
+            1
+          ],
+          [
+            "78938",
+            1
+          ],
+          [
+            "78939",
+            1
+          ],
+          [
+            "78942",
+            1
+          ],
+          [
+            "78944",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "78925",
+        "78926",
+        "78928",
+        "78929",
+        "78935",
+        "78936",
+        "78938",
+        "78939",
+        "78942",
+        "78944"
+      ]
+    },
+    {
+      "column_name": "vehicleregistration",
+      "original_name": "VehicleRegistration",
+      "position": 1,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.01,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column",
+        "low_cardinality"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.01,
+        "cardinality_ratio": 0.01,
+        "duplicate_count": 99,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 9,
+        "max_length": 9,
+        "avg_length": 9.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "WWI-321-A",
+            100
+          ]
+        ]
+      },
+      "sample_values": [
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A",
+        "WWI-321-A"
+      ]
+    },
+    {
+      "column_name": "chillersensornumber",
+      "original_name": "ChillerSensorNumber",
+      "position": 2,
+      "physical_type": "integer",
+      "semantic_type": "numeric",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.02,
+      "entropy_normalized": 0.14772353088318912,
+      "cardinality_class": "low",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.27115852963247844,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "low_cardinality"
+      ],
+      "quality_score": 0.9,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.02,
+        "cardinality_ratio": 0.02,
+        "duplicate_count": 98,
+        "entropy": 0.9814538950336537,
+        "entropy_normalized": 0.14772353088318912,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 1.0,
+        "max_value": 2.0,
+        "mean": 1.58,
+        "median": 2.0,
+        "std_dev": 0.4960449637488582,
+        "variance": 0.24606060606060606,
+        "quantiles": {
+          "p25": 1.0,
+          "p50": 2.0,
+          "p75": 2.0,
+          "p90": 2.0,
+          "p99": 2.0
+        },
+        "skewness": -0.31932589094926545,
+        "kurtosis": -1.9169009852216747,
+        "top_values": [
+          [
+            "2",
+            58
+          ],
+          [
+            "1",
+            42
+          ]
+        ]
+      },
+      "sample_values": [
+        "1",
+        "2",
+        "2",
+        "1",
+        "1",
+        "2",
+        "2",
+        "1",
+        "2",
+        "2"
+      ]
+    },
+    {
+      "column_name": "recordedwhen",
+      "original_name": "RecordedWhen",
+      "position": 3,
+      "physical_type": "datetime",
+      "semantic_type": "timestamp",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.75,
+      "entropy_normalized": 0.9247425010840061,
+      "cardinality_class": "medium",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.7162113751626009,
+      "pk_evidence": {
+        "uniqueness_score": 0.75,
+        "non_null_score": 1.0,
+        "entropy_score": 0.9247425010840061,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED",
+          "Uniqueness only 75.0%"
+        ]
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 75,
+        "uniqueness_ratio": 0.75,
+        "cardinality_ratio": 0.75,
+        "duplicate_count": 25,
+        "entropy": 6.143856189774734,
+        "entropy_normalized": 0.9247425010840061,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "30-06-2016 13:57:30",
+            2
+          ],
+          [
+            "30-06-2016 14:08:50",
+            2
+          ],
+          [
+            "30-06-2016 14:19:44",
+            2
+          ],
+          [
+            "30-06-2016 14:23:43",
+            2
+          ],
+          [
+            "30-06-2016 14:36:31",
+            2
+          ],
+          [
+            "30-06-2016 14:39:07",
+            2
+          ],
+          [
+            "30-06-2016 14:43:09",
+            2
+          ],
+          [
+            "30-06-2016 14:47:58",
+            2
+          ],
+          [
+            "30-06-2016 14:55:43",
+            2
+          ],
+          [
+            "30-06-2016 14:59:02",
+            2
+          ]
+        ]
+      },
+      "sample_values": [
+        "30-06-2016 13:57:30",
+        "30-06-2016 13:57:30",
+        "30-06-2016 14:00:33",
+        "30-06-2016 14:00:44",
+        "30-06-2016 14:08:50",
+        "30-06-2016 14:08:50",
+        "30-06-2016 14:09:17",
+        "30-06-2016 14:10:50",
+        "30-06-2016 14:12:50",
+        "30-06-2016 14:15:18"
+      ]
+    },
+    {
+      "column_name": "temperature",
+      "original_name": "Temperature",
+      "position": 4,
+      "physical_type": "float",
+      "semantic_type": "numeric",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.82,
+      "entropy_normalized": 0.9424059440579392,
+      "cardinality_class": "medium",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.7503608916086908,
+      "pk_evidence": {
+        "uniqueness_score": 0.82,
+        "non_null_score": 1.0,
+        "entropy_score": 0.9424059440579392,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED",
+          "Uniqueness only 82.0%"
+        ]
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 82,
+        "uniqueness_ratio": 0.82,
+        "cardinality_ratio": 0.82,
+        "duplicate_count": 18,
+        "entropy": 6.261209564709832,
+        "entropy_normalized": 0.9424059440579392,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 3.01,
+        "max_value": 4.99,
+        "mean": 4.004,
+        "median": 4.015,
+        "std_dev": 0.5985335615004594,
+        "variance": 0.3582424242424243,
+        "quantiles": {
+          "p25": 3.4625,
+          "p50": 4.015,
+          "p75": 4.5175,
+          "p90": 4.81,
+          "p99": 4.980100000000001
+        },
+        "skewness": -0.12293120967341471,
+        "kurtosis": -1.1847269849840818,
+        "top_values": [
+          [
+            "4.02",
+            3
+          ],
+          [
+            "4.31",
+            3
+          ],
+          [
+            "3.07",
+            3
+          ],
+          [
+            "3.55",
+            2
+          ],
+          [
+            "4.81",
+            2
+          ],
+          [
+            "4.61",
+            2
+          ],
+          [
+            "3.84",
+            2
+          ],
+          [
+            "4.0",
+            2
+          ],
+          [
+            "4.23",
+            2
+          ],
+          [
+            "4.17",
+            2
+          ]
+        ]
+      },
+      "sample_values": [
+        "3.27",
+        "3.36",
+        "3.89",
+        "3.55",
+        "4.56",
+        "3.55",
+        "3.88",
+        "4.91",
+        "4.81",
+        "3.82"
+      ]
+    },
+    {
+      "column_name": "fullsensordata",
+      "original_name": "FullSensorData",
+      "position": 5,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "medium",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 100,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 6.6438561897747395,
+        "entropy_normalized": 1.0,
+        "min_length": 195,
+        "max_length": 196,
+        "avg_length": 195.65,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-111.5162026,38.2690190] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T13:57:30\",\"temp\":3.27}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-120.3820540,62.8771943] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T13:57:30\",\"temp\":3.36}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-105.0801243,65.2163775] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:00:33\",\"temp\":3.89}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-110.0328919,66.2769055] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:00:44\",\"temp\":3.55}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-104.8131651,59.5290384] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:08:50\",\"temp\":4.56}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-106.8068992,41.0280215] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:08:50\",\"temp\":3.55}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-106.0463295,49.2609892] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:09:17\",\"temp\":3.88}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-116.0035301,66.7221081] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:10:50\",\"temp\":4.91}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-117.9786260,58.2370792] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:12:50\",\"temp\":4.81}} ]",
+            1
+          ],
+          [
+            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-120.2544796,64.8276526] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:15:18\",\"temp\":3.82}} ]",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-111.5162026,38.2690190] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T13:57:30\",\"temp\":3.27}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-120.3820540,62.8771943] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T13:57:30\",\"temp\":3.36}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-105.0801243,65.2163775] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:00:33\",\"temp\":3.89}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-110.0328919,66.2769055] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:00:44\",\"temp\":3.55}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-104.8131651,59.5290384] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:08:50\",\"temp\":4.56}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-106.8068992,41.0280215] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:08:50\",\"temp\":3.55}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-106.0463295,49.2609892] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:09:17\",\"temp\":3.88}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-116.0035301,66.7221081] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:10:50\",\"temp\":4.91}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-117.9786260,58.2370792] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:12:50\",\"temp\":4.81}} ]",
+        "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-120.2544796,64.8276526] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:15:18\",\"temp\":3.82}} ]"
+      ]
+    },
+    {
+      "column_name": "iscompressed",
+      "original_name": "IsCompressed",
+      "position": 6,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.01,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column",
+        "low_cardinality"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.01,
+        "cardinality_ratio": 0.01,
+        "duplicate_count": 99,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 5,
+        "max_length": 5,
+        "avg_length": 5.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "False",
+            100
+          ]
+        ]
+      },
+      "sample_values": [
+        "False",
+        "False",
+        "False",
+        "False",
+        "False",
+        "False",
+        "False",
+        "False",
+        "False",
+        "False"
+      ]
+    },
+    {
+      "column_name": "compressedsensordata",
+      "original_name": "CompressedSensorData",
+      "position": 7,
+      "physical_type": "unknown",
+      "semantic_type": "numeric",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "zero_entropy",
+        "low_cardinality"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 0,
+        "uniqueness_ratio": 0.0,
+        "cardinality_ratio": 0.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": null
+      },
+      "sample_values": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "source_canonical_path": "output\\canonical\\warehouse_vehicletemperatures.canonical.json"
+}

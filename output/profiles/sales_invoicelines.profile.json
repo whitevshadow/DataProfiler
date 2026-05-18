@@ -1,0 +1,1346 @@
+{
+  "profile_id": "prof_sales_invoicelines_20260518130907",
+  "table_name": "sales_invoicelines",
+  "profiling_metadata": {
+    "profiled_at": "2026-05-18T13:09:07.452381",
+    "profiler_version": "1.0.0",
+    "execution_time_ms": 47.07789421081543,
+    "sample_based": true,
+    "sample_size": 100,
+    "canonical_table_id": "sales_invoicelines"
+  },
+  "table_profile": {
+    "row_count_estimate": 100,
+    "column_count": 13,
+    "completeness_score": 1.0,
+    "quality_score": 0.8653846153846154,
+    "pk_candidates": [
+      "invoicelineid",
+      "lineprofit"
+    ],
+    "fk_candidates": [
+      "stockitemid",
+      "invoiceid",
+      "packagetypeid"
+    ],
+    "total_quality_flags": 16,
+    "columns_with_issues": 10
+  },
+  "columns": [
+    {
+      "column_name": "invoicelineid",
+      "original_name": "InvoiceLineID",
+      "position": 0,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "medium",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.94,
+      "pk_evidence": {
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "All 100 values are distinct"
+        ],
+        "warnings": []
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 100,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 6.6438561897747395,
+        "entropy_normalized": 1.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 228266.0,
+        "max_value": 228365.0,
+        "mean": 228315.5,
+        "median": 228315.5,
+        "std_dev": 29.011491975882016,
+        "variance": 841.6666666666666,
+        "quantiles": {
+          "p25": 228290.25,
+          "p50": 228315.5,
+          "p75": 228340.75,
+          "p90": 228355.1,
+          "p99": 228364.00999999998
+        },
+        "skewness": 0.0,
+        "kurtosis": -1.2360552475247524,
+        "top_values": [
+          [
+            "228266",
+            1
+          ],
+          [
+            "228267",
+            1
+          ],
+          [
+            "228268",
+            1
+          ],
+          [
+            "228269",
+            1
+          ],
+          [
+            "228270",
+            1
+          ],
+          [
+            "228271",
+            1
+          ],
+          [
+            "228272",
+            1
+          ],
+          [
+            "228273",
+            1
+          ],
+          [
+            "228274",
+            1
+          ],
+          [
+            "228275",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "228266",
+        "228267",
+        "228268",
+        "228269",
+        "228270",
+        "228271",
+        "228272",
+        "228273",
+        "228274",
+        "228275"
+      ]
+    },
+    {
+      "column_name": "invoiceid",
+      "original_name": "InvoiceID",
+      "position": 1,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.33,
+      "entropy_normalized": 0.7348118881158748,
+      "cardinality_class": "low",
+      "relational_role": "foreign_key",
+      "pk_candidate": false,
+      "pk_confidence": 0.49872178321738125,
+      "pk_evidence": null,
+      "fk_candidate": true,
+      "fk_confidence": 0.8902217832173812,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "invoice",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'invoice' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: invoice",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "Moderate uniqueness (33.00%) - typical FK pattern"
+        ],
+        "warnings": []
+      },
+      "quality_flags": [
+        "weak_identifier"
+      ],
+      "quality_score": 0.9,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 33,
+        "uniqueness_ratio": 0.33,
+        "cardinality_ratio": 0.33,
+        "duplicate_count": 67,
+        "entropy": 4.8819845111787075,
+        "entropy_normalized": 0.7348118881158748,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 70511.0,
+        "max_value": 70543.0,
+        "mean": 70528.82,
+        "median": 70529.0,
+        "std_dev": 8.304045503076901,
+        "variance": 68.95717171717172,
+        "quantiles": {
+          "p25": 70522.0,
+          "p50": 70529.0,
+          "p75": 70535.75,
+          "p90": 70540.0,
+          "p99": 70543.0
+        },
+        "skewness": -0.12830361496861525,
+        "kurtosis": -1.0565737778072353,
+        "top_values": [
+          [
+            "70519",
+            5
+          ],
+          [
+            "70521",
+            5
+          ],
+          [
+            "70526",
+            5
+          ],
+          [
+            "70529",
+            5
+          ],
+          [
+            "70534",
+            5
+          ],
+          [
+            "70535",
+            5
+          ],
+          [
+            "70522",
+            4
+          ],
+          [
+            "70523",
+            4
+          ],
+          [
+            "70527",
+            4
+          ],
+          [
+            "70533",
+            4
+          ]
+        ]
+      },
+      "sample_values": [
+        "70511",
+        "70512",
+        "70513",
+        "70514",
+        "70515",
+        "70516",
+        "70517",
+        "70517",
+        "70517",
+        "70518"
+      ]
+    },
+    {
+      "column_name": "stockitemid",
+      "original_name": "StockItemID",
+      "position": 2,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.86,
+      "entropy_normalized": 0.9567195816995292,
+      "cardinality_class": "medium",
+      "relational_role": "foreign_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.7705079372549294,
+      "pk_evidence": {
+        "uniqueness_score": 0.86,
+        "non_null_score": 1.0,
+        "entropy_score": 0.9567195816995292,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED",
+          "Uniqueness only 86.0%"
+        ]
+      },
+      "fk_candidate": true,
+      "fk_confidence": 0.9,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "stockitem",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'stockitem' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: stockitem",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "Moderate uniqueness (86.00%) - typical FK pattern"
+        ],
+        "warnings": []
+      },
+      "quality_flags": [
+        "weak_identifier"
+      ],
+      "quality_score": 0.9,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 86,
+        "uniqueness_ratio": 0.86,
+        "cardinality_ratio": 0.86,
+        "duplicate_count": 14,
+        "entropy": 6.356307314753102,
+        "entropy_normalized": 0.9567195816995292,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 7.0,
+        "max_value": 224.0,
+        "mean": 114.15,
+        "median": 105.0,
+        "std_dev": 63.25184151110112,
+        "variance": 4000.7954545454545,
+        "quantiles": {
+          "p25": 61.25,
+          "p50": 105.0,
+          "p75": 173.5,
+          "p90": 205.1,
+          "p99": 222.02
+        },
+        "skewness": 0.15695161770450616,
+        "kurtosis": -1.2304374372829778,
+        "top_values": [
+          [
+            "61",
+            3
+          ],
+          [
+            "13",
+            2
+          ],
+          [
+            "20",
+            2
+          ],
+          [
+            "209",
+            2
+          ],
+          [
+            "74",
+            2
+          ],
+          [
+            "105",
+            2
+          ],
+          [
+            "28",
+            2
+          ],
+          [
+            "30",
+            2
+          ],
+          [
+            "88",
+            2
+          ],
+          [
+            "96",
+            2
+          ]
+        ]
+      },
+      "sample_values": [
+        "95",
+        "80",
+        "98",
+        "204",
+        "77",
+        "193",
+        "71",
+        "137",
+        "13",
+        "52"
+      ]
+    },
+    {
+      "column_name": "description",
+      "original_name": "Description",
+      "position": 3,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.86,
+      "entropy_normalized": 0.9567195816995292,
+      "cardinality_class": "medium",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.5205079372549294,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 86,
+        "uniqueness_ratio": 0.86,
+        "cardinality_ratio": 0.86,
+        "duplicate_count": 14,
+        "entropy": 6.356307314753102,
+        "entropy_normalized": 0.9567195816995292,
+        "min_length": 20,
+        "max_length": 72,
+        "avg_length": 42.28,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "RC toy sedan car with remote control (Green) 1/50 scale",
+            3
+          ],
+          [
+            "USB food flash drive - shrimp cocktail",
+            2
+          ],
+          [
+            "DBA joke mug - you might be a DBA if (White)",
+            2
+          ],
+          [
+            "Packing knife with metal insert blade (Yellow) 9mm",
+            2
+          ],
+          [
+            "Ride on vintage American toy coupe (Black) 1/12 scale",
+            2
+          ],
+          [
+            "Alien officer hoodie (Black) 4XL",
+            2
+          ],
+          [
+            "DBA joke mug - two types of DBAs (White)",
+            2
+          ],
+          [
+            "Developer joke mug - Oct 31 = Dec 25 (White)",
+            2
+          ],
+          [
+            "\"The Gu\" red shirt XML tag t-shirt (White) 7XL",
+            2
+          ],
+          [
+            "\"The Gu\" red shirt XML tag t-shirt (Black) XXL",
+            2
+          ]
+        ]
+      },
+      "sample_values": [
+        "\"The Gu\" red shirt XML tag t-shirt (Black) XL",
+        "\"The Gu\" red shirt XML tag t-shirt (White) M",
+        "\"The Gu\" red shirt XML tag t-shirt (Black) 4XL",
+        "Tape dispenser (Red)",
+        "\"The Gu\" red shirt XML tag t-shirt (White) XXS",
+        "Black and orange glass with care despatch tape 48mmx75m",
+        "Ride on toy sedan car (Yellow) 1/12 scale",
+        "Animal with big feet slippers (Brown) XL",
+        "USB food flash drive - shrimp cocktail",
+        "IT joke mug - keyboard not found … press F1 to continue (White)"
+      ]
+    },
+    {
+      "column_name": "packagetypeid",
+      "original_name": "PackageTypeID",
+      "position": 4,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.04,
+      "entropy_normalized": 0.0696039291392211,
+      "cardinality_class": "low",
+      "relational_role": "foreign_key",
+      "pk_candidate": false,
+      "pk_confidence": 0.2684405893708832,
+      "pk_evidence": null,
+      "fk_candidate": true,
+      "fk_confidence": 0.7904405893708832,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "packagetype",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'packagetype' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: packagetype",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "Moderate uniqueness (4.00%) - typical FK pattern"
+        ],
+        "warnings": []
+      },
+      "quality_flags": [
+        "weak_identifier",
+        "entropy_collapse",
+        "skewed_distribution"
+      ],
+      "quality_score": 0.75,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 0.04,
+        "cardinality_ratio": 0.04,
+        "duplicate_count": 96,
+        "entropy": 0.4624384954442554,
+        "entropy_normalized": 0.0696039291392211,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 1.0,
+        "max_value": 10.0,
+        "mean": 6.84,
+        "median": 7.0,
+        "std_dev": 1.2848770722948912,
+        "variance": 1.6509090909090909,
+        "quantiles": {
+          "p25": 7.0,
+          "p50": 7.0,
+          "p75": 7.0,
+          "p90": 7.0,
+          "p99": 10.0
+        },
+        "skewness": -3.409079788719641,
+        "kurtosis": 14.883028853655215,
+        "top_values": [
+          [
+            "7",
+            93
+          ],
+          [
+            "1",
+            4
+          ],
+          [
+            "10",
+            2
+          ],
+          [
+            "9",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7"
+      ]
+    },
+    {
+      "column_name": "quantity",
+      "original_name": "Quantity",
+      "position": 5,
+      "physical_type": "integer",
+      "semantic_type": "measure",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.29,
+      "entropy_normalized": 0.689646988065345,
+      "cardinality_class": "low",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.2239470482098017,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 29,
+        "uniqueness_ratio": 0.29,
+        "cardinality_ratio": 0.29,
+        "duplicate_count": 71,
+        "entropy": 4.581915410417437,
+        "entropy_normalized": 0.689646988065345,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 1.0,
+        "max_value": 240.0,
+        "mean": 43.29,
+        "median": 10.0,
+        "std_dev": 57.81235668832906,
+        "variance": 3342.268585858586,
+        "quantiles": {
+          "p25": 6.0,
+          "p50": 10.0,
+          "p75": 72.0,
+          "p90": 109.2000000000001,
+          "p99": 225.1500000000001
+        },
+        "skewness": 1.7405697652140664,
+        "kurtosis": 2.4617313896617485,
+        "top_values": [
+          [
+            "10",
+            9
+          ],
+          [
+            "6",
+            8
+          ],
+          [
+            "3",
+            7
+          ],
+          [
+            "96",
+            6
+          ],
+          [
+            "8",
+            6
+          ],
+          [
+            "7",
+            5
+          ],
+          [
+            "4",
+            5
+          ],
+          [
+            "48",
+            4
+          ],
+          [
+            "9",
+            4
+          ],
+          [
+            "2",
+            4
+          ]
+        ]
+      },
+      "sample_values": [
+        "96",
+        "60",
+        "48",
+        "40",
+        "48",
+        "96",
+        "9",
+        "7",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "column_name": "unitprice",
+      "original_name": "UnitPrice",
+      "position": 6,
+      "physical_type": "float",
+      "semantic_type": "measure",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.3,
+      "entropy_normalized": 0.6118750054477858,
+      "cardinality_class": "low",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.21678125081716793,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "skewed_distribution"
+      ],
+      "quality_score": 0.95,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 30,
+        "uniqueness_ratio": 0.3,
+        "cardinality_ratio": 0.3,
+        "duplicate_count": 70,
+        "entropy": 4.065209542312715,
+        "entropy_normalized": 0.6118750054477858,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 0.95,
+        "max_value": 285.0,
+        "mean": 39.1028,
+        "median": 18.0,
+        "std_dev": 63.88551309960655,
+        "variance": 4081.358784,
+        "quantiles": {
+          "p25": 13.0,
+          "p50": 18.0,
+          "p75": 32.0,
+          "p90": 55.20000000000044,
+          "p99": 285.0
+        },
+        "skewness": 2.7979888621948876,
+        "kurtosis": 6.583751862534701,
+        "top_values": [
+          [
+            "18.0",
+            17
+          ],
+          [
+            "13.0",
+            16
+          ],
+          [
+            "32.0",
+            15
+          ],
+          [
+            "25.0",
+            8
+          ],
+          [
+            "230.0",
+            4
+          ],
+          [
+            "3.7",
+            3
+          ],
+          [
+            "35.0",
+            3
+          ],
+          [
+            "30.0",
+            3
+          ],
+          [
+            "8.55",
+            3
+          ],
+          [
+            "2.7",
+            3
+          ]
+        ]
+      },
+      "sample_values": [
+        "18.0",
+        "18.0",
+        "18.0",
+        "32.0",
+        "18.0",
+        "3.7",
+        "230.0",
+        "32.0",
+        "32.0",
+        "13.0"
+      ]
+    },
+    {
+      "column_name": "taxrate",
+      "original_name": "TaxRate",
+      "position": 7,
+      "physical_type": "float",
+      "semantic_type": "numeric",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.02,
+      "entropy_normalized": 0.036468608314447926,
+      "cardinality_class": "low",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.004470291247167246,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "entropy_collapse",
+        "skewed_distribution",
+        "low_cardinality"
+      ],
+      "quality_score": 0.75,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.02,
+        "cardinality_ratio": 0.02,
+        "duplicate_count": 98,
+        "entropy": 0.24229218908241482,
+        "entropy_normalized": 0.036468608314447926,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 10.0,
+        "max_value": 15.0,
+        "mean": 14.8,
+        "median": 15.0,
+        "std_dev": 0.9847319278346619,
+        "variance": 0.9696969696969697,
+        "quantiles": {
+          "p25": 15.0,
+          "p50": 15.0,
+          "p75": 15.0,
+          "p90": 15.0,
+          "p99": 15.0
+        },
+        "skewness": -4.624608861839023,
+        "kurtosis": 19.58313750000001,
+        "top_values": [
+          [
+            "15.0",
+            96
+          ],
+          [
+            "10.0",
+            4
+          ]
+        ]
+      },
+      "sample_values": [
+        "15.0",
+        "15.0",
+        "15.0",
+        "15.0",
+        "15.0",
+        "15.0",
+        "15.0",
+        "15.0",
+        "15.0",
+        "15.0"
+      ]
+    },
+    {
+      "column_name": "taxamount",
+      "original_name": "TaxAmount",
+      "position": 8,
+      "physical_type": "float",
+      "semantic_type": "measure",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.71,
+      "entropy_normalized": 0.9040099067632306,
+      "cardinality_class": "medium",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.4451014860144846,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "skewed_distribution"
+      ],
+      "quality_score": 0.95,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 71,
+        "uniqueness_ratio": 0.71,
+        "cardinality_ratio": 0.71,
+        "duplicate_count": 29,
+        "entropy": 6.006111814666561,
+        "entropy_normalized": 0.9040099067632306,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 1.95,
+        "max_value": 1296.0,
+        "mean": 106.14,
+        "median": 38.88,
+        "std_dev": 165.0509159457937,
+        "variance": 27241.804854545455,
+        "quantiles": {
+          "p25": 19.5,
+          "p50": 38.88,
+          "p75": 144.0,
+          "p90": 262.4400000000003,
+          "p99": 618.8400000000036
+        },
+        "skewness": 4.246145674322878,
+        "kurtosis": 25.37550585790134,
+        "top_values": [
+          [
+            "7.8",
+            4
+          ],
+          [
+            "33.6",
+            3
+          ],
+          [
+            "22.5",
+            3
+          ],
+          [
+            "5.85",
+            3
+          ],
+          [
+            "97.2",
+            3
+          ],
+          [
+            "19.5",
+            3
+          ],
+          [
+            "259.2",
+            2
+          ],
+          [
+            "162.0",
+            2
+          ],
+          [
+            "129.6",
+            2
+          ],
+          [
+            "15.6",
+            2
+          ]
+        ]
+      },
+      "sample_values": [
+        "259.2",
+        "162.0",
+        "129.6",
+        "192.0",
+        "129.6",
+        "53.28",
+        "310.5",
+        "33.6",
+        "33.6",
+        "15.6"
+      ]
+    },
+    {
+      "column_name": "lineprofit",
+      "original_name": "LineProfit",
+      "position": 9,
+      "physical_type": "float",
+      "semantic_type": "numeric",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.73,
+      "entropy_normalized": 0.9123029444915408,
+      "cardinality_class": "medium",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.7053454416737311,
+      "pk_evidence": {
+        "uniqueness_score": 0.73,
+        "non_null_score": 1.0,
+        "entropy_score": 0.9123029444915408,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED",
+          "Uniqueness only 73.0%"
+        ]
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "extreme_skewness"
+      ],
+      "quality_score": 0.9,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 73,
+        "uniqueness_ratio": 0.73,
+        "cardinality_ratio": 0.73,
+        "duplicate_count": 27,
+        "entropy": 6.06120956470983,
+        "entropy_normalized": 0.9123029444915408,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 8.5,
+        "max_value": 7360.0,
+        "mean": 389.781,
+        "median": 164.5,
+        "std_dev": 796.3754608762493,
+        "variance": 634213.8746858586,
+        "quantiles": {
+          "p25": 69.75,
+          "p50": 164.5,
+          "p75": 457.5,
+          "p90": 932.4000000000008,
+          "p99": 1934.800000000028
+        },
+        "skewness": 6.824754144764649,
+        "kurtosis": 55.909952781814496,
+        "top_values": [
+          [
+            "34.0",
+            4
+          ],
+          [
+            "25.5",
+            3
+          ],
+          [
+            "85.0",
+            3
+          ],
+          [
+            "144.0",
+            3
+          ],
+          [
+            "164.5",
+            2
+          ],
+          [
+            "68.0",
+            2
+          ],
+          [
+            "180.0",
+            2
+          ],
+          [
+            "9.9",
+            2
+          ],
+          [
+            "75.0",
+            2
+          ],
+          [
+            "8.5",
+            2
+          ]
+        ]
+      },
+      "sample_values": [
+        "1008.0",
+        "660.0",
+        "480.0",
+        "600.0",
+        "528.0",
+        "201.6",
+        "765.0",
+        "164.5",
+        "140.0",
+        "68.0"
+      ]
+    },
+    {
+      "column_name": "extendedprice",
+      "original_name": "ExtendedPrice",
+      "position": 10,
+      "physical_type": "float",
+      "semantic_type": "measure",
+      "logical_type": "measure",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.71,
+      "entropy_normalized": 0.9040099067632306,
+      "cardinality_class": "medium",
+      "relational_role": "measure",
+      "pk_candidate": false,
+      "pk_confidence": 0.4451014860144846,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "skewed_distribution"
+      ],
+      "quality_score": 0.95,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 71,
+        "uniqueness_ratio": 0.71,
+        "cardinality_ratio": 0.71,
+        "duplicate_count": 29,
+        "entropy": 6.006111814666561,
+        "entropy_normalized": 0.9040099067632306,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 14.95,
+        "max_value": 9936.0,
+        "mean": 822.899,
+        "median": 298.08,
+        "std_dev": 1264.1650492608658,
+        "variance": 1598113.2717727274,
+        "quantiles": {
+          "p25": 149.5,
+          "p50": 298.08,
+          "p75": 1104.0,
+          "p90": 2012.0400000000022,
+          "p99": 4744.440000000027
+        },
+        "skewness": 4.237498523315025,
+        "kurtosis": 25.362430792607583,
+        "top_values": [
+          [
+            "59.8",
+            4
+          ],
+          [
+            "257.6",
+            3
+          ],
+          [
+            "172.5",
+            3
+          ],
+          [
+            "44.85",
+            3
+          ],
+          [
+            "745.2",
+            3
+          ],
+          [
+            "149.5",
+            3
+          ],
+          [
+            "1987.2",
+            2
+          ],
+          [
+            "1242.0",
+            2
+          ],
+          [
+            "993.6",
+            2
+          ],
+          [
+            "119.6",
+            2
+          ]
+        ]
+      },
+      "sample_values": [
+        "1987.2",
+        "1242.0",
+        "993.6",
+        "1472.0",
+        "993.6",
+        "408.48",
+        "2380.5",
+        "257.6",
+        "257.6",
+        "119.6"
+      ]
+    },
+    {
+      "column_name": "lasteditedby",
+      "original_name": "LastEditedBy",
+      "position": 11,
+      "physical_type": "integer",
+      "semantic_type": "identifier",
+      "logical_type": "audit",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.01,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "audit_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column",
+        "low_cardinality"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.01,
+        "cardinality_ratio": 0.01,
+        "duplicate_count": 99,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 7.0,
+        "max_value": 7.0,
+        "mean": 7.0,
+        "median": 7.0,
+        "std_dev": 0.0,
+        "variance": 0.0,
+        "quantiles": {
+          "p25": 7.0,
+          "p50": 7.0,
+          "p75": 7.0,
+          "p90": 7.0,
+          "p99": 7.0
+        },
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "7",
+            100
+          ]
+        ]
+      },
+      "sample_values": [
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7",
+        "7"
+      ]
+    },
+    {
+      "column_name": "lasteditedwhen",
+      "original_name": "LastEditedWhen",
+      "position": 12,
+      "physical_type": "datetime",
+      "semantic_type": "timestamp",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.01,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column",
+        "low_cardinality"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.01,
+        "cardinality_ratio": 0.01,
+        "duplicate_count": 99,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "01-06-2016 12:00:00",
+            100
+          ]
+        ]
+      },
+      "sample_values": [
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00",
+        "01-06-2016 12:00:00"
+      ]
+    }
+  ],
+  "source_canonical_path": "output\\canonical\\sales_invoicelines.canonical.json"
+}

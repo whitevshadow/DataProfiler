@@ -1,0 +1,469 @@
+{
+  "profile_id": "prof_warehouse_coldroomtemperatures_20260518130907",
+  "table_name": "warehouse_coldroomtemperatures",
+  "profiling_metadata": {
+    "profiled_at": "2026-05-18T13:09:07.506712",
+    "profiler_version": "1.0.0",
+    "execution_time_ms": 14.018535614013672,
+    "sample_based": true,
+    "sample_size": 4,
+    "canonical_table_id": "warehouse_coldroomtemperatures"
+  },
+  "table_profile": {
+    "row_count_estimate": 4,
+    "column_count": 6,
+    "completeness_score": 1.0,
+    "quality_score": 0.8166666666666668,
+    "pk_candidates": [
+      "coldroomtemperatureid",
+      "coldroomsensornumber",
+      "temperature"
+    ],
+    "fk_candidates": [],
+    "total_quality_flags": 5,
+    "columns_with_issues": 3
+  },
+  "columns": [
+    {
+      "column_name": "coldroomtemperatureid",
+      "original_name": "ColdRoomTemperatureID",
+      "position": 0,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "low",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.84,
+      "pk_evidence": {
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED"
+        ]
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 2.0,
+        "entropy_normalized": 1.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 5013685.0,
+        "max_value": 5013688.0,
+        "mean": 5013686.5,
+        "median": 5013686.5,
+        "std_dev": 1.2909944487358056,
+        "variance": 1.6666666666666667,
+        "quantiles": {
+          "p25": 5013685.25,
+          "p50": 5013686.5,
+          "p75": 5013687.75,
+          "p90": 5013687.7,
+          "p99": 5013687.97
+        },
+        "skewness": 0.0,
+        "kurtosis": -2.0775,
+        "top_values": [
+          [
+            "5013685",
+            1
+          ],
+          [
+            "5013686",
+            1
+          ],
+          [
+            "5013687",
+            1
+          ],
+          [
+            "5013688",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "5013685",
+        "5013686",
+        "5013687",
+        "5013688"
+      ]
+    },
+    {
+      "column_name": "coldroomsensornumber",
+      "original_name": "ColdRoomSensorNumber",
+      "position": 1,
+      "physical_type": "integer",
+      "semantic_type": "numeric",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "low",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.84,
+      "pk_evidence": {
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED"
+        ]
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 2.0,
+        "entropy_normalized": 1.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 1.0,
+        "max_value": 4.0,
+        "mean": 2.5,
+        "median": 2.5,
+        "std_dev": 1.2909944487358056,
+        "variance": 1.6666666666666667,
+        "quantiles": {
+          "p25": 1.25,
+          "p50": 2.5,
+          "p75": 3.75,
+          "p90": 3.7,
+          "p99": 3.9699999999999998
+        },
+        "skewness": 0.0,
+        "kurtosis": -2.0775,
+        "top_values": [
+          [
+            "1",
+            1
+          ],
+          [
+            "2",
+            1
+          ],
+          [
+            "3",
+            1
+          ],
+          [
+            "4",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    {
+      "column_name": "recordedwhen",
+      "original_name": "RecordedWhen",
+      "position": 2,
+      "physical_type": "datetime",
+      "semantic_type": "timestamp",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.25,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.25,
+        "cardinality_ratio": 0.25,
+        "duplicate_count": 3,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "31-07-2016 23:59:02",
+            4
+          ]
+        ]
+      },
+      "sample_values": [
+        "31-07-2016 23:59:02",
+        "31-07-2016 23:59:02",
+        "31-07-2016 23:59:02",
+        "31-07-2016 23:59:02"
+      ]
+    },
+    {
+      "column_name": "temperature",
+      "original_name": "Temperature",
+      "position": 3,
+      "physical_type": "float",
+      "semantic_type": "numeric",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "low",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.84,
+      "pk_evidence": {
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED"
+        ]
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 2.0,
+        "entropy_normalized": 1.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 3.21,
+        "max_value": 4.45,
+        "mean": 3.8375000000000004,
+        "median": 3.845,
+        "std_dev": 0.6581476531397293,
+        "variance": 0.43315833333333353,
+        "quantiles": {
+          "p25": 3.2399999999999998,
+          "p50": 3.845,
+          "p75": 4.4275,
+          "p90": 4.423,
+          "p99": 4.447299999999999
+        },
+        "skewness": -0.004702920875888012,
+        "kurtosis": -2.418186310898794,
+        "top_values": [
+          [
+            "4.45",
+            1
+          ],
+          [
+            "3.21",
+            1
+          ],
+          [
+            "3.33",
+            1
+          ],
+          [
+            "4.36",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "4.45",
+        "3.21",
+        "3.33",
+        "4.36"
+      ]
+    },
+    {
+      "column_name": "validfrom",
+      "original_name": "ValidFrom",
+      "position": 4,
+      "physical_type": "datetime",
+      "semantic_type": "temporal_start",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.25,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "weak_identifier",
+        "constant_column"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.25,
+        "cardinality_ratio": 0.25,
+        "duplicate_count": 3,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "31-07-2016 23:59:02",
+            4
+          ]
+        ]
+      },
+      "sample_values": [
+        "31-07-2016 23:59:02",
+        "31-07-2016 23:59:02",
+        "31-07-2016 23:59:02",
+        "31-07-2016 23:59:02"
+      ]
+    },
+    {
+      "column_name": "validto",
+      "original_name": "ValidTo",
+      "position": 5,
+      "physical_type": "datetime",
+      "semantic_type": "temporal_end",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.25,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "weak_identifier",
+        "constant_column"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.25,
+        "cardinality_ratio": 0.25,
+        "duplicate_count": 3,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "31-12-9999 23:59:59",
+            4
+          ]
+        ]
+      },
+      "sample_values": [
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59"
+      ]
+    }
+  ],
+  "source_canonical_path": "output\\canonical\\warehouse_coldroomtemperatures.canonical.json"
+}

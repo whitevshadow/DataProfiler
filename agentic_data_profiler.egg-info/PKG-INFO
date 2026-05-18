@@ -1,0 +1,561 @@
+Metadata-Version: 2.4
+Name: agentic-data-profiler
+Version: 0.1.0
+Summary: Agentic data profiling pipeline with an MCP-backed conversational CLI.
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: chardet
+Requires-Dist: datasketch
+Requires-Dist: duckdb
+Requires-Dist: fastmcp
+Requires-Dist: langchain-core
+Requires-Dist: langchain-litellm
+Requires-Dist: langchain-mcp-adapters
+Requires-Dist: langgraph
+Requires-Dist: litellm
+Requires-Dist: matplotlib
+Requires-Dist: networkx
+Requires-Dist: numpy
+Requires-Dist: openai
+Requires-Dist: pandas
+Requires-Dist: psutil
+Requires-Dist: pyarrow
+Requires-Dist: pydantic
+Requires-Dist: python-dotenv
+Requires-Dist: scikit-learn
+Requires-Dist: seaborn
+Provides-Extra: test
+Requires-Dist: pytest; extra == "test"
+Requires-Dist: pytest-asyncio; extra == "test"
+
+# Agentic Data Profiler
+
+Multi-layer data profiling system with intelligent connector, validator, and sampler.
+
+## 🚀 NEW: LLM-Powered Semantic Relationship Detection
+
+The profiler now includes **semantic intelligence** using NVIDIA's seed-oss-36b-instruct model:
+
+- **Rich Column Descriptions**: LLM generates business-focused semantic descriptions
+- **ANN Candidate Retrieval**: TF-IDF embeddings + cosine similarity for FK discovery
+- **DBSCAN Clustering**: Groups semantically related columns
+- **Deterministic Validation**: Containment ratio (FK ⊆ PK) is authoritative truth
+- **Explainable Adjudication**: Distinguishes TRUE_FK vs SEMANTICALLY_RELATED
+
+**Quick Start:**
+```bash
+export NVIDIA_API_KEY="nvapi-YOUR_KEY_HERE"
+python quickstart_llm_pipeline.py
+```
+
+📖 **[Complete Documentation →](docs/LLM_SEMANTIC_PIPELINE.md)**
+
+---
+
+## 🤖 MCP Chatbot Agent
+
+Interactive chatbot for profiling data through natural language commands.
+
+**Start the MCP Server:**
+```bash
+python -m profiler --transport sse --port 8080
+```
+
+**Start the Chatbot (in another terminal):**
+```bash
+# With NVIDIA (default)
+python -m profiler.agent --chat --mcp-url http://localhost:8080/sse --provider nvidia
+
+# With MiniMax (uses NVIDIA API keys)
+python -m profiler.agent --chat --mcp-url http://localhost:8080/sse --provider minimax
+
+# With OpenAI
+export OPENAI_API_KEY="YOUR_KEY_HERE"
+python -m profiler.agent --chat --mcp-url http://localhost:8080/sse --provider openai
+```
+
+**Example Commands:**
+- "Profile all files in ./data"
+- "What relationships exist between my tables?"
+- "Generate an ER diagram"
+- "Summarize data quality for warehouse_colors"
+
+**Supported LLM Providers:**
+- `nvidia` - NVIDIA NIM API (default: `openai/google/gemma-4-31b-it`)
+- `minimax` - MiniMax via NVIDIA OpenAI-compatible API (default: `minimaxai/minimax-m2.7`, uses NVIDIA_API_KEY)
+- `openai` - OpenAI API (default: `gpt-4o-mini`)
+
+---
+
+## Architecture
+
+### Layer 1 — Connector Layer
+
+**Purpose:** Connect to data sources and validate access.
+
+**Responsibilities:**
+- Authenticate (verify file permissions)
+- Fetch metadata (size, format)
+- Validate access (existence, readability)
+- Resolve credentials
+- Expose unified source descriptor
+
+**Connectors:**
+| Source | Connector |
+|--------|-----------|
+| CSV/Parquet/Excel | `file_connector` |
+| PostgreSQL | `postgres_connector` |
+| S3 | `s3_connector` |
+| Snowflake | `snowflake_connector` |
+| SQLite | `sqlite_connector` |
+
+**Output Example:**
+```json
+{
+  "source_type": "file",
+  "uri": "file:///path/to/data.csv",
+  "is_remote": false,
+  "file_name": "data.csv",
+  "file_format": "csv",
+  "size_bytes": 1048576,
+  "size_mb": 1.0,
+  "encoding": null,
+  "compression": null,
+  "accessible": true,
+  "exists": true
+}
+```
+
+---
+
+### Layer 2 — Intake + Validation
+
+**Purpose:** Verify file integrity and detect true format.
+
+**Why Important:** Never trust extensions, filenames, or user assumptions!
+
+Example: `sales.csv` might actually contain JSON data.
+
+**Capabilities:**
+- ✅ Magic byte detection (true format detection)
+- ✅ Compression detection (gzip/zip)
+- ✅ Encoding detection (UTF-8, UTF-16, Latin-1)
+- ✅ BOM detection
+- ✅ Corruption detection
+- ✅ Delimiter sniffing
+
+**Checks:**
+- File existence ✓
+- File readability ✓
+- Compression (gzip, zip) ✓
+- Encoding (UTF-8, UTF-16, Latin-1, etc.) ✓
+- True format (magic bytes) ✓
+
+**Output Example:**
+```json
+{
+  "path": "/path/to/data.csv",
+  "size_bytes": 1048576,
+  "encoding": "utf-8",
+  "is_bom_present": false,
+  "bom_encoding": null,
+  "compression": null,
+  "delimiter_hint": ","
+}
+```
+
+---
+
+### Layer 3 — Semantic Classifier
+
+**Purpose:** Intelligent workload classification beyond simple size-based routing.
+
+**Determines:**
+- Source type (CSV, Parquet, JSON, etc.)
+- Size tier (tiny → massive)  
+- **Execution complexity** (0-10 scale with factor breakdown)
+- **Analytical suitability** (OLAP, time-series, NLP, ML, etc.)
+- **Structural classification** (fact table, dimension, event stream, entity)
+
+**Complexity Scoring Factors:**
+| Factor | Weight | Examples |
+|--------|--------|----------|
+| File size | 0-3 pts | < 1MB = 0.0, 100GB+ = 3.0 |
+| Column count | 0-2 pts | < 10 = 0.0, 1000+ = 2.0 |
+| Row count | 0-2 pts | < 1K = 0.0, 10M+ = 2.0 |
+| Compression | 0-1 pts | gzip/zip = 1.0 |
+| Format | 0-1.5 pts | Parquet = 0.0, XML = 1.5 |
+| Encoding | 0-0.5 pts | Non-UTF8 = 0.5 |
+
+**Workload Types:**
+- `analytical_olap` — Measures + dimensions, aggregation-friendly
+- `transactional` — ID-heavy, many foreign keys
+- `time_series` — Timestamps, temporal patterns
+- `event_stream` — Append-only, timestamps
+- `nlp_corpus` — Large text columns
+- `ml_features` — Numerical features, target columns
+- `mixed` — Multiple patterns
+
+**Structural Types:**
+- `fact_table` — Many measures, few dimensions, large row count
+- `dimension` — Mostly categorical, smaller row count
+- `event_stream` — Timestamps, append-only pattern
+- `entity` — Primary key + attributes
+
+**Output Example:**
+```json
+{
+  "size_tier": "medium",
+  "engine_recommendation": "duckdb",
+  "strategy_recommendation": "reservoir_hll",
+  "complexity_score": 3.0,
+  "complexity_factors": {
+    "size_weight": 1.5,
+    "column_count_weight": 0.5,
+    "row_count_weight": 0.5,
+    "format_weight": 0.5
+  },
+  "workload_type": "analytical_olap",
+  "is_relational": true,
+  "contains_time_series": true,
+  "contains_pii": false,
+  "nlp_heavy": false,
+  "ml_ready": false,
+  "structural_type": "fact_table",
+  "estimated_rows": 1280135,
+  "estimated_columns": 13,
+  "recommended_sample_size": 1500,
+  "requires_streaming": false,
+  "can_fit_in_memory": true
+}
+```
+
+---
+
+### Layer 4 — Adaptive Sampler
+
+### Layer 4 — Adaptive Sampler
+
+**Purpose:** Intelligently sample data based on classifier recommendations.
+
+**Sampling Strategies:**
+
+| File Size | Tier | Engine | Strategy |
+|-----------|------|--------|----------|
+| < 10 MB | Tiny | Python | Reservoir |
+| 10-100 MB | Small | Python | Reservoir + HLL |
+| 100MB-1GB | Medium | DuckDB | Reservoir + HLL |
+| 1-10 GB | Large | DuckDB | Metadata + Row Groups |
+| 10-100 GB | Very Large | DuckDB | Metadata + Row Groups + HLL |
+| 100GB-1TB | Huge | Streaming | Streaming + Sketches |
+| 1TB+ | Massive | Distributed | Distributed Streaming |
+
+**Output Example:**
+```json
+{
+  "tier": "small",
+  "engine": "python",
+  "strategy": "reservoir",
+  "total_rows": 50000,
+  "sample_rows": 1000,
+  "sample_path": "output/data_sample.csv",
+  "sample_saved": true
+}
+```
+
+---
+
+## Installation
+
+```bash
+# Install dependencies
+pip install duckdb pandas pyarrow psutil chardet
+
+# Optional (for HLL cardinality estimation)
+pip install datasketch
+```
+
+---
+
+## Usage
+
+### 1. Layer 1 Only — File Connector
+
+```python
+from connector.file.connect_file import connect
+
+# Connect to a file
+result = connect("data/sales_orders.csv")
+
+print(result)
+# {
+#   "source_type": "file",
+#   "uri": "file:///path/to/sales_orders.csv",
+#   "is_remote": false,
+#   "file_format": "csv",
+#   "size_mb": 5.2,
+#   ...
+# }
+```
+
+### 2. Full Pipeline — Single File
+
+```python
+from pipeline import process_file
+
+# Process a single file through all layers
+result = process_file("data/sales_orders.csv", sample_size=1000)
+
+if result.success:
+    print("✓ Success!")
+    print(f"Layer 1: {result.layer1_connector}")
+    print(f"Layer 2: {result.layer2_validator}")
+    print(f"Layer 3: {result.layer3_sampler}")
+else:
+    print(f"✗ Failed: {result.error}")
+```
+
+### 3. Full Pipeline — Batch Processing
+
+```python
+from pipeline import process_directory
+
+# Process all files in a directory
+results = process_directory("data/", sample_size=500)
+
+for result in results:
+    if result.success:
+        print(f"✓ {result.layer1_connector['file_name']}")
+    else:
+        print(f"✗ {result.error}")
+```
+
+### 4. Command Line
+
+```bash
+# Process a single file
+python pipeline.py data/sales_orders.csv
+
+# Process entire directory
+python pipeline.py data/
+
+# Run demo
+python demo.py
+```
+
+---
+
+## Output
+
+All samples are saved to the `output/` directory:
+
+```
+output/
+  sales_orders_sample.csv
+  sales_customers_sample.csv
+  warehouse_stockitems_sample.parquet
+  performance_log.csv
+```
+
+---
+
+## Architecture Diagram
+
+```
+┌─────────────────────────────────────────────────┐
+│          Layer 1: CONNECTOR                     │
+│                                                 │
+│  • Authenticate                                 │
+│  • Fetch metadata                               │
+│  • Validate access                              │
+│  • Resolve credentials                          │
+│                                                 │
+│  Output: SourceDescriptor                       │
+└─────────────────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────┐
+│          Layer 2: VALIDATOR                     │
+│                                                 │
+│  • Magic byte detection                         │
+│  • Compression detection (gzip/zip)             │
+│  • Encoding detection (UTF-8/16/Latin-1)        │
+│  • BOM detection                                │
+│  • Corruption detection                         │
+│  • Delimiter sniffing                           │
+│                                                 │
+│  Output: IntakeResult                           │
+└─────────────────────────────────────────────────┘
+       Layer 3: SEMANTIC CLASSIFIER (NEW!)        │
+│                                                 │
+│  • Complexity scoring (0-10 scale)              │
+│  • Workload type classification                 │
+│  • Structural classification                    │
+│  • Analytical suitability detection             │
+│  • PII/NLP/ML detection                         │
+│  • Execution plan recommendation                │
+│                                                 │
+│  Output: ClassificationResult                   │
+└─────────────────────────────────────────────────┘
+                     ↓
+┌─────────────────────────────────────────────────┐
+│          Layer 4: ADAPTIVE SAMPLER              │
+│                                                 │
+│  • Use classifier recommendations               │
+│                                                 │
+│  • Classify workload (tier)                     │
+│  •🧠 Semantic Intelligence (NEW!)
+
+The classifier goes beyond simple size-based routing:
+
+```python
+result = process_file("data/sales_invoicelines.csv")
+
+# Automatic detection:
+print(result.layer25_classifier["workload_type"])      # "analytical_olap"
+print(result.layer25_classifier["structural_type"])    # "fact_table"
+print(result.layer25_classifier["complexity_score"])   # 3.0/10.0
+print(result.layer25_classifier["is_relational"])      # True
+```
+
+###  Select engine (Python/DuckDB)                │
+│  • Choose strategy (Reservoir/RowGroup/HLL)     │
+│  • Generate sample                              │
+│  • Save to output/                              │
+│                                                 │
+│  Output: Sample file + metadata                 │
+└─────────────────────────────────────────────────┘
+```
+
+---
+
+## Key Features
+
+### 🔍 Never Trust File Extensions
+
+The validator uses **magic byte detection** to determine the true file format:
+
+```python
+# Example: User says it's a .csv but it's actually JSON
+result = process_file("data/fake.csv")
+
+print(result.layer1_connector["file_format"])  # "json" (detected!)
+print(result.layer2_validator["delimiter_hint"])  # None (no delimiter in JSON)
+```
+
+### 🚀 Adaptive Performance
+
+Automatically chooses the best engine and strategy:
+
+- **Small files** → Python (fast startup)
+- **Large files** → DuckDB (parallel processing)
+- **Huge files** → Streaming (constant memory)
+
+### 🛡️ Robust Error Handling
+
+Gracefully handles:
+- Missing files
+- Unreadable files
+- Corrupt files
+- Unknown encodings
+- Mixed formats
+
+### 📊 Comprehensive Logging
+
+Every layer logs its actions:
+
+```
+14:32:01 | Layer 1 — CONNECTOR
+14:32:01 | ✓ Connected to file: sales_orders.csv
+14:32:01 | Format: csv | Size: 5.20 MB
+14:32:02 | Layer 2 — VALIDATOR
+14:32:02 | ✓ Encoding: utf-8
+14:32:02 | ✓ Compression: None
+14:32:02 | ✓ Delimiter: ,
+14:32:03 | Layer 3 — SAMPLER
+14:32:03 | Tier: SMALL | Engine: PYTHON
+14:32:03 | ✓ Total rows: 52,389
+14:32:03 | ✓ Sample rows: 1,000
+14:32:03 | ✓ Sample saved: output/sales_orders_sample.csv
+```
+
+---
+
+## Testing
+
+```bash
+# Quick test (all layers)
+python test_quick.py
+
+# Run classifier demo
+python demo_classifier.py
+
+# Run full demo
+python demo.py
+
+# Run on sample data
+python pipeline.py data/sales_orders.csv
+
+# Batch process
+python pipeline.py data/
+```
+
+**Classifier Demo Output:**
+```
+FILE: sales_invoicelines.csv
+
+📊 SEMANTIC ANALYSIS:
+  Size Tier: medium
+  Complexity: 3.0/10.0
+  
+🏷️  WORKLOAD CLASSIFICATION:
+  Type: analytical_olap
+  Relational: ✓
+  Time-Series: ✓
+  
+🏗️  STRUCTURAL TYPE: fact_table
+
+⚙️  EXECUTION PLAN:
+  Engine: duckdb
+  Strategy: reservoir_hll
+  Recommended Sample: 1500 rows
+```
+
+---
+
+## Future Layers
+
+### Layer 4 — Profiler (Coming Soon)
+
+- Column type inference
+- Statistical analysis
+- Data quality metrics
+- Schema inference
+
+### Layer 5 — Insights (Coming Soon)
+
+- Anomaly detection
+- Pattern recognition
+- Relationship discovery
+
+---
+
+## License
+
+MIT License
+
+---
+
+## Contributing
+
+Contributions welcome! Please ensure:
+
+1. Code follows existing patterns
+2. All layers maintain clean interfaces
+3. Tests pass
+4. Documentation updated
+
+---
+
+## Contact
+
+For questions or issues, please open a GitHub issue.

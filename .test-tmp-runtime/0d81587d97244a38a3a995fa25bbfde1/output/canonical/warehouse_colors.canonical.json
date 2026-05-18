@@ -1,0 +1,105 @@
+{
+  "schema_version": "2.0.0",
+  "artifact_type": "canonical_table",
+  "table_id": "warehouse_colors",
+  "table_name": "warehouse_colors",
+  "source": {
+    "source_type": "file",
+    "format": "csv",
+    "path": "F:\\agentic_profiler\\new\\data\\warehouse_colors.csv",
+    "size_mb": 0.0,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "compression": null
+  },
+  "lineage": {
+    "created_at": "2026-05-15T22:22:50.097221Z",
+    "engine": "csv_engine",
+    "engine_version": "2.0.0"
+  },
+  "sampling": {
+    "strategy": "head",
+    "sample_size": 10,
+    "total_rows_estimate": null,
+    "is_sample": true,
+    "deterministic_seed": "2f5d76f027381050"
+  },
+  "schema": {
+    "column_count": 5
+  },
+  "columns": [
+    {
+      "column_id": "col_000",
+      "original_name": "ColorID",
+      "normalized_name": "colorid",
+      "position": 0,
+      "physical_type": "INTEGER",
+      "observed_nullable": false,
+      "sample_values": [
+        "7",
+        "5",
+        "1",
+        "8",
+        "2",
+        "9",
+        "10",
+        "4",
+        "3",
+        "6"
+      ]
+    },
+    {
+      "column_id": "col_001",
+      "original_name": "ColorName",
+      "normalized_name": "colorname",
+      "position": 1,
+      "physical_type": "STRING",
+      "observed_nullable": false,
+      "sample_values": [
+        "Chartreuse",
+        "Cyan",
+        "Fuchsia",
+        "Dark Green",
+        "Dark Brown",
+        "Blue",
+        "Black",
+        "Beige",
+        "Azure",
+        "Charcoal"
+      ]
+    },
+    {
+      "column_id": "col_002",
+      "original_name": "LastEditedBy",
+      "normalized_name": "lasteditedby",
+      "position": 2,
+      "physical_type": "INTEGER",
+      "observed_nullable": false,
+      "sample_values": [
+        "1"
+      ]
+    },
+    {
+      "column_id": "col_003",
+      "original_name": "ValidFrom",
+      "normalized_name": "validfrom",
+      "position": 3,
+      "physical_type": "DATETIME",
+      "observed_nullable": false,
+      "sample_values": [
+        "01-01-2013 00:00:00"
+      ]
+    },
+    {
+      "column_id": "col_004",
+      "original_name": "ValidTo",
+      "normalized_name": "validto",
+      "position": 4,
+      "physical_type": "DATETIME",
+      "observed_nullable": false,
+      "sample_values": [
+        "31-12-9999 23:59:59"
+      ]
+    }
+  ]
+}

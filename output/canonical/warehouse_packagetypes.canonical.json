@@ -1,0 +1,250 @@
+{
+  "source_path": "data\\warehouse_packagetypes.csv",
+  "source_type": "csv",
+  "columns": [
+    {
+      "column_id": "warehouse_packagetypes_packagetypeid",
+      "original_name": "PackageTypeID",
+      "normalized_name": "packagetypeid",
+      "position": 0,
+      "physical_type": "INTEGER",
+      "semantic_type": "foreign_key_candidate",
+      "observed_nullable": false,
+      "sample_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "warehouse_packagetypes_packagetypename",
+      "original_name": "PackageTypeName",
+      "normalized_name": "packagetypename",
+      "position": 1,
+      "physical_type": "STRING",
+      "semantic_type": "dimension",
+      "observed_nullable": false,
+      "sample_values": [
+        "Bag",
+        "Block",
+        "Bottle",
+        "Box",
+        "Can",
+        "Carton",
+        "Each",
+        "Kg",
+        "Packet",
+        "Pair",
+        "Pallet",
+        "Tray",
+        "Tub ",
+        "Tube"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "warehouse_packagetypes_lasteditedby",
+      "original_name": "LastEditedBy",
+      "normalized_name": "lasteditedby",
+      "position": 2,
+      "physical_type": "INTEGER",
+      "semantic_type": "identifier",
+      "observed_nullable": false,
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "warehouse_packagetypes_validfrom",
+      "original_name": "ValidFrom",
+      "normalized_name": "validfrom",
+      "position": 3,
+      "physical_type": "DATETIME",
+      "semantic_type": "temporal_start",
+      "observed_nullable": false,
+      "sample_values": [
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "warehouse_packagetypes_validto",
+      "original_name": "ValidTo",
+      "normalized_name": "validto",
+      "position": 4,
+      "physical_type": "DATETIME",
+      "semantic_type": "temporal_end",
+      "observed_nullable": false,
+      "sample_values": [
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59"
+      ],
+      "statistics": {}
+    }
+  ],
+  "column_count": 5,
+  "row_count": 14,
+  "rows": [
+    [
+      "1",
+      "Bag",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "2",
+      "Block",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "3",
+      "Bottle",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "4",
+      "Box",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "5",
+      "Can",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "6",
+      "Carton",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "7",
+      "Each",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "8",
+      "Kg",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "9",
+      "Packet",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "10",
+      "Pair",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "11",
+      "Pallet",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "12",
+      "Tray",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "13",
+      "Tub ",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "14",
+      "Tube",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ]
+  ],
+  "encoding": "utf-8",
+  "delimiter": ",",
+  "compression": null,
+  "is_sample": true,
+  "sample_size": 14,
+  "sampling_method": null,
+  "table_name": "warehouse_packagetypes",
+  "table_id": "warehouse_packagetypes",
+  "metadata": {
+    "is_sample": true,
+    "sample_row_count": 14
+  }
+}

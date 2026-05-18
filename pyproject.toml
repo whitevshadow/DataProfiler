@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-data-profiler"
+version = "0.1.0"
+description = "Agentic data profiling pipeline with an MCP-backed conversational CLI."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "chardet",
+    "datasketch",
+    "duckdb",
+    "fastmcp",
+    "langchain-core",
+    "langchain-litellm",
+    "langchain-mcp-adapters",
+    "langgraph",
+    "litellm",
+    "matplotlib",
+    "networkx",
+    "numpy",
+    "openai",
+    "pandas",
+    "psutil",
+    "pyarrow",
+    "pydantic",
+    "python-dotenv",
+    "scikit-learn",
+    "seaborn",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-asyncio",
+]
+
+[tool.setuptools]
+py-modules = [
+    "pipeline",
+    "profiling_agent",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "connector*",
+    "file_profiler*",
+    "profiler*",
+    "relationships*",
+    "visualization*",
+]

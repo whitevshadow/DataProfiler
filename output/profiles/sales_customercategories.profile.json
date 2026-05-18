@@ -1,0 +1,416 @@
+{
+  "profile_id": "prof_sales_customercategories_20260518130907",
+  "table_name": "sales_customercategories",
+  "profiling_metadata": {
+    "profiled_at": "2026-05-18T13:09:07.387654",
+    "profiler_version": "1.0.0",
+    "execution_time_ms": 18.582820892333984,
+    "sample_based": true,
+    "sample_size": 8,
+    "canonical_table_id": "sales_customercategories"
+  },
+  "table_profile": {
+    "row_count_estimate": 8,
+    "column_count": 5,
+    "completeness_score": 1.0,
+    "quality_score": 0.9,
+    "pk_candidates": [
+      "customercategoryid"
+    ],
+    "fk_candidates": [],
+    "total_quality_flags": 3,
+    "columns_with_issues": 2
+  },
+  "columns": [
+    {
+      "column_name": "customercategoryid",
+      "original_name": "CustomerCategoryID",
+      "position": 0,
+      "physical_type": "integer",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "identifier",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "low",
+      "relational_role": "primary_key",
+      "pk_candidate": true,
+      "pk_confidence": 0.84,
+      "pk_evidence": {
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "cardinality_threshold: FAILED"
+        ]
+      },
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 8,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 3.0,
+        "entropy_normalized": 1.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 1.0,
+        "max_value": 8.0,
+        "mean": 4.5,
+        "median": 4.5,
+        "std_dev": 2.449489742783178,
+        "variance": 6.0,
+        "quantiles": {
+          "p25": 2.25,
+          "p50": 4.5,
+          "p75": 6.75,
+          "p90": 7.3,
+          "p99": 7.93
+        },
+        "skewness": 0.0,
+        "kurtosis": -1.651041666666666,
+        "top_values": [
+          [
+            "1",
+            1
+          ],
+          [
+            "2",
+            1
+          ],
+          [
+            "3",
+            1
+          ],
+          [
+            "4",
+            1
+          ],
+          [
+            "5",
+            1
+          ],
+          [
+            "6",
+            1
+          ],
+          [
+            "7",
+            1
+          ],
+          [
+            "8",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "column_name": "customercategoryname",
+      "original_name": "CustomerCategoryName",
+      "position": 1,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 1.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.59,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 8,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 3.0,
+        "entropy_normalized": 1.0,
+        "min_length": 5,
+        "max_length": 16,
+        "avg_length": 10.875,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "Agent",
+            1
+          ],
+          [
+            "Wholesaler",
+            1
+          ],
+          [
+            "Novelty Shop",
+            1
+          ],
+          [
+            "Supermarket",
+            1
+          ],
+          [
+            "Computer Store",
+            1
+          ],
+          [
+            "Gift Store",
+            1
+          ],
+          [
+            "Corporate",
+            1
+          ],
+          [
+            "General Retailer",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "Agent",
+        "Wholesaler",
+        "Novelty Shop",
+        "Supermarket",
+        "Computer Store",
+        "Gift Store",
+        "Corporate",
+        "General Retailer"
+      ]
+    },
+    {
+      "column_name": "lasteditedby",
+      "original_name": "LastEditedBy",
+      "position": 2,
+      "physical_type": "boolean",
+      "semantic_type": "identifier",
+      "logical_type": "audit",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.25,
+      "entropy_normalized": 0.1811881477331988,
+      "cardinality_class": "low",
+      "relational_role": "audit_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [],
+      "quality_score": 1.0,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.25,
+        "cardinality_ratio": 0.25,
+        "duplicate_count": 6,
+        "entropy": 0.5435644431995964,
+        "entropy_normalized": 0.1811881477331988,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "1",
+            7
+          ],
+          [
+            "9",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "9"
+      ]
+    },
+    {
+      "column_name": "validfrom",
+      "original_name": "ValidFrom",
+      "position": 3,
+      "physical_type": "datetime",
+      "semantic_type": "temporal_start",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.25,
+      "entropy_normalized": 0.1811881477331988,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "weak_identifier"
+      ],
+      "quality_score": 0.9,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.25,
+        "cardinality_ratio": 0.25,
+        "duplicate_count": 6,
+        "entropy": 0.5435644431995964,
+        "entropy_normalized": 0.1811881477331988,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "01-01-2013 00:00:00",
+            7
+          ],
+          [
+            "01-01-2014 16:15:00",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2014 16:15:00"
+      ]
+    },
+    {
+      "column_name": "validto",
+      "original_name": "ValidTo",
+      "position": 4,
+      "physical_type": "datetime",
+      "semantic_type": "temporal_end",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 0.125,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "weak_identifier",
+        "constant_column"
+      ],
+      "quality_score": 0.6,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 0.125,
+        "cardinality_ratio": 0.125,
+        "duplicate_count": 7,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "31-12-9999 23:59:59",
+            8
+          ]
+        ]
+      },
+      "sample_values": [
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59"
+      ]
+    }
+  ],
+  "source_canonical_path": "output\\canonical\\sales_customercategories.canonical.json"
+}

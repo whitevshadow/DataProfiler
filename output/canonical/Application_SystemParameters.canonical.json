@@ -1,0 +1,192 @@
+{
+  "source_path": "data\\Application_SystemParameters.csv",
+  "source_type": "csv",
+  "columns": [
+    {
+      "column_id": "Application_SystemParameters_systemparameterid",
+      "original_name": "SystemParameterID",
+      "normalized_name": "systemparameterid",
+      "position": 0,
+      "physical_type": "BOOLEAN",
+      "semantic_type": "foreign_key_candidate",
+      "observed_nullable": false,
+      "sample_values": [
+        "1"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_deliveryaddressline1",
+      "original_name": "DeliveryAddressLine1",
+      "normalized_name": "deliveryaddressline1",
+      "position": 1,
+      "physical_type": "STRING",
+      "semantic_type": "dimension",
+      "observed_nullable": false,
+      "sample_values": [
+        "Suite 14"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_deliveryaddressline2",
+      "original_name": "DeliveryAddressLine2",
+      "normalized_name": "deliveryaddressline2",
+      "position": 2,
+      "physical_type": "STRING",
+      "semantic_type": "dimension",
+      "observed_nullable": false,
+      "sample_values": [
+        "1968 Martin Luther King Junior Drive"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_deliverycityid",
+      "original_name": "DeliveryCityID",
+      "normalized_name": "deliverycityid",
+      "position": 3,
+      "physical_type": "INTEGER",
+      "semantic_type": "identifier",
+      "observed_nullable": false,
+      "sample_values": [
+        "30378"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_deliverypostalcode",
+      "original_name": "DeliveryPostalCode",
+      "normalized_name": "deliverypostalcode",
+      "position": 4,
+      "physical_type": "INTEGER",
+      "semantic_type": "zip_code",
+      "observed_nullable": false,
+      "sample_values": [
+        "94129"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_deliverylocation",
+      "original_name": "DeliveryLocation",
+      "normalized_name": "deliverylocation",
+      "position": 5,
+      "physical_type": "STRING",
+      "semantic_type": "geospatial_point",
+      "observed_nullable": false,
+      "sample_values": [
+        "POINT (-122.504086 37.765786)"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_postaladdressline1",
+      "original_name": "PostalAddressLine1",
+      "normalized_name": "postaladdressline1",
+      "position": 6,
+      "physical_type": "STRING",
+      "semantic_type": "dimension",
+      "observed_nullable": false,
+      "sample_values": [
+        "PO Box 201158"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_postaladdressline2",
+      "original_name": "PostalAddressLine2",
+      "normalized_name": "postaladdressline2",
+      "position": 7,
+      "physical_type": "STRING",
+      "semantic_type": "dimension",
+      "observed_nullable": false,
+      "sample_values": [
+        "Golden Gate Park"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_postalcityid",
+      "original_name": "PostalCityID",
+      "normalized_name": "postalcityid",
+      "position": 8,
+      "physical_type": "INTEGER",
+      "semantic_type": "identifier",
+      "observed_nullable": false,
+      "sample_values": [
+        "30378"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_postalpostalcode",
+      "original_name": "PostalPostalCode",
+      "normalized_name": "postalpostalcode",
+      "position": 9,
+      "physical_type": "INTEGER",
+      "semantic_type": "zip_code",
+      "observed_nullable": false,
+      "sample_values": [
+        "94129"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_lasteditedby",
+      "original_name": "LastEditedBy",
+      "normalized_name": "lasteditedby",
+      "position": 10,
+      "physical_type": "BOOLEAN",
+      "semantic_type": "identifier",
+      "observed_nullable": false,
+      "sample_values": [
+        "1"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "Application_SystemParameters_lasteditedwhen",
+      "original_name": "LastEditedWhen",
+      "normalized_name": "lasteditedwhen",
+      "position": 11,
+      "physical_type": "DATETIME",
+      "semantic_type": "timestamp",
+      "observed_nullable": false,
+      "sample_values": [
+        "01-01-2013 00:00:00"
+      ],
+      "statistics": {}
+    }
+  ],
+  "column_count": 12,
+  "row_count": 1,
+  "rows": [
+    [
+      "1",
+      "Suite 14",
+      "1968 Martin Luther King Junior Drive",
+      "30378",
+      "94129",
+      "POINT (-122.504086 37.765786)",
+      "PO Box 201158",
+      "Golden Gate Park",
+      "30378",
+      "94129",
+      "1",
+      "01-01-2013 00:00:00"
+    ]
+  ],
+  "encoding": "utf-8",
+  "delimiter": ",",
+  "compression": null,
+  "is_sample": true,
+  "sample_size": 1,
+  "sampling_method": null,
+  "table_name": "Application_SystemParameters",
+  "table_id": "Application_SystemParameters",
+  "metadata": {
+    "is_sample": true,
+    "sample_row_count": 1
+  }
+}

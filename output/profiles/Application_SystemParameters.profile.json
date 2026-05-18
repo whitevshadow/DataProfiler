@@ -1,0 +1,716 @@
+{
+  "profile_id": "prof_Application_SystemParameters_20260518130907",
+  "table_name": "Application_SystemParameters",
+  "profiling_metadata": {
+    "profiled_at": "2026-05-18T13:09:07.346252",
+    "profiler_version": "1.0.0",
+    "execution_time_ms": 53.597450256347656,
+    "sample_based": true,
+    "sample_size": 1,
+    "canonical_table_id": "Application_SystemParameters"
+  },
+  "table_profile": {
+    "row_count_estimate": 1,
+    "column_count": 12,
+    "completeness_score": 1.0,
+    "quality_score": 0.6999999999999998,
+    "pk_candidates": [],
+    "fk_candidates": [
+      "deliverycityid",
+      "postalcityid"
+    ],
+    "total_quality_flags": 12,
+    "columns_with_issues": 12
+  },
+  "columns": [
+    {
+      "column_name": "systemparameterid",
+      "original_name": "SystemParameterID",
+      "position": 0,
+      "physical_type": "boolean",
+      "semantic_type": "foreign_key_candidate",
+      "logical_type": "unknown",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "attribute",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "1",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "1"
+      ]
+    },
+    {
+      "column_name": "deliveryaddressline1",
+      "original_name": "DeliveryAddressLine1",
+      "position": 1,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 8,
+        "max_length": 8,
+        "avg_length": 8.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "Suite 14",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "Suite 14"
+      ]
+    },
+    {
+      "column_name": "deliveryaddressline2",
+      "original_name": "DeliveryAddressLine2",
+      "position": 2,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 36,
+        "max_length": 36,
+        "avg_length": 36.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "1968 Martin Luther King Junior Drive",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "1968 Martin Luther King Junior Drive"
+      ]
+    },
+    {
+      "column_name": "deliverycityid",
+      "original_name": "DeliveryCityID",
+      "position": 3,
+      "physical_type": "integer",
+      "semantic_type": "identifier",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "foreign_key",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": true,
+      "fk_confidence": 0.78,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "deliverycity",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'deliverycity' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: deliverycity",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "High uniqueness (100.00%) - likely unique FK or small sample"
+        ],
+        "warnings": [
+          "High uniqueness in sample - may be unique FK or small sample size"
+        ]
+      },
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 30378.0,
+        "max_value": 30378.0,
+        "mean": 30378.0,
+        "median": 30378.0,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": {},
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "30378",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "30378"
+      ]
+    },
+    {
+      "column_name": "deliverypostalcode",
+      "original_name": "DeliveryPostalCode",
+      "position": 4,
+      "physical_type": "integer",
+      "semantic_type": "zip_code",
+      "logical_type": "unknown",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "attribute",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 94129.0,
+        "max_value": 94129.0,
+        "mean": 94129.0,
+        "median": 94129.0,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": {},
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "94129",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "94129"
+      ]
+    },
+    {
+      "column_name": "deliverylocation",
+      "original_name": "DeliveryLocation",
+      "position": 5,
+      "physical_type": "string",
+      "semantic_type": "geospatial_point",
+      "logical_type": "geospatial",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "geo_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 29,
+        "max_length": 29,
+        "avg_length": 29.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "POINT (-122.504086 37.765786)",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "POINT (-122.504086 37.765786)"
+      ]
+    },
+    {
+      "column_name": "postaladdressline1",
+      "original_name": "PostalAddressLine1",
+      "position": 6,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 13,
+        "max_length": 13,
+        "avg_length": 13.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "PO Box 201158",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "PO Box 201158"
+      ]
+    },
+    {
+      "column_name": "postaladdressline2",
+      "original_name": "PostalAddressLine2",
+      "position": 7,
+      "physical_type": "string",
+      "semantic_type": "dimension",
+      "logical_type": "category",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "dimension",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": 16,
+        "max_length": 16,
+        "avg_length": 16.0,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "Golden Gate Park",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "Golden Gate Park"
+      ]
+    },
+    {
+      "column_name": "postalcityid",
+      "original_name": "PostalCityID",
+      "position": 8,
+      "physical_type": "integer",
+      "semantic_type": "identifier",
+      "logical_type": "reference",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "foreign_key",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": true,
+      "fk_confidence": 0.78,
+      "fk_evidence": {
+        "fk_pattern_match": 0.9,
+        "referenced_entity": "postalcity",
+        "entity_mismatch_score": 1.0,
+        "reasons": [
+          "FK pattern detected: references 'postalcity' entity",
+          "FK naming pattern confidence: 0.90",
+          "References external entity: postalcity",
+          "Type affinity (INTEGER/UUID preferred): 0.90",
+          "High uniqueness (100.00%) - likely unique FK or small sample"
+        ],
+        "warnings": [
+          "High uniqueness in sample - may be unique FK or small sample size"
+        ]
+      },
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 30378.0,
+        "max_value": 30378.0,
+        "mean": 30378.0,
+        "median": 30378.0,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": {},
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "30378",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "30378"
+      ]
+    },
+    {
+      "column_name": "postalpostalcode",
+      "original_name": "PostalPostalCode",
+      "position": 9,
+      "physical_type": "integer",
+      "semantic_type": "zip_code",
+      "logical_type": "unknown",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "attribute",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": 94129.0,
+        "max_value": 94129.0,
+        "mean": 94129.0,
+        "median": 94129.0,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": {},
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "94129",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "94129"
+      ]
+    },
+    {
+      "column_name": "lasteditedby",
+      "original_name": "LastEditedBy",
+      "position": 10,
+      "physical_type": "boolean",
+      "semantic_type": "identifier",
+      "logical_type": "audit",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "audit_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "1",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "1"
+      ]
+    },
+    {
+      "column_name": "lasteditedwhen",
+      "original_name": "LastEditedWhen",
+      "position": 11,
+      "physical_type": "datetime",
+      "semantic_type": "timestamp",
+      "logical_type": "timestamp",
+      "type_confidence": 0.9,
+      "completeness": 1.0,
+      "uniqueness": 1.0,
+      "entropy_normalized": 0.0,
+      "cardinality_class": "low",
+      "relational_role": "temporal_field",
+      "pk_candidate": false,
+      "pk_confidence": 0.0,
+      "pk_evidence": null,
+      "fk_candidate": false,
+      "fk_confidence": 0.0,
+      "fk_evidence": null,
+      "quality_flags": [
+        "constant_column"
+      ],
+      "quality_score": 0.7,
+      "statistics": {
+        "null_count": 0,
+        "null_ratio": 0.0,
+        "distinct_count": 1,
+        "uniqueness_ratio": 1.0,
+        "cardinality_ratio": 1.0,
+        "duplicate_count": 0,
+        "entropy": 0.0,
+        "entropy_normalized": 0.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
+        "skewness": null,
+        "kurtosis": null,
+        "top_values": [
+          [
+            "01-01-2013 00:00:00",
+            1
+          ]
+        ]
+      },
+      "sample_values": [
+        "01-01-2013 00:00:00"
+      ]
+    }
+  ],
+  "source_canonical_path": "output\\canonical\\Application_SystemParameters.canonical.json"
+}

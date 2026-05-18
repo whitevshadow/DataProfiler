@@ -1,0 +1,178 @@
+{
+  "source_path": "data\\sales_customercategories.csv",
+  "source_type": "csv",
+  "columns": [
+    {
+      "column_id": "sales_customercategories_customercategoryid",
+      "original_name": "CustomerCategoryID",
+      "normalized_name": "customercategoryid",
+      "position": 0,
+      "physical_type": "INTEGER",
+      "semantic_type": "foreign_key_candidate",
+      "observed_nullable": false,
+      "sample_values": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "sales_customercategories_customercategoryname",
+      "original_name": "CustomerCategoryName",
+      "normalized_name": "customercategoryname",
+      "position": 1,
+      "physical_type": "STRING",
+      "semantic_type": "dimension",
+      "observed_nullable": false,
+      "sample_values": [
+        "Agent",
+        "Wholesaler",
+        "Novelty Shop",
+        "Supermarket",
+        "Computer Store",
+        "Gift Store",
+        "Corporate",
+        "General Retailer"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "sales_customercategories_lasteditedby",
+      "original_name": "LastEditedBy",
+      "normalized_name": "lasteditedby",
+      "position": 2,
+      "physical_type": "BOOLEAN",
+      "semantic_type": "identifier",
+      "observed_nullable": false,
+      "sample_values": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "9"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "sales_customercategories_validfrom",
+      "original_name": "ValidFrom",
+      "normalized_name": "validfrom",
+      "position": 3,
+      "physical_type": "DATETIME",
+      "semantic_type": "temporal_start",
+      "observed_nullable": false,
+      "sample_values": [
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2014 16:15:00"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "sales_customercategories_validto",
+      "original_name": "ValidTo",
+      "normalized_name": "validto",
+      "position": 4,
+      "physical_type": "DATETIME",
+      "semantic_type": "temporal_end",
+      "observed_nullable": false,
+      "sample_values": [
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59"
+      ],
+      "statistics": {}
+    }
+  ],
+  "column_count": 5,
+  "row_count": 8,
+  "rows": [
+    [
+      "1",
+      "Agent",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "2",
+      "Wholesaler",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "3",
+      "Novelty Shop",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "4",
+      "Supermarket",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "5",
+      "Computer Store",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "6",
+      "Gift Store",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "7",
+      "Corporate",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "8",
+      "General Retailer",
+      "9",
+      "01-01-2014 16:15:00",
+      "31-12-9999 23:59:59"
+    ]
+  ],
+  "encoding": "utf-8",
+  "delimiter": ",",
+  "compression": null,
+  "is_sample": true,
+  "sample_size": 8,
+  "sampling_method": null,
+  "table_name": "sales_customercategories",
+  "table_id": "sales_customercategories",
+  "metadata": {
+    "is_sample": true,
+    "sample_row_count": 8
+  }
+}

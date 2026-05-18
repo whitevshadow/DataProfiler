@@ -1,0 +1,130 @@
+{
+  "source_path": "data\\application_paymentmethods.csv",
+  "source_type": "csv",
+  "columns": [
+    {
+      "column_id": "application_paymentmethods_paymentmethodid",
+      "original_name": "PaymentMethodID",
+      "normalized_name": "paymentmethodid",
+      "position": 0,
+      "physical_type": "INTEGER",
+      "semantic_type": "foreign_key_candidate",
+      "observed_nullable": false,
+      "sample_values": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "application_paymentmethods_paymentmethodname",
+      "original_name": "PaymentMethodName",
+      "normalized_name": "paymentmethodname",
+      "position": 1,
+      "physical_type": "STRING",
+      "semantic_type": "dimension",
+      "observed_nullable": false,
+      "sample_values": [
+        "Cash",
+        "Check",
+        "Credit-Card",
+        "EFT"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "application_paymentmethods_lasteditedby",
+      "original_name": "LastEditedBy",
+      "normalized_name": "lasteditedby",
+      "position": 2,
+      "physical_type": "INTEGER",
+      "semantic_type": "identifier",
+      "observed_nullable": false,
+      "sample_values": [
+        "1",
+        "1",
+        "9",
+        "1"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "application_paymentmethods_validfrom",
+      "original_name": "ValidFrom",
+      "normalized_name": "validfrom",
+      "position": 3,
+      "physical_type": "DATETIME",
+      "semantic_type": "temporal_start",
+      "observed_nullable": false,
+      "sample_values": [
+        "01-01-2013 00:00:00",
+        "01-01-2013 00:00:00",
+        "01-01-2016 16:00:00",
+        "01-01-2013 00:00:00"
+      ],
+      "statistics": {}
+    },
+    {
+      "column_id": "application_paymentmethods_validto",
+      "original_name": "ValidTo",
+      "normalized_name": "validto",
+      "position": 4,
+      "physical_type": "DATETIME",
+      "semantic_type": "temporal_end",
+      "observed_nullable": false,
+      "sample_values": [
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59",
+        "31-12-9999 23:59:59"
+      ],
+      "statistics": {}
+    }
+  ],
+  "column_count": 5,
+  "row_count": 4,
+  "rows": [
+    [
+      "1",
+      "Cash",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "2",
+      "Check",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "3",
+      "Credit-Card",
+      "9",
+      "01-01-2016 16:00:00",
+      "31-12-9999 23:59:59"
+    ],
+    [
+      "4",
+      "EFT",
+      "1",
+      "01-01-2013 00:00:00",
+      "31-12-9999 23:59:59"
+    ]
+  ],
+  "encoding": "utf-8",
+  "delimiter": ",",
+  "compression": null,
+  "is_sample": true,
+  "sample_size": 4,
+  "sampling_method": null,
+  "table_name": "application_paymentmethods",
+  "table_id": "application_paymentmethods",
+  "metadata": {
+    "is_sample": true,
+    "sample_row_count": 4
+  }
+}
