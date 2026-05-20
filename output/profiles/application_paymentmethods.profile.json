@@ -1,10 +1,10 @@
 {
-  "profile_id": "prof_application_paymentmethods_20260518130907",
+  "profile_id": "prof_application_paymentmethods_20260520162440",
   "table_name": "application_paymentmethods",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.286419",
+    "profiled_at": "2026-05-20T16:24:40.453645",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 25.732994079589844,
+    "execution_time_ms": 156.2192440032959,
     "sample_based": true,
     "sample_size": 4,
     "canonical_table_id": "application_paymentmethods"
@@ -13,12 +13,12 @@
     "row_count_estimate": 4,
     "column_count": 5,
     "completeness_score": 1.0,
-    "quality_score": 0.9,
+    "quality_score": 0.93,
     "pk_candidates": [
       "paymentmethodid"
     ],
-    "fk_candidates": [],
-    "total_quality_flags": 3,
+    "composite_pk_candidates": [],
+    "total_quality_flags": 4,
     "columns_with_issues": 2
   },
   "columns": [
@@ -27,37 +27,70 @@
       "original_name": "PaymentMethodID",
       "position": 0,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
+      "semantic_type": "identifier",
       "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "primary_key",
+      "cardinality_class": "high",
       "pk_candidate": true,
-      "pk_confidence": 0.84,
+      "pk_score": 0.9775000000000001,
+      "pk_confidence": 0.9775000000000001,
       "pk_evidence": {
+        "pk_score": 0.9775000000000001,
+        "pk_candidate": true,
+        "pk_confidence": 0.9775000000000001,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Owner identifier match: 'paymentmethodid' owns 'application_paymentmethods'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Small-sample uniqueness may be unstable"
+        ],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
         "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
+        "name_pattern_score": 1.0,
         "reasons": [
           "All values are unique",
           "No null values",
-          "High entropy (low redundancy)"
+          "High entropy (low redundancy)",
+          "Owner identifier match: 'paymentmethodid' owns 'application_paymentmethods'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
         ],
         "warnings": [
-          "cardinality_threshold: FAILED"
+          "Small-sample uniqueness may be unstable"
         ]
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 4,
+        "non_null_count": 4,
+        "distinct_non_null_count": 4,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 4,
@@ -76,14 +109,14 @@
         "std_dev": 1.2909944487358056,
         "variance": 1.6666666666666667,
         "quantiles": {
-          "p25": 1.25,
+          "p25": 1.75,
           "p50": 2.5,
-          "p75": 3.75,
+          "p75": 3.25,
           "p90": 3.7,
           "p99": 3.9699999999999998
         },
         "skewness": 0.0,
-        "kurtosis": -2.0775,
+        "kurtosis": -1.200000000000001,
         "top_values": [
           [
             "1",
@@ -101,13 +134,40 @@
             "4",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 1
+          },
+          {
+            "value": "2",
+            "frequency": 1
+          },
+          {
+            "value": "3",
+            "frequency": 1
+          },
+          {
+            "value": "4",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "2",
-        "3",
-        "4"
+        1,
+        2,
+        3,
+        4
       ]
     },
     {
@@ -115,23 +175,74 @@
       "original_name": "PaymentMethodName",
       "position": 1,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "name",
+      "logical_type": "description",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
-      "pk_confidence": 0.59,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'paymentmethodname'",
+          "Accidental uniqueness in small sample (n=4) for non-ID column 'paymentmethodname'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'paymentmethodname'",
+          "Accidental uniqueness in small sample (n=4) for non-ID column 'paymentmethodname'",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "Semantically unstable descriptive field 'paymentmethodname'",
+          "Accidental uniqueness in small sample (n=4) for non-ID column 'paymentmethodname'",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'paymentmethodname'",
+        "Accidental uniqueness in small sample (n=4) for non-ID column 'paymentmethodname'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 4,
+        "non_null_count": 4,
+        "distinct_non_null_count": 4,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 4,
@@ -169,7 +280,34 @@
             "EFT",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Cash",
+            "frequency": 1
+          },
+          {
+            "value": "Check",
+            "frequency": 1
+          },
+          {
+            "value": "Credit-Card",
+            "frequency": 1
+          },
+          {
+            "value": "EFT",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "Cash",
@@ -184,22 +322,78 @@
       "position": 2,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "audit",
-      "type_confidence": 0.9,
+      "logical_type": "audit_reference",
+      "type_confidence": 0.95,
       "completeness": 1.0,
       "uniqueness": 0.5,
       "entropy_normalized": 0.4056390622295664,
-      "cardinality_class": "low",
-      "relational_role": "audit_field",
+      "cardinality_class": "medium",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "System audit column pattern 'lasteditedby'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.41)",
+          "Audit field suppressed for PK scoring"
+        ],
+        "uniqueness_score": 0.5,
+        "non_null_score": 1.0,
+        "entropy_score": 0.4056390622295664,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.41)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "System audit column pattern 'lasteditedby'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": {
+        "role": "user_reference",
+        "audit_type": "editor",
+        "system_generated": true
+      },
       "quality_flags": [],
-      "quality_score": 1.0,
+      "quality_score": 0.9,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.5,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 4,
+        "non_null_count": 4,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.5,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -216,16 +410,16 @@
         "mean": 3.0,
         "median": 1.0,
         "std_dev": 4.0,
-        "variance": 16.0,
+        "variance": 16.000000000000004,
         "quantiles": {
           "p25": 1.0,
           "p50": 1.0,
-          "p75": 7.0,
+          "p75": 3.0,
           "p90": 6.600000000000001,
           "p99": 8.759999999999998
         },
-        "skewness": 0.75,
-        "kurtosis": -1.6875,
+        "skewness": 2.0,
+        "kurtosis": 3.999999999999999,
         "top_values": [
           [
             "1",
@@ -235,13 +429,32 @@
             "9",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 3
+          },
+          {
+            "value": "9",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.5
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "1",
-        "9",
-        "1"
+        1,
+        1,
+        9,
+        1
       ]
     },
     {
@@ -249,25 +462,78 @@
       "original_name": "ValidFrom",
       "position": 3,
       "physical_type": "datetime",
-      "semantic_type": "temporal_start",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 0.5,
       "entropy_normalized": 0.4056390622295664,
-      "cardinality_class": "low",
-      "relational_role": "temporal_field",
+      "cardinality_class": "medium",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validfrom'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.41)"
+        ],
+        "uniqueness_score": 0.5,
+        "non_null_score": 1.0,
+        "entropy_score": 0.4056390622295664,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.41)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validfrom'"
+      ],
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": false
+      },
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "weak_identifier"
       ],
       "quality_score": 0.9,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.5,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 4,
+        "non_null_count": 4,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.5,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -290,20 +556,39 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-01-2013 00:00:00",
+            "2013-01-01 00:00:00",
             3
           ],
           [
-            "01-01-2016 16:00:00",
+            "2016-01-01 16:00:00",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2013-01-01 00:00:00",
+            "frequency": 3
+          },
+          {
+            "value": "2016-01-01 16:00:00",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.5
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2016 16:00:00",
-        "01-01-2013 00:00:00"
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2016-01-01T16:00:00",
+        "2013-01-01T00:00:00"
       ]
     },
     {
@@ -311,26 +596,88 @@
       "original_name": "ValidTo",
       "position": 4,
       "physical_type": "datetime",
-      "semantic_type": "temporal_end",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 0.25,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "temporal_field",
+      "cardinality_class": "medium",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validto'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validto'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 25.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.25,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validto'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 25.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validto'",
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
+      ],
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": true
+      },
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "weak_identifier",
-        "constant_column"
+        "constant_column",
+        "high_duplication"
       ],
-      "quality_score": 0.6,
+      "quality_score": 0.85,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.25,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 4,
+        "non_null_count": 4,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.75,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -353,18 +700,33 @@
         "kurtosis": null,
         "top_values": [
           [
-            "31-12-9999 23:59:59",
+            "9999-12-31 23:59:59",
             4
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "9999-12-31 23:59:59",
+            "frequency": 4
+          }
+        ],
+        "duplicate_density": 0.75
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59"
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59"
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\application_paymentmethods.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\application_paymentmethods.canonical.json"
 }

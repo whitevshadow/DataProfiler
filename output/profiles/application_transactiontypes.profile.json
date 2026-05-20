@@ -1,10 +1,10 @@
 {
-  "profile_id": "prof_application_transactiontypes_20260518130907",
+  "profile_id": "prof_application_transactiontypes_20260520162447",
   "table_name": "application_transactiontypes",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.320009",
+    "profiled_at": "2026-05-20T16:24:47.105060",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 14.157533645629883,
+    "execution_time_ms": 217.19884872436523,
     "sample_based": true,
     "sample_size": 13,
     "canonical_table_id": "application_transactiontypes"
@@ -13,12 +13,12 @@
     "row_count_estimate": 13,
     "column_count": 5,
     "completeness_score": 1.0,
-    "quality_score": 0.8300000000000001,
+    "quality_score": 0.8854,
     "pk_candidates": [
       "transactiontypeid"
     ],
-    "fk_candidates": [],
-    "total_quality_flags": 7,
+    "composite_pk_candidates": [],
+    "total_quality_flags": 11,
     "columns_with_issues": 3
   },
   "columns": [
@@ -27,36 +27,66 @@
       "original_name": "TransactionTypeID",
       "position": 0,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
+      "semantic_type": "identifier",
       "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "primary_key",
+      "cardinality_class": "high",
       "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "pk_score": 0.9793750000000001,
+      "pk_confidence": 0.9793750000000001,
       "pk_evidence": {
+        "pk_score": 0.9793750000000001,
+        "pk_candidate": true,
+        "pk_confidence": 0.9793750000000001,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Owner identifier match: 'transactiontypeid' owns 'application_transactiontypes'",
+          "Integer/UUID identifier type",
+          "All 13 values are distinct"
+        ],
+        "negative_evidence": [],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
         "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
+        "name_pattern_score": 1.0,
         "reasons": [
           "All values are unique",
           "No null values",
           "High entropy (low redundancy)",
+          "Owner identifier match: 'transactiontypeid' owns 'application_transactiontypes'",
+          "Integer/UUID identifier type",
           "All 13 values are distinct"
         ],
         "warnings": []
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 13,
+        "non_null_count": 13,
+        "distinct_non_null_count": 13,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 13,
@@ -75,17 +105,33 @@
         "std_dev": 3.8944404818493075,
         "variance": 15.166666666666666,
         "quantiles": {
-          "p25": 3.5,
+          "p25": 4.0,
           "p50": 7.0,
-          "p75": 10.5,
+          "p75": 10.0,
           "p90": 11.8,
           "p99": 12.879999999999999
         },
         "skewness": 0.0,
-        "kurtosis": -1.478444632290786,
+        "kurtosis": -1.2000000000000086,
         "top_values": [
           [
             "1",
+            1
+          ],
+          [
+            "10",
+            1
+          ],
+          [
+            "11",
+            1
+          ],
+          [
+            "12",
+            1
+          ],
+          [
+            "13",
             1
           ],
           [
@@ -107,36 +153,71 @@
           [
             "6",
             1
-          ],
-          [
-            "7",
-            1
-          ],
-          [
-            "8",
-            1
-          ],
-          [
-            "9",
-            1
-          ],
-          [
-            "10",
-            1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 1
+          },
+          {
+            "value": "10",
+            "frequency": 1
+          },
+          {
+            "value": "11",
+            "frequency": 1
+          },
+          {
+            "value": "12",
+            "frequency": 1
+          },
+          {
+            "value": "13",
+            "frequency": 1
+          },
+          {
+            "value": "2",
+            "frequency": 1
+          },
+          {
+            "value": "3",
+            "frequency": 1
+          },
+          {
+            "value": "4",
+            "frequency": 1
+          },
+          {
+            "value": "5",
+            "frequency": 1
+          },
+          {
+            "value": "6",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10"
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ]
     },
     {
@@ -144,23 +225,74 @@
       "original_name": "TransactionTypeName",
       "position": 1,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "name",
+      "logical_type": "description",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'transactiontypename'",
+          "Accidental uniqueness in small sample (n=13) for non-ID column 'transactiontypename'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "All 13 values are distinct"
+        ],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'transactiontypename'",
+          "Accidental uniqueness in small sample (n=13) for non-ID column 'transactiontypename'"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "All 13 values are distinct"
+        ],
+        "warnings": [
+          "Semantically unstable descriptive field 'transactiontypename'",
+          "Accidental uniqueness in small sample (n=13) for non-ID column 'transactiontypename'"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'transactiontypename'",
+        "Accidental uniqueness in small sample (n=13) for non-ID column 'transactiontypename'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 13,
+        "non_null_count": 13,
+        "distinct_non_null_count": 13,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 13,
@@ -183,11 +315,15 @@
         "kurtosis": null,
         "top_values": [
           [
-            "Customer Invoice",
+            "Customer Contra",
             1
           ],
           [
             "Customer Credit Note",
+            1
+          ],
+          [
+            "Customer Invoice",
             1
           ],
           [
@@ -199,19 +335,15 @@
             1
           ],
           [
-            "Supplier Invoice",
+            "Stock Adjustment at Stocktake",
             1
           ],
           [
-            "Supplier Credit Note",
+            "Stock Issue",
             1
           ],
           [
-            "Supplier Payment Issued",
-            1
-          ],
-          [
-            "Supplier Refund",
+            "Stock Receipt",
             1
           ],
           [
@@ -219,10 +351,61 @@
             1
           ],
           [
-            "Stock Issue",
+            "Supplier Credit Note",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Customer Contra",
+            "frequency": 1
+          },
+          {
+            "value": "Customer Credit Note",
+            "frequency": 1
+          },
+          {
+            "value": "Customer Invoice",
+            "frequency": 1
+          },
+          {
+            "value": "Customer Payment Received",
+            "frequency": 1
+          },
+          {
+            "value": "Customer Refund",
+            "frequency": 1
+          },
+          {
+            "value": "Stock Adjustment at Stocktake",
+            "frequency": 1
+          },
+          {
+            "value": "Stock Issue",
+            "frequency": 1
+          },
+          {
+            "value": "Stock Receipt",
+            "frequency": 1
+          },
+          {
+            "value": "Stock Transfer",
+            "frequency": 1
+          },
+          {
+            "value": "Supplier Credit Note",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "Customer Invoice",
@@ -243,25 +426,83 @@
       "position": 2,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "audit",
-      "type_confidence": 0.9,
+      "logical_type": "audit_reference",
+      "type_confidence": 0.95,
       "completeness": 1.0,
       "uniqueness": 0.15384615384615385,
       "entropy_normalized": 0.10572893856673769,
       "cardinality_class": "low",
-      "relational_role": "audit_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "System audit column pattern 'lasteditedby'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 15.4%",
+          "Low entropy (0.11)",
+          "Audit field suppressed for PK scoring"
+        ],
+        "uniqueness_score": 0.15384615384615385,
+        "non_null_score": 1.0,
+        "entropy_score": 0.10572893856673769,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 15.4%",
+          "Low entropy (0.11)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "System audit column pattern 'lasteditedby'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": {
+        "role": "user_reference",
+        "audit_type": "editor",
+        "system_generated": true
+      },
       "quality_flags": [
         "skewed_distribution",
-        "low_cardinality"
+        "low_cardinality",
+        "high_duplication",
+        "heavy_tail"
       ],
-      "quality_score": 0.85,
+      "quality_score": 0.7808,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1538,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 0.5
+      },
       "statistics": {
+        "total_count": 13,
+        "non_null_count": 13,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8461538461538461,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -286,8 +527,8 @@
           "p90": 1.0,
           "p99": 8.039999999999992
         },
-        "skewness": 2.8161702269896245,
-        "kurtosis": 6.44378698224852,
+        "skewness": 3.605551275463989,
+        "kurtosis": 13.000000000000002,
         "top_values": [
           [
             "1",
@@ -297,19 +538,38 @@
             "9",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 12
+          },
+          {
+            "value": "9",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.8461538461538461
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1"
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -317,26 +577,80 @@
       "original_name": "ValidFrom",
       "position": 3,
       "physical_type": "datetime",
-      "semantic_type": "temporal_start",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 0.15384615384615385,
       "entropy_normalized": 0.10572893856673769,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validfrom'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 15.4%",
+          "Low entropy (0.11)"
+        ],
+        "uniqueness_score": 0.15384615384615385,
+        "non_null_score": 1.0,
+        "entropy_score": 0.10572893856673769,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 15.4%",
+          "Low entropy (0.11)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validfrom'"
+      ],
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": false
+      },
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "weak_identifier",
-        "low_cardinality"
+        "low_cardinality",
+        "high_duplication"
       ],
-      "quality_score": 0.8,
+      "quality_score": 0.8308,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1538,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 13,
+        "non_null_count": 13,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8461538461538461,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -359,26 +673,45 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-01-2013 00:00:00",
+            "2013-01-01 00:00:00",
             12
           ],
           [
-            "01-01-2016 16:05:00",
+            "2016-01-01 16:05:00",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2013-01-01 00:00:00",
+            "frequency": 12
+          },
+          {
+            "value": "2016-01-01 16:05:00",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.8461538461538461
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00"
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00"
       ]
     },
     {
@@ -386,27 +719,89 @@
       "original_name": "ValidTo",
       "position": 4,
       "physical_type": "datetime",
-      "semantic_type": "temporal_end",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 0.07692307692307693,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validto'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validto'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 7.7%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.07692307692307693,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validto'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 7.7%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validto'",
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
+      ],
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": true
+      },
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "weak_identifier",
         "constant_column",
-        "low_cardinality"
+        "low_cardinality",
+        "high_duplication"
       ],
-      "quality_score": 0.5,
+      "quality_score": 0.8154,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0769,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 13,
+        "non_null_count": 13,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9230769230769231,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -429,24 +824,39 @@
         "kurtosis": null,
         "top_values": [
           [
-            "31-12-9999 23:59:59",
+            "9999-12-31 23:59:59",
             13
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "9999-12-31 23:59:59",
+            "frequency": 13
+          }
+        ],
+        "duplicate_density": 0.9230769230769231
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59",
-        "31-12-9999 23:59:59"
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59",
+        "9999-12-31T23:59:59"
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\application_transactiontypes.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\application_transactiontypes.canonical.json"
 }

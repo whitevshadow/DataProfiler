@@ -15,28 +15,15 @@ from enum import Enum
 # Enums
 # ---------------------------------------------------------------------------
 
-class RelationalRole(str, Enum):
-    """Relational role classification for columns."""
-    PRIMARY_KEY = "primary_key"
-    FOREIGN_KEY = "foreign_key"
-    ATTRIBUTE = "attribute"
-    AUDIT_FIELD = "audit_field"
-    TEMPORAL_FIELD = "temporal_field"
-    MEASURE = "measure"
-    DIMENSION = "dimension"
-    GEO_FIELD = "geo_field"
-    UNKNOWN = "unknown"
-
-
 class LogicalType(str, Enum):
     """Logical type classification."""
     IDENTIFIER = "identifier"
+    AUDIT_REFERENCE = "audit_reference"
     MEASURE = "measure"
     DIMENSION = "dimension"
     TIMESTAMP = "timestamp"
     AUDIT = "audit"
     CATEGORY = "category"
-    REFERENCE = "reference"
     DESCRIPTION = "description"
     GEOSPATIAL = "geospatial"
     CONTACT = "contact"
@@ -64,8 +51,6 @@ class SemanticType(str, Enum):
     IDENTIFIER = "identifier"
     NATURAL_KEY = "natural_key"
     SURROGATE_KEY = "surrogate_key"
-    FOREIGN_KEY_CANDIDATE = "foreign_key_candidate"
-    
     # Personal Information
     EMAIL = "email"
     PHONE = "phone"
@@ -80,6 +65,7 @@ class SemanticType(str, Enum):
     ZIP_CODE = "zip_code"
     LATITUDE = "latitude"
     LONGITUDE = "longitude"
+    GEO_POINT = "GEO_POINT"
     GEOSPATIAL_POINT = "geospatial_point"
     GEOGRAPHIC_ENTITY = "geographic_entity"
     GEOSPATIAL_COORDINATE = "geospatial_coordinate"
@@ -133,11 +119,13 @@ class QualityFlag(str, Enum):
     # 2. COMPLETENESS QUALITY
     FULLY_NULL = "fully_null"
     HIGH_NULL_RATIO = "high_null_ratio"
+    HIGH_MISSINGNESS = "high_missingness"
     SPARSITY_DETECTED = "sparsity_detected"
     REQUIRED_FIELD_ABSENT = "required_field_absent"
     
     # 3. UNIQUENESS QUALITY
     DUPLICATE_ROWS = "duplicate_rows"
+    HIGH_DUPLICATION = "high_duplication"
     PK_DUPLICATION = "pk_duplication"
     DUPLICATE_EXPLOSION = "duplicate_explosion"
     WEAK_IDENTIFIER = "weak_identifier"
@@ -196,7 +184,13 @@ class QualityFlag(str, Enum):
     BUSINESS_RULE_VIOLATION = "business_rule_violation"
     REQUIRED_FIELD_MISSING = "required_field_missing"
     INVALID_RANGE = "invalid_range"
+    TEMPORAL_ANOMALY = "temporal_anomaly"
+    GEO_ERROR = "geo_error"
+    INVALID_IDENTIFIER = "invalid_identifier"
+    HEAVY_TAIL = "heavy_tail"
     CROSS_FIELD_CONSTRAINT_VIOLATION = "cross_field_constraint_violation"
+    LOW_CARDINALITY_IDENTIFIER = "low_cardinality_identifier"
+    DUPLICATE_EXPECTED = "duplicate_expected"
     
     # LEGACY / GENERAL
     HIGH_CARDINALITY = "high_cardinality"
@@ -211,6 +205,12 @@ class QualityFlag(str, Enum):
 
 class ColumnStatistics(BaseModel):
     """Comprehensive column statistics."""
+    total_count: int = 0
+    non_null_count: int = 0
+    distinct_non_null_count: int = 0
+    coverage_ratio: float = Field(default=0.0, ge=0, le=1)
+    duplicate_ratio: float = Field(default=0.0, ge=0, le=1)
+    
     # Nullability
     null_count: int
     null_ratio: float = Field(..., ge=0, le=1)
@@ -245,10 +245,20 @@ class ColumnStatistics(BaseModel):
     
     # Top values
     top_values: Optional[List[Tuple[str, int]]] = None
+    frequency_distribution: Optional[List[Dict[str, Any]]] = None
+    duplicate_density: float = Field(default=0.0, ge=0, le=1)
 
 
 class PKEvidence(BaseModel):
     """Evidence for PK candidate scoring."""
+    pk_score: float = Field(default=0.0, ge=0, le=1)
+    pk_candidate: bool = False
+    pk_confidence: float = Field(default=0.0, ge=0, le=1)
+    suppressed: bool = False
+    suppression_reasons: List[str] = Field(default_factory=list)
+    positive_evidence: List[str] = Field(default_factory=list)
+    negative_evidence: List[str] = Field(default_factory=list)
+    
     uniqueness_score: float = Field(..., ge=0, le=1)
     non_null_score: float = Field(..., ge=0, le=1)
     entropy_score: float = Field(..., ge=0, le=1)
@@ -256,26 +266,25 @@ class PKEvidence(BaseModel):
     name_pattern_score: float = Field(..., ge=0, le=1)
     
     # Explanation
-    reasons: List[str] = []
-    warnings: List[str] = []
-
-
-class FKEvidence(BaseModel):
-    """Evidence for FK candidate scoring."""
-    fk_pattern_match: float = Field(..., ge=0, le=1)
-    referenced_entity: Optional[str] = None
-    entity_mismatch_score: float = Field(..., ge=0, le=1)
-    
-    # Explanation
-    reasons: List[str] = []
-    warnings: List[str] = []
+    reasons: List[str] = Field(default_factory=list)
+    warnings: List[str] = Field(default_factory=list)
 
 
 class CardinalityClass(str, Enum):
     """Cardinality classification for columns."""
-    LOW = "low"      # 1-50 distinct values
-    MEDIUM = "medium"  # 51-1000 distinct values
-    HIGH = "high"    # >1000 distinct values
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+
+
+class ProfileHints(BaseModel):
+    """Lightweight profiler-only hints for downstream interpretation."""
+    is_identifier: bool = False
+    is_temporal: bool = False
+    is_audit: bool = False
+    is_measure: bool = False
+    is_dimension: bool = False
+    is_text: bool = False
 
 
 class ColumnProfile(BaseModel):
@@ -297,25 +306,29 @@ class ColumnProfile(BaseModel):
     entropy_normalized: float = Field(..., ge=0, le=1)
     cardinality_class: Optional[CardinalityClass] = None
     
-    # Relational Role
-    relational_role: Optional[RelationalRole] = None
-    
     # PK Detection
     pk_candidate: bool
+    pk_score: float = Field(..., ge=0, le=1)
     pk_confidence: float = Field(..., ge=0, le=1)
     pk_evidence: Optional[PKEvidence] = None
-    
-    # FK Detection
-    fk_candidate: bool = False
-    fk_confidence: float = Field(default=0.0, ge=0, le=1)
-    fk_evidence: Optional[FKEvidence] = None
+    suppressed: bool = False
+    suppression_reasons: List[str] = Field(default_factory=list)
+
+    # Specialized profiles
+    temporal_pattern: Optional[Dict[str, Any]] = None
+    geo_profile: Optional[Dict[str, Any]] = None
+    audit_profile: Optional[Dict[str, Any]] = None
     
     # Quality
-    quality_flags: List[QualityFlag] = []
+    quality_flags: List[QualityFlag] = Field(default_factory=list)
     quality_score: float = Field(..., ge=0, le=1)
+    quality_breakdown: Dict[str, float] = Field(default_factory=dict)
     
     # Statistics
     statistics: ColumnStatistics
+
+    # Lightweight profiler hints
+    profile_hints: ProfileHints = Field(default_factory=ProfileHints)
     
     # Sample values (for debugging)
     sample_values: Optional[List[Any]] = None
@@ -331,10 +344,8 @@ class TableProfile(BaseModel):
     quality_score: float = Field(..., ge=0, le=1)
     
     # PK candidates
-    pk_candidates: List[str] = []
-    
-    # FK candidates
-    fk_candidates: List[str] = []
+    pk_candidates: List[str] = Field(default_factory=list)
+    composite_pk_candidates: List[List[str]] = Field(default_factory=list)
     
     # Quality summary
     total_quality_flags: int

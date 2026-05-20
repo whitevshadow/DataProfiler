@@ -1,25 +1,30 @@
 {
-  "profile_id": "prof_application_people_20260518130907",
+  "profile_id": "prof_application_people_20260520162445",
   "table_name": "application_people",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.328836",
+    "profiled_at": "2026-05-20T16:24:45.800277",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 41.199445724487305,
+    "execution_time_ms": 5305.165767669678,
     "sample_based": true,
-    "sample_size": 100,
+    "sample_size": 1000,
     "canonical_table_id": "application_people"
   },
   "table_profile": {
-    "row_count_estimate": 100,
+    "row_count_estimate": 7646,
     "column_count": 21,
-    "completeness_score": 0.8614285714285714,
-    "quality_score": 0.8,
-    "pk_candidates": [],
-    "fk_candidates": [
+    "completeness_score": 0.7469825492320915,
+    "quality_score": 0.7463904761904763,
+    "pk_candidates": [
       "personid"
     ],
-    "total_quality_flags": 26,
-    "columns_with_issues": 15
+    "composite_pk_candidates": [
+      [
+        "personid",
+        "validfrom"
+      ]
+    ],
+    "total_quality_flags": 65,
+    "columns_with_issues": 21
   },
   "columns": [
     {
@@ -27,130 +32,198 @@
       "original_name": "PersonID",
       "position": 0,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.4092335861888569,
+      "entropy_normalized": 0.897789173660669,
       "cardinality_class": "medium",
-      "relational_role": "foreign_key",
       "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "pk_score": 0.8666256346038383,
+      "pk_confidence": 0.8666256346038383,
       "pk_evidence": {
-        "uniqueness_score": 1.0,
-        "non_null_score": 1.0,
-        "entropy_score": 1.0,
-        "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
-        "reasons": [
-          "All values are unique",
+        "pk_score": 0.8666256346038383,
+        "pk_candidate": true,
+        "pk_confidence": 0.8666256346038383,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
           "No null values",
-          "High entropy (low redundancy)",
-          "All 100 values are distinct"
+          "Owner identifier match: 'personid' owns 'application_people'",
+          "Integer/UUID identifier type"
         ],
-        "warnings": []
-      },
-      "fk_candidate": true,
-      "fk_confidence": 0.9,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "person",
-        "entity_mismatch_score": 1.0,
+        "negative_evidence": [
+          "Uniqueness only 40.9%"
+        ],
+        "uniqueness_score": 0.4092335861888569,
+        "non_null_score": 1.0,
+        "entropy_score": 0.897789173660669,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 1.0,
         "reasons": [
-          "FK pattern detected: references 'person' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: person",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
+          "No null values",
+          "Owner identifier match: 'personid' owns 'application_people'",
+          "Integer/UUID identifier type"
         ],
         "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
+          "Uniqueness only 40.9%"
         ]
       },
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8818,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.4092,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 3129,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.590766413811143,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
+        "distinct_count": 3129,
+        "uniqueness_ratio": 0.4092335861888569,
+        "cardinality_ratio": 0.4092335861888569,
+        "duplicate_count": 4517,
+        "entropy": 11.58191979440785,
+        "entropy_normalized": 0.897789173660669,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 1.0,
-        "max_value": 1054.0,
-        "mean": 565.66,
-        "median": 1004.5,
-        "std_dev": 503.12500645586294,
-        "variance": 253134.77212121213,
+        "max_value": 5279.0,
+        "mean": 3275.8575725869737,
+        "median": 3505.0,
+        "std_dev": 1348.1166802750843,
+        "variance": 1817418.583635914,
         "quantiles": {
-          "p25": 25.25,
-          "p50": 1004.5,
-          "p75": 1029.75,
-          "p90": 1044.1,
-          "p99": 1053.01
+          "p25": 2190.0,
+          "p50": 3505.0,
+          "p75": 4436.0,
+          "p90": 4897.0,
+          "p99": 5241.0
         },
-        "skewness": -0.1575203133404182,
-        "kurtosis": -1.9914974419378082,
+        "skewness": -0.4566494810058098,
+        "kurtosis": -0.8792541731253534,
         "top_values": [
           [
             "1",
-            1
-          ],
-          [
-            "2",
-            1
-          ],
-          [
-            "3",
-            1
-          ],
-          [
-            "4",
-            1
-          ],
-          [
-            "5",
-            1
-          ],
-          [
-            "6",
-            1
-          ],
-          [
-            "7",
-            1
-          ],
-          [
-            "8",
-            1
-          ],
-          [
-            "9",
-            1
+            3
           ],
           [
             "10",
-            1
+            3
+          ],
+          [
+            "1001",
+            3
+          ],
+          [
+            "1002",
+            3
+          ],
+          [
+            "1003",
+            3
+          ],
+          [
+            "1004",
+            3
+          ],
+          [
+            "1005",
+            3
+          ],
+          [
+            "1006",
+            3
+          ],
+          [
+            "1007",
+            3
+          ],
+          [
+            "1008",
+            3
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 3
+          },
+          {
+            "value": "10",
+            "frequency": 3
+          },
+          {
+            "value": "1001",
+            "frequency": 3
+          },
+          {
+            "value": "1002",
+            "frequency": 3
+          },
+          {
+            "value": "1003",
+            "frequency": 3
+          },
+          {
+            "value": "1004",
+            "frequency": 3
+          },
+          {
+            "value": "1005",
+            "frequency": 3
+          },
+          {
+            "value": "1006",
+            "frequency": 3
+          },
+          {
+            "value": "1007",
+            "frequency": 3
+          },
+          {
+            "value": "1008",
+            "frequency": 3
+          }
+        ],
+        "duplicate_density": 0.590766413811143
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10"
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ]
     },
     {
@@ -158,34 +231,79 @@
       "original_name": "FullName",
       "position": 1,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "name",
+      "logical_type": "description",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.1850640857964949,
+      "entropy_normalized": 0.8061868746530174,
+      "cardinality_class": "low",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'fullname'"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'fullname'",
+          "Uniqueness only 18.5%"
+        ],
+        "uniqueness_score": 0.1850640857964949,
+        "non_null_score": 1.0,
+        "entropy_score": 0.8061868746530174,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Semantically unstable descriptive field 'fullname'",
+          "Uniqueness only 18.5%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'fullname'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.837,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1851,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 1415,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8149359142035051,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 6,
-        "max_length": 20,
-        "avg_length": 13.08,
+        "distinct_count": 1415,
+        "uniqueness_ratio": 0.1850640857964949,
+        "cardinality_ratio": 0.1850640857964949,
+        "duplicate_count": 6231,
+        "entropy": 10.400205299272962,
+        "entropy_normalized": 0.8061868746530174,
+        "min_length": 5,
+        "max_length": 33,
+        "avg_length": 14.267198535181794,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -197,46 +315,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "Data Conversion Only",
-            1
-          ],
-          [
-            "Kayla Woodcock",
-            1
-          ],
-          [
-            "Hudson Onslow",
-            1
-          ],
-          [
-            "Isabella Rupp",
-            1
-          ],
-          [
-            "Eva Muirden",
-            1
-          ],
-          [
-            "Sophia Hinton",
-            1
-          ],
-          [
-            "Amy Trefl",
-            1
-          ],
-          [
-            "Anthony Grosse",
-            1
+            "Alessandro Milano",
+            9
           ],
           [
             "Alica Fatnowna",
-            1
+            9
           ],
           [
-            "Stella Rosenhain",
-            1
+            "Amornrat Rattanaporn",
+            9
+          ],
+          [
+            "Anjali Asthana",
+            9
+          ],
+          [
+            "Annette Talon",
+            9
+          ],
+          [
+            "Anthony Grosse",
+            9
+          ],
+          [
+            "Ashish Acharya",
+            9
+          ],
+          [
+            "Bharati Bhowmick",
+            9
+          ],
+          [
+            "Bill Lawson",
+            9
+          ],
+          [
+            "Biswajeet Thakur",
+            9
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Alessandro Milano",
+            "frequency": 9
+          },
+          {
+            "value": "Alica Fatnowna",
+            "frequency": 9
+          },
+          {
+            "value": "Amornrat Rattanaporn",
+            "frequency": 9
+          },
+          {
+            "value": "Anjali Asthana",
+            "frequency": 9
+          },
+          {
+            "value": "Annette Talon",
+            "frequency": 9
+          },
+          {
+            "value": "Anthony Grosse",
+            "frequency": 9
+          },
+          {
+            "value": "Ashish Acharya",
+            "frequency": 9
+          },
+          {
+            "value": "Bharati Bhowmick",
+            "frequency": 9
+          },
+          {
+            "value": "Bill Lawson",
+            "frequency": 9
+          },
+          {
+            "value": "Biswajeet Thakur",
+            "frequency": 9
+          }
+        ],
+        "duplicate_density": 0.8149359142035051
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "Data Conversion Only",
@@ -256,34 +425,79 @@
       "original_name": "PreferredName",
       "position": 2,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "name",
+      "logical_type": "description",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.96,
-      "entropy_normalized": 0.9879588001734428,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.11574679571017525,
+      "entropy_normalized": 0.7455683283164651,
+      "cardinality_class": "low",
       "pk_candidate": false,
-      "pk_confidence": 0.5701938200260164,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'preferredname'"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'preferredname'",
+          "Uniqueness only 11.6%"
+        ],
+        "uniqueness_score": 0.11574679571017525,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7455683283164651,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Semantically unstable descriptive field 'preferredname'",
+          "Uniqueness only 11.6%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'preferredname'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8231,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1157,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 885,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8842532042898248,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 96,
-        "uniqueness_ratio": 0.96,
-        "cardinality_ratio": 0.96,
-        "duplicate_count": 4,
-        "entropy": 6.5638561897747385,
-        "entropy_normalized": 0.9879588001734428,
-        "min_length": 3,
+        "distinct_count": 885,
+        "uniqueness_ratio": 0.11574679571017525,
+        "cardinality_ratio": 0.11574679571017525,
+        "duplicate_count": 6761,
+        "entropy": 9.618196379672307,
+        "entropy_normalized": 0.7455683283164651,
+        "min_length": 2,
         "max_length": 20,
-        "avg_length": 5.99,
+        "avg_length": 6.102929636411195,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -295,46 +509,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "Hudson",
-            2
+            "Dhanishta",
+            44
           ],
           [
-            "Helen",
-            2
+            "Daniela",
+            40
           ],
           [
-            "Donald",
-            2
+            "Nils",
+            29
           ],
           [
-            "Paula",
-            2
+            "David",
+            25
           ],
           [
-            "Data Conversion Only",
-            1
+            "Bharat",
+            24
           ],
           [
-            "Kayla",
-            1
+            "Duleep",
+            24
           ],
           [
-            "Isabella",
-            1
+            "Karie",
+            24
           ],
           [
-            "Eva",
-            1
+            "Leyla",
+            24
           ],
           [
-            "Sophia",
-            1
+            "Sara",
+            24
           ],
           [
-            "Amy",
-            1
+            "Abel",
+            22
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Dhanishta",
+            "frequency": 44
+          },
+          {
+            "value": "Daniela",
+            "frequency": 40
+          },
+          {
+            "value": "Nils",
+            "frequency": 29
+          },
+          {
+            "value": "David",
+            "frequency": 25
+          },
+          {
+            "value": "Bharat",
+            "frequency": 24
+          },
+          {
+            "value": "Duleep",
+            "frequency": 24
+          },
+          {
+            "value": "Karie",
+            "frequency": 24
+          },
+          {
+            "value": "Leyla",
+            "frequency": 24
+          },
+          {
+            "value": "Sara",
+            "frequency": 24
+          },
+          {
+            "value": "Abel",
+            "frequency": 22
+          }
+        ],
+        "duplicate_density": 0.8842532042898248
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "Data Conversion Only",
@@ -354,34 +619,79 @@
       "original_name": "SearchName",
       "position": 3,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "name",
+      "logical_type": "description",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.1850640857964949,
+      "entropy_normalized": 0.8061868746530187,
+      "cardinality_class": "low",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'searchname'"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'searchname'",
+          "Uniqueness only 18.5%"
+        ],
+        "uniqueness_score": 0.1850640857964949,
+        "non_null_score": 1.0,
+        "entropy_score": 0.8061868746530187,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Semantically unstable descriptive field 'searchname'",
+          "Uniqueness only 18.5%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'searchname'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.837,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1851,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 1415,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8149359142035051,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 10,
-        "max_length": 41,
-        "avg_length": 20.07,
+        "distinct_count": 1415,
+        "uniqueness_ratio": 0.1850640857964949,
+        "cardinality_ratio": 0.1850640857964949,
+        "duplicate_count": 6231,
+        "entropy": 10.40020529927298,
+        "entropy_normalized": 0.8061868746530187,
+        "min_length": 8,
+        "max_length": 49,
+        "avg_length": 21.370128171592988,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -393,46 +703,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "Data Conversion Only Data Conversion Only",
-            1
-          ],
-          [
-            "Kayla Kayla Woodcock",
-            1
-          ],
-          [
-            "Hudson Hudson Onslow",
-            1
-          ],
-          [
-            "Isabella Isabella Rupp",
-            1
-          ],
-          [
-            "Eva Eva Muirden",
-            1
-          ],
-          [
-            "Sophia Sophia Hinton",
-            1
-          ],
-          [
-            "Amy Amy Trefl",
-            1
-          ],
-          [
-            "Anthony Anthony Grosse",
-            1
+            "Alessandro Alessandro Milano",
+            9
           ],
           [
             "Alica Alica Fatnowna",
-            1
+            9
           ],
           [
-            "Stella Stella Rosenhain",
-            1
+            "Amornrat Amornrat Rattanaporn",
+            9
+          ],
+          [
+            "Anjali Anjali Asthana",
+            9
+          ],
+          [
+            "Annette Annette Talon",
+            9
+          ],
+          [
+            "Anthony Anthony Grosse",
+            9
+          ],
+          [
+            "Ashish Ashish Acharya",
+            9
+          ],
+          [
+            "Bharati Bharati Bhowmick",
+            9
+          ],
+          [
+            "Bill Bill Lawson",
+            9
+          ],
+          [
+            "Biswajeet Biswajeet Thakur",
+            9
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Alessandro Alessandro Milano",
+            "frequency": 9
+          },
+          {
+            "value": "Alica Alica Fatnowna",
+            "frequency": 9
+          },
+          {
+            "value": "Amornrat Amornrat Rattanaporn",
+            "frequency": 9
+          },
+          {
+            "value": "Anjali Anjali Asthana",
+            "frequency": 9
+          },
+          {
+            "value": "Annette Annette Talon",
+            "frequency": 9
+          },
+          {
+            "value": "Anthony Anthony Grosse",
+            "frequency": 9
+          },
+          {
+            "value": "Ashish Ashish Acharya",
+            "frequency": 9
+          },
+          {
+            "value": "Bharati Bharati Bhowmick",
+            "frequency": 9
+          },
+          {
+            "value": "Bill Bill Lawson",
+            "frequency": 9
+          },
+          {
+            "value": "Biswajeet Biswajeet Thakur",
+            "frequency": 9
+          }
+        ],
+        "duplicate_density": 0.8149359142035051
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "Data Conversion Only Data Conversion Only",
@@ -451,37 +812,87 @@
       "column_name": "ispermittedtologon",
       "original_name": "IsPermittedToLogon",
       "position": 4,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
-      "type_confidence": 0.9,
+      "type_confidence": 0.95,
       "completeness": 1.0,
-      "uniqueness": 0.02,
-      "entropy_normalized": 0.11160427299321411,
+      "uniqueness": 0.0002615746795710175,
+      "entropy_normalized": 0.04653312380085565,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.2657406409489821,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "low_cardinality"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Boolean/flag column pattern 'ispermittedtologon' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "negative_evidence": [
+          "Boolean/flag column pattern 'ispermittedtologon' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.05)"
+        ],
+        "uniqueness_score": 0.0002615746795710175,
+        "non_null_score": 1.0,
+        "entropy_score": 0.04653312380085565,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "warnings": [
+          "Boolean/flag column pattern 'ispermittedtologon' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.05)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Boolean/flag column pattern 'ispermittedtologon' - not a stable identifier"
       ],
-      "quality_score": 0.9,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "entropy_collapse",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0003,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.999738425320429,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
-        "uniqueness_ratio": 0.02,
-        "cardinality_ratio": 0.02,
-        "duplicate_count": 98,
-        "entropy": 0.7414827399312737,
-        "entropy_normalized": 0.11160427299321411,
-        "min_length": 4,
-        "max_length": 5,
-        "avg_length": 4.79,
+        "uniqueness_ratio": 0.0002615746795710175,
+        "cardinality_ratio": 0.0002615746795710175,
+        "duplicate_count": 7644,
+        "entropy": 0.6003000742894473,
+        "entropy_normalized": 0.04653312380085565,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -493,26 +904,45 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            79
+            "false",
+            6528
           ],
           [
-            "True",
-            21
+            "true",
+            1118
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 6528
+          },
+          {
+            "value": "true",
+            "frequency": 1118
+          }
+        ],
+        "duplicate_density": 0.999738425320429
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "True",
-        "True",
-        "True",
-        "False",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True"
+        false,
+        true,
+        true,
+        true,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true
       ]
     },
     {
@@ -520,34 +950,81 @@
       "original_name": "LogonName",
       "position": 5,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "name",
+      "logical_type": "description",
       "type_confidence": 0.9,
-      "completeness": 1.0,
-      "uniqueness": 0.24,
-      "entropy_normalized": 0.2737010708085944,
+      "completeness": 0.43709128956317034,
+      "uniqueness": 0.04877318970676242,
+      "entropy_normalized": 0.1437150958855429,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.1390551606212892,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'logonname'"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'logonname'",
+          "Uniqueness only 4.9%",
+          "Contains 4304 nulls (56.3%)",
+          "Low entropy (0.14)"
+        ],
+        "uniqueness_score": 0.04877318970676242,
+        "non_null_score": 0.43709128956317034,
+        "entropy_score": 0.1437150958855429,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Semantically unstable descriptive field 'logonname'",
+          "Uniqueness only 4.9%",
+          "Contains 4304 nulls (56.3%)",
+          "Low entropy (0.14)"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'logonname'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_null_ratio",
+        "high_missingness",
+        "high_duplication"
+      ],
+      "quality_score": 0.6409,
+      "quality_breakdown": {
+        "completeness": 0.4371,
+        "uniqueness": 0.0488,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
-        "distinct_count": 24,
-        "uniqueness_ratio": 0.24,
-        "cardinality_ratio": 0.24,
-        "duplicate_count": 76,
-        "entropy": 1.81843055343965,
-        "entropy_normalized": 0.2737010708085944,
+        "total_count": 7646,
+        "non_null_count": 3342,
+        "distinct_non_null_count": 163,
+        "coverage_ratio": 0.4370912895631703,
+        "duplicate_ratio": 0.9512268102932375,
+        "null_count": 4304,
+        "null_ratio": 0.5629087104368297,
+        "distinct_count": 163,
+        "uniqueness_ratio": 0.04877318970676242,
+        "cardinality_ratio": 0.02131833638503793,
+        "duplicate_count": 3179,
+        "entropy": 1.6824001977193899,
+        "entropy_normalized": 0.1437150958855429,
         "min_length": 8,
         "max_length": 32,
-        "avg_length": 12.76,
+        "avg_length": 10.098743267504489,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -560,45 +1037,96 @@
         "top_values": [
           [
             "NO LOGON",
-            77
+            2850
           ],
           [
-            "kaylaw@wideworldimporters.com",
-            1
+            "cezar@tailspintoys.com",
+            6
           ],
           [
-            "hudsono@wideworldimporters.com",
-            1
+            "david@example.com",
+            6
           ],
           [
-            "isabellar@wideworldimporters.com",
-            1
+            "aakarsha@tailspintoys.com",
+            3
           ],
           [
-            "evam@wideworldimporters.com",
-            1
+            "abhoy@tailspintoys.com",
+            3
           ],
           [
-            "sophiah@wideworldimporters.com",
-            1
+            "adriana@wingtiptoys.com",
+            3
           ],
           [
-            "amyt@wideworldimporters.com",
-            1
+            "adrijana@tailspintoys.com",
+            3
           ],
           [
-            "anthonyg@wideworldimporters.com",
-            1
+            "aet@wingtiptoys.com",
+            3
           ],
           [
-            "alicaf@wideworldimporters.com",
-            1
+            "agrita@example.com",
+            3
           ],
           [
-            "stellar@wideworldimporters.com",
-            1
+            "aino@tailspintoys.com",
+            3
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "NO LOGON",
+            "frequency": 2850
+          },
+          {
+            "value": "cezar@tailspintoys.com",
+            "frequency": 6
+          },
+          {
+            "value": "david@example.com",
+            "frequency": 6
+          },
+          {
+            "value": "aakarsha@tailspintoys.com",
+            "frequency": 3
+          },
+          {
+            "value": "abhoy@tailspintoys.com",
+            "frequency": 3
+          },
+          {
+            "value": "adriana@wingtiptoys.com",
+            "frequency": 3
+          },
+          {
+            "value": "adrijana@tailspintoys.com",
+            "frequency": 3
+          },
+          {
+            "value": "aet@wingtiptoys.com",
+            "frequency": 3
+          },
+          {
+            "value": "agrita@example.com",
+            "frequency": 3
+          },
+          {
+            "value": "aino@tailspintoys.com",
+            "frequency": 3
+          }
+        ],
+        "duplicate_density": 0.9512268102932375
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "NO LOGON",
@@ -617,39 +1145,96 @@
       "column_name": "isexternallogonprovider",
       "original_name": "IsExternalLogonProvider",
       "position": 6,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.00013078733978550875,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isexternallogonprovider' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isexternallogonprovider' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.00013078733978550875,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isexternallogonprovider' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Boolean/flag column pattern 'isexternallogonprovider' - not a stable identifier"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
+        "duplicate_explosion",
         "weak_identifier",
         "constant_column",
-        "low_cardinality"
+        "low_cardinality",
+        "high_duplication"
       ],
-      "quality_score": 0.5,
+      "quality_score": 0.8,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0001,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9998692126602144,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.00013078733978550875,
+        "cardinality_ratio": 0.00013078733978550875,
+        "duplicate_count": 7645,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
-        "min_length": 5,
-        "max_length": 5,
-        "avg_length": 5.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -661,22 +1246,37 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            100
+            "false",
+            7646
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 7646
+          }
+        ],
+        "duplicate_density": 0.9998692126602144
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False"
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
       ]
     },
     {
@@ -684,33 +1284,91 @@
       "original_name": "HashedPassword",
       "position": 7,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
-      "completeness": 0.22999999999999998,
-      "uniqueness": 0.01,
+      "completeness": 0.06434737117447031,
+      "uniqueness": 0.0020325203252032522,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'hashedpassword' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'hashedpassword' - not a stable identifier",
+          "Uniqueness only 0.2%",
+          "Contains 7154 nulls (93.6%)",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.0020325203252032522,
+        "non_null_score": 0.06434737117447031,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'hashedpassword' - not a stable identifier",
+          "Uniqueness only 0.2%",
+          "Contains 7154 nulls (93.6%)",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Boolean/flag column pattern 'hashedpassword' - not a stable identifier"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "high_null_ratio",
+        "duplicate_explosion",
         "constant_column",
-        "low_cardinality"
+        "low_cardinality",
+        "high_missingness",
+        "high_duplication"
       ],
-      "quality_score": 0.4,
+      "quality_score": 0.5197,
+      "quality_breakdown": {
+        "completeness": 0.0643,
+        "uniqueness": 0.002,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 77,
-        "null_ratio": 0.77,
+        "total_count": 7646,
+        "non_null_count": 492,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 0.06434737117447031,
+        "duplicate_ratio": 0.9979674796747967,
+        "null_count": 7154,
+        "null_ratio": 0.9356526288255297,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.043478260869565216,
-        "duplicate_count": 22,
+        "uniqueness_ratio": 0.0020325203252032522,
+        "cardinality_ratio": 0.00013078733978550875,
+        "duplicate_count": 491,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
         "min_length": 13,
@@ -728,12 +1386,27 @@
         "top_values": [
           [
             "System.Byte[]",
-            23
+            492
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "System.Byte[]",
+            "frequency": 492
+          }
+        ],
+        "duplicate_density": 0.9979674796747967
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
+        null,
         "System.Byte[]",
         "System.Byte[]",
         "System.Byte[]",
@@ -749,37 +1422,87 @@
       "column_name": "issystemuser",
       "original_name": "IsSystemUser",
       "position": 8,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
-      "type_confidence": 0.9,
+      "type_confidence": 0.95,
       "completeness": 1.0,
-      "uniqueness": 0.02,
-      "entropy_normalized": 0.1452168019515487,
+      "uniqueness": 0.0002615746795710175,
+      "entropy_normalized": 0.020520514484421166,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.2707825202927323,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "low_cardinality"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Boolean/flag column pattern 'issystemuser' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "negative_evidence": [
+          "Boolean/flag column pattern 'issystemuser' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.02)"
+        ],
+        "uniqueness_score": 0.0002615746795710175,
+        "non_null_score": 1.0,
+        "entropy_score": 0.020520514484421166,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "warnings": [
+          "Boolean/flag column pattern 'issystemuser' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.02)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Boolean/flag column pattern 'issystemuser' - not a stable identifier"
       ],
-      "quality_score": 0.9,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "entropy_collapse",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0003,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.999738425320429,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
-        "uniqueness_ratio": 0.02,
-        "cardinality_ratio": 0.02,
-        "duplicate_count": 98,
-        "entropy": 0.9647995485050872,
-        "entropy_normalized": 0.1452168019515487,
-        "min_length": 4,
-        "max_length": 5,
-        "avg_length": 4.61,
+        "uniqueness_ratio": 0.0002615746795710175,
+        "cardinality_ratio": 0.0002615746795710175,
+        "duplicate_count": 7644,
+        "entropy": 0.2647246813296724,
+        "entropy_normalized": 0.020520514484421166,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -791,63 +1514,132 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            61
+            "false",
+            7302
           ],
           [
-            "True",
-            39
+            "true",
+            344
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 7302
+          },
+          {
+            "value": "true",
+            "frequency": 344
+          }
+        ],
+        "duplicate_density": 0.999738425320429
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True"
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
       ]
     },
     {
       "column_name": "isemployee",
       "original_name": "IsEmployee",
       "position": 9,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
-      "type_confidence": 0.9,
+      "type_confidence": 0.95,
       "completeness": 1.0,
-      "uniqueness": 0.02,
-      "entropy_normalized": 0.1055819752636281,
+      "uniqueness": 0.0002615746795710175,
+      "entropy_normalized": 0.011532894724938179,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.2648372962895442,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "low_cardinality"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Boolean/flag column pattern 'isemployee' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "negative_evidence": [
+          "Boolean/flag column pattern 'isemployee' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.01)"
+        ],
+        "uniqueness_score": 0.0002615746795710175,
+        "non_null_score": 1.0,
+        "entropy_score": 0.011532894724938179,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "warnings": [
+          "Boolean/flag column pattern 'isemployee' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.01)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Boolean/flag column pattern 'isemployee' - not a stable identifier"
       ],
-      "quality_score": 0.9,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "entropy_collapse",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0003,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.999738425320429,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
-        "uniqueness_ratio": 0.02,
-        "cardinality_ratio": 0.02,
-        "duplicate_count": 98,
-        "entropy": 0.7014714598838974,
-        "entropy_normalized": 0.1055819752636281,
-        "min_length": 4,
-        "max_length": 5,
-        "avg_length": 4.81,
+        "uniqueness_ratio": 0.0002615746795710175,
+        "cardinality_ratio": 0.0002615746795710175,
+        "duplicate_count": 7644,
+        "entropy": 0.14877998712877,
+        "entropy_normalized": 0.011532894724938179,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -859,64 +1651,136 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            81
+            "false",
+            7483
           ],
           [
-            "True",
-            19
+            "true",
+            163
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 7483
+          },
+          {
+            "value": "true",
+            "frequency": 163
+          }
+        ],
+        "duplicate_density": 0.999738425320429
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True"
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
       ]
     },
     {
       "column_name": "issalesperson",
       "original_name": "IsSalesperson",
       "position": 10,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
-      "type_confidence": 0.9,
+      "type_confidence": 0.95,
       "completeness": 1.0,
-      "uniqueness": 0.02,
-      "entropy_normalized": 0.07059087075230382,
+      "uniqueness": 0.0002615746795710175,
+      "entropy_normalized": 0.006432891787713014,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.25958863061284565,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "entropy_collapse",
-        "low_cardinality"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0064)",
+          "Boolean/flag column pattern 'issalesperson' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0064)",
+          "Boolean/flag column pattern 'issalesperson' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.01)"
+        ],
+        "uniqueness_score": 0.0002615746795710175,
+        "non_null_score": 1.0,
+        "entropy_score": 0.006432891787713014,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type"
+        ],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0064)",
+          "Boolean/flag column pattern 'issalesperson' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.01)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0064)",
+        "Boolean/flag column pattern 'issalesperson' - not a stable identifier"
       ],
-      "quality_score": 0.8,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "zero_entropy",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.7601,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0003,
+        "consistency": 1.0,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.999738425320429,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
-        "uniqueness_ratio": 0.02,
-        "cardinality_ratio": 0.02,
-        "duplicate_count": 98,
-        "entropy": 0.4689955935892812,
-        "entropy_normalized": 0.07059087075230382,
-        "min_length": 4,
-        "max_length": 5,
-        "avg_length": 4.9,
+        "uniqueness_ratio": 0.0002615746795710175,
+        "cardinality_ratio": 0.0002615746795710175,
+        "duplicate_count": 7644,
+        "entropy": 0.08298745286447091,
+        "entropy_normalized": 0.006432891787713014,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -928,26 +1792,45 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            90
+            "false",
+            7567
           ],
           [
-            "True",
-            10
+            "true",
+            79
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 7567
+          },
+          {
+            "value": "true",
+            "frequency": 79
+          }
+        ],
+        "duplicate_density": 0.999738425320429
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "True",
-        "True",
-        "False",
-        "False",
-        "True",
-        "True",
-        "True",
-        "False",
-        "False"
+        false,
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        true,
+        false,
+        false
       ]
     },
     {
@@ -955,36 +1838,80 @@
       "original_name": "UserPreferences",
       "position": 11,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
-      "completeness": 0.48,
-      "uniqueness": 0.42,
-      "entropy_normalized": 0.9524210193125875,
+      "completeness": 0.14308134972534658,
+      "uniqueness": 0.05393053016453382,
+      "entropy_normalized": 0.5651372457639284,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.44186315289688816,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "high_null_ratio"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Boolean/flag column pattern 'userpreferences' - not a stable identifier"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Boolean/flag column pattern 'userpreferences' - not a stable identifier",
+          "Uniqueness only 5.4%",
+          "Contains 6552 nulls (85.7%)"
+        ],
+        "uniqueness_score": 0.05393053016453382,
+        "non_null_score": 0.14308134972534658,
+        "entropy_score": 0.5651372457639284,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Boolean/flag column pattern 'userpreferences' - not a stable identifier",
+          "Uniqueness only 5.4%",
+          "Contains 6552 nulls (85.7%)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Boolean/flag column pattern 'userpreferences' - not a stable identifier"
       ],
-      "quality_score": 0.8,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_null_ratio",
+        "duplicate_explosion",
+        "high_missingness",
+        "high_duplication"
+      ],
+      "quality_score": 0.5537,
+      "quality_breakdown": {
+        "completeness": 0.1431,
+        "uniqueness": 0.0539,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 52,
-        "null_ratio": 0.52,
-        "distinct_count": 42,
-        "uniqueness_ratio": 0.42,
-        "cardinality_ratio": 0.875,
-        "duplicate_count": 6,
-        "entropy": 5.319235677759421,
-        "entropy_normalized": 0.9524210193125875,
+        "total_count": 7646,
+        "non_null_count": 1094,
+        "distinct_non_null_count": 59,
+        "coverage_ratio": 0.14308134972534658,
+        "duplicate_ratio": 0.9460694698354661,
+        "null_count": 6552,
+        "null_ratio": 0.8569186502746534,
+        "distinct_count": 59,
+        "uniqueness_ratio": 0.05393053016453382,
+        "cardinality_ratio": 0.007716453047345017,
+        "duplicate_count": 1035,
+        "entropy": 5.705284868354349,
+        "entropy_normalized": 0.5651372457639284,
         "min_length": 136,
-        "max_length": 152,
-        "avg_length": 143.125,
+        "max_length": 154,
+        "avg_length": 142.75594149908594,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -996,46 +1923,97 @@
         "kurtosis": null,
         "top_values": [
           [
+            "{\"theme\":\"blitzer\",\"dateFormat\":\"yy-mm-dd\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
+            56
+          ],
+          [
+            "{\"theme\":\"ui-darkness\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
+            44
+          ],
+          [
             "{\"theme\":\"ui-darkness\",\"dateFormat\":\"yy-mm-dd\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
-            3
-          ],
-          [
-            "{\"theme\":\"ui-darkness\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
-            2
-          ],
-          [
-            "{\"theme\":\"ui-darkness\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple_numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
-            2
-          ],
-          [
-            "{\"theme\":\"ui-darkness\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
-            2
+            36
           ],
           [
             "{\"theme\":\"ui-darkness\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full\",\"pageLength\": 50},\"favoritesOnDashboard\":true}",
-            2
+            33
           ],
           [
-            "{\"theme\":\"blitzer\",\"dateFormat\":\"yy-mm-dd\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
-            1
+            "{\"theme\":\"ui-darkness\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full\",\"pageLength\": 50},\"favoritesOnDashboard\":true}",
+            31
           ],
           [
-            "{\"theme\":\"humanity\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full\",\"pageLength\": 50},\"favoritesOnDashboard\":true}",
-            1
+            "{\"theme\":\"le-frog\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple_numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
+            30
           ],
           [
-            "{\"theme\":\"dark-hive\",\"dateFormat\":\"DD, MM d, yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple_numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
-            1
+            "{\"theme\":\"ui-darkness\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple_numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
+            30
           ],
           [
-            "{\"theme\":\"le-frog\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
-            1
+            "{\"theme\":\"black-tie\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
+            28
           ],
           [
-            "{\"theme\":\"black-tie\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
-            1
+            "{\"theme\":\"black-tie\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full\",\"pageLength\": 50},\"favoritesOnDashboard\":true}",
+            28
+          ],
+          [
+            "{\"theme\":\"blitzer\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
+            28
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "{\"theme\":\"blitzer\",\"dateFormat\":\"yy-mm-dd\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
+            "frequency": 56
+          },
+          {
+            "value": "{\"theme\":\"ui-darkness\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
+            "frequency": 44
+          },
+          {
+            "value": "{\"theme\":\"ui-darkness\",\"dateFormat\":\"yy-mm-dd\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
+            "frequency": 36
+          },
+          {
+            "value": "{\"theme\":\"ui-darkness\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full\",\"pageLength\": 50},\"favoritesOnDashboard\":true}",
+            "frequency": 33
+          },
+          {
+            "value": "{\"theme\":\"ui-darkness\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full\",\"pageLength\": 50},\"favoritesOnDashboard\":true}",
+            "frequency": 31
+          },
+          {
+            "value": "{\"theme\":\"le-frog\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple_numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
+            "frequency": 30
+          },
+          {
+            "value": "{\"theme\":\"ui-darkness\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple_numbers\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
+            "frequency": 30
+          },
+          {
+            "value": "{\"theme\":\"black-tie\",\"dateFormat\":\"dd/mm/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"simple\",\"pageLength\": 10},\"favoritesOnDashboard\":true}",
+            "frequency": 28
+          },
+          {
+            "value": "{\"theme\":\"black-tie\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full\",\"pageLength\": 50},\"favoritesOnDashboard\":true}",
+            "frequency": 28
+          },
+          {
+            "value": "{\"theme\":\"blitzer\",\"dateFormat\":\"mm/dd/yy\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
+            "frequency": 28
+          }
+        ],
+        "duplicate_density": 0.9460694698354661
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "{\"theme\":\"blitzer\",\"dateFormat\":\"yy-mm-dd\",\"timeZone\": \"PST\",\"table\":{\"pagingType\":\"full_numbers\",\"pageLength\": 25},\"favoritesOnDashboard\":true}",
@@ -1055,36 +2033,81 @@
       "original_name": "PhoneNumber",
       "position": 12,
       "physical_type": "string",
-      "semantic_type": "phone",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.24875752027203768,
+      "entropy_normalized": 0.7462891461080655,
       "cardinality_class": "medium",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "pii_exposure_risk"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'phonenumber' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'phonenumber' - high mutability",
+          "Uniqueness only 24.9%"
+        ],
+        "uniqueness_score": 0.24875752027203768,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7462891461080655,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'phonenumber' - high mutability",
+          "Uniqueness only 24.9%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'phonenumber' - high mutability"
       ],
-      "quality_score": 0.85,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8498,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.2488,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 1902,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.7512424797279623,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 8,
-        "max_length": 8,
-        "avg_length": 8.0,
+        "distinct_count": 1902,
+        "uniqueness_ratio": 0.24875752027203768,
+        "cardinality_ratio": 0.24875752027203768,
+        "duplicate_count": 5744,
+        "entropy": 9.62749528201333,
+        "entropy_normalized": 0.7462891461080655,
+        "min_length": 7,
+        "max_length": 14,
+        "avg_length": 10.909233586188856,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1096,46 +2119,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "070-1001",
-            1
+            "(210) 555-0100",
+            198
           ],
           [
-            "070-1002",
-            1
+            "(215) 555-0100",
+            174
           ],
           [
-            "070-1003",
-            1
+            "(212) 555-0100",
+            150
           ],
           [
-            "070-1004",
-            1
+            "(209) 555-0100",
+            144
           ],
           [
-            "070-1005",
-            1
+            "(216) 555-0100",
+            102
           ],
           [
-            "070-1006",
-            1
+            "(239) 555-0100",
+            96
           ],
           [
-            "070-1007",
-            1
+            "(505) 555-0100",
+            93
           ],
           [
-            "070-1008",
-            1
+            "(303) 555-0100",
+            84
           ],
           [
-            "070-1009",
-            1
+            "(405) 555-0100",
+            84
           ],
           [
-            "070-1010",
-            1
+            "(217) 555-0100",
+            78
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "(210) 555-0100",
+            "frequency": 198
+          },
+          {
+            "value": "(215) 555-0100",
+            "frequency": 174
+          },
+          {
+            "value": "(212) 555-0100",
+            "frequency": 150
+          },
+          {
+            "value": "(209) 555-0100",
+            "frequency": 144
+          },
+          {
+            "value": "(216) 555-0100",
+            "frequency": 102
+          },
+          {
+            "value": "(239) 555-0100",
+            "frequency": 96
+          },
+          {
+            "value": "(505) 555-0100",
+            "frequency": 93
+          },
+          {
+            "value": "(303) 555-0100",
+            "frequency": 84
+          },
+          {
+            "value": "(405) 555-0100",
+            "frequency": 84
+          },
+          {
+            "value": "(217) 555-0100",
+            "frequency": 78
+          }
+        ],
+        "duplicate_density": 0.7512424797279623
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "070-1001",
@@ -1155,34 +2229,81 @@
       "original_name": "FaxNumber",
       "position": 13,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.24614177347632749,
+      "entropy_normalized": 0.745378863190176,
       "cardinality_class": "medium",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'faxnumber' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'faxnumber' - high mutability",
+          "Uniqueness only 24.6%"
+        ],
+        "uniqueness_score": 0.24614177347632749,
+        "non_null_score": 1.0,
+        "entropy_score": 0.745378863190176,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'faxnumber' - high mutability",
+          "Uniqueness only 24.6%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'faxnumber' - high mutability"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8492,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.2461,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 1882,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.7538582265236725,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 8,
-        "max_length": 8,
-        "avg_length": 8.0,
+        "distinct_count": 1882,
+        "uniqueness_ratio": 0.24614177347632749,
+        "cardinality_ratio": 0.24614177347632749,
+        "duplicate_count": 5764,
+        "entropy": 9.61575218680287,
+        "entropy_normalized": 0.745378863190176,
+        "min_length": 7,
+        "max_length": 14,
+        "avg_length": 10.909233586188856,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1194,46 +2315,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "070-1001",
-            1
+            "(210) 555-0101",
+            198
           ],
           [
-            "070-1002",
-            1
+            "(215) 555-0101",
+            174
           ],
           [
-            "070-1003",
-            1
+            "(212) 555-0101",
+            150
           ],
           [
-            "070-1004",
-            1
+            "(209) 555-0101",
+            144
           ],
           [
-            "070-1005",
-            1
+            "(216) 555-0101",
+            102
           ],
           [
-            "070-1006",
-            1
+            "(239) 555-0101",
+            96
           ],
           [
-            "070-1007",
-            1
+            "(505) 555-0101",
+            93
           ],
           [
-            "070-1008",
-            1
+            "(303) 555-0101",
+            84
           ],
           [
-            "070-1009",
-            1
+            "(405) 555-0101",
+            84
           ],
           [
-            "070-1010",
-            1
+            "(217) 555-0101",
+            78
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "(210) 555-0101",
+            "frequency": 198
+          },
+          {
+            "value": "(215) 555-0101",
+            "frequency": 174
+          },
+          {
+            "value": "(212) 555-0101",
+            "frequency": 150
+          },
+          {
+            "value": "(209) 555-0101",
+            "frequency": 144
+          },
+          {
+            "value": "(216) 555-0101",
+            "frequency": 102
+          },
+          {
+            "value": "(239) 555-0101",
+            "frequency": 96
+          },
+          {
+            "value": "(505) 555-0101",
+            "frequency": 93
+          },
+          {
+            "value": "(303) 555-0101",
+            "frequency": 84
+          },
+          {
+            "value": "(405) 555-0101",
+            "frequency": 84
+          },
+          {
+            "value": "(217) 555-0101",
+            "frequency": 78
+          }
+        ],
+        "duplicate_density": 0.7538582265236725
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "070-1001",
@@ -1253,36 +2425,79 @@
       "original_name": "EmailAddress",
       "position": 14,
       "physical_type": "string",
-      "semantic_type": "email",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.4206120847501962,
+      "entropy_normalized": 0.8981004539705241,
       "cardinality_class": "medium",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "pii_exposure_risk"
+      "pk_score": 0.018932462347091672,
+      "pk_confidence": 0.018932462347091672,
+      "pk_evidence": {
+        "pk_score": 0.018932462347091672,
+        "pk_candidate": false,
+        "pk_confidence": 0.018932462347091672,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'emailaddress' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'emailaddress' - high mutability",
+          "Uniqueness only 42.1%"
+        ],
+        "uniqueness_score": 0.4206120847501962,
+        "non_null_score": 1.0,
+        "entropy_score": 0.8981004539705241,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'emailaddress' - high mutability",
+          "Uniqueness only 42.1%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'emailaddress' - high mutability"
       ],
-      "quality_score": 0.85,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8841,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.4206,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 3216,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.5793879152498038,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 28,
-        "max_length": 30,
-        "avg_length": 28.92,
+        "distinct_count": 3216,
+        "uniqueness_ratio": 0.4206120847501962,
+        "cardinality_ratio": 0.4206120847501962,
+        "duplicate_count": 4430,
+        "entropy": 11.585935462771973,
+        "entropy_normalized": 0.8981004539705241,
+        "min_length": 14,
+        "max_length": 46,
+        "avg_length": 24.514778969395763,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1294,46 +2509,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "batch1_user1@updatedmail.com",
-            1
+            "daniela@wingtiptoys.com",
+            9
           ],
           [
-            "batch1_user2@updatedmail.com",
-            1
+            "david@example.com",
+            9
           ],
           [
-            "batch1_user3@updatedmail.com",
-            1
+            "abel@example.com",
+            6
           ],
           [
-            "batch1_user4@updatedmail.com",
-            1
+            "adirake@wingtiptoys.com",
+            6
           ],
           [
-            "batch1_user5@updatedmail.com",
-            1
+            "agrita@example.com",
+            6
           ],
           [
-            "batch1_user6@updatedmail.com",
-            1
+            "aija@tailspintoys.com",
+            6
           ],
           [
-            "batch1_user7@updatedmail.com",
-            1
+            "akanksha@tailspintoys.com",
+            6
           ],
           [
-            "batch1_user8@updatedmail.com",
-            1
+            "alejandro@wingtiptoys.com",
+            6
           ],
           [
-            "batch1_user9@updatedmail.com",
-            1
+            "angelina@wingtiptoys.com",
+            6
           ],
           [
-            "batch1_user10@updatedmail.com",
-            1
+            "anna@example.com",
+            6
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "daniela@wingtiptoys.com",
+            "frequency": 9
+          },
+          {
+            "value": "david@example.com",
+            "frequency": 9
+          },
+          {
+            "value": "abel@example.com",
+            "frequency": 6
+          },
+          {
+            "value": "adirake@wingtiptoys.com",
+            "frequency": 6
+          },
+          {
+            "value": "agrita@example.com",
+            "frequency": 6
+          },
+          {
+            "value": "aija@tailspintoys.com",
+            "frequency": 6
+          },
+          {
+            "value": "akanksha@tailspintoys.com",
+            "frequency": 6
+          },
+          {
+            "value": "alejandro@wingtiptoys.com",
+            "frequency": 6
+          },
+          {
+            "value": "angelina@wingtiptoys.com",
+            "frequency": 6
+          },
+          {
+            "value": "anna@example.com",
+            "frequency": 6
+          }
+        ],
+        "duplicate_density": 0.5793879152498038
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "batch1_user1@updatedmail.com",
@@ -1353,28 +2619,77 @@
       "original_name": "Photo",
       "position": 15,
       "physical_type": "unknown",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 7646 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 7646 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "duplicate_explosion",
+        "type_conflict",
+        "zero_entropy",
+        "low_cardinality",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 7646,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 7646,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -1393,19 +2708,29 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     },
     {
@@ -1413,36 +2738,80 @@
       "original_name": "CustomFields",
       "position": 16,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
-      "completeness": 0.18999999999999995,
-      "uniqueness": 0.19,
-      "entropy_normalized": 0.9999999999999996,
+      "completeness": 0.021056761705466887,
+      "uniqueness": 0.11801242236024845,
+      "entropy_normalized": 0.574369773950611,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.2729999999999999,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "high_null_ratio"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Boolean/flag column pattern 'customfields' - not a stable identifier"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Boolean/flag column pattern 'customfields' - not a stable identifier",
+          "Uniqueness only 11.8%",
+          "Contains 7485 nulls (97.9%)"
+        ],
+        "uniqueness_score": 0.11801242236024845,
+        "non_null_score": 0.021056761705466887,
+        "entropy_score": 0.574369773950611,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Boolean/flag column pattern 'customfields' - not a stable identifier",
+          "Uniqueness only 11.8%",
+          "Contains 7485 nulls (97.9%)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Boolean/flag column pattern 'customfields' - not a stable identifier"
       ],
-      "quality_score": 0.8,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_null_ratio",
+        "duplicate_explosion",
+        "high_missingness",
+        "high_duplication"
+      ],
+      "quality_score": 0.5299,
+      "quality_breakdown": {
+        "completeness": 0.0211,
+        "uniqueness": 0.118,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 81,
-        "null_ratio": 0.81,
+        "total_count": 7646,
+        "non_null_count": 161,
+        "distinct_non_null_count": 19,
+        "coverage_ratio": 0.02105676170546691,
+        "duplicate_ratio": 0.8819875776397516,
+        "null_count": 7485,
+        "null_ratio": 0.9789432382945331,
         "distinct_count": 19,
-        "uniqueness_ratio": 0.19,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 4.247927513443583,
-        "entropy_normalized": 0.9999999999999996,
+        "uniqueness_ratio": 0.11801242236024845,
+        "cardinality_ratio": 0.0024849594559246666,
+        "duplicate_count": 142,
+        "entropy": 4.210657070133411,
+        "entropy_normalized": 0.574369773950611,
         "min_length": 83,
         "max_length": 166,
-        "avg_length": 126.73684210526316,
+        "avg_length": 124.13664596273291,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1454,49 +2823,100 @@
         "kurtosis": null,
         "top_values": [
           [
-            "{ \"OtherLanguages\": [\"Polish\",\"Chinese\",\"Japanese\"] ,\"HireDate\":\"2008-04-19T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"Plains\",\"CommissionRate\":\"0.98\"}",
-            1
-          ],
-          [
-            "{ \"OtherLanguages\": [] ,\"HireDate\":\"2012-03-05T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"3.62\"}",
-            1
-          ],
-          [
-            "{ \"OtherLanguages\": [\"Turkish\",\"Slovenian\"] ,\"HireDate\":\"2010-08-24T00:00:00\",\"Title\":\"Team Member\"}",
-            1
-          ],
-          [
-            "{ \"OtherLanguages\": [\"Lithuanian\"] ,\"HireDate\":\"2012-01-22T00:00:00\",\"Title\":\"Team Member\"}",
-            1
-          ],
-          [
-            "{ \"OtherLanguages\": [\"Swedish\"] ,\"HireDate\":\"2007-05-14T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"Southeast\",\"CommissionRate\":\"4.55\"}",
-            1
-          ],
-          [
-            "{ \"OtherLanguages\": [\"Slovak\",\"Spanish\",\"Polish\"] ,\"HireDate\":\"2009-02-15T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"Southeast\",\"CommissionRate\":\"0.58\"}",
-            1
-          ],
-          [
             "{ \"OtherLanguages\": [\"Croatian\",\"Dutch\",\"Bokmål\"] ,\"HireDate\":\"2010-07-23T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"Mideast\",\"CommissionRate\":\"0.11\"}",
-            1
+            12
+          ],
+          [
+            "{ \"OtherLanguages\": [\"Greek\",\"Slovak\"] ,\"HireDate\":\"2009-03-18T00:00:00\",\"Title\":\"Team Member\"}",
+            12
           ],
           [
             "{ \"OtherLanguages\": [] ,\"HireDate\":\"2007-12-07T00:00:00\",\"Title\":\"General Manager\"}",
-            1
-          ],
-          [
-            "{ \"OtherLanguages\": [\"Dutch\",\"Finnish\",\"Lithuanian\"] ,\"HireDate\":\"2007-11-17T00:00:00\",\"Title\":\"Warehouse Supervisor\"}",
-            1
+            12
           ],
           [
             "{ \"OtherLanguages\": [] ,\"HireDate\":\"2011-12-17T00:00:00\",\"Title\":\"Warehouse Supervisor\"}",
-            1
+            12
+          ],
+          [
+            "{ \"OtherLanguages\": [\"Arabic\"] ,\"HireDate\":\"2009-05-29T00:00:00\",\"Title\":\"General Manager\",\"PrimarySalesTerritory\":\"Southeast\",\"CommissionRate\":\"3.97\"}",
+            9
+          ],
+          [
+            "{ \"OtherLanguages\": [\"Romanian\",\"Portuguese\"] ,\"HireDate\":\"2011-10-15T00:00:00\",\"Title\":\"Manager\"}",
+            9
+          ],
+          [
+            "{ \"OtherLanguages\": [\"Turkish\",\"Slovenian\"] ,\"HireDate\":\"2010-08-24T00:00:00\",\"Title\":\"Team Member\"}",
+            9
+          ],
+          [
+            "{ \"OtherLanguages\": [] ,\"HireDate\":\"2012-03-05T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"3.62\"}",
+            9
+          ],
+          [
+            "{ \"OtherLanguages\": [\"Arabic\",\"Greek\"] ,\"HireDate\":\"2009-03-14T00:00:00\",\"Title\":\"Manager\",\"PrimarySalesTerritory\":\"Far West\",\"CommissionRate\":\"2.29\"}",
+            7
+          ],
+          [
+            "{ \"OtherLanguages\": [\"Croatian\"] ,\"HireDate\":\"2010-11-27T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"0.24\"}",
+            7
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "{ \"OtherLanguages\": [\"Croatian\",\"Dutch\",\"Bokmål\"] ,\"HireDate\":\"2010-07-23T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"Mideast\",\"CommissionRate\":\"0.11\"}",
+            "frequency": 12
+          },
+          {
+            "value": "{ \"OtherLanguages\": [\"Greek\",\"Slovak\"] ,\"HireDate\":\"2009-03-18T00:00:00\",\"Title\":\"Team Member\"}",
+            "frequency": 12
+          },
+          {
+            "value": "{ \"OtherLanguages\": [] ,\"HireDate\":\"2007-12-07T00:00:00\",\"Title\":\"General Manager\"}",
+            "frequency": 12
+          },
+          {
+            "value": "{ \"OtherLanguages\": [] ,\"HireDate\":\"2011-12-17T00:00:00\",\"Title\":\"Warehouse Supervisor\"}",
+            "frequency": 12
+          },
+          {
+            "value": "{ \"OtherLanguages\": [\"Arabic\"] ,\"HireDate\":\"2009-05-29T00:00:00\",\"Title\":\"General Manager\",\"PrimarySalesTerritory\":\"Southeast\",\"CommissionRate\":\"3.97\"}",
+            "frequency": 9
+          },
+          {
+            "value": "{ \"OtherLanguages\": [\"Romanian\",\"Portuguese\"] ,\"HireDate\":\"2011-10-15T00:00:00\",\"Title\":\"Manager\"}",
+            "frequency": 9
+          },
+          {
+            "value": "{ \"OtherLanguages\": [\"Turkish\",\"Slovenian\"] ,\"HireDate\":\"2010-08-24T00:00:00\",\"Title\":\"Team Member\"}",
+            "frequency": 9
+          },
+          {
+            "value": "{ \"OtherLanguages\": [] ,\"HireDate\":\"2012-03-05T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"3.62\"}",
+            "frequency": 9
+          },
+          {
+            "value": "{ \"OtherLanguages\": [\"Arabic\",\"Greek\"] ,\"HireDate\":\"2009-03-14T00:00:00\",\"Title\":\"Manager\",\"PrimarySalesTerritory\":\"Far West\",\"CommissionRate\":\"2.29\"}",
+            "frequency": 7
+          },
+          {
+            "value": "{ \"OtherLanguages\": [\"Croatian\"] ,\"HireDate\":\"2010-11-27T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"0.24\"}",
+            "frequency": 7
+          }
+        ],
+        "duplicate_density": 0.8819875776397516
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
+        null,
         "{ \"OtherLanguages\": [\"Polish\",\"Chinese\",\"Japanese\"] ,\"HireDate\":\"2008-04-19T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"Plains\",\"CommissionRate\":\"0.98\"}",
         "{ \"OtherLanguages\": [] ,\"HireDate\":\"2012-03-05T00:00:00\",\"Title\":\"Team Member\",\"PrimarySalesTerritory\":\"New England\",\"CommissionRate\":\"3.62\"}",
         "{ \"OtherLanguages\": [\"Turkish\",\"Slovenian\"] ,\"HireDate\":\"2010-08-24T00:00:00\",\"Title\":\"Team Member\"}",
@@ -1513,36 +2933,80 @@
       "original_name": "OtherLanguages",
       "position": 17,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
-      "completeness": 0.18999999999999995,
-      "uniqueness": 0.17,
-      "entropy_normalized": 0.9410872157860569,
+      "completeness": 0.021056761705466887,
+      "uniqueness": 0.10559006211180125,
+      "entropy_normalized": 0.5303999653695608,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.2551630823679085,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "high_null_ratio"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Boolean/flag column pattern 'otherlanguages' - not a stable identifier"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Boolean/flag column pattern 'otherlanguages' - not a stable identifier",
+          "Uniqueness only 10.6%",
+          "Contains 7485 nulls (97.9%)"
+        ],
+        "uniqueness_score": 0.10559006211180125,
+        "non_null_score": 0.021056761705466887,
+        "entropy_score": 0.5303999653695608,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Boolean/flag column pattern 'otherlanguages' - not a stable identifier",
+          "Uniqueness only 10.6%",
+          "Contains 7485 nulls (97.9%)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Boolean/flag column pattern 'otherlanguages' - not a stable identifier"
       ],
-      "quality_score": 0.8,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_null_ratio",
+        "duplicate_explosion",
+        "high_missingness",
+        "high_duplication"
+      ],
+      "quality_score": 0.5274,
+      "quality_breakdown": {
+        "completeness": 0.0211,
+        "uniqueness": 0.1056,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 81,
-        "null_ratio": 0.81,
+        "total_count": 7646,
+        "non_null_count": 161,
+        "distinct_non_null_count": 17,
+        "coverage_ratio": 0.02105676170546691,
+        "duplicate_ratio": 0.8944099378881988,
+        "null_count": 7485,
+        "null_ratio": 0.9789432382945331,
         "distinct_count": 17,
-        "uniqueness_ratio": 0.17,
-        "cardinality_ratio": 0.8947368421052632,
-        "duplicate_count": 2,
-        "entropy": 3.9976702764876113,
-        "entropy_normalized": 0.9410872157860569,
+        "uniqueness_ratio": 0.10559006211180125,
+        "cardinality_ratio": 0.002223384776353649,
+        "duplicate_count": 144,
+        "entropy": 3.888318058279122,
+        "entropy_normalized": 0.5303999653695608,
         "min_length": 2,
         "max_length": 32,
-        "avg_length": 17.473684210526315,
+        "avg_length": 16.763975155279503,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1555,48 +3019,99 @@
         "top_values": [
           [
             "[]",
-            3
-          ],
-          [
-            "[\"Polish\",\"Chinese\",\"Japanese\"]",
-            1
-          ],
-          [
-            "[\"Turkish\",\"Slovenian\"]",
-            1
-          ],
-          [
-            "[\"Lithuanian\"]",
-            1
-          ],
-          [
-            "[\"Swedish\"]",
-            1
-          ],
-          [
-            "[\"Slovak\",\"Spanish\",\"Polish\"]",
-            1
+            33
           ],
           [
             "[\"Croatian\",\"Dutch\",\"Bokmål\"]",
-            1
-          ],
-          [
-            "[\"Dutch\",\"Finnish\",\"Lithuanian\"]",
-            1
+            12
           ],
           [
             "[\"Greek\",\"Slovak\"]",
-            1
+            12
+          ],
+          [
+            "[\"Arabic\"]",
+            9
+          ],
+          [
+            "[\"Romanian\",\"Portuguese\"]",
+            9
+          ],
+          [
+            "[\"Turkish\",\"Slovenian\"]",
+            9
+          ],
+          [
+            "[\"Arabic\",\"Greek\"]",
+            7
           ],
           [
             "[\"Croatian\"]",
-            1
+            7
+          ],
+          [
+            "[\"Dutch\",\"Finnish\",\"Lithuanian\"]",
+            7
+          ],
+          [
+            "[\"Estonian\",\"Romanian\"]",
+            7
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "[]",
+            "frequency": 33
+          },
+          {
+            "value": "[\"Croatian\",\"Dutch\",\"Bokmål\"]",
+            "frequency": 12
+          },
+          {
+            "value": "[\"Greek\",\"Slovak\"]",
+            "frequency": 12
+          },
+          {
+            "value": "[\"Arabic\"]",
+            "frequency": 9
+          },
+          {
+            "value": "[\"Romanian\",\"Portuguese\"]",
+            "frequency": 9
+          },
+          {
+            "value": "[\"Turkish\",\"Slovenian\"]",
+            "frequency": 9
+          },
+          {
+            "value": "[\"Arabic\",\"Greek\"]",
+            "frequency": 7
+          },
+          {
+            "value": "[\"Croatian\"]",
+            "frequency": 7
+          },
+          {
+            "value": "[\"Dutch\",\"Finnish\",\"Lithuanian\"]",
+            "frequency": 7
+          },
+          {
+            "value": "[\"Estonian\",\"Romanian\"]",
+            "frequency": 7
+          }
+        ],
+        "duplicate_density": 0.8944099378881988
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
+        null,
         "[\"Polish\",\"Chinese\",\"Japanese\"]",
         "[]",
         "[\"Turkish\",\"Slovenian\"]",
@@ -1614,31 +3129,96 @@
       "position": 18,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "audit",
-      "type_confidence": 0.9,
+      "logical_type": "audit_reference",
+      "type_confidence": 0.95,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.00013078733978550875,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "audit_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)",
+          "Audit field suppressed for PK scoring"
+        ],
+        "uniqueness_score": 0.00013078733978550875,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "System audit column pattern 'lasteditedby'",
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": {
+        "role": "user_reference",
+        "audit_type": "editor",
+        "system_generated": true
+      },
       "quality_flags": [
         "constant_column",
-        "low_cardinality"
+        "low_cardinality",
+        "high_duplication"
       ],
-      "quality_score": 0.6,
+      "quality_score": 0.8,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0001,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9998692126602144,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.00013078733978550875,
+        "cardinality_ratio": 0.00013078733978550875,
+        "duplicate_count": 7645,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
         "min_length": null,
@@ -1657,26 +3237,41 @@
           "p90": 1.0,
           "p99": 1.0
         },
-        "skewness": null,
-        "kurtosis": null,
+        "skewness": 0.0,
+        "kurtosis": -6.729892842946171e+16,
         "top_values": [
           [
             "1",
-            100
+            7646
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 7646
+          }
+        ],
+        "duplicate_density": 0.9998692126602144
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1"
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -1684,35 +3279,88 @@
       "original_name": "ValidFrom",
       "position": 19,
       "physical_type": "datetime",
-      "semantic_type": "temporal_start",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.0003923620193565263,
+      "entropy_normalized": 0.10991574783471497,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validfrom'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.11)"
+        ],
+        "uniqueness_score": 0.0003923620193565263,
+        "non_null_score": 1.0,
+        "entropy_score": 0.10991574783471497,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.11)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validfrom'"
       ],
-      "quality_score": 0.5,
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": false
+      },
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0004,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 3,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9996076379806434,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 3,
+        "uniqueness_ratio": 0.0003923620193565263,
+        "cardinality_ratio": 0.0003923620193565263,
+        "duplicate_count": 7643,
+        "entropy": 1.4179669491594775,
+        "entropy_normalized": 0.10991574783471497,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -1727,22 +3375,53 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-07-2016 00:00:00",
-            100
+            "2016-07-01 00:00:00",
+            3553
+          ],
+          [
+            "2016-08-01 00:00:00",
+            3129
+          ],
+          [
+            "2021-06-29 00:00:00",
+            964
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-07-01 00:00:00",
+            "frequency": 3553
+          },
+          {
+            "value": "2016-08-01 00:00:00",
+            "frequency": 3129
+          },
+          {
+            "value": "2021-06-29 00:00:00",
+            "frequency": 964
+          }
+        ],
+        "duplicate_density": 0.9996076379806434
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00"
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00"
       ]
     },
     {
@@ -1750,35 +3429,88 @@
       "original_name": "ValidTo",
       "position": 20,
       "physical_type": "datetime",
-      "semantic_type": "temporal_end",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.000523149359142035,
+      "entropy_normalized": 0.1289149263661734,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validto'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validto'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.13)"
+        ],
+        "uniqueness_score": 0.000523149359142035,
+        "non_null_score": 1.0,
+        "entropy_score": 0.1289149263661734,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validto'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.13)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validto'"
       ],
-      "quality_score": 0.5,
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": true
+      },
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0005,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 7646,
+        "non_null_count": 7646,
+        "distinct_non_null_count": 4,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.999476850640858,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 0.000523149359142035,
+        "cardinality_ratio": 0.000523149359142035,
+        "duplicate_count": 7642,
+        "entropy": 1.6630656520250533,
+        "entropy_normalized": 0.1289149263661734,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -1793,24 +3525,63 @@
         "kurtosis": null,
         "top_values": [
           [
-            "31-12-9999 00:00:00",
-            100
+            "2016-07-31 23:59:59",
+            3129
+          ],
+          [
+            "2016-08-31 23:59:59",
+            3129
+          ],
+          [
+            "2021-06-30 00:00:00",
+            964
+          ],
+          [
+            "9999-12-31 00:00:00",
+            424
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-07-31 23:59:59",
+            "frequency": 3129
+          },
+          {
+            "value": "2016-08-31 23:59:59",
+            "frequency": 3129
+          },
+          {
+            "value": "2021-06-30 00:00:00",
+            "frequency": 964
+          },
+          {
+            "value": "9999-12-31 00:00:00",
+            "frequency": 424
+          }
+        ],
+        "duplicate_density": 0.999476850640858
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00"
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00"
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\application_people.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\application_people.canonical.json"
 }

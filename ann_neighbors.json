@@ -1,0 +1,310 @@
+[
+  {
+    "fk_id": "Sales_OrderLines.packagetypeid",
+    "neighbors": [
+      {
+        "pk_id": "warehouse_packagetypes.packagetypeid",
+        "semantic_similarity": 0.6176371646767647
+      }
+    ]
+  },
+  {
+    "fk_id": "Sales_Customers.deliverymethodid",
+    "neighbors": [
+      {
+        "pk_id": "application_deliverymethods.deliverymethodid",
+        "semantic_similarity": 0.64956735678759
+      }
+    ]
+  },
+  {
+    "fk_id": "Sales_Customers.customercategoryid",
+    "neighbors": [
+      {
+        "pk_id": "sales_customercategories.customercategoryid",
+        "semantic_similarity": 0.6030633008462596
+      },
+      {
+        "pk_id": "Sales_Customers.customerid",
+        "semantic_similarity": 0.5799367451304414
+      }
+    ]
+  },
+  {
+    "fk_id": "warehouse_stockitems.supplierid",
+    "neighbors": [
+      {
+        "pk_id": "Purchasing_Suppliers.supplierid",
+        "semantic_similarity": 0.6065169044382056
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_purchaseorders.deliverymethodid",
+    "neighbors": [
+      {
+        "pk_id": "application_deliverymethods.deliverymethodid",
+        "semantic_similarity": 0.5826952292225587
+      }
+    ]
+  },
+  {
+    "fk_id": "Application_Cities.stateprovinceid",
+    "neighbors": [
+      {
+        "pk_id": "Application_StateProvinces.stateprovinceid",
+        "semantic_similarity": 0.5601228648808905
+      }
+    ]
+  },
+  {
+    "fk_id": "Sales_Customers.billtocustomerid",
+    "neighbors": [
+      {
+        "pk_id": "sales_customercategories.customercategoryid",
+        "semantic_similarity": 0.6789237807000136
+      },
+      {
+        "pk_id": "Sales_Customers.customerid",
+        "semantic_similarity": 0.6764814252025462
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_invoicelines.invoiceid",
+    "neighbors": [
+      {
+        "pk_id": "sales_invoices.invoiceid",
+        "semantic_similarity": 0.6676818844781723
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_purchaseorderlines.purchaseorderid",
+    "neighbors": [
+      {
+        "pk_id": "purchasing_purchaseorders.purchaseorderid",
+        "semantic_similarity": 0.6614427201120523
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_invoices.packedbypersonid",
+    "neighbors": [
+      {
+        "pk_id": "application_people.personid",
+        "semantic_similarity": 0.5291540297879526
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_specialdeals.stockgroupid",
+    "neighbors": [
+      {
+        "pk_id": "warehouse_stockitemstockgroups.stockitemstockgroupid",
+        "semantic_similarity": 0.6001482030404226
+      },
+      {
+        "pk_id": "warehouse_stockgroups.stockgroupid",
+        "semantic_similarity": 0.5979167725901406
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_invoices.salespersonpersonid",
+    "neighbors": [
+      {
+        "pk_id": "application_people.personid",
+        "semantic_similarity": 0.5495480703852018
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_customertransactions.transactiontypeid",
+    "neighbors": [
+      {
+        "pk_id": "application_transactiontypes.transactiontypeid",
+        "semantic_similarity": 0.6444444444444445
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_invoices.deliverymethodid",
+    "neighbors": [
+      {
+        "pk_id": "application_deliverymethods.deliverymethodid",
+        "semantic_similarity": 0.5757077330897981
+      }
+    ]
+  },
+  {
+    "fk_id": "warehouse_stockitemtransactions.transactiontypeid",
+    "neighbors": [
+      {
+        "pk_id": "application_transactiontypes.transactiontypeid",
+        "semantic_similarity": 0.5850101213699326
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_specialdeals.buyinggroupid",
+    "neighbors": [
+      {
+        "pk_id": "sales_buyinggroups.buyinggroupid",
+        "semantic_similarity": 0.7152738940235288
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_invoices.orderid",
+    "neighbors": [
+      {
+        "pk_id": "sales_orders.orderid",
+        "semantic_similarity": 0.7551020408163266
+      }
+    ]
+  },
+  {
+    "fk_id": "Purchasing_Suppliers.primarycontactpersonid",
+    "neighbors": [
+      {
+        "pk_id": "application_people.personid",
+        "semantic_similarity": 0.5097533568780935
+      }
+    ]
+  },
+  {
+    "fk_id": "Sales_OrderLines.orderid",
+    "neighbors": [
+      {
+        "pk_id": "sales_orders.orderid",
+        "semantic_similarity": 0.681468335999936
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_purchaseorders.supplierid",
+    "neighbors": [
+      {
+        "pk_id": "Purchasing_Suppliers.supplierid",
+        "semantic_similarity": 0.6190914904639279
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_purchaseorderlines.packagetypeid",
+    "neighbors": [
+      {
+        "pk_id": "warehouse_packagetypes.packagetypeid",
+        "semantic_similarity": 0.5798825193638245
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_suppliertransactions.paymentmethodid",
+    "neighbors": [
+      {
+        "pk_id": "application_paymentmethods.paymentmethodid",
+        "semantic_similarity": 0.5607721540920444
+      }
+    ]
+  },
+  {
+    "fk_id": "warehouse_stockitems.outerpackageid",
+    "neighbors": [
+      {
+        "pk_id": "warehouse_stockitems.stockitemid",
+        "semantic_similarity": 0.538689103670404
+      }
+    ]
+  },
+  {
+    "fk_id": "warehouse_stockitemstockgroups.stockitemid",
+    "neighbors": [
+      {
+        "pk_id": "warehouse_stockitemholdings.stockitemid",
+        "semantic_similarity": 0.7530181208460928
+      },
+      {
+        "pk_id": "warehouse_stockitems.stockitemid",
+        "semantic_similarity": 0.7449241729601817
+      }
+    ]
+  },
+  {
+    "fk_id": "warehouse_stockitemstockgroups.stockgroupid",
+    "neighbors": [
+      {
+        "pk_id": "warehouse_stockitemstockgroups.stockitemstockgroupid",
+        "semantic_similarity": 0.6062754572551409
+      },
+      {
+        "pk_id": "warehouse_stockgroups.stockgroupid",
+        "semantic_similarity": 0.5394109498457441
+      }
+    ]
+  },
+  {
+    "fk_id": "Purchasing_Suppliers.alternatecontactpersonid",
+    "neighbors": [
+      {
+        "pk_id": "application_people.personid",
+        "semantic_similarity": 0.4913777894236344
+      }
+    ]
+  },
+  {
+    "fk_id": "Purchasing_Suppliers.suppliercategoryid",
+    "neighbors": [
+      {
+        "pk_id": "purchasing_suppliercategories.suppliercategoryid",
+        "semantic_similarity": 0.6092185652735582
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_invoicelines.packagetypeid",
+    "neighbors": [
+      {
+        "pk_id": "warehouse_packagetypes.packagetypeid",
+        "semantic_similarity": 0.6167567121055948
+      }
+    ]
+  },
+  {
+    "fk_id": "sales_orders.salespersonpersonid",
+    "neighbors": [
+      {
+        "pk_id": "application_people.personid",
+        "semantic_similarity": 0.5448462751310045
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_suppliertransactions.transactiontypeid",
+    "neighbors": [
+      {
+        "pk_id": "application_transactiontypes.transactiontypeid",
+        "semantic_similarity": 0.6219146064997813
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_purchaseorders.contactpersonid",
+    "neighbors": [
+      {
+        "pk_id": "application_people.personid",
+        "semantic_similarity": 0.5931836841290252
+      }
+    ]
+  },
+  {
+    "fk_id": "purchasing_suppliertransactions.supplierid",
+    "neighbors": [
+      {
+        "pk_id": "Purchasing_Suppliers.supplierid",
+        "semantic_similarity": 0.6457962733644266
+      }
+    ]
+  }
+]

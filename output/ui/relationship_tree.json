@@ -1,0 +1,397 @@
+{
+  "application_deliverymethods": {
+    "children": [
+      {
+        "table": "purchasing_purchaseorders",
+        "via": "deliverymethodid"
+      },
+      {
+        "table": "Sales_Customers",
+        "via": "deliverymethodid"
+      },
+      {
+        "table": "sales_invoices",
+        "via": "deliverymethodid"
+      }
+    ],
+    "parents": []
+  },
+  "application_transactiontypes": {
+    "children": [
+      {
+        "table": "purchasing_suppliertransactions",
+        "via": "transactiontypeid"
+      },
+      {
+        "table": "sales_customertransactions",
+        "via": "transactiontypeid"
+      },
+      {
+        "table": "warehouse_stockitemtransactions",
+        "via": "transactiontypeid"
+      }
+    ],
+    "parents": []
+  },
+  "Application_StateProvinces": {
+    "children": [
+      {
+        "table": "Application_Cities",
+        "via": "stateprovinceid"
+      }
+    ],
+    "parents": [
+      {
+        "table": "Application_Countries",
+        "via": "countryid"
+      }
+    ]
+  },
+  "Application_Cities": {
+    "children": [],
+    "parents": [
+      {
+        "table": "Application_StateProvinces",
+        "via": "stateprovinceid"
+      }
+    ]
+  },
+  "Application_Countries": {
+    "children": [
+      {
+        "table": "Application_StateProvinces",
+        "via": "countryid"
+      }
+    ],
+    "parents": []
+  },
+  "application_paymentmethods": {
+    "children": [
+      {
+        "table": "purchasing_suppliertransactions",
+        "via": "paymentmethodid"
+      }
+    ],
+    "parents": []
+  },
+  "application_people": {
+    "children": [],
+    "parents": []
+  },
+  "Application_SystemParameters": {
+    "children": [],
+    "parents": []
+  },
+  "purchasing_suppliertransactions": {
+    "children": [],
+    "parents": [
+      {
+        "table": "application_paymentmethods",
+        "via": "paymentmethodid"
+      },
+      {
+        "table": "application_transactiontypes",
+        "via": "transactiontypeid"
+      },
+      {
+        "table": "Purchasing_Suppliers",
+        "via": "supplierid"
+      }
+    ]
+  },
+  "purchasing_purchaseorders": {
+    "children": [],
+    "parents": [
+      {
+        "table": "application_deliverymethods",
+        "via": "deliverymethodid"
+      },
+      {
+        "table": "Purchasing_Suppliers",
+        "via": "supplierid"
+      }
+    ]
+  },
+  "Purchasing_Suppliers": {
+    "children": [
+      {
+        "table": "purchasing_purchaseorders",
+        "via": "supplierid"
+      },
+      {
+        "table": "purchasing_suppliertransactions",
+        "via": "supplierid"
+      },
+      {
+        "table": "warehouse_stockitems",
+        "via": "supplierid"
+      }
+    ],
+    "parents": [
+      {
+        "table": "purchasing_suppliercategories",
+        "via": "suppliercategoryid"
+      }
+    ]
+  },
+  "purchasing_suppliercategories": {
+    "children": [
+      {
+        "table": "Purchasing_Suppliers",
+        "via": "suppliercategoryid"
+      }
+    ],
+    "parents": []
+  },
+  "purchasing_purchaseorderlines": {
+    "children": [],
+    "parents": [
+      {
+        "table": "warehouse_packagetypes",
+        "via": "packagetypeid"
+      },
+      {
+        "table": "warehouse_stockitems",
+        "via": "stockitemid"
+      }
+    ]
+  },
+  "Sales_Customers": {
+    "children": [
+      {
+        "table": "sales_customertransactions",
+        "via": "customerid"
+      },
+      {
+        "table": "sales_invoices",
+        "via": "customerid"
+      },
+      {
+        "table": "sales_orders",
+        "via": "customerid"
+      }
+    ],
+    "parents": [
+      {
+        "table": "application_deliverymethods",
+        "via": "deliverymethodid"
+      },
+      {
+        "table": "sales_customercategories",
+        "via": "customercategoryid"
+      }
+    ]
+  },
+  "sales_invoices": {
+    "children": [
+      {
+        "table": "sales_invoicelines",
+        "via": "invoiceid"
+      }
+    ],
+    "parents": [
+      {
+        "table": "application_deliverymethods",
+        "via": "deliverymethodid"
+      },
+      {
+        "table": "Sales_Customers",
+        "via": "customerid"
+      }
+    ]
+  },
+  "sales_customertransactions": {
+    "children": [],
+    "parents": [
+      {
+        "table": "application_transactiontypes",
+        "via": "transactiontypeid"
+      },
+      {
+        "table": "Sales_Customers",
+        "via": "customerid"
+      }
+    ]
+  },
+  "sales_specialdeals": {
+    "children": [],
+    "parents": [
+      {
+        "table": "sales_buyinggroups",
+        "via": "buyinggroupid"
+      },
+      {
+        "table": "warehouse_stockgroups",
+        "via": "stockgroupid"
+      }
+    ]
+  },
+  "sales_buyinggroups": {
+    "children": [
+      {
+        "table": "sales_specialdeals",
+        "via": "buyinggroupid"
+      }
+    ],
+    "parents": []
+  },
+  "sales_customercategories": {
+    "children": [
+      {
+        "table": "Sales_Customers",
+        "via": "customercategoryid"
+      }
+    ],
+    "parents": []
+  },
+  "sales_invoicelines": {
+    "children": [],
+    "parents": [
+      {
+        "table": "sales_invoices",
+        "via": "invoiceid"
+      },
+      {
+        "table": "warehouse_packagetypes",
+        "via": "packagetypeid"
+      },
+      {
+        "table": "warehouse_stockitems",
+        "via": "stockitemid"
+      }
+    ]
+  },
+  "sales_orders": {
+    "children": [],
+    "parents": [
+      {
+        "table": "Sales_Customers",
+        "via": "customerid"
+      }
+    ]
+  },
+  "Sales_OrderLines": {
+    "children": [],
+    "parents": [
+      {
+        "table": "warehouse_packagetypes",
+        "via": "packagetypeid"
+      },
+      {
+        "table": "warehouse_stockitems",
+        "via": "stockitemid"
+      }
+    ]
+  },
+  "warehouse_stockitems": {
+    "children": [
+      {
+        "table": "purchasing_purchaseorderlines",
+        "via": "stockitemid"
+      },
+      {
+        "table": "sales_invoicelines",
+        "via": "stockitemid"
+      },
+      {
+        "table": "Sales_OrderLines",
+        "via": "stockitemid"
+      },
+      {
+        "table": "warehouse_stockitemholdings",
+        "via": "stockitemid"
+      },
+      {
+        "table": "warehouse_stockitemstockgroups",
+        "via": "stockitemid"
+      },
+      {
+        "table": "warehouse_stockitemtransactions",
+        "via": "stockitemid"
+      }
+    ],
+    "parents": [
+      {
+        "table": "Purchasing_Suppliers",
+        "via": "supplierid"
+      }
+    ]
+  },
+  "warehouse_packagetypes": {
+    "children": [
+      {
+        "table": "purchasing_purchaseorderlines",
+        "via": "packagetypeid"
+      },
+      {
+        "table": "sales_invoicelines",
+        "via": "packagetypeid"
+      },
+      {
+        "table": "Sales_OrderLines",
+        "via": "packagetypeid"
+      }
+    ],
+    "parents": []
+  },
+  "warehouse_stockgroups": {
+    "children": [
+      {
+        "table": "sales_specialdeals",
+        "via": "stockgroupid"
+      },
+      {
+        "table": "warehouse_stockitemstockgroups",
+        "via": "stockgroupid"
+      }
+    ],
+    "parents": []
+  },
+  "warehouse_coldroomtemperatures": {
+    "children": [],
+    "parents": []
+  },
+  "warehouse_colors": {
+    "children": [],
+    "parents": []
+  },
+  "warehouse_stockitemstockgroups": {
+    "children": [],
+    "parents": [
+      {
+        "table": "warehouse_stockgroups",
+        "via": "stockgroupid"
+      },
+      {
+        "table": "warehouse_stockitems",
+        "via": "stockitemid"
+      }
+    ]
+  },
+  "warehouse_stockitemtransactions": {
+    "children": [],
+    "parents": [
+      {
+        "table": "application_transactiontypes",
+        "via": "transactiontypeid"
+      },
+      {
+        "table": "warehouse_stockitems",
+        "via": "stockitemid"
+      }
+    ]
+  },
+  "warehouse_stockitemholdings": {
+    "children": [],
+    "parents": [
+      {
+        "table": "warehouse_stockitems",
+        "via": "stockitemid"
+      }
+    ]
+  },
+  "warehouse_vehicletemperatures": {
+    "children": [],
+    "parents": []
+  }
+}

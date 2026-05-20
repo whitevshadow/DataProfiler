@@ -36,8 +36,18 @@ def create_mcp_server() -> FastMCP:
         return _json(services.profile_directory(path, sample_size, output_base, max_workers))
 
     @mcp.tool
+    def detect_relationships(output_base: str = "output") -> str:
+        """Detect semantic relationships from existing descriptions (Stage 4 only)."""
+        return _json(services.detect_relationships(output_base))
+
+    @mcp.tool
+    def enrich_descriptions(output_base: str = "output", max_workers: int = 5) -> str:
+        """Generate LLM semantic descriptions for columns (enrichment only, NO relationship detection)."""
+        return _json(services.enrich_descriptions(output_base, max_workers))
+
+    @mcp.tool
     def enrich_relationships(output_base: str = "output", max_workers: int = 5) -> str:
-        """Generate LLM descriptions and detect semantic relationships."""
+        """DEPRECATED: Use enrich_descriptions() + detect_relationships() separately. Kept for compatibility."""
         return _json(services.enrich_relationships(output_base, max_workers))
 
     @mcp.tool
@@ -79,6 +89,146 @@ def create_mcp_server() -> FastMCP:
     ) -> str:
         """Generate an interactive ERD HTML file from relationships.json."""
         return _json(services.generate_erd(relationships_path, output_dir))
+
+    @mcp.tool
+    def generate_er_visualizations(
+        relationships_path: str = "output/relationships/relationships.json",
+        output_base: str = "output",
+        mode: str = "full",
+        min_confidence: float = 0.5,
+        top_k: int | None = None,
+    ) -> str:
+        """Generate ER visualizations: DBML, draw.io, Mermaid, HTML, charts, and graph exports.
+        
+        Fully automatic ER diagram generation pipeline.
+        
+        Args:
+            relationships_path: Path to relationships.json (default: output/relationships/relationships.json)
+            output_base: Base output directory (default: output)
+            mode: Generation mode (default: full)
+                - "full": Generate all formats
+                - "dbml": DBDiagram DBML schema only
+                - "drawio": Draw.io XML files only
+                - "mermaid": Mermaid ERD only
+                - "html": Standalone HTML preview only
+                - "charts": PNG charts only
+                - "graph": Graph JSON only
+            min_confidence: Minimum relationship confidence (default: 0.5)
+            top_k: Max relationships to render (default: None = auto-computed)
+                Auto-scaling: < 50 tables → 50, 50-200 → 100, > 200 → 200, > 10k rels → 500
+        
+        User can simply say "Generate DB diagram" without any parameters.
+        """
+        return _json(
+            services.generate_er_visualizations(
+                relationships_path=relationships_path,
+                output_base=output_base,
+                mode=mode,
+                min_confidence=min_confidence,
+                top_k=top_k,
+            )
+        )
+
+    @mcp.tool
+    def build_diagram_state(
+        output_base: str = "output",
+        min_confidence: float = 0.5,
+        top_k: int | None = None,
+        relationship_classes: list[str] | None = None,
+    ) -> str:
+        """Build interactive diagram state JSON from existing outputs."""
+        return _json(
+            services.build_diagram_state(
+                output_base=output_base,
+                min_confidence=min_confidence,
+                top_k=top_k,
+                relationship_classes=relationship_classes,
+            )
+        )
+
+    @mcp.tool
+    def get_table_detail(
+        table_id: str,
+        output_base: str = "output",
+    ) -> str:
+        """Return table detail payload for the diagram explorer."""
+        return _json(services.get_table_detail(table_id, output_base))
+
+    @mcp.tool
+    def get_column_insights(
+        column_id: str,
+        output_base: str = "output",
+    ) -> str:
+        """Return column-level insight payload for hover cards."""
+        return _json(services.get_column_insight(column_id, output_base))
+
+    @mcp.tool
+    def get_relationship_details(
+        edge_id: str,
+        output_base: str = "output",
+    ) -> str:
+        """Return relationship detail payload for edge selection."""
+        return _json(services.get_relationship_detail(edge_id, output_base))
+
+    @mcp.tool
+    def export_dbml(
+        output_base: str = "output",
+        min_confidence: float = 0.5,
+        top_k: int | None = None,
+    ) -> str:
+        """Export DBML schema from TRUE_FK relationships."""
+        return _json(services.export_dbml(output_base, min_confidence, top_k))
+
+    @mcp.tool
+    def display_dbml(
+        dbml_path: str | None = None,
+        output_base: str = "output",
+    ) -> str:
+        """Display existing DBML schema in embedded viewer WITHOUT regeneration.
+        
+        Loads existing schema.dbml file and prepares it for inline chat rendering.
+        Does NOT regenerate the DBML - just loads and displays what already exists.
+        
+        Args:
+            dbml_path: Optional explicit DBML file path. If None, auto-detects from:
+                - output/erd/schema.dbml
+                - output/visualizations/schema.dbml
+            output_base: Base output directory (default: output)
+            
+        User can simply say "Display dbml" or "Show schema" without parameters.
+        
+        Example:
+            User: "Display dbml"
+            Agent: display_dbml()  # Auto-loads existing schema.dbml
+            Result: Embedded DBML viewer renders inline (no file path output)
+        """
+        return _json(services.display_dbml(dbml_path, output_base))
+
+    @mcp.tool
+    def dbml_web_renderer(
+        source_type: str = "text",
+        dbml_text: str | None = None,
+        file_path: str | None = None,
+        viewer_mode: str = "interactive",
+        layout: str = "auto",
+        options: dict[str, Any] | None = None,
+    ) -> str:
+        """Render DBML schemas into embeddable and interactive web ER views.
+
+        Supports DBML from raw text, file path, or URL.
+        Returns parsed schema metadata, relationships, HTML embed payload,
+        interactive graph model, and ReactFlow component scaffold.
+        """
+        return _json(
+            services.dbml_web_renderer(
+                source_type=source_type,
+                dbml_text=dbml_text,
+                file_path=file_path,
+                viewer_mode=viewer_mode,
+                layout=layout,
+                options=options,
+            )
+        )
 
     return mcp
 

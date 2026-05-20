@@ -16,7 +16,10 @@ from __future__ import annotations
 import logging
 from typing import Optional
 
-from file_profiler.connectors.base import BaseConnector, ConnectorError
+try:
+    from connector.base import BaseConnector, ConnectorError
+except ImportError:
+    from file_profiler.connectors.base import BaseConnector, ConnectorError
 
 log = logging.getLogger(__name__)
 
@@ -102,16 +105,31 @@ class ConnectorRegistry:
         """
         def _cloud(provider):
             def factory():
-                from file_profiler.connectors.cloud.cloud_storage import CloudStorageConnector
+                try:
+                    from connector.cloud.cloud_storage import CloudStorageConnector
+                except ImportError:
+                    from file_profiler.connectors.cloud.cloud_storage import CloudStorageConnector
                 return CloudStorageConnector(provider)
             return factory
 
         def _database(db_type):
             def factory():
-                from file_profiler.connectors.database.database import DatabaseConnector
+                try:
+                    from connector.database.database import DatabaseConnector
+                except ImportError:
+                    from file_profiler.connectors.database.database import DatabaseConnector
                 return DatabaseConnector(db_type)
             return factory
 
+        def _file():
+            try:
+                from connector.file.connect_file import FileConnector
+            except ImportError:
+                from file_profiler.connectors.file.connect_file import FileConnector
+            return FileConnector()
+
+        self.register_lazy("file", _file)
+        self.register_lazy("csv", _file)
         self.register_lazy("s3", _cloud("s3"))
         self.register_lazy("minio", _cloud("minio"))
         self.register_lazy("gs", _cloud("gcs"))

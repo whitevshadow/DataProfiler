@@ -1,29 +1,25 @@
 {
-  "profile_id": "prof_purchasing_purchaseorders_20260518130907",
+  "profile_id": "prof_purchasing_purchaseorders_20260520162450",
   "table_name": "purchasing_purchaseorders",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.364874",
+    "profiled_at": "2026-05-20T16:24:50.667888",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 38.779258728027344,
+    "execution_time_ms": 1052.7713298797607,
     "sample_based": true,
-    "sample_size": 100,
+    "sample_size": 233,
     "canonical_table_id": "purchasing_purchaseorders"
   },
   "table_profile": {
-    "row_count_estimate": 100,
+    "row_count_estimate": 233,
     "column_count": 12,
-    "completeness_score": 1.0,
-    "quality_score": 0.85,
+    "completeness_score": 0.8333333333333334,
+    "quality_score": 0.7943250000000001,
     "pk_candidates": [
       "purchaseorderid"
     ],
-    "fk_candidates": [
-      "supplierid",
-      "deliverymethodid",
-      "contactpersonid"
-    ],
-    "total_quality_flags": 12,
-    "columns_with_issues": 6
+    "composite_pk_candidates": [],
+    "total_quality_flags": 33,
+    "columns_with_issues": 11
   },
   "columns": [
     {
@@ -31,62 +27,94 @@
       "original_name": "PurchaseOrderID",
       "position": 0,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
+      "semantic_type": "identifier",
       "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "primary_key",
+      "cardinality_class": "high",
       "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "pk_score": 0.9950000000000001,
+      "pk_confidence": 0.9950000000000001,
       "pk_evidence": {
+        "pk_score": 0.9950000000000001,
+        "pk_candidate": true,
+        "pk_confidence": 0.9950000000000001,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Owner identifier match: 'purchaseorderid' owns 'purchasing_purchaseorders'",
+          "Integer/UUID identifier type",
+          "Consistent formatting",
+          "All 233 values are distinct"
+        ],
+        "negative_evidence": [],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
         "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
+        "name_pattern_score": 1.0,
         "reasons": [
           "All values are unique",
           "No null values",
           "High entropy (low redundancy)",
-          "All 100 values are distinct"
+          "Owner identifier match: 'purchaseorderid' owns 'purchasing_purchaseorders'",
+          "Integer/UUID identifier type",
+          "Consistent formatting",
+          "All 233 values are distinct"
         ],
         "warnings": []
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 233,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
+        "distinct_count": 233,
         "uniqueness_ratio": 1.0,
         "cardinality_ratio": 1.0,
         "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
+        "entropy": 7.86418614465428,
         "entropy_normalized": 1.0,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 2075.0,
-        "max_value": 2174.0,
-        "mean": 2124.5,
-        "median": 2124.5,
-        "std_dev": 29.011491975882016,
-        "variance": 841.6666666666666,
+        "max_value": 2307.0,
+        "mean": 2191.0,
+        "median": 2191.0,
+        "std_dev": 67.4054893907017,
+        "variance": 4543.5,
         "quantiles": {
-          "p25": 2099.25,
-          "p50": 2124.5,
-          "p75": 2149.75,
-          "p90": 2164.1,
-          "p99": 2173.01
+          "p25": 2133.0,
+          "p50": 2191.0,
+          "p75": 2249.0,
+          "p90": 2283.8,
+          "p99": 2304.6800000000003
         },
         "skewness": 0.0,
-        "kurtosis": -1.2360552475247524,
+        "kurtosis": -1.2000000008570832,
         "top_values": [
           [
             "2075",
@@ -128,19 +156,70 @@
             "2084",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2075",
+            "frequency": 1
+          },
+          {
+            "value": "2076",
+            "frequency": 1
+          },
+          {
+            "value": "2077",
+            "frequency": 1
+          },
+          {
+            "value": "2078",
+            "frequency": 1
+          },
+          {
+            "value": "2079",
+            "frequency": 1
+          },
+          {
+            "value": "2080",
+            "frequency": 1
+          },
+          {
+            "value": "2081",
+            "frequency": 1
+          },
+          {
+            "value": "2082",
+            "frequency": 1
+          },
+          {
+            "value": "2083",
+            "frequency": 1
+          },
+          {
+            "value": "2084",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "2075",
-        "2076",
-        "2077",
-        "2078",
-        "2079",
-        "2080",
-        "2081",
-        "2082",
-        "2083",
-        "2084"
+        2075,
+        2076,
+        2077,
+        2078,
+        2079,
+        2080,
+        2081,
+        2082,
+        2083,
+        2084
       ]
     },
     {
@@ -148,93 +227,176 @@
       "original_name": "SupplierID",
       "position": 1,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.04,
-      "entropy_normalized": 0.2603687769942209,
+      "uniqueness": 0.02575107296137339,
+      "entropy_normalized": 0.28632169970083426,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
-      "pk_confidence": 0.2970553165491332,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.8190553165491331,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "supplier",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'supplier' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: supplier",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "Moderate uniqueness (4.00%) - typical FK pattern"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'supplierid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'supplierid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'supplierid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK",
+          "Uniqueness only 2.6%",
+          "Low entropy (0.29)"
+        ],
+        "uniqueness_score": 0.02575107296137339,
+        "non_null_score": 1.0,
+        "entropy_score": 0.28632169970083426,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'supplierid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Non-root identifier 'supplierid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK",
+          "Uniqueness only 2.6%",
+          "Low entropy (0.29)"
+        ]
       },
-      "quality_flags": [
-        "weak_identifier"
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'supplierid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK"
       ],
-      "quality_score": 0.9,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8052,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0258,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 6,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9742489270386266,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 4,
-        "uniqueness_ratio": 0.04,
-        "cardinality_ratio": 0.04,
-        "duplicate_count": 96,
-        "entropy": 1.7298527106571293,
-        "entropy_normalized": 0.2603687769942209,
+        "distinct_count": 6,
+        "uniqueness_ratio": 0.02575107296137339,
+        "cardinality_ratio": 0.02575107296137339,
+        "duplicate_count": 227,
+        "entropy": 2.2516871437011643,
+        "entropy_normalized": 0.28632169970083426,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 1.0,
         "max_value": 12.0,
-        "mean": 4.33,
+        "mean": 4.931330472103005,
         "median": 4.0,
-        "std_dev": 2.748939189335891,
-        "variance": 7.556666666666667,
+        "std_dev": 3.5555331378891397,
+        "variance": 12.641815894627792,
         "quantiles": {
-          "p25": 1.0,
+          "p25": 2.0,
           "p50": 4.0,
           "p75": 7.0,
-          "p90": 7.0,
+          "p90": 12.0,
           "p99": 12.0
         },
-        "skewness": 0.42015360462974904,
-        "kurtosis": -0.2420232539364875,
+        "skewness": 0.7179248694497368,
+        "kurtosis": -0.4431104177784963,
         "top_values": [
           [
             "4",
-            34
+            61
           ],
           [
             "7",
-            33
+            61
           ],
           [
             "1",
-            30
+            57
           ],
           [
             "12",
-            3
+            31
+          ],
+          [
+            "2",
+            22
+          ],
+          [
+            "5",
+            1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "4",
+            "frequency": 61
+          },
+          {
+            "value": "7",
+            "frequency": 61
+          },
+          {
+            "value": "1",
+            "frequency": 57
+          },
+          {
+            "value": "12",
+            "frequency": 31
+          },
+          {
+            "value": "2",
+            "frequency": 22
+          },
+          {
+            "value": "5",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.9742489270386266
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "4",
-        "7",
-        "4",
-        "7",
-        "4",
-        "7",
-        "4",
-        "7",
-        "1",
-        "4"
+        4,
+        7,
+        4,
+        7,
+        4,
+        7,
+        4,
+        7,
+        1,
+        4
       ]
     },
     {
@@ -242,31 +404,72 @@
       "original_name": "OrderDate",
       "position": 2,
       "physical_type": "datetime",
-      "semantic_type": "timestamp",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.34,
-      "entropy_normalized": 0.762747611396455,
-      "cardinality_class": "low",
-      "relational_role": "temporal_field",
+      "uniqueness": 0.26180257510729615,
+      "entropy_normalized": 0.747352884067938,
+      "cardinality_class": "medium",
       "pk_candidate": false,
-      "pk_confidence": 0.5074121417094682,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.29209580342825303,
+      "pk_confidence": 0.29209580342825303,
+      "pk_evidence": {
+        "pk_score": 0.29209580342825303,
+        "pk_candidate": false,
+        "pk_confidence": 0.29209580342825303,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 26.2%"
+        ],
+        "uniqueness_score": 0.26180257510729615,
+        "non_null_score": 1.0,
+        "entropy_score": 0.747352884067938,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Uniqueness only 26.2%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8524,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.2618,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 61,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.7381974248927039,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 34,
-        "uniqueness_ratio": 0.34,
-        "cardinality_ratio": 0.34,
-        "duplicate_count": 66,
-        "entropy": 5.067585439212223,
-        "entropy_normalized": 0.762747611396455,
+        "distinct_count": 61,
+        "uniqueness_ratio": 0.26180257510729615,
+        "cardinality_ratio": 0.26180257510729615,
+        "duplicate_count": 172,
+        "entropy": 5.877322196054494,
+        "entropy_normalized": 0.747352884067938,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -281,58 +484,109 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-07-2016 00:00:00",
-            4
+            "2016-07-31 00:00:00",
+            6
           ],
           [
-            "02-07-2016 00:00:00",
-            4
+            "2016-07-10 00:00:00",
+            5
           ],
           [
-            "03-07-2016 00:00:00",
-            4
+            "2016-07-11 00:00:00",
+            5
           ],
           [
-            "05-06-2016 00:00:00",
-            3
+            "2016-07-12 00:00:00",
+            5
           ],
           [
-            "06-06-2016 00:00:00",
-            3
+            "2016-07-13 00:00:00",
+            5
           ],
           [
-            "07-06-2016 00:00:00",
-            3
+            "2016-07-14 00:00:00",
+            5
           ],
           [
-            "08-06-2016 00:00:00",
-            3
+            "2016-07-15 00:00:00",
+            5
           ],
           [
-            "09-06-2016 00:00:00",
-            3
+            "2016-07-16 00:00:00",
+            5
           ],
           [
-            "10-06-2016 00:00:00",
-            3
+            "2016-07-17 00:00:00",
+            5
           ],
           [
-            "11-06-2016 00:00:00",
-            3
+            "2016-07-18 00:00:00",
+            5
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-07-31 00:00:00",
+            "frequency": 6
+          },
+          {
+            "value": "2016-07-10 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-11 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-12 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-13 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-14 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-15 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-16 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-17 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-18 00:00:00",
+            "frequency": 5
+          }
+        ],
+        "duplicate_density": 0.7381974248927039
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-06-2016 00:00:00",
-        "01-06-2016 00:00:00",
-        "02-06-2016 00:00:00",
-        "02-06-2016 00:00:00",
-        "03-06-2016 00:00:00",
-        "03-06-2016 00:00:00",
-        "04-06-2016 00:00:00",
-        "04-06-2016 00:00:00",
-        "05-06-2016 00:00:00",
-        "05-06-2016 00:00:00"
+        "2016-06-01T00:00:00",
+        "2016-06-01T00:00:00",
+        "2016-06-02T00:00:00",
+        "2016-06-02T00:00:00",
+        "2016-06-03T00:00:00",
+        "2016-06-03T00:00:00",
+        "2016-06-04T00:00:00",
+        "2016-06-04T00:00:00",
+        "2016-06-05T00:00:00",
+        "2016-06-05T00:00:00"
       ]
     },
     {
@@ -340,86 +594,160 @@
       "original_name": "DeliveryMethodID",
       "position": 3,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.02,
-      "entropy_normalized": 0.1377101410153717,
+      "uniqueness": 0.017167381974248927,
+      "entropy_normalized": 0.1619864757337608,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
-      "pk_confidence": 0.26965652115230576,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.8006565211523058,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "deliverymethod",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'deliverymethod' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: deliverymethod",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "Moderate uniqueness (2.00%) - typical FK pattern"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'deliverymethodid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'deliverymethodid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'deliverymethodid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK",
+          "Uniqueness only 1.7%",
+          "Low entropy (0.16)"
+        ],
+        "uniqueness_score": 0.017167381974248927,
+        "non_null_score": 1.0,
+        "entropy_score": 0.1619864757337608,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'deliverymethodid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Non-root identifier 'deliverymethodid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK",
+          "Uniqueness only 1.7%",
+          "Low entropy (0.16)"
+        ]
       },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'deliverymethodid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "weak_identifier",
-        "low_cardinality"
+        "high_duplication"
       ],
-      "quality_score": 0.8,
+      "quality_score": 0.8034,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0172,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 4,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9828326180257511,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 2,
-        "uniqueness_ratio": 0.02,
-        "cardinality_ratio": 0.02,
-        "duplicate_count": 98,
-        "entropy": 0.9149263727797274,
-        "entropy_normalized": 0.1377101410153717,
+        "distinct_count": 4,
+        "uniqueness_ratio": 0.017167381974248927,
+        "cardinality_ratio": 0.017167381974248927,
+        "duplicate_count": 229,
+        "entropy": 1.2738917980868183,
+        "entropy_normalized": 0.1619864757337608,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 2.0,
-        "max_value": 7.0,
-        "mean": 5.35,
+        "max_value": 10.0,
+        "mean": 5.8927038626609445,
         "median": 7.0,
-        "std_dev": 2.3629078131263044,
-        "variance": 5.583333333333333,
+        "std_dev": 2.399997841743393,
+        "variance": 5.759989640372945,
         "quantiles": {
           "p25": 2.0,
           "p50": 7.0,
           "p75": 7.0,
           "p90": 7.0,
-          "p99": 7.0
+          "p99": 9.0
         },
-        "skewness": -0.712258002894012,
-        "kurtosis": -1.5074641791044785,
+        "skewness": -0.8386406499738633,
+        "kurtosis": -0.8305524696537959,
         "top_values": [
           [
             "7",
-            67
+            149
           ],
           [
             "2",
-            33
+            61
+          ],
+          [
+            "9",
+            22
+          ],
+          [
+            "10",
+            1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "7",
+            "frequency": 149
+          },
+          {
+            "value": "2",
+            "frequency": 61
+          },
+          {
+            "value": "9",
+            "frequency": 22
+          },
+          {
+            "value": "10",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.9828326180257511
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "7",
-        "2",
-        "7",
-        "2",
-        "7",
-        "2",
-        "7",
-        "2",
-        "7",
-        "7"
+        7,
+        2,
+        7,
+        2,
+        7,
+        2,
+        7,
+        2,
+        7,
+        7
       ]
     },
     {
@@ -427,45 +755,95 @@
       "original_name": "ContactPersonID",
       "position": 4,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.004291845493562232,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.78,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "contactperson",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'contactperson' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: contactperson",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "Moderate uniqueness (1.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'contactpersonid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'contactpersonid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'contactpersonid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK",
+          "Uniqueness only 0.4%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.004291845493562232,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'contactpersonid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'contactpersonid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK",
+          "Uniqueness only 0.4%",
+          "Low entropy (0.00)"
+        ]
       },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Non-root identifier 'contactpersonid' in table 'purchasing_purchaseorders' (root: 'purchaseorder') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
+        "duplicate_explosion",
         "weak_identifier",
         "constant_column",
-        "low_cardinality"
+        "low_cardinality",
+        "high_duplication",
+        "invalid_identifier"
       ],
-      "quality_score": 0.5,
+      "quality_score": 0.8009,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0043,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9957081545064378,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.004291845493562232,
+        "cardinality_ratio": 0.004291845493562232,
+        "duplicate_count": 232,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
         "min_length": null,
@@ -489,21 +867,36 @@
         "top_values": [
           [
             "2",
-            100
+            233
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2",
+            "frequency": 233
+          }
+        ],
+        "duplicate_density": 0.9957081545064378
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2",
-        "2"
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
       ]
     },
     {
@@ -511,31 +904,72 @@
       "original_name": "ExpectedDeliveryDate",
       "position": 5,
       "physical_type": "datetime",
-      "semantic_type": "timestamp",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.34,
-      "entropy_normalized": 0.762747611396455,
-      "cardinality_class": "low",
-      "relational_role": "temporal_field",
+      "uniqueness": 0.26180257510729615,
+      "entropy_normalized": 0.7473528840679381,
+      "cardinality_class": "medium",
       "pk_candidate": false,
-      "pk_confidence": 0.5074121417094682,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.29209580342825303,
+      "pk_confidence": 0.29209580342825303,
+      "pk_evidence": {
+        "pk_score": 0.29209580342825303,
+        "pk_candidate": false,
+        "pk_confidence": 0.29209580342825303,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 26.2%"
+        ],
+        "uniqueness_score": 0.26180257510729615,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7473528840679381,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Uniqueness only 26.2%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8524,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.2618,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 61,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.7381974248927039,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 34,
-        "uniqueness_ratio": 0.34,
-        "cardinality_ratio": 0.34,
-        "duplicate_count": 66,
-        "entropy": 5.067585439212223,
-        "entropy_normalized": 0.762747611396455,
+        "distinct_count": 61,
+        "uniqueness_ratio": 0.26180257510729615,
+        "cardinality_ratio": 0.26180257510729615,
+        "duplicate_count": 172,
+        "entropy": 5.877322196054495,
+        "entropy_normalized": 0.7473528840679381,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -550,58 +984,109 @@
         "kurtosis": null,
         "top_values": [
           [
-            "21-07-2016 00:00:00",
-            4
+            "2016-08-20 00:00:00",
+            6
           ],
           [
-            "22-07-2016 00:00:00",
-            4
+            "2016-07-30 00:00:00",
+            5
           ],
           [
-            "23-07-2016 00:00:00",
-            4
+            "2016-07-31 00:00:00",
+            5
           ],
           [
-            "25-06-2016 00:00:00",
-            3
+            "2016-08-01 00:00:00",
+            5
           ],
           [
-            "26-06-2016 00:00:00",
-            3
+            "2016-08-02 00:00:00",
+            5
           ],
           [
-            "27-06-2016 00:00:00",
-            3
+            "2016-08-03 00:00:00",
+            5
           ],
           [
-            "28-06-2016 00:00:00",
-            3
+            "2016-08-04 00:00:00",
+            5
           ],
           [
-            "29-06-2016 00:00:00",
-            3
+            "2016-08-05 00:00:00",
+            5
           ],
           [
-            "30-06-2016 00:00:00",
-            3
+            "2016-08-06 00:00:00",
+            5
           ],
           [
-            "01-07-2016 00:00:00",
-            3
+            "2016-08-07 00:00:00",
+            5
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-08-20 00:00:00",
+            "frequency": 6
+          },
+          {
+            "value": "2016-07-30 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-07-31 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-08-01 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-08-02 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-08-03 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-08-04 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-08-05 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-08-06 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2016-08-07 00:00:00",
+            "frequency": 5
+          }
+        ],
+        "duplicate_density": 0.7381974248927039
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "21-06-2016 00:00:00",
-        "21-06-2016 00:00:00",
-        "22-06-2016 00:00:00",
-        "22-06-2016 00:00:00",
-        "23-06-2016 00:00:00",
-        "23-06-2016 00:00:00",
-        "24-06-2016 00:00:00",
-        "24-06-2016 00:00:00",
-        "25-06-2016 00:00:00",
-        "25-06-2016 00:00:00"
+        "2016-06-21T00:00:00",
+        "2016-06-21T00:00:00",
+        "2016-06-22T00:00:00",
+        "2016-06-22T00:00:00",
+        "2016-06-23T00:00:00",
+        "2016-06-23T00:00:00",
+        "2016-06-24T00:00:00",
+        "2016-06-24T00:00:00",
+        "2016-06-25T00:00:00",
+        "2016-06-25T00:00:00"
       ]
     },
     {
@@ -609,34 +1094,75 @@
       "original_name": "SupplierReference",
       "position": 6,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.04,
-      "entropy_normalized": 0.2603687769942209,
+      "uniqueness": 0.02575107296137339,
+      "entropy_normalized": 0.28632169970083426,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.2970553165491332,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.17878238456235812,
+      "pk_confidence": 0.17878238456235812,
+      "pk_evidence": {
+        "pk_score": 0.17878238456235812,
+        "pk_candidate": false,
+        "pk_confidence": 0.17878238456235812,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 2.6%",
+          "Low entropy (0.29)"
+        ],
+        "uniqueness_score": 0.02575107296137339,
+        "non_null_score": 1.0,
+        "entropy_score": 0.28632169970083426,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Uniqueness only 2.6%",
+          "Low entropy (0.29)"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8052,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0258,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 6,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9742489270386266,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 4,
-        "uniqueness_ratio": 0.04,
-        "cardinality_ratio": 0.04,
-        "duplicate_count": 96,
-        "entropy": 1.7298527106571293,
-        "entropy_normalized": 0.2603687769942209,
+        "distinct_count": 6,
+        "uniqueness_ratio": 0.02575107296137339,
+        "cardinality_ratio": 0.02575107296137339,
+        "duplicate_count": 227,
+        "entropy": 2.2516871437011643,
+        "entropy_normalized": 0.28632169970083426,
         "min_length": 6,
         "max_length": 9,
-        "avg_length": 7.38,
+        "avg_length": 7.626609442060086,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -649,21 +1175,64 @@
         "top_values": [
           [
             "293092",
-            34
+            61
           ],
           [
             "BC0280982",
-            33
+            61
           ],
           [
             "AA20384",
-            30
+            57
           ],
           [
             "237408032",
-            3
+            31
+          ],
+          [
+            "B2084020",
+            22
+          ],
+          [
+            "08803922",
+            1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "293092",
+            "frequency": 61
+          },
+          {
+            "value": "BC0280982",
+            "frequency": 61
+          },
+          {
+            "value": "AA20384",
+            "frequency": 57
+          },
+          {
+            "value": "237408032",
+            "frequency": 31
+          },
+          {
+            "value": "B2084020",
+            "frequency": 22
+          },
+          {
+            "value": "08803922",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.9742489270386266
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "293092",
@@ -682,38 +1251,95 @@
       "column_name": "isorderfinalized",
       "original_name": "IsOrderFinalized",
       "position": 7,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.004291845493562232,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isorderfinalized' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isorderfinalized' - not a stable identifier",
+          "Uniqueness only 0.4%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.004291845493562232,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isorderfinalized' - not a stable identifier",
+          "Uniqueness only 0.4%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Boolean/flag column pattern 'isorderfinalized' - not a stable identifier"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "constant_column",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8009,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0043,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9957081545064378,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.004291845493562232,
+        "cardinality_ratio": 0.004291845493562232,
+        "duplicate_count": 232,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
-        "min_length": 4,
-        "max_length": 4,
-        "avg_length": 4.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -725,22 +1351,37 @@
         "kurtosis": null,
         "top_values": [
           [
-            "True",
-            100
+            "true",
+            233
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "true",
+            "frequency": 233
+          }
+        ],
+        "duplicate_density": 0.9957081545064378
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True",
-        "True"
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
       ]
     },
     {
@@ -748,28 +1389,77 @@
       "original_name": "Comments",
       "position": 8,
       "physical_type": "unknown",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "description",
+      "logical_type": "description",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 233 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 233 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "duplicate_explosion",
+        "type_conflict",
+        "zero_entropy",
+        "low_cardinality",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 233,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 233,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -788,19 +1478,29 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     },
     {
@@ -808,28 +1508,77 @@
       "original_name": "InternalComments",
       "position": 9,
       "physical_type": "unknown",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "description",
+      "logical_type": "description",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 233 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 233 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "duplicate_explosion",
+        "type_conflict",
+        "zero_entropy",
+        "low_cardinality",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 233,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 233,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -848,19 +1597,29 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     },
     {
@@ -869,102 +1628,211 @@
       "position": 10,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "audit",
-      "type_confidence": 0.9,
+      "logical_type": "audit_reference",
+      "type_confidence": 0.95,
       "completeness": 1.0,
-      "uniqueness": 0.14,
-      "entropy_normalized": 0.5209736994953783,
+      "uniqueness": 0.07296137339055794,
+      "entropy_normalized": 0.4832345872448653,
       "cardinality_class": "low",
-      "relational_role": "audit_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "System audit column pattern 'lasteditedby'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 7.3%",
+          "Low entropy (0.48)",
+          "Audit field suppressed for PK scoring"
+        ],
+        "uniqueness_score": 0.07296137339055794,
+        "non_null_score": 1.0,
+        "entropy_score": 0.4832345872448653,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type"
+        ],
+        "warnings": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 7.3%",
+          "Low entropy (0.48)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "System audit column pattern 'lasteditedby'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": {
+        "role": "user_reference",
+        "audit_type": "editor",
+        "system_generated": true
+      },
+      "quality_flags": [
+        "duplicate_expected",
+        "low_cardinality_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8146,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.073,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 17,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.927038626609442,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 14,
-        "uniqueness_ratio": 0.14,
-        "cardinality_ratio": 0.14,
-        "duplicate_count": 86,
-        "entropy": 3.4612743381022066,
-        "entropy_normalized": 0.5209736994953783,
+        "distinct_count": 17,
+        "uniqueness_ratio": 0.07296137339055794,
+        "cardinality_ratio": 0.07296137339055794,
+        "duplicate_count": 216,
+        "entropy": 3.800246745628799,
+        "entropy_normalized": 0.4832345872448653,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 2.0,
-        "max_value": 19.0,
-        "mean": 9.73,
+        "max_value": 20.0,
+        "mean": 9.59656652360515,
         "median": 8.0,
-        "std_dev": 4.47857977127535,
-        "variance": 20.057676767676767,
+        "std_dev": 5.3787886620289385,
+        "variance": 28.931367470771054,
         "quantiles": {
-          "p25": 7.0,
+          "p25": 6.0,
           "p50": 8.0,
-          "p75": 13.0,
-          "p90": 17.0,
-          "p99": 19.0
+          "p75": 14.0,
+          "p90": 18.0,
+          "p99": 20.0
         },
-        "skewness": 0.36662550007337646,
-        "kurtosis": -0.9218835895208852,
+        "skewness": 0.4696715298720841,
+        "kurtosis": -0.8480030033217887,
         "top_values": [
           [
             "7",
+            39
+          ],
+          [
+            "3",
+            24
+          ],
+          [
+            "8",
             21
+          ],
+          [
+            "14",
+            19
+          ],
+          [
+            "9",
+            18
+          ],
+          [
+            "20",
+            16
           ],
           [
             "13",
             15
           ],
           [
-            "8",
-            11
-          ],
-          [
-            "14",
-            9
-          ],
-          [
-            "6",
-            9
-          ],
-          [
             "4",
-            6
-          ],
-          [
-            "17",
-            6
-          ],
-          [
-            "12",
-            6
+            15
           ],
           [
             "2",
-            3
+            13
           ],
           [
-            "5",
-            3
+            "12",
+            11
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "7",
+            "frequency": 39
+          },
+          {
+            "value": "3",
+            "frequency": 24
+          },
+          {
+            "value": "8",
+            "frequency": 21
+          },
+          {
+            "value": "14",
+            "frequency": 19
+          },
+          {
+            "value": "9",
+            "frequency": 18
+          },
+          {
+            "value": "20",
+            "frequency": 16
+          },
+          {
+            "value": "13",
+            "frequency": 15
+          },
+          {
+            "value": "4",
+            "frequency": 15
+          },
+          {
+            "value": "2",
+            "frequency": 13
+          },
+          {
+            "value": "12",
+            "frequency": 11
+          }
+        ],
+        "duplicate_density": 0.927038626609442
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "8",
-        "8",
-        "8",
-        "8",
-        "8",
-        "8",
-        "8",
-        "8",
-        "8",
-        "8"
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
       ]
     },
     {
@@ -972,31 +1840,72 @@
       "original_name": "LastEditedWhen",
       "position": 11,
       "physical_type": "datetime",
-      "semantic_type": "timestamp",
-      "logical_type": "timestamp",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.24,
-      "entropy_normalized": 0.6533079540596962,
+      "uniqueness": 0.18454935622317598,
+      "entropy_normalized": 0.6567448983169207,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
-      "pk_confidence": 0.44599619310895444,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.2675843610763273,
+      "pk_confidence": 0.2675843610763273,
+      "pk_evidence": {
+        "pk_score": 0.2675843610763273,
+        "pk_candidate": false,
+        "pk_confidence": 0.2675843610763273,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 18.5%"
+        ],
+        "uniqueness_score": 0.18454935622317598,
+        "non_null_score": 1.0,
+        "entropy_score": 0.6567448983169207,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Uniqueness only 18.5%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8369,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1845,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 233,
+        "non_null_count": 233,
+        "distinct_non_null_count": 43,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8154506437768241,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 24,
-        "uniqueness_ratio": 0.24,
-        "cardinality_ratio": 0.24,
-        "duplicate_count": 76,
-        "entropy": 4.340484094408574,
-        "entropy_normalized": 0.6533079540596962,
+        "distinct_count": 43,
+        "uniqueness_ratio": 0.18454935622317598,
+        "cardinality_ratio": 0.18454935622317598,
+        "duplicate_count": 190,
+        "entropy": 5.164764129916312,
+        "entropy_normalized": 0.6567448983169207,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -1011,60 +1920,111 @@
         "kurtosis": null,
         "top_values": [
           [
-            "04-07-2016 07:00:00",
+            "2016-08-01 07:00:00",
+            16
+          ],
+          [
+            "2016-07-18 07:00:00",
+            15
+          ],
+          [
+            "2016-07-25 07:00:00",
+            15
+          ],
+          [
+            "2016-07-11 07:00:00",
+            13
+          ],
+          [
+            "2016-07-04 07:00:00",
             12
           ],
           [
-            "13-06-2016 07:00:00",
+            "2016-06-13 07:00:00",
             9
           ],
           [
-            "20-06-2016 07:00:00",
+            "2016-06-20 07:00:00",
             9
           ],
           [
-            "27-06-2016 07:00:00",
+            "2016-06-27 07:00:00",
             9
           ],
           [
-            "06-06-2016 07:00:00",
+            "2016-06-06 07:00:00",
             7
           ],
           [
-            "07-06-2016 07:00:00",
-            3
-          ],
-          [
-            "08-06-2016 07:00:00",
-            3
-          ],
-          [
-            "09-06-2016 07:00:00",
-            3
-          ],
-          [
-            "10-06-2016 07:00:00",
-            3
-          ],
-          [
-            "14-06-2016 07:00:00",
-            3
+            "2016-07-12 07:00:00",
+            5
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-08-01 07:00:00",
+            "frequency": 16
+          },
+          {
+            "value": "2016-07-18 07:00:00",
+            "frequency": 15
+          },
+          {
+            "value": "2016-07-25 07:00:00",
+            "frequency": 15
+          },
+          {
+            "value": "2016-07-11 07:00:00",
+            "frequency": 13
+          },
+          {
+            "value": "2016-07-04 07:00:00",
+            "frequency": 12
+          },
+          {
+            "value": "2016-06-13 07:00:00",
+            "frequency": 9
+          },
+          {
+            "value": "2016-06-20 07:00:00",
+            "frequency": 9
+          },
+          {
+            "value": "2016-06-27 07:00:00",
+            "frequency": 9
+          },
+          {
+            "value": "2016-06-06 07:00:00",
+            "frequency": 7
+          },
+          {
+            "value": "2016-07-12 07:00:00",
+            "frequency": 5
+          }
+        ],
+        "duplicate_density": 0.8154506437768241
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "02-06-2016 07:00:00",
-        "02-06-2016 07:00:00",
-        "03-06-2016 07:00:00",
-        "03-06-2016 07:00:00",
-        "06-06-2016 07:00:00",
-        "06-06-2016 07:00:00",
-        "06-06-2016 07:00:00",
-        "06-06-2016 07:00:00",
-        "06-06-2016 07:00:00",
-        "06-06-2016 07:00:00"
+        "2016-06-02T07:00:00",
+        "2016-06-02T07:00:00",
+        "2016-06-03T07:00:00",
+        "2016-06-03T07:00:00",
+        "2016-06-06T07:00:00",
+        "2016-06-06T07:00:00",
+        "2016-06-06T07:00:00",
+        "2016-06-06T07:00:00",
+        "2016-06-06T07:00:00",
+        "2016-06-06T07:00:00"
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\purchasing_purchaseorders.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\purchasing_purchaseorders.canonical.json"
 }

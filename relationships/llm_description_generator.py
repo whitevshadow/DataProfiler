@@ -451,7 +451,7 @@ Return ONLY valid JSON (no markdown, no explanations):
         Generate descriptions for all columns (parallel with rate limiting).
         """
         all_descriptions = []
-        total = sum(len(p["columns"]) for p in table_profiles.values())
+        total = sum(len((p or {}).get("columns") or []) for p in table_profiles.values())
         
         print(f"\n[LLM] Processing {total} columns across {len(table_profiles)} tables...")
         
@@ -460,13 +460,15 @@ Return ONLY valid JSON (no markdown, no explanations):
         # Collect tasks
         tasks = []
         for table_name, profile in table_profiles.items():
-            for col in profile.get("columns", []):
+            for col in (profile or {}).get("columns") or []:
+                sample_values = (col or {}).get("sample_values") or []
+                statistics = (col or {}).get("statistics") or {}
                 tasks.append({
                     "table_name": table_name,
-                    "column_name": col.get("column_name", "unknown"),
-                    "physical_type": col.get("physical_type", "UNKNOWN"),
-                    "sample_values": col.get("sample_values", [])[:10],
-                    "statistics": col.get("statistics", {}),
+                    "column_name": (col or {}).get("column_name", "unknown"),
+                    "physical_type": (col or {}).get("physical_type", "UNKNOWN"),
+                    "sample_values": sample_values[:10] if isinstance(sample_values, list) else [],
+                    "statistics": statistics if isinstance(statistics, dict) else {},
                 })
         
         # Process in parallel

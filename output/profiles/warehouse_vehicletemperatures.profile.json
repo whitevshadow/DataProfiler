@@ -1,27 +1,25 @@
 {
-  "profile_id": "prof_warehouse_vehicletemperatures_20260518130907",
+  "profile_id": "prof_warehouse_vehicletemperatures_20260520162712",
   "table_name": "warehouse_vehicletemperatures",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.570979",
+    "profiled_at": "2026-05-20T16:27:12.324450",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 27.086257934570312,
+    "execution_time_ms": 3689.251184463501,
     "sample_based": true,
-    "sample_size": 100,
+    "sample_size": 1000,
     "canonical_table_id": "warehouse_vehicletemperatures"
   },
   "table_profile": {
-    "row_count_estimate": 100,
+    "row_count_estimate": 26484,
     "column_count": 8,
-    "completeness_score": 1.0,
-    "quality_score": 0.85,
+    "completeness_score": 0.875,
+    "quality_score": 0.8351875,
     "pk_candidates": [
-      "vehicletemperatureid",
-      "temperature",
-      "recordedwhen"
+      "vehicletemperatureid"
     ],
-    "fk_candidates": [],
-    "total_quality_flags": 7,
-    "columns_with_issues": 4
+    "composite_pk_candidates": [],
+    "total_quality_flags": 20,
+    "columns_with_issues": 5
   },
   "columns": [
     {
@@ -29,116 +27,117 @@
       "original_name": "VehicleTemperatureID",
       "position": 0,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
+      "semantic_type": "identifier",
       "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "primary_key",
+      "cardinality_class": "high",
       "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "pk_score": 0.9950000000000001,
+      "pk_confidence": 0.9950000000000001,
       "pk_evidence": {
+        "pk_score": 0.9950000000000001,
+        "pk_candidate": true,
+        "pk_confidence": 0.9950000000000001,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Owner identifier match: 'vehicletemperatureid' owns 'warehouse_vehicletemperatures'",
+          "Integer/UUID identifier type",
+          "Consistent formatting",
+          "All 26484 values are distinct"
+        ],
+        "negative_evidence": [],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
         "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
+        "name_pattern_score": 1.0,
         "reasons": [
           "All values are unique",
           "No null values",
           "High entropy (low redundancy)",
-          "All 100 values are distinct"
+          "Owner identifier match: 'vehicletemperatureid' owns 'warehouse_vehicletemperatures'",
+          "Integer/UUID identifier type",
+          "Consistent formatting",
+          "All 26484 values are distinct"
         ],
         "warnings": []
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 26484,
+        "non_null_count": 26484,
+        "distinct_non_null_count": 26484,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
+        "distinct_count": 26484,
         "uniqueness_ratio": 1.0,
         "cardinality_ratio": 1.0,
         "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
+        "entropy": 14.692833415001322,
         "entropy_normalized": 1.0,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 78774.0,
-        "max_value": 79026.0,
-        "mean": 78921.38,
-        "median": 78951.0,
-        "std_dev": 82.62337331640374,
-        "variance": 6826.6218181818185,
+        "min_value": 65999.0,
+        "max_value": 92482.0,
+        "mean": 79240.5,
+        "median": 79240.5,
+        "std_dev": 7645.41660081387,
+        "variance": 58452395.00000031,
         "quantiles": {
-          "p25": 78836.5,
-          "p50": 78951.0,
-          "p75": 78990.75,
-          "p90": 79012.1,
-          "p99": 79025.01
+          "p25": 72619.75,
+          "p50": 79240.5,
+          "p75": 85861.25,
+          "p90": 89833.7,
+          "p99": 92217.17
         },
-        "skewness": -0.4707399041759221,
-        "kurtosis": -1.3587546289798116,
-        "top_values": [
-          [
-            "78925",
-            1
-          ],
-          [
-            "78926",
-            1
-          ],
-          [
-            "78928",
-            1
-          ],
-          [
-            "78929",
-            1
-          ],
-          [
-            "78935",
-            1
-          ],
-          [
-            "78936",
-            1
-          ],
-          [
-            "78938",
-            1
-          ],
-          [
-            "78939",
-            1
-          ],
-          [
-            "78942",
-            1
-          ],
-          [
-            "78944",
-            1
-          ]
-        ]
+        "skewness": -3.461163377230839e-13,
+        "kurtosis": -1.1999999999997586,
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "78925",
-        "78926",
-        "78928",
-        "78929",
-        "78935",
-        "78936",
-        "78938",
-        "78939",
-        "78942",
-        "78944"
+        78925,
+        78926,
+        78928,
+        78929,
+        78935,
+        78936,
+        78938,
+        78939,
+        78942,
+        78944
       ]
     },
     {
@@ -146,32 +145,85 @@
       "original_name": "VehicleRegistration",
       "position": 1,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.000037758646730101195,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.000037758646730101195,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "constant_column",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 26484,
+        "non_null_count": 26484,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9999622413532699,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.000037758646730101195,
+        "cardinality_ratio": 0.000037758646730101195,
+        "duplicate_count": 26483,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
         "min_length": 9,
@@ -189,9 +241,24 @@
         "top_values": [
           [
             "WWI-321-A",
-            100
+            26484
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "WWI-321-A",
+            "frequency": 26484
+          }
+        ],
+        "duplicate_density": 0.9999622413532699
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "WWI-321-A",
@@ -211,73 +278,138 @@
       "original_name": "ChillerSensorNumber",
       "position": 2,
       "physical_type": "integer",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.02,
-      "entropy_normalized": 0.14772353088318912,
+      "uniqueness": 0.00007551729346020239,
+      "entropy_normalized": 0.06806039187642608,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
-      "pk_confidence": 0.27115852963247844,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_score": 0.12182114264633466,
+      "pk_confidence": 0.12182114264633466,
+      "pk_evidence": {
+        "pk_score": 0.12182114264633466,
+        "pk_candidate": false,
+        "pk_confidence": 0.12182114264633466,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 0.0%",
+          "Low entropy (0.07)"
+        ],
+        "uniqueness_score": 0.00007551729346020239,
+        "non_null_score": 1.0,
+        "entropy_score": 0.06806039187642608,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Uniqueness only 0.0%",
+          "Low entropy (0.07)"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
-        "low_cardinality"
+        "duplicate_explosion",
+        "entropy_collapse",
+        "low_cardinality",
+        "high_duplication"
       ],
-      "quality_score": 0.9,
+      "quality_score": 0.8,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0001,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 26484,
+        "non_null_count": 26484,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9999244827065398,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
-        "uniqueness_ratio": 0.02,
-        "cardinality_ratio": 0.02,
-        "duplicate_count": 98,
-        "entropy": 0.9814538950336537,
-        "entropy_normalized": 0.14772353088318912,
+        "uniqueness_ratio": 0.00007551729346020239,
+        "cardinality_ratio": 0.00007551729346020239,
+        "duplicate_count": 26482,
+        "entropy": 1.0,
+        "entropy_normalized": 0.06806039187642608,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 1.0,
         "max_value": 2.0,
-        "mean": 1.58,
-        "median": 2.0,
-        "std_dev": 0.4960449637488582,
-        "variance": 0.24606060606060606,
+        "mean": 1.5,
+        "median": 1.5,
+        "std_dev": 0.5000094399290129,
+        "variance": 0.25000944001812514,
         "quantiles": {
           "p25": 1.0,
-          "p50": 2.0,
+          "p50": 1.5,
           "p75": 2.0,
           "p90": 2.0,
           "p99": 2.0
         },
-        "skewness": -0.31932589094926545,
-        "kurtosis": -1.9169009852216747,
+        "skewness": 0.0,
+        "kurtosis": -2.0001510516975136,
         "top_values": [
           [
-            "2",
-            58
+            "1",
+            13242
           ],
           [
-            "1",
-            42
+            "2",
+            13242
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 13242
+          },
+          {
+            "value": "2",
+            "frequency": 13242
+          }
+        ],
+        "duplicate_density": 0.9999244827065398
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "2",
-        "2",
-        "1",
-        "1",
-        "2",
-        "2",
-        "1",
-        "2",
-        "2"
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        1,
+        2,
+        2
       ]
     },
     {
@@ -285,44 +417,70 @@
       "original_name": "RecordedWhen",
       "position": 3,
       "physical_type": "datetime",
-      "semantic_type": "timestamp",
-      "logical_type": "identifier",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.75,
-      "entropy_normalized": 0.9247425010840061,
+      "uniqueness": 0.5,
+      "entropy_normalized": 0.9319396081235991,
       "cardinality_class": "medium",
-      "relational_role": "primary_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.7162113751626009,
+      "pk_candidate": false,
+      "pk_score": 0.3881939608123599,
+      "pk_confidence": 0.3881939608123599,
       "pk_evidence": {
-        "uniqueness_score": 0.75,
+        "pk_score": 0.3881939608123599,
+        "pk_candidate": false,
+        "pk_confidence": 0.3881939608123599,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 50.0%"
+        ],
+        "uniqueness_score": 0.5,
         "non_null_score": 1.0,
-        "entropy_score": 0.9247425010840061,
+        "entropy_score": 0.9319396081235991,
         "type_stability_score": 0.9,
         "name_pattern_score": 0.0,
         "reasons": [
-          "No null values"
+          "No null values",
+          "Consistent formatting"
         ],
         "warnings": [
-          "cardinality_threshold: FAILED",
-          "Uniqueness only 75.0%"
+          "Uniqueness only 50.0%"
         ]
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
-      "quality_score": 1.0,
+      "quality_score": 0.9,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.5,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 26484,
+        "non_null_count": 26484,
+        "distinct_non_null_count": 13242,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.5,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 75,
-        "uniqueness_ratio": 0.75,
-        "cardinality_ratio": 0.75,
-        "duplicate_count": 25,
-        "entropy": 6.143856189774734,
-        "entropy_normalized": 0.9247425010840061,
+        "distinct_count": 13242,
+        "uniqueness_ratio": 0.5,
+        "cardinality_ratio": 0.5,
+        "duplicate_count": 13242,
+        "entropy": 13.69283341500114,
+        "entropy_normalized": 0.9319396081235991,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -335,60 +493,29 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": [
-          [
-            "30-06-2016 13:57:30",
-            2
-          ],
-          [
-            "30-06-2016 14:08:50",
-            2
-          ],
-          [
-            "30-06-2016 14:19:44",
-            2
-          ],
-          [
-            "30-06-2016 14:23:43",
-            2
-          ],
-          [
-            "30-06-2016 14:36:31",
-            2
-          ],
-          [
-            "30-06-2016 14:39:07",
-            2
-          ],
-          [
-            "30-06-2016 14:43:09",
-            2
-          ],
-          [
-            "30-06-2016 14:47:58",
-            2
-          ],
-          [
-            "30-06-2016 14:55:43",
-            2
-          ],
-          [
-            "30-06-2016 14:59:02",
-            2
-          ]
-        ]
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.5
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "30-06-2016 13:57:30",
-        "30-06-2016 13:57:30",
-        "30-06-2016 14:00:33",
-        "30-06-2016 14:00:44",
-        "30-06-2016 14:08:50",
-        "30-06-2016 14:08:50",
-        "30-06-2016 14:09:17",
-        "30-06-2016 14:10:50",
-        "30-06-2016 14:12:50",
-        "30-06-2016 14:15:18"
+        "2016-06-30T13:57:30",
+        "2016-06-30T13:57:30",
+        "2016-06-30T14:00:33",
+        "2016-06-30T14:00:44",
+        "2016-06-30T14:08:50",
+        "2016-06-30T14:08:50",
+        "2016-06-30T14:09:17",
+        "2016-06-30T14:10:50",
+        "2016-06-30T14:12:50",
+        "2016-06-30T14:15:18"
       ]
     },
     {
@@ -396,116 +523,194 @@
       "original_name": "Temperature",
       "position": 4,
       "physical_type": "float",
-      "semantic_type": "numeric",
-      "logical_type": "identifier",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.82,
-      "entropy_normalized": 0.9424059440579392,
-      "cardinality_class": "medium",
-      "relational_role": "primary_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.7503608916086908,
+      "uniqueness": 0.00758948799275034,
+      "entropy_normalized": 0.5201574987396096,
+      "cardinality_class": "low",
+      "pk_candidate": false,
+      "pk_score": 0.24853364747251103,
+      "pk_confidence": 0.24853364747251103,
       "pk_evidence": {
-        "uniqueness_score": 0.82,
+        "pk_score": 0.24853364747251103,
+        "pk_candidate": false,
+        "pk_confidence": 0.24853364747251103,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 0.8%"
+        ],
+        "uniqueness_score": 0.00758948799275034,
         "non_null_score": 1.0,
-        "entropy_score": 0.9424059440579392,
+        "entropy_score": 0.5201574987396096,
         "type_stability_score": 0.9,
         "name_pattern_score": 0.0,
         "reasons": [
           "No null values"
         ],
         "warnings": [
-          "cardinality_threshold: FAILED",
-          "Uniqueness only 82.0%"
+          "Uniqueness only 0.8%"
         ]
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "high_duplication"
+      ],
+      "quality_score": 0.8015,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0076,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 26484,
+        "non_null_count": 26484,
+        "distinct_non_null_count": 201,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9924105120072496,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 82,
-        "uniqueness_ratio": 0.82,
-        "cardinality_ratio": 0.82,
-        "duplicate_count": 18,
-        "entropy": 6.261209564709832,
-        "entropy_normalized": 0.9424059440579392,
+        "distinct_count": 201,
+        "uniqueness_ratio": 0.00758948799275034,
+        "cardinality_ratio": 0.00758948799275034,
+        "duplicate_count": 26283,
+        "entropy": 7.642587478544557,
+        "entropy_normalized": 0.5201574987396096,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 3.01,
-        "max_value": 4.99,
-        "mean": 4.004,
-        "median": 4.015,
-        "std_dev": 0.5985335615004594,
-        "variance": 0.3582424242424243,
+        "min_value": 3.0,
+        "max_value": 5.0,
+        "mean": 4.007103534209341,
+        "median": 4.01,
+        "std_dev": 0.5771604876051059,
+        "variance": 0.3331142284525635,
         "quantiles": {
-          "p25": 3.4625,
-          "p50": 4.015,
-          "p75": 4.5175,
+          "p25": 3.51,
+          "p50": 4.01,
+          "p75": 4.51,
           "p90": 4.81,
-          "p99": 4.980100000000001
+          "p99": 4.98
         },
-        "skewness": -0.12293120967341471,
-        "kurtosis": -1.1847269849840818,
+        "skewness": -0.008250180285373105,
+        "kurtosis": -1.195581731802764,
         "top_values": [
           [
-            "4.02",
-            3
+            "3.8",
+            161
           ],
           [
-            "4.31",
-            3
+            "4.92",
+            161
           ],
           [
-            "3.07",
-            3
+            "3.28",
+            160
           ],
           [
-            "3.55",
-            2
+            "4.52",
+            160
           ],
           [
-            "4.81",
-            2
+            "4.57",
+            158
           ],
           [
-            "4.61",
-            2
+            "4.86",
+            158
           ],
           [
-            "3.84",
-            2
+            "4.85",
+            157
           ],
           [
-            "4.0",
-            2
+            "3.54",
+            156
           ],
           [
-            "4.23",
-            2
+            "3.04",
+            154
           ],
           [
-            "4.17",
-            2
+            "3.86",
+            154
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "3.8",
+            "frequency": 161
+          },
+          {
+            "value": "4.92",
+            "frequency": 161
+          },
+          {
+            "value": "3.28",
+            "frequency": 160
+          },
+          {
+            "value": "4.52",
+            "frequency": 160
+          },
+          {
+            "value": "4.57",
+            "frequency": 158
+          },
+          {
+            "value": "4.86",
+            "frequency": 158
+          },
+          {
+            "value": "4.85",
+            "frequency": 157
+          },
+          {
+            "value": "3.54",
+            "frequency": 156
+          },
+          {
+            "value": "3.04",
+            "frequency": 154
+          },
+          {
+            "value": "3.86",
+            "frequency": 154
+          }
+        ],
+        "duplicate_density": 0.9924105120072496
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "3.27",
-        "3.36",
-        "3.89",
-        "3.55",
-        "4.56",
-        "3.55",
-        "3.88",
-        "4.91",
-        "4.81",
-        "3.82"
+        3.27,
+        3.36,
+        3.89,
+        3.55,
+        4.56,
+        3.55,
+        3.88,
+        4.91,
+        4.81,
+        3.82
       ]
     },
     {
@@ -513,34 +718,83 @@
       "original_name": "FullSensorData",
       "position": 5,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Geospatial data detected in 'fullsensordata'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Consistent formatting",
+          "All 26484 values are distinct"
+        ],
+        "negative_evidence": [
+          "Geospatial data detected in 'fullsensordata'"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Consistent formatting",
+          "All 26484 values are distinct"
+        ],
+        "warnings": [
+          "Geospatial data detected in 'fullsensordata'"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Geospatial data detected in 'fullsensordata'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 26484,
+        "non_null_count": 26484,
+        "distinct_non_null_count": 26484,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
+        "distinct_count": 26484,
         "uniqueness_ratio": 1.0,
         "cardinality_ratio": 1.0,
         "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
+        "entropy": 14.692833415001168,
         "entropy_normalized": 1.0,
         "min_length": 195,
         "max_length": 196,
-        "avg_length": 195.65,
+        "avg_length": 195.56003624830086,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -550,48 +804,17 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": [
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-111.5162026,38.2690190] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T13:57:30\",\"temp\":3.27}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-120.3820540,62.8771943] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T13:57:30\",\"temp\":3.36}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-105.0801243,65.2163775] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:00:33\",\"temp\":3.89}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-110.0328919,66.2769055] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:00:44\",\"temp\":3.55}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-104.8131651,59.5290384] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:08:50\",\"temp\":4.56}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-106.8068992,41.0280215] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:08:50\",\"temp\":3.55}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-106.0463295,49.2609892] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:09:17\",\"temp\":3.88}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-116.0035301,66.7221081] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T14:10:50\",\"temp\":4.91}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-117.9786260,58.2370792] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:12:50\",\"temp\":4.81}} ]",
-            1
-          ],
-          [
-            "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-120.2544796,64.8276526] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"2,\"when\":\"2016-06-30T14:15:18\",\"temp\":3.82}} ]",
-            1
-          ]
-        ]
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "{\"Recordings\": [{\"type\":\"Feature\", \"geometry\": {\"type\":\"Point\", \"coordinates\":[-111.5162026,38.2690190] }, \"properties\":{\"rego\":\"WWI-321-A\",\"sensor\":\"1,\"when\":\"2016-06-30T13:57:30\",\"temp\":3.27}} ]",
@@ -610,38 +833,95 @@
       "column_name": "iscompressed",
       "original_name": "IsCompressed",
       "position": 6,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.000037758646730101195,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'iscompressed' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'iscompressed' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.000037758646730101195,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'iscompressed' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Boolean/flag column pattern 'iscompressed' - not a stable identifier"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "constant_column",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 26484,
+        "non_null_count": 26484,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9999622413532699,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.000037758646730101195,
+        "cardinality_ratio": 0.000037758646730101195,
+        "duplicate_count": 26483,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
-        "min_length": 5,
-        "max_length": 5,
-        "avg_length": 5.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -653,22 +933,37 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            100
+            "false",
+            26484
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 26484
+          }
+        ],
+        "duplicate_density": 0.9999622413532699
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False"
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
       ]
     },
     {
@@ -676,28 +971,77 @@
       "original_name": "CompressedSensorData",
       "position": 7,
       "physical_type": "unknown",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 26484 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 26484 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "duplicate_explosion",
+        "type_conflict",
+        "zero_entropy",
+        "low_cardinality",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 26484,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 26484,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -716,21 +1060,31 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\warehouse_vehicletemperatures.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\warehouse_vehicletemperatures.canonical.json"
 }

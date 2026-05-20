@@ -17,6 +17,7 @@ TOOL_WEIGHTS: dict[str, float] = {
     "get_quality_summary": 10,
     "get_table_relationships": 10,
     "generate_erd": 5,
+    "generate_er_visualizations": 15,
 }
 DEFAULT_TOOL_WEIGHT = 10
 BAR_WIDTH = 30
@@ -109,6 +110,7 @@ def _hint(tool_name: str) -> str:
         "get_quality_summary": "Summarizing quality",
         "get_table_relationships": "Loading relationships",
         "generate_erd": "Generating ERD",
+        "generate_er_visualizations": "Generating ERVE exports",
     }.get(tool_name, "Running tool")
 
 
@@ -137,6 +139,9 @@ def _extract_summary(tool_name: str, content: str) -> str:
         return f"{data.get('total_relationships', 0)} relationship(s)"
     if tool_name == "generate_erd":
         return f"ERD: {data.get('erd_path', 'generated')}"
+    if tool_name == "generate_er_visualizations":
+        outputs = data.get("outputs", {})
+        return f"ERVE {data.get('mode', 'export')}: {len(outputs)} artifact(s)"
     return _truncate(content.replace("\n", " "), 80)
 
 

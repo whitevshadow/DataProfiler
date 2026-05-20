@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-05-20T10:41:26.689452+00:00",
+  "stages": {
+    "candidate_fk_raw": {
+      "count": 0,
+      "percent": 0.0,
+      "examples": []
+    },
+    "candidate_fk_containment": {
+      "count": 0,
+      "percent": 0.0,
+      "examples": []
+    },
+    "ann_outputs": {
+      "count": 0,
+      "percent": 0.0,
+      "examples": []
+    },
+    "relationship_final": {
+      "count": 0,
+      "percent": 0.0,
+      "examples": []
+    }
+  },
+  "audit_leakage_final_percent": 0.0,
+  "temporal_leakage_final_percent": 0.0
+}

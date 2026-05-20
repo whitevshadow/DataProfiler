@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>FKRTE Dashboard - FK Relationship Tree Explorer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#31394d",
+                        "primary-container": "#2563eb",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-surface-variant": "#c3c6d7",
+                        "surface-variant": "#2d3449",
+                        "outline": "#8d90a0",
+                        "secondary-fixed": "#6ffbbe",
+                        "outline-variant": "#434655",
+                        "tertiary-container": "#996100",
+                        "primary": "#b4c5ff",
+                        "surface-container-low": "#131b2e",
+                        "surface-container": "#171f33",
+                        "background": "#0b1326",
+                        "tertiary": "#ffb95f",
+                        "surface-container-high": "#222a3d",
+                        "error": "#ffb4ab",
+                        "surface": "#0b1326",
+                        "on-surface": "#dae2fd",
+                        "on-background": "#dae2fd",
+                        "surface-container-lowest": "#060e20",
+                        "secondary": "#4edea3",
+                        "surface-container-highest": "#2d3449",
+                        "surface-dim": "#0b1326",
+                        "inverse-primary": "#0053db",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #0b1326; }
+        ::-webkit-scrollbar-thumb { background: #434655; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #8d90a0; }
+        
+        .glow-active { box-shadow: 0 0 15px rgba(180, 197, 255, 0.25); }
+        .edge-path { stroke-dasharray: 4; animation: dash 20s linear infinite; }
+        @keyframes dash { to { stroke-dashoffset: -100; } }
+        .node-transition { transition: all 0.3s ease-in-out; }
+        #canvas-container { cursor: grab; }
+        #canvas-container:active { cursor: grabbing; }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen w-screen overflow-hidden flex flex-col">
+    <header class="bg-surface-container-highest flex justify-between items-center h-12 px-8 w-full border-b border-outline-variant shrink-0 z-50">
+        <div class="flex items-center gap-2">
+            <span class="font-bold text-primary text-sm tracking-wide font-mono">FKRTE</span>
+            <span class="text-xs text-on-surface-variant">FK Relationship Tree Explorer</span>
+        </div>
+        <div class="flex-1 max-w-xl mx-8 hidden md:block">
+            <div class="relative w-full">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[16px]">search</span>
+                <input id="search-input" class="w-full bg-surface-variant border border-outline-variant rounded h-8 pl-9 pr-3 text-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none font-mono placeholder:text-outline" placeholder="Search tables..." type="text"/>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button onclick="resetView()" class="text-on-surface-variant hover:bg-surface-variant p-1.5 rounded transition-colors" title="Reset View">
+                <span class="material-symbols-outlined text-[18px]">refresh</span>
+            </button>
+            <button onclick="expandAll()" class="text-on-surface-variant hover:bg-surface-variant p-1.5 rounded transition-colors" title="Expand All">
+                <span class="material-symbols-outlined text-[18px]">unfold_more</span>
+            </button>
+            <button onclick="collapseAll()" class="text-on-surface-variant hover:bg-surface-variant p-1.5 rounded transition-colors" title="Collapse All">
+                <span class="material-symbols-outlined text-[18px]">unfold_less</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        <nav class="bg-surface-container flex flex-col h-full py-3 gap-2 w-64 border-r border-outline-variant shrink-0 z-40">
+            <div class="px-3 mb-2">
+                <h2 class="text-lg font-semibold text-on-surface">FKRTE Workspace</h2>
+                <p class="text-xs text-on-surface-variant opacity-70">v1.0.0-stable</p>
+            </div>
+            <button onclick="loadFromAPI()" class="mx-3 bg-primary-container text-white font-mono font-bold py-2 rounded mb-2 hover:brightness-110 transition-all text-sm">
+                Load from API
+            </button>
+            <div class="flex-1 overflow-y-auto px-3" id="table-list">
+                <div class="text-xs text-on-surface-variant">Loading tables...</div>
+            </div>
+            <div class="px-3 border-t border-outline-variant pt-3 mt-auto">
+                <div class="text-xs text-on-surface-variant mb-2">Stats</div>
+                <div class="bg-surface-variant rounded p-2 text-xs font-mono">
+                    <div>Tables: <span id="stat-tables" class="text-primary">0</span></div>
+                    <div>TRUE_FK: <span id="stat-fk" class="text-secondary">0</span></div>
+                    <div>Expanded: <span id="stat-expanded" class="text-tertiary">0</span></div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="flex-1 bg-background relative overflow-hidden flex items-center justify-center" id="canvas-container">
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, #434655 1px, transparent 0); background-size: 24px 24px;"></div>
+            <div class="relative w-full h-full flex items-center justify-center" id="tree-viewport" style="transform-origin: center center; transition: transform 0.1s ease-out;">
+                <div id="tree-canvas" style="position: absolute; width: 4000px; height: 4000px; left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
+            </div>
+        </main>
+
+        <aside class="bg-surface-container-low flex flex-col h-full py-3 w-80 border-l border-outline-variant shrink-0 z-40" id="inspector-panel">
+            <div class="px-3 mb-4 border-b border-outline-variant pb-2">
+                <h3 class="text-lg font-semibold text-tertiary" id="insp-title">Select an entity</h3>
+                <p class="text-xs text-on-surface-variant opacity-70">Inspector Properties</p>
+            </div>
+            <div class="flex-1 overflow-y-auto px-3 flex flex-col gap-4">
+                <section>
+                    <h4 class="text-[10px] font-bold tracking-wider text-outline mb-2">METRICS</h4>
+                    <div class="flex flex-col border border-outline-variant rounded bg-surface-container text-xs">
+                        <div class="flex justify-between p-2 border-b border-outline-variant">
+                            <span class="text-[10px] font-bold tracking-wider text-outline opacity-60">ROWS</span>
+                            <span id="insp-rows">—</span>
+                        </div>
+                        <div class="flex justify-between p-2 border-b border-outline-variant">
+                            <span class="text-[10px] font-bold tracking-wider text-outline opacity-60">COLUMNS</span>
+                            <span id="insp-cols">—</span>
+                        </div>
+                        <div class="flex justify-between p-2 border-b border-outline-variant">
+                            <span class="text-[10px] font-bold tracking-wider text-outline opacity-60">QUALITY</span>
+                            <span class="text-secondary" id="insp-qual">—</span>
+                        </div>
+                        <div class="flex justify-between p-2 border-b border-outline-variant">
+                            <span class="text-[10px] font-bold tracking-wider text-outline opacity-60">PK</span>
+                            <span class="font-mono text-secondary-fixed-dim" id="insp-pk">—</span>
+                        </div>
+                        <div class="flex justify-between p-2">
+                            <span class="text-[10px] font-bold tracking-wider text-outline opacity-60">FK COUNT</span>
+                            <span id="insp-fkcount">—</span>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h4 class="text-[10px] font-bold tracking-wider text-outline mb-2 flex items-center">
+                        RELATIONSHIPS 
+                        <span class="ml-auto bg-primary-container text-white px-1.5 py-0.5 rounded text-[9px]" id="insp-relcount">0</span>
+                    </h4>
+                    <div class="flex flex-col border border-outline-variant rounded bg-surface-container text-xs">
+                        <div class="flex justify-between p-2 border-b border-outline-variant">
+                            <span class="text-[10px] font-bold tracking-wider text-outline opacity-60">CONFIDENCE</span>
+                            <span class="text-primary" id="insp-conf">—</span>
+                        </div>
+                        <div class="flex justify-between p-2">
+                            <span class="text-[10px] font-bold tracking-wider text-outline opacity-60">CONTAINMENT</span>
+                            <span id="insp-cont">—</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </aside>
+    </div>
+
+    <footer class="bg-surface-container-lowest flex items-center justify-between px-8 gap-6 h-8 w-full border-t border-outline-variant shrink-0">
+        <div class="text-xs font-mono text-secondary flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-secondary animate-pulse"></span>
+            System Ready - Execution Trace Active
+        </div>
+        <div class="flex-1 overflow-hidden px-4 hidden md:block">
+            <div class="text-xs font-mono text-outline whitespace-nowrap opacity-50 flex items-center gap-2" id="execution-trace">
+                <span>[Loading]</span><span>Initializing FKRTE...</span>
+            </div>
+        </div>
+        <div class="text-xs font-mono text-on-surface-variant">
+            <span id="footer-stats"></span>
+        </div>
+    </footer>
+
+    <script>
+        // Load relationships data from API
+        let rawData = { relationships: [] };
+        let adjacencyList = {};
+        let tableInfo = {};
+        let allTables = new Set();
+        
+        // State
+        let currentRoot = null;
+        let expandedNodes = new Set();
+        let selectedNode = null;
+        let scale = 1;
+        let panX = 0;
+        let panY = 0;
+        let isDragging = false;
+        let startX, startY;
+
+        // Pan and Zoom
+        const container = document.getElementById('canvas-container');
+        const viewport = document.getElementById('tree-viewport');
+
+        container.addEventListener('mousedown', (e) => {
+            if (e.target.closest('.node-transition') || e.target.closest('button')) return;
+            isDragging = true;
+            startX = e.clientX - panX;
+            startY = e.clientY - panY;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            panX = e.clientX - startX;
+            panY = e.clientY - startY;
+            updateTransform();
+        });
+
+        window.addEventListener('mouseup', () => { isDragging = false; });
+
+        container.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const zoomIntensity = 0.1;
+            const wheel = e.deltaY < 0 ? 1 : -1;
+            const zoom = Math.exp(wheel * zoomIntensity);
+            scale *= zoom;
+            scale = Math.min(Math.max(0.125, scale), 4);
+            updateTransform();
+        });
+
+        function updateTransform() {
+            viewport.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+        }
+
+        function resetView() {
+            panX = 0; panY = 0; scale = 1;
+            updateTransform();
+            logTrace('VIEW_RESET', 'action');
+        }
+
+        function logTrace(msg, type = "normal") {
+            const trace = document.getElementById('execution-trace');
+            const time = new Date().toLocaleTimeString('en-US', { hour12: false });
+            let color = type === "action" ? "text-secondary" : type === "fetch" ? "text-primary" : "";
+            
+            trace.innerHTML = `<span>[${time}]</span><span class="${color}">${msg}</span>`;
+        }
+
+        async function loadFromAPI() {
+            logTrace('Loading data from API...', 'fetch');
+            try {
+                const res = await fetch('/api/fkrte/tree');
+                const data = await res.json();
+                
+                // Also fetch relationship data
+                const relRes = await fetch('http://127.0.0.1:5500/api/fkrte/relationships');
+                const relData = await relRes.json();
+                
+                processRelationships(relData.relationships || []);
+                buildTableList();
+                updateStats();
+                
+                logTrace(`Loaded ${allTables.size} tables, ${relData.relationships.length} relationships`, 'fetch');
+                
+                // Auto-select first table
+                if (allTables.size > 0 && !currentRoot) {
+                    const firstTable = Array.from(allTables)[0];
+                    setRoot(firstTable);
+                }
+            } catch (e) {
+                console.error('Failed to load from API', e);
+                logTrace('ERROR: Failed to load data', 'warn');
+            }
+        }
+
+        function processRelationships(relations) {
+            adjacencyList = {};
+            tableInfo = {};
+            allTables = new Set();
+
+            relations.forEach(rel => {
+                allTables.add(rel.pk_table);
+                allTables.add(rel.fk_table);
+                
+                if (!tableInfo[rel.pk_table]) tableInfo[rel.pk_table] = { pk: rel.pk_column, fkCount: 0 };
+                if (!tableInfo[rel.fk_table]) tableInfo[rel.fk_table] = { pk: rel.fk_column, fkCount: 0 };
+
+                if (rel.relationship_class === 'TRUE_FK') {
+                    if (!adjacencyList[rel.pk_table]) adjacencyList[rel.pk_table] = [];
+                    adjacencyList[rel.pk_table].push({
+                        child: rel.fk_table,
+                        fk_col: rel.fk_column,
+                        pk_col: rel.pk_column,
+                        conf: (rel.confidence_score || 0).toFixed(2),
+                        cont: (rel.containment_ratio || 0).toFixed(2)
+                    });
+                    tableInfo[rel.fk_table].fkCount++;
+                }
+            });
+        }
+
+        function buildTableList() {
+            const list = document.getElementById('table-list');
+            const tables = Array.from(allTables).sort();
+            
+            list.innerHTML = tables.map(t => `
+                <div onclick="setRoot('${t}')" class="py-1.5 px-2 rounded cursor-pointer hover:bg-surface-variant text-xs font-mono flex items-center gap-2 ${t === currentRoot ? 'bg-primary-container text-white' : 'text-on-surface-variant'}">
+                    <span class="material-symbols-outlined text-[12px]">table_chart</span>
+                    ${t}
+                </div>
+            `).join('');
+        }
+
+        function updateStats() {
+            document.getElementById('stat-tables').innerText = allTables.size;
+            const fkCount = Object.values(adjacencyList).reduce((sum, arr) => sum + arr.length, 0);
+            document.getElementById('stat-fk').innerText = fkCount;
+            document.getElementById('stat-expanded').innerText = expandedNodes.size;
+            document.getElementById('footer-stats').innerText = `${allTables.size} tables | ${fkCount} FK edges | Zoom: ${(scale * 100).toFixed(0)}%`;
+        }
+
+        function setRoot(tableName) {
+            currentRoot = tableName;
+            expandedNodes = new Set([currentRoot]);
+            selectNode(tableName);
+            resetView();
+            buildTableList();
+            logTrace(`SET_ROOT ${tableName}`, 'action');
+            renderTree();
+        }
+
+        function toggleNode(tableName) {
+            if (expandedNodes.has(tableName)) {
+                expandedNodes.delete(tableName);
+                logTrace(`COLLAPSE ${tableName}`, 'action');
+            } else {
+                expandedNodes.add(tableName);
+                logTrace(`EXPAND ${tableName}`, 'action');
+            }
+            selectNode(tableName);
+            renderTree();
+        }
+
+        function expandAll() {
+            const traverse = (name) => {
+                expandedNodes.add(name);
+                (adjacencyList[name] || []).forEach(child => traverse(child.child));
+            };
+            if (currentRoot) traverse(currentRoot);
+            logTrace(`EXPAND_ALL from ${currentRoot}`, 'action');
+            renderTree();
+        }
+
+        function collapseAll() {
+            if (currentRoot) expandedNodes = new Set([currentRoot]);
+            logTrace('COLLAPSE_ALL', 'action');
+            renderTree();
+        }
+
+        function selectNode(tableName, conf = '—', cont = '—') {
+            selectedNode = tableName;
+            const info = tableInfo[tableName] || { pk: 'ID', fkCount: 0 };
+            
+            document.getElementById('insp-title').innerText = `Entity: ${tableName}`;
+            document.getElementById('insp-rows').innerText = '—';
+            document.getElementById('insp-cols').innerText = '—';
+            document.getElementById('insp-pk').innerText = info.pk || '—';
+            document.getElementById('insp-qual').innerText = '—';
+            document.getElementById('insp-conf').innerText = conf;
+            document.getElementById('insp-cont').innerText = cont;
+            document.getElementById('insp-fkcount').innerText = info.fkCount || 0;
+            document.getElementById('insp-relcount').innerText = (adjacencyList[tableName] || []).length;
+            
+            // Fetch additional details from API
+            fetch(`http://127.0.0.1:5500/api/fkrte/entity/${tableName}`)
+                .then(r => r.json())
+                .then(data => {
+                    document.getElementById('insp-rows').innerText = data.row_count || '—';
+                    document.getElementById('insp-cols').innerText = data.column_count || '—';
+                    document.getElementById('insp-qual').innerText = (data.quality_score * 100).toFixed(1) + '%';
+                })
+                .catch(() => {});
+            
+            renderTree();
+        }
+
+        function renderTree() {
+            if (!currentRoot) return;
+            
+            const canvas = document.getElementById('tree-canvas');
+            canvas.innerHTML = '';
+
+            let nodeElements = "";
+            let svgElements = `<svg class="absolute top-0 left-0 w-full h-full overflow-visible pointer-events-none z-0">`;
+
+            const cx = 2000;
+            const cy = 2000;
+            const visited = new Set();
+
+            function drawNode(name, x, y, conf, cont, level, angleStart, angleEnd) {
+                if (visited.has(name)) return;
+                visited.add(name);
+
+                const children = adjacencyList[name] || [];
+                const hasChildren = children.length > 0;
+                const isExpanded = expandedNodes.has(name);
+                const isSelected = selectedNode === name;
+                const info = tableInfo[name] || { pk: 'ID', fkCount: 0 };
+
+                const expandBtn = hasChildren ? `<button onclick="event.stopPropagation(); toggleNode('${name}')" class="w-5 h-5 flex items-center justify-center bg-primary-container text-white rounded-full ml-2 shadow-sm hover:brightness-110 node-transition pointer-events-auto"><span class="material-symbols-outlined text-[14px]">${isExpanded ? 'remove' : 'add'}</span></button>` : '';
+
+                const selectedStyles = isSelected ? 'border-2 border-primary glow-active bg-surface-bright' : 'border border-outline-variant bg-surface-container-high hover:border-primary hover:bg-surface-bright';
+                
+                const nodeWidth = 224;
+
+                nodeElements += `
+                    <div onclick="selectNode('${name}', '${conf}', '${cont}')" class="absolute w-56 rounded flex flex-col z-10 cursor-pointer group node-transition ${selectedStyles}" style="left: ${x - nodeWidth/2}px; top: ${y - 20}px;">
+                        <div class="p-2 flex justify-between items-center">
+                            <span class="font-mono font-bold text-on-surface truncate text-sm">${name}</span>
+                            ${isSelected ? `<span class="px-2 py-0.5 rounded-full bg-secondary bg-opacity-20 text-secondary text-[9px] font-bold tracking-wide ml-auto">${conf}</span>` : ''}
+                            ${expandBtn}
+                        </div>
+                        ${isSelected ? `<div class="p-2 flex justify-between border-t border-outline-variant bg-surface-container text-xs"><span class="text-outline opacity-60">PK</span><span class="font-mono text-secondary-fixed-dim">${info.pk}</span></div>` : ''}
+                    </div>
+                `;
+
+                if (isExpanded && hasChildren) {
+                    const radiusStep = 350;
+                    const r = radiusStep;
+                    const angleSpan = angleEnd - angleStart;
+                    const angleStep = angleSpan / children.length;
+
+                    children.forEach((childRel, idx) => {
+                        const childAngle = angleStart + (idx + 0.5) * angleStep;
+                        const rad = childAngle * Math.PI / 180;
+                        
+                        const childX = x + r * Math.cos(rad);
+                        const childY = y + r * Math.sin(rad);
+                        
+                        const cpX = x + (r * 0.5) * Math.cos(rad);
+                        const cpY = y + (r * 0.5) * Math.sin(rad);
+
+                        svgElements += `
+                            <path class="edge-path" d="M ${x} ${y} Q ${cpX} ${cpY}, ${childX} ${childY}" fill="none" stroke="#b4c5ff" stroke-width="2" style="filter: drop-shadow(0 0 3px rgba(180, 197, 255, 0.6));">
+                                <title>TRUE_FK | ${childRel.fk_col} → ${childRel.pk_col} | Conf: ${childRel.conf}</title>
+                            </path>
+                            <circle cx="${childX}" cy="${childY}" r="3" fill="#b4c5ff"></circle>
+                            <text fill="#b4c5ff" font-family="JetBrains Mono" font-size="9" text-anchor="middle" x="${cpX}" y="${cpY - 5}">${childRel.conf}</text>
+                        `;
+
+                        const newSpan = angleStep * 0.9;
+                        drawNode(childRel.child, childX, childY, childRel.conf, childRel.cont, level + 1, childAngle - newSpan/2, childAngle + newSpan/2);
+                    });
+                }
+            }
+
+            drawNode(currentRoot, cx, cy, '1.0', '1.0', 0, 0, 360);
+
+            svgElements += `</svg>`;
+            canvas.innerHTML = svgElements + nodeElements;
+            
+            updateStats();
+        }
+
+        // Init
+        setTimeout(() => {
+            logTrace('Initializing FKRTE...', 'fetch');
+            loadFromAPI();
+        }, 100);
+
+        // Search
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            if (!query) return buildTableList();
+            
+            const filtered = Array.from(allTables).filter(t => t.toLowerCase().includes(query));
+            const list = document.getElementById('table-list');
+            list.innerHTML = filtered.map(t => `
+                <div onclick="setRoot('${t}')" class="py-1.5 px-2 rounded cursor-pointer hover:bg-surface-variant text-xs font-mono flex items-center gap-2 ${t === currentRoot ? 'bg-primary-container text-white' : 'text-on-surface-variant'}">
+                    <span class="material-symbols-outlined text-[12px]">table_chart</span>
+                    ${t}
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+{
+  "title": "Profiler Validation",
+  "rows_validated": 6858999,
+  "columns_validated": 398,
+  "pk_candidate_count": 10,
+  "pk_precision": 1.0,
+  "false_pk_count": 0,
+  "audit_leakage": 0,
+  "temporal_leakage": 0,
+  "float_pollution_count": 0,
+  "unknown_count": 128,
+  "fk_fields_removed": true,
+  "relationship_imports_removed": true,
+  "output_schema_valid": true,
+  "profiler_independent": true,
+  "sample_checks": {
+    "Sales_Customers.customerid": {
+      "physical_type": "integer",
+      "pk_candidate": false,
+      "pk_score": 0.6991,
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
+      }
+    },
+    "sales_invoices.invoiceid": {
+      "physical_type": "integer",
+      "pk_candidate": false,
+      "pk_score": 0.2,
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
+      }
+    },
+    "warehouse_colors.colorid": {
+      "physical_type": "integer",
+      "pk_candidate": true,
+      "pk_score": 0.89,
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
+      }
+    },
+    "Application_Cities.lasteditedby": {
+      "physical_type": "integer",
+      "pk_candidate": false,
+      "pk_score": 0.0,
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
+      }
+    }
+  }
+}

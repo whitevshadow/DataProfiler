@@ -1,0 +1,1356 @@
+{
+  "schema_version": "1.0",
+  "artifact_type": "erve_graph",
+  "generated_at": "2026-05-20T17:19:22",
+  "source": "F:\\agentic_profiler\\new\\output\\relationships\\relationships.json",
+  "metadata": {
+    "raw_relationships": 133,
+    "exported_relationships": 50,
+    "min_confidence": 0.7,
+    "top_k": null,
+    "relationship_class_counts": {
+      "PRIMARY_KEY": 20,
+      "DIMENSION_REFERENCE": 2,
+      "ENUM_REFERENCE": 15,
+      "FOREIGN_KEY": 12,
+      "TRANSACTION_REFERENCE": 1
+    }
+  },
+  "nodes": [
+    {
+      "id": "Application_Cities",
+      "label": "Application_Cities",
+      "type": "table",
+      "group": "application",
+      "degree": 3,
+      "in_degree": 1,
+      "out_degree": 2,
+      "column_count": 8,
+      "pk_columns": [
+        "cityid"
+      ]
+    },
+    {
+      "id": "Application_Countries",
+      "label": "Application_Countries",
+      "type": "table",
+      "group": "application",
+      "degree": 3,
+      "in_degree": 2,
+      "out_degree": 1,
+      "column_count": 14,
+      "pk_columns": [
+        "countryid"
+      ]
+    },
+    {
+      "id": "application_deliverymethods",
+      "label": "application_deliverymethods",
+      "type": "table",
+      "group": "application",
+      "degree": 5,
+      "in_degree": 4,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "deliverymethodid"
+      ]
+    },
+    {
+      "id": "application_paymentmethods",
+      "label": "application_paymentmethods",
+      "type": "table",
+      "group": "application",
+      "degree": 3,
+      "in_degree": 2,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "paymentmethodid"
+      ]
+    },
+    {
+      "id": "application_people",
+      "label": "application_people",
+      "type": "table",
+      "group": "application",
+      "degree": 0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "column_count": 21,
+      "pk_columns": [
+        "personid"
+      ]
+    },
+    {
+      "id": "Application_StateProvinces",
+      "label": "Application_StateProvinces",
+      "type": "table",
+      "group": "application",
+      "degree": 4,
+      "in_degree": 2,
+      "out_degree": 2,
+      "column_count": 10,
+      "pk_columns": [
+        "stateprovinceid"
+      ]
+    },
+    {
+      "id": "Application_SystemParameters",
+      "label": "Application_SystemParameters",
+      "type": "table",
+      "group": "application",
+      "degree": 0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "column_count": 12,
+      "pk_columns": [
+        "systemparameterid"
+      ]
+    },
+    {
+      "id": "application_transactiontypes",
+      "label": "application_transactiontypes",
+      "type": "table",
+      "group": "application",
+      "degree": 5,
+      "in_degree": 4,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "transactiontypeid"
+      ]
+    },
+    {
+      "id": "purchasing_purchaseorderlines",
+      "label": "purchasing_purchaseorderlines",
+      "type": "table",
+      "group": "purchasing",
+      "degree": 2,
+      "in_degree": 0,
+      "out_degree": 2,
+      "column_count": 14,
+      "pk_columns": [
+        "purchaseorderid",
+        "purchaseorderlineid"
+      ]
+    },
+    {
+      "id": "purchasing_purchaseorders",
+      "label": "purchasing_purchaseorders",
+      "type": "table",
+      "group": "purchasing",
+      "degree": 4,
+      "in_degree": 1,
+      "out_degree": 3,
+      "column_count": 12,
+      "pk_columns": [
+        "purchaseorderid"
+      ]
+    },
+    {
+      "id": "purchasing_suppliercategories",
+      "label": "purchasing_suppliercategories",
+      "type": "table",
+      "group": "purchasing",
+      "degree": 3,
+      "in_degree": 2,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "suppliercategoryid"
+      ]
+    },
+    {
+      "id": "Purchasing_Suppliers",
+      "label": "Purchasing_Suppliers",
+      "type": "table",
+      "group": "purchasing",
+      "degree": 4,
+      "in_degree": 3,
+      "out_degree": 1,
+      "column_count": 29,
+      "pk_columns": [
+        "supplierid"
+      ]
+    },
+    {
+      "id": "purchasing_suppliertransactions",
+      "label": "purchasing_suppliertransactions",
+      "type": "table",
+      "group": "purchasing",
+      "degree": 5,
+      "in_degree": 1,
+      "out_degree": 4,
+      "column_count": 15,
+      "pk_columns": [
+        "suppliertransactionid"
+      ]
+    },
+    {
+      "id": "sales_buyinggroups",
+      "label": "sales_buyinggroups",
+      "type": "table",
+      "group": "sales",
+      "degree": 3,
+      "in_degree": 2,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "buyinggroupid"
+      ]
+    },
+    {
+      "id": "sales_customercategories",
+      "label": "sales_customercategories",
+      "type": "table",
+      "group": "sales",
+      "degree": 3,
+      "in_degree": 2,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "customercategoryid"
+      ]
+    },
+    {
+      "id": "Sales_Customers",
+      "label": "Sales_Customers",
+      "type": "table",
+      "group": "sales",
+      "degree": 5,
+      "in_degree": 3,
+      "out_degree": 2,
+      "column_count": 31,
+      "pk_columns": [
+        "customerid"
+      ]
+    },
+    {
+      "id": "sales_customertransactions",
+      "label": "sales_customertransactions",
+      "type": "table",
+      "group": "sales",
+      "degree": 4,
+      "in_degree": 1,
+      "out_degree": 3,
+      "column_count": 14,
+      "pk_columns": [
+        "customertransactionid"
+      ]
+    },
+    {
+      "id": "sales_invoicelines",
+      "label": "sales_invoicelines",
+      "type": "table",
+      "group": "sales",
+      "degree": 3,
+      "in_degree": 0,
+      "out_degree": 3,
+      "column_count": 15,
+      "pk_columns": [
+        "invoiceid",
+        "invoicelineid"
+      ]
+    },
+    {
+      "id": "sales_invoices",
+      "label": "sales_invoices",
+      "type": "table",
+      "group": "sales",
+      "degree": 5,
+      "in_degree": 2,
+      "out_degree": 3,
+      "column_count": 25,
+      "pk_columns": [
+        "invoiceid"
+      ]
+    },
+    {
+      "id": "Sales_OrderLines",
+      "label": "Sales_OrderLines",
+      "type": "table",
+      "group": "sales",
+      "degree": 2,
+      "in_degree": 0,
+      "out_degree": 2,
+      "column_count": 14,
+      "pk_columns": [
+        "orderid",
+        "orderlineid"
+      ]
+    },
+    {
+      "id": "sales_orders",
+      "label": "sales_orders",
+      "type": "table",
+      "group": "sales",
+      "degree": 3,
+      "in_degree": 1,
+      "out_degree": 2,
+      "column_count": 16,
+      "pk_columns": [
+        "orderid"
+      ]
+    },
+    {
+      "id": "sales_specialdeals",
+      "label": "sales_specialdeals",
+      "type": "table",
+      "group": "sales",
+      "degree": 4,
+      "in_degree": 1,
+      "out_degree": 3,
+      "column_count": 14,
+      "pk_columns": [
+        "specialdealid"
+      ]
+    },
+    {
+      "id": "warehouse_coldroomtemperatures",
+      "label": "warehouse_coldroomtemperatures",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 2,
+      "in_degree": 1,
+      "out_degree": 1,
+      "column_count": 6,
+      "pk_columns": [
+        "coldroomtemperatureid"
+      ]
+    },
+    {
+      "id": "warehouse_colors",
+      "label": "warehouse_colors",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 2,
+      "in_degree": 1,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "colorid"
+      ]
+    },
+    {
+      "id": "warehouse_packagetypes",
+      "label": "warehouse_packagetypes",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 5,
+      "in_degree": 4,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "packagetypeid"
+      ]
+    },
+    {
+      "id": "warehouse_stockgroups",
+      "label": "warehouse_stockgroups",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 4,
+      "in_degree": 3,
+      "out_degree": 1,
+      "column_count": 5,
+      "pk_columns": [
+        "stockgroupid"
+      ]
+    },
+    {
+      "id": "warehouse_stockitemholdings",
+      "label": "warehouse_stockitemholdings",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 1,
+      "in_degree": 0,
+      "out_degree": 1,
+      "column_count": 9,
+      "pk_columns": []
+    },
+    {
+      "id": "warehouse_stockitems",
+      "label": "warehouse_stockitems",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 9,
+      "in_degree": 7,
+      "out_degree": 2,
+      "column_count": 25,
+      "pk_columns": [
+        "stockitemid"
+      ]
+    },
+    {
+      "id": "warehouse_stockitemstockgroups",
+      "label": "warehouse_stockitemstockgroups",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 2,
+      "in_degree": 0,
+      "out_degree": 2,
+      "column_count": 6,
+      "pk_columns": [
+        "stockgroupid",
+        "stockitemid",
+        "stockitemstockgroupid"
+      ]
+    },
+    {
+      "id": "warehouse_stockitemtransactions",
+      "label": "warehouse_stockitemtransactions",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 2,
+      "in_degree": 0,
+      "out_degree": 2,
+      "column_count": 11,
+      "pk_columns": [
+        "stockitemtransactionid"
+      ]
+    },
+    {
+      "id": "warehouse_vehicletemperatures",
+      "label": "warehouse_vehicletemperatures",
+      "type": "table",
+      "group": "warehouse",
+      "degree": 0,
+      "in_degree": 0,
+      "out_degree": 0,
+      "column_count": 8,
+      "pk_columns": [
+        "vehicletemperatureid"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_1",
+      "source": "Application_Cities",
+      "target": "Application_Cities",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "cityid",
+      "pk_column": "cityid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "cityid -> cityid"
+    },
+    {
+      "id": "edge_2",
+      "source": "Application_Cities",
+      "target": "Application_StateProvinces",
+      "type": "DIMENSION_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "stateprovinceid",
+      "pk_column": "stateprovinceid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stateprovinceid -> stateprovinceid"
+    },
+    {
+      "id": "edge_3",
+      "source": "Application_Countries",
+      "target": "Application_Countries",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "countryid",
+      "pk_column": "countryid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "countryid -> countryid"
+    },
+    {
+      "id": "edge_4",
+      "source": "application_deliverymethods",
+      "target": "application_deliverymethods",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "deliverymethodid",
+      "pk_column": "deliverymethodid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "deliverymethodid -> deliverymethodid"
+    },
+    {
+      "id": "edge_5",
+      "source": "application_paymentmethods",
+      "target": "application_paymentmethods",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "paymentmethodid",
+      "pk_column": "paymentmethodid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "paymentmethodid -> paymentmethodid"
+    },
+    {
+      "id": "edge_6",
+      "source": "Application_StateProvinces",
+      "target": "Application_Countries",
+      "type": "DIMENSION_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "countryid",
+      "pk_column": "countryid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "countryid -> countryid"
+    },
+    {
+      "id": "edge_7",
+      "source": "Application_StateProvinces",
+      "target": "Application_StateProvinces",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "stateprovinceid",
+      "pk_column": "stateprovinceid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stateprovinceid -> stateprovinceid"
+    },
+    {
+      "id": "edge_8",
+      "source": "application_transactiontypes",
+      "target": "application_transactiontypes",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "transactiontypeid",
+      "pk_column": "transactiontypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "transactiontypeid -> transactiontypeid"
+    },
+    {
+      "id": "edge_9",
+      "source": "purchasing_purchaseorderlines",
+      "target": "warehouse_packagetypes",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "packagetypeid",
+      "pk_column": "packagetypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "packagetypeid -> packagetypeid"
+    },
+    {
+      "id": "edge_10",
+      "source": "purchasing_purchaseorderlines",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockitemid",
+      "pk_column": "stockitemid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockitemid -> stockitemid"
+    },
+    {
+      "id": "edge_11",
+      "source": "purchasing_purchaseorders",
+      "target": "application_deliverymethods",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "deliverymethodid",
+      "pk_column": "deliverymethodid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "deliverymethodid -> deliverymethodid"
+    },
+    {
+      "id": "edge_12",
+      "source": "purchasing_purchaseorders",
+      "target": "purchasing_purchaseorders",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "purchaseorderid",
+      "pk_column": "purchaseorderid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "purchaseorderid -> purchaseorderid"
+    },
+    {
+      "id": "edge_13",
+      "source": "purchasing_purchaseorders",
+      "target": "Purchasing_Suppliers",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "supplierid",
+      "pk_column": "supplierid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "supplierid -> supplierid"
+    },
+    {
+      "id": "edge_14",
+      "source": "purchasing_suppliercategories",
+      "target": "purchasing_suppliercategories",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "suppliercategoryid",
+      "pk_column": "suppliercategoryid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "suppliercategoryid -> suppliercategoryid"
+    },
+    {
+      "id": "edge_15",
+      "source": "Purchasing_Suppliers",
+      "target": "purchasing_suppliercategories",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "suppliercategoryid",
+      "pk_column": "suppliercategoryid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "suppliercategoryid -> suppliercategoryid"
+    },
+    {
+      "id": "edge_16",
+      "source": "purchasing_suppliertransactions",
+      "target": "application_paymentmethods",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "paymentmethodid",
+      "pk_column": "paymentmethodid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "paymentmethodid -> paymentmethodid"
+    },
+    {
+      "id": "edge_17",
+      "source": "purchasing_suppliertransactions",
+      "target": "application_transactiontypes",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "transactiontypeid",
+      "pk_column": "transactiontypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "transactiontypeid -> transactiontypeid"
+    },
+    {
+      "id": "edge_18",
+      "source": "purchasing_suppliertransactions",
+      "target": "Purchasing_Suppliers",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "supplierid",
+      "pk_column": "supplierid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "supplierid -> supplierid"
+    },
+    {
+      "id": "edge_19",
+      "source": "purchasing_suppliertransactions",
+      "target": "purchasing_suppliertransactions",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "suppliertransactionid",
+      "pk_column": "suppliertransactionid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "suppliertransactionid -> suppliertransactionid"
+    },
+    {
+      "id": "edge_20",
+      "source": "sales_buyinggroups",
+      "target": "sales_buyinggroups",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "buyinggroupid",
+      "pk_column": "buyinggroupid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "buyinggroupid -> buyinggroupid"
+    },
+    {
+      "id": "edge_21",
+      "source": "sales_customercategories",
+      "target": "sales_customercategories",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "customercategoryid",
+      "pk_column": "customercategoryid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "customercategoryid -> customercategoryid"
+    },
+    {
+      "id": "edge_22",
+      "source": "Sales_Customers",
+      "target": "application_deliverymethods",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "deliverymethodid",
+      "pk_column": "deliverymethodid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "deliverymethodid -> deliverymethodid"
+    },
+    {
+      "id": "edge_23",
+      "source": "Sales_Customers",
+      "target": "sales_customercategories",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "customercategoryid",
+      "pk_column": "customercategoryid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "customercategoryid -> customercategoryid"
+    },
+    {
+      "id": "edge_24",
+      "source": "sales_customertransactions",
+      "target": "application_transactiontypes",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "transactiontypeid",
+      "pk_column": "transactiontypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "transactiontypeid -> transactiontypeid"
+    },
+    {
+      "id": "edge_25",
+      "source": "sales_customertransactions",
+      "target": "Sales_Customers",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "customerid",
+      "pk_column": "customerid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "customerid -> customerid"
+    },
+    {
+      "id": "edge_26",
+      "source": "sales_customertransactions",
+      "target": "sales_customertransactions",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "customertransactionid",
+      "pk_column": "customertransactionid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "customertransactionid -> customertransactionid"
+    },
+    {
+      "id": "edge_27",
+      "source": "sales_invoicelines",
+      "target": "sales_invoices",
+      "type": "TRANSACTION_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "invoiceid",
+      "pk_column": "invoiceid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "invoiceid -> invoiceid"
+    },
+    {
+      "id": "edge_28",
+      "source": "sales_invoicelines",
+      "target": "warehouse_packagetypes",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "packagetypeid",
+      "pk_column": "packagetypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "packagetypeid -> packagetypeid"
+    },
+    {
+      "id": "edge_29",
+      "source": "sales_invoicelines",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockitemid",
+      "pk_column": "stockitemid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockitemid -> stockitemid"
+    },
+    {
+      "id": "edge_30",
+      "source": "sales_invoices",
+      "target": "application_deliverymethods",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "deliverymethodid",
+      "pk_column": "deliverymethodid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "deliverymethodid -> deliverymethodid"
+    },
+    {
+      "id": "edge_31",
+      "source": "sales_invoices",
+      "target": "Sales_Customers",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "customerid",
+      "pk_column": "customerid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "customerid -> customerid"
+    },
+    {
+      "id": "edge_32",
+      "source": "sales_invoices",
+      "target": "sales_invoices",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "invoiceid",
+      "pk_column": "invoiceid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "invoiceid -> invoiceid"
+    },
+    {
+      "id": "edge_33",
+      "source": "Sales_OrderLines",
+      "target": "warehouse_packagetypes",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "packagetypeid",
+      "pk_column": "packagetypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "packagetypeid -> packagetypeid"
+    },
+    {
+      "id": "edge_34",
+      "source": "Sales_OrderLines",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockitemid",
+      "pk_column": "stockitemid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockitemid -> stockitemid"
+    },
+    {
+      "id": "edge_35",
+      "source": "sales_orders",
+      "target": "Sales_Customers",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "customerid",
+      "pk_column": "customerid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "customerid -> customerid"
+    },
+    {
+      "id": "edge_36",
+      "source": "sales_orders",
+      "target": "sales_orders",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "orderid",
+      "pk_column": "orderid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "orderid -> orderid"
+    },
+    {
+      "id": "edge_37",
+      "source": "sales_specialdeals",
+      "target": "sales_buyinggroups",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "buyinggroupid",
+      "pk_column": "buyinggroupid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "buyinggroupid -> buyinggroupid"
+    },
+    {
+      "id": "edge_38",
+      "source": "sales_specialdeals",
+      "target": "sales_specialdeals",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "specialdealid",
+      "pk_column": "specialdealid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "specialdealid -> specialdealid"
+    },
+    {
+      "id": "edge_39",
+      "source": "sales_specialdeals",
+      "target": "warehouse_stockgroups",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "stockgroupid",
+      "pk_column": "stockgroupid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockgroupid -> stockgroupid"
+    },
+    {
+      "id": "edge_40",
+      "source": "warehouse_coldroomtemperatures",
+      "target": "warehouse_coldroomtemperatures",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "coldroomtemperatureid",
+      "pk_column": "coldroomtemperatureid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "coldroomtemperatureid -> coldroomtemperatureid"
+    },
+    {
+      "id": "edge_41",
+      "source": "warehouse_colors",
+      "target": "warehouse_colors",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "colorid",
+      "pk_column": "colorid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "colorid -> colorid"
+    },
+    {
+      "id": "edge_42",
+      "source": "warehouse_packagetypes",
+      "target": "warehouse_packagetypes",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "packagetypeid",
+      "pk_column": "packagetypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "packagetypeid -> packagetypeid"
+    },
+    {
+      "id": "edge_43",
+      "source": "warehouse_stockgroups",
+      "target": "warehouse_stockgroups",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockgroupid",
+      "pk_column": "stockgroupid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockgroupid -> stockgroupid"
+    },
+    {
+      "id": "edge_44",
+      "source": "warehouse_stockitemholdings",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockitemid",
+      "pk_column": "stockitemid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockitemid -> stockitemid"
+    },
+    {
+      "id": "edge_45",
+      "source": "warehouse_stockitems",
+      "target": "Purchasing_Suppliers",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "supplierid",
+      "pk_column": "supplierid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "supplierid -> supplierid"
+    },
+    {
+      "id": "edge_46",
+      "source": "warehouse_stockitems",
+      "target": "warehouse_stockitems",
+      "type": "PRIMARY_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockitemid",
+      "pk_column": "stockitemid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockitemid -> stockitemid"
+    },
+    {
+      "id": "edge_47",
+      "source": "warehouse_stockitemstockgroups",
+      "target": "warehouse_stockgroups",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "stockgroupid",
+      "pk_column": "stockgroupid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockgroupid -> stockgroupid"
+    },
+    {
+      "id": "edge_48",
+      "source": "warehouse_stockitemstockgroups",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockitemid",
+      "pk_column": "stockitemid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockitemid -> stockitemid"
+    },
+    {
+      "id": "edge_49",
+      "source": "warehouse_stockitemtransactions",
+      "target": "application_transactiontypes",
+      "type": "ENUM_REFERENCE",
+      "confidence": 1.0,
+      "fk_column": "transactiontypeid",
+      "pk_column": "transactiontypeid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "transactiontypeid -> transactiontypeid"
+    },
+    {
+      "id": "edge_50",
+      "source": "warehouse_stockitemtransactions",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "confidence": 1.0,
+      "fk_column": "stockitemid",
+      "pk_column": "stockitemid",
+      "semantic_similarity": 1.0,
+      "containment_ratio": 1.0,
+      "label": "stockitemid -> stockitemid"
+    }
+  ],
+  "groups": [
+    {
+      "id": "application",
+      "type": "module",
+      "tables": [
+        "application_deliverymethods",
+        "application_transactiontypes",
+        "Application_StateProvinces",
+        "Application_Cities",
+        "Application_Countries",
+        "application_paymentmethods",
+        "application_people",
+        "Application_SystemParameters"
+      ],
+      "table_count": 8
+    },
+    {
+      "id": "purchasing",
+      "type": "module",
+      "tables": [
+        "purchasing_suppliertransactions",
+        "purchasing_purchaseorders",
+        "Purchasing_Suppliers",
+        "purchasing_suppliercategories",
+        "purchasing_purchaseorderlines"
+      ],
+      "table_count": 5
+    },
+    {
+      "id": "sales",
+      "type": "module",
+      "tables": [
+        "Sales_Customers",
+        "sales_invoices",
+        "sales_customertransactions",
+        "sales_specialdeals",
+        "sales_buyinggroups",
+        "sales_customercategories",
+        "sales_invoicelines",
+        "sales_orders",
+        "Sales_OrderLines"
+      ],
+      "table_count": 9
+    },
+    {
+      "id": "warehouse",
+      "type": "module",
+      "tables": [
+        "warehouse_stockitems",
+        "warehouse_packagetypes",
+        "warehouse_stockgroups",
+        "warehouse_coldroomtemperatures",
+        "warehouse_colors",
+        "warehouse_stockitemstockgroups",
+        "warehouse_stockitemtransactions",
+        "warehouse_stockitemholdings",
+        "warehouse_vehicletemperatures"
+      ],
+      "table_count": 9
+    },
+    {
+      "id": "Foreign_key",
+      "type": "ontology_domain",
+      "table_count": 75
+    },
+    {
+      "id": "Temporal",
+      "type": "ontology_domain",
+      "table_count": 50
+    },
+    {
+      "id": "Dimension",
+      "type": "ontology_domain",
+      "table_count": 56
+    },
+    {
+      "id": "GeoEntity",
+      "type": "ontology_domain",
+      "table_count": 5
+    },
+    {
+      "id": "Identifier",
+      "type": "ontology_domain",
+      "table_count": 9
+    },
+    {
+      "id": "Measure",
+      "type": "ontology_domain",
+      "table_count": 26
+    },
+    {
+      "id": "Audit",
+      "type": "ontology_domain",
+      "table_count": 1
+    }
+  ],
+  "ontology": {
+    "domain_counts": {
+      "Foreign_key": 75,
+      "Temporal": 50,
+      "Dimension": 56,
+      "GeoEntity": 5,
+      "Identifier": 9,
+      "Measure": 26,
+      "Audit": 1
+    },
+    "entity_counts": {
+      "Unknown": 222
+    },
+    "ontology_tag_counts": {
+      "foreign_key": 75,
+      "geographic": 7,
+      "temporal": 50,
+      "dimension": 61,
+      "status": 5,
+      "country": 5,
+      "region": 4,
+      "geospatial": 5,
+      "delivery": 15,
+      "boolean": 15,
+      "flag": 15,
+      "identifier": 9,
+      "transaction": 52,
+      "lifecycle": 8,
+      "product": 13,
+      "package": 6,
+      "measure": 28,
+      "workflow": 3,
+      "supplier": 19,
+      "category": 5,
+      "payment": 4,
+      "customer": 40,
+      "location": 9,
+      "color": 4,
+      "audit": 1
+    },
+    "insight_count": 222
+  },
+  "metrics": {
+    "table_count": 31,
+    "relationship_count": 50,
+    "raw_relationship_count": 133,
+    "relationship_class_counts": {
+      "PRIMARY_KEY": 20,
+      "DIMENSION_REFERENCE": 2,
+      "ENUM_REFERENCE": 15,
+      "FOREIGN_KEY": 12,
+      "TRANSACTION_REFERENCE": 1
+    },
+    "confidence": {
+      "min": 1.0,
+      "max": 1.0,
+      "avg": 1.0,
+      "median": 1.0
+    },
+    "connected_components": 7,
+    "largest_component_size": 23,
+    "density": 0.053763,
+    "orphan_tables": [
+      "application_people",
+      "Application_SystemParameters",
+      "warehouse_vehicletemperatures"
+    ],
+    "orphan_table_count": 3,
+    "isolated_nodes": [
+      "application_people",
+      "Application_SystemParameters",
+      "warehouse_vehicletemperatures"
+    ],
+    "module_counts": {
+      "sales": 9,
+      "warehouse": 9,
+      "purchasing": 5,
+      "application": 8
+    },
+    "top_connected_tables": [
+      {
+        "table": "warehouse_stockitems",
+        "degree": 9,
+        "in_degree": 7,
+        "out_degree": 2,
+        "module": "warehouse"
+      },
+      {
+        "table": "application_deliverymethods",
+        "degree": 5,
+        "in_degree": 4,
+        "out_degree": 1,
+        "module": "application"
+      },
+      {
+        "table": "application_transactiontypes",
+        "degree": 5,
+        "in_degree": 4,
+        "out_degree": 1,
+        "module": "application"
+      },
+      {
+        "table": "sales_invoices",
+        "degree": 5,
+        "in_degree": 2,
+        "out_degree": 3,
+        "module": "sales"
+      },
+      {
+        "table": "warehouse_packagetypes",
+        "degree": 5,
+        "in_degree": 4,
+        "out_degree": 1,
+        "module": "warehouse"
+      },
+      {
+        "table": "Sales_Customers",
+        "degree": 5,
+        "in_degree": 3,
+        "out_degree": 2,
+        "module": "sales"
+      },
+      {
+        "table": "purchasing_suppliertransactions",
+        "degree": 5,
+        "in_degree": 1,
+        "out_degree": 4,
+        "module": "purchasing"
+      },
+      {
+        "table": "sales_customertransactions",
+        "degree": 4,
+        "in_degree": 1,
+        "out_degree": 3,
+        "module": "sales"
+      },
+      {
+        "table": "purchasing_purchaseorders",
+        "degree": 4,
+        "in_degree": 1,
+        "out_degree": 3,
+        "module": "purchasing"
+      },
+      {
+        "table": "warehouse_stockgroups",
+        "degree": 4,
+        "in_degree": 3,
+        "out_degree": 1,
+        "module": "warehouse"
+      },
+      {
+        "table": "Application_StateProvinces",
+        "degree": 4,
+        "in_degree": 2,
+        "out_degree": 2,
+        "module": "application"
+      },
+      {
+        "table": "Purchasing_Suppliers",
+        "degree": 4,
+        "in_degree": 3,
+        "out_degree": 1,
+        "module": "purchasing"
+      },
+      {
+        "table": "sales_specialdeals",
+        "degree": 4,
+        "in_degree": 1,
+        "out_degree": 3,
+        "module": "sales"
+      },
+      {
+        "table": "application_paymentmethods",
+        "degree": 3,
+        "in_degree": 2,
+        "out_degree": 1,
+        "module": "application"
+      },
+      {
+        "table": "sales_orders",
+        "degree": 3,
+        "in_degree": 1,
+        "out_degree": 2,
+        "module": "sales"
+      },
+      {
+        "table": "purchasing_suppliercategories",
+        "degree": 3,
+        "in_degree": 2,
+        "out_degree": 1,
+        "module": "purchasing"
+      },
+      {
+        "table": "sales_customercategories",
+        "degree": 3,
+        "in_degree": 2,
+        "out_degree": 1,
+        "module": "sales"
+      },
+      {
+        "table": "Application_Cities",
+        "degree": 3,
+        "in_degree": 1,
+        "out_degree": 2,
+        "module": "application"
+      },
+      {
+        "table": "Application_Countries",
+        "degree": 3,
+        "in_degree": 2,
+        "out_degree": 1,
+        "module": "application"
+      },
+      {
+        "table": "sales_buyinggroups",
+        "degree": 3,
+        "in_degree": 2,
+        "out_degree": 1,
+        "module": "sales"
+      }
+    ],
+    "degree_distribution": {
+      "4": 6,
+      "1": 1,
+      "5": 6,
+      "3": 8,
+      "0": 3,
+      "2": 6,
+      "9": 1
+    }
+  }
+}

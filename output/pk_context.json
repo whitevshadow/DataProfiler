@@ -1,0 +1,476 @@
+{
+  "generated_at": "2026-05-20T10:57:12.744127+00:00",
+  "tables": [
+    {
+      "table": "Application_Cities",
+      "table_root": "city",
+      "pk": "cityid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "cityid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "Application_Countries",
+      "table_root": "country",
+      "pk": "countryid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9875,
+      "pk_candidates": [
+        "countryid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "application_deliverymethods",
+      "table_root": "deliverymethod",
+      "pk": "deliverymethodid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9794,
+      "pk_candidates": [
+        "deliverymethodid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "application_paymentmethods",
+      "table_root": "paymentmethod",
+      "pk": "paymentmethodid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9775,
+      "pk_candidates": [
+        "paymentmethodid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "application_people",
+      "table_root": "person",
+      "pk": "personid",
+      "pk_type": "SINGLE",
+      "confidence": 0.8666,
+      "pk_candidates": [
+        "personid"
+      ],
+      "composite_candidates": [
+        [
+          "personid",
+          "validfrom"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "Application_StateProvinces",
+      "table_root": "stateprovince",
+      "pk": "stateprovinceid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9856,
+      "pk_candidates": [
+        "stateprovinceid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "Application_SystemParameters",
+      "table_root": "systemparameter",
+      "pk": "systemparameterid",
+      "pk_type": "SINGLE",
+      "confidence": 0.75,
+      "pk_candidates": [
+        "systemparameterid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "application_transactiontypes",
+      "table_root": "transactiontype",
+      "pk": "transactiontypeid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9794,
+      "pk_candidates": [
+        "transactiontypeid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "purchasing_purchaseorderlines",
+      "table_root": "purchaseorderline",
+      "pk": "purchaseorderlineid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "purchaseorderlineid"
+      ],
+      "composite_candidates": [
+        [
+          "purchaseorderid",
+          "stockitemid"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "purchasing_purchaseorders",
+      "table_root": "purchaseorder",
+      "pk": "purchaseorderid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "purchaseorderid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "purchasing_suppliercategories",
+      "table_root": "suppliercategory",
+      "pk": "suppliercategoryid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9794,
+      "pk_candidates": [
+        "suppliercategoryid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "Purchasing_Suppliers",
+      "table_root": "supplier",
+      "pk": "supplierid",
+      "pk_type": "SINGLE",
+      "confidence": 0.8123,
+      "pk_candidates": [
+        "supplierid"
+      ],
+      "composite_candidates": [
+        [
+          "supplierid",
+          "validfrom"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "purchasing_suppliertransactions",
+      "table_root": "suppliertransaction",
+      "pk": "suppliertransactionid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "suppliertransactionid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "sales_buyinggroups",
+      "table_root": "buyinggroup",
+      "pk": "buyinggroupid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9775,
+      "pk_candidates": [
+        "buyinggroupid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "sales_customercategories",
+      "table_root": "customercategory",
+      "pk": "customercategoryid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9794,
+      "pk_candidates": [
+        "customercategoryid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "Sales_Customers",
+      "table_root": "customer",
+      "pk": "customerid",
+      "pk_type": "SINGLE",
+      "confidence": 0.8618,
+      "pk_candidates": [
+        "customerid"
+      ],
+      "composite_candidates": [
+        [
+          "customerid",
+          "validfrom"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "sales_customertransactions",
+      "table_root": "customertransaction",
+      "pk": "customertransactionid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "customertransactionid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "sales_invoicelines",
+      "table_root": "invoiceline",
+      "pk": "invoicelineid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "invoicelineid"
+      ],
+      "composite_candidates": [
+        [
+          "invoiceid",
+          "stockitemid"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "sales_invoices",
+      "table_root": "invoice",
+      "pk": "invoiceid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "invoiceid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "Sales_OrderLines",
+      "table_root": "orderline",
+      "pk": "orderlineid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "orderlineid"
+      ],
+      "composite_candidates": [
+        [
+          "orderid",
+          "stockitemid"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "sales_orders",
+      "table_root": "order",
+      "pk": "orderid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "orderid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "sales_specialdeals",
+      "table_root": "specialdeal",
+      "pk": "specialdealid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9775,
+      "pk_candidates": [
+        "specialdealid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_coldroomtemperatures",
+      "table_root": "coldroomtemperature",
+      "pk": "coldroomtemperatureid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9775,
+      "pk_candidates": [
+        "coldroomtemperatureid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": []
+    },
+    {
+      "table": "warehouse_colors",
+      "table_root": "color",
+      "pk": "colorid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9856,
+      "pk_candidates": [
+        "colorid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_packagetypes",
+      "table_root": "packagetype",
+      "pk": "packagetypeid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9794,
+      "pk_candidates": [
+        "packagetypeid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_stockgroups",
+      "table_root": "stockgroup",
+      "pk": "stockgroupid",
+      "pk_type": "SINGLE",
+      "confidence": 0.9794,
+      "pk_candidates": [
+        "stockgroupid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_stockitemholdings",
+      "table_root": "stockitemholding",
+      "pk": [
+        "stockitemid",
+        "binlocation"
+      ],
+      "pk_type": "COMPOSITE",
+      "confidence": 0.85,
+      "pk_candidates": [],
+      "composite_candidates": [
+        [
+          "stockitemid",
+          "binlocation"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_stockitems",
+      "table_root": "stockitem",
+      "pk": "stockitemid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "stockitemid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_stockitemstockgroups",
+      "table_root": "stockitemstockgroup",
+      "pk": "stockitemstockgroupid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "stockitemstockgroupid"
+      ],
+      "composite_candidates": [
+        [
+          "stockitemid",
+          "stockgroupid"
+        ]
+      ],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_stockitemtransactions",
+      "table_root": "stockitemtransaction",
+      "pk": "stockitemtransactionid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "stockitemtransactionid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": [
+        "lasteditedby"
+      ]
+    },
+    {
+      "table": "warehouse_vehicletemperatures",
+      "table_root": "vehicletemperature",
+      "pk": "vehicletemperatureid",
+      "pk_type": "SINGLE",
+      "confidence": 0.995,
+      "pk_candidates": [
+        "vehicletemperatureid"
+      ],
+      "composite_candidates": [],
+      "audit_refs": []
+    }
+  ]
+}

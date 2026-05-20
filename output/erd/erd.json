@@ -1,0 +1,648 @@
+{
+  "nodes": [
+    {
+      "id": "Application_Cities",
+      "label": "Application_Cities"
+    },
+    {
+      "id": "Application_Countries",
+      "label": "Application_Countries"
+    },
+    {
+      "id": "application_deliverymethods",
+      "label": "application_deliverymethods"
+    },
+    {
+      "id": "application_paymentmethods",
+      "label": "application_paymentmethods"
+    },
+    {
+      "id": "application_people",
+      "label": "application_people"
+    },
+    {
+      "id": "Application_StateProvinces",
+      "label": "Application_StateProvinces"
+    },
+    {
+      "id": "Application_SystemParameters",
+      "label": "Application_SystemParameters"
+    },
+    {
+      "id": "application_transactiontypes",
+      "label": "application_transactiontypes"
+    },
+    {
+      "id": "purchasing_purchaseorderlines",
+      "label": "purchasing_purchaseorderlines"
+    },
+    {
+      "id": "purchasing_purchaseorders",
+      "label": "purchasing_purchaseorders"
+    },
+    {
+      "id": "purchasing_suppliercategories",
+      "label": "purchasing_suppliercategories"
+    },
+    {
+      "id": "Purchasing_Suppliers",
+      "label": "Purchasing_Suppliers"
+    },
+    {
+      "id": "purchasing_suppliertransactions",
+      "label": "purchasing_suppliertransactions"
+    },
+    {
+      "id": "sales_buyinggroups",
+      "label": "sales_buyinggroups"
+    },
+    {
+      "id": "sales_customercategories",
+      "label": "sales_customercategories"
+    },
+    {
+      "id": "Sales_Customers",
+      "label": "Sales_Customers"
+    },
+    {
+      "id": "sales_customertransactions",
+      "label": "sales_customertransactions"
+    },
+    {
+      "id": "sales_invoicelines",
+      "label": "sales_invoicelines"
+    },
+    {
+      "id": "sales_invoices",
+      "label": "sales_invoices"
+    },
+    {
+      "id": "Sales_OrderLines",
+      "label": "Sales_OrderLines"
+    },
+    {
+      "id": "sales_orders",
+      "label": "sales_orders"
+    },
+    {
+      "id": "sales_specialdeals",
+      "label": "sales_specialdeals"
+    },
+    {
+      "id": "warehouse_coldroomtemperatures",
+      "label": "warehouse_coldroomtemperatures"
+    },
+    {
+      "id": "warehouse_colors",
+      "label": "warehouse_colors"
+    },
+    {
+      "id": "warehouse_packagetypes",
+      "label": "warehouse_packagetypes"
+    },
+    {
+      "id": "warehouse_stockgroups",
+      "label": "warehouse_stockgroups"
+    },
+    {
+      "id": "warehouse_stockitemholdings",
+      "label": "warehouse_stockitemholdings"
+    },
+    {
+      "id": "warehouse_stockitems",
+      "label": "warehouse_stockitems"
+    },
+    {
+      "id": "warehouse_stockitemstockgroups",
+      "label": "warehouse_stockitemstockgroups"
+    },
+    {
+      "id": "warehouse_stockitemtransactions",
+      "label": "warehouse_stockitemtransactions"
+    },
+    {
+      "id": "warehouse_vehicletemperatures",
+      "label": "warehouse_vehicletemperatures"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Application_Cities",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "Application_Countries",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "application_deliverymethods",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "application_paymentmethods",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "application_people",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "Application_StateProvinces",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "Application_SystemParameters",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "application_transactiontypes",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "purchasing_purchaseorderlines",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "purchasing_purchaseorders",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "purchasing_suppliercategories",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "Purchasing_Suppliers",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "purchasing_suppliertransactions",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "sales_buyinggroups",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "sales_customercategories",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "Sales_Customers",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "sales_customertransactions",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "sales_invoicelines",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "sales_invoices",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "Sales_OrderLines",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "sales_orders",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "sales_specialdeals",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "warehouse_colors",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "warehouse_packagetypes",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "warehouse_stockgroups",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "warehouse_stockitemholdings",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "warehouse_stockitems",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "warehouse_stockitemstockgroups",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "warehouse_stockitemtransactions",
+      "target": "application_people",
+      "type": "AUDIT_REFERENCE",
+      "label": "lasteditedby -> personid",
+      "confidence": 0.82
+    },
+    {
+      "source": "Application_Cities",
+      "target": "Application_StateProvinces",
+      "type": "DIMENSION_REFERENCE",
+      "label": "stateprovinceid -> stateprovinceid",
+      "confidence": 1.0
+    },
+    {
+      "source": "Application_StateProvinces",
+      "target": "Application_Countries",
+      "type": "DIMENSION_REFERENCE",
+      "label": "countryid -> countryid",
+      "confidence": 1.0
+    },
+    {
+      "source": "purchasing_purchaseorders",
+      "target": "application_people",
+      "type": "DIMENSION_REFERENCE",
+      "label": "contactpersonid -> personid",
+      "confidence": 0.97
+    },
+    {
+      "source": "Purchasing_Suppliers",
+      "target": "application_people",
+      "type": "DIMENSION_REFERENCE",
+      "label": "alternatecontactpersonid -> personid",
+      "confidence": 0.97
+    },
+    {
+      "source": "Purchasing_Suppliers",
+      "target": "application_people",
+      "type": "DIMENSION_REFERENCE",
+      "label": "primarycontactpersonid -> personid",
+      "confidence": 0.97
+    },
+    {
+      "source": "sales_invoices",
+      "target": "application_people",
+      "type": "DIMENSION_REFERENCE",
+      "label": "packedbypersonid -> personid",
+      "confidence": 0.97
+    },
+    {
+      "source": "sales_invoices",
+      "target": "application_people",
+      "type": "DIMENSION_REFERENCE",
+      "label": "salespersonpersonid -> personid",
+      "confidence": 0.97
+    },
+    {
+      "source": "sales_orders",
+      "target": "application_people",
+      "type": "DIMENSION_REFERENCE",
+      "label": "salespersonpersonid -> personid",
+      "confidence": 0.97
+    },
+    {
+      "source": "purchasing_purchaseorderlines",
+      "target": "warehouse_packagetypes",
+      "type": "ENUM_REFERENCE",
+      "label": "packagetypeid -> packagetypeid",
+      "confidence": 1.0
+    },
+    {
+      "source": "purchasing_purchaseorders",
+      "target": "application_deliverymethods",
+      "type": "ENUM_REFERENCE",
+      "label": "deliverymethodid -> deliverymethodid",
+      "confidence": 1.0
+    },
+    {
+      "source": "Purchasing_Suppliers",
+      "target": "purchasing_suppliercategories",
+      "type": "ENUM_REFERENCE",
+      "label": "suppliercategoryid -> suppliercategoryid",
+      "confidence": 1.0
+    },
+    {
+      "source": "purchasing_suppliertransactions",
+      "target": "application_paymentmethods",
+      "type": "ENUM_REFERENCE",
+      "label": "paymentmethodid -> paymentmethodid",
+      "confidence": 1.0
+    },
+    {
+      "source": "purchasing_suppliertransactions",
+      "target": "application_transactiontypes",
+      "type": "ENUM_REFERENCE",
+      "label": "transactiontypeid -> transactiontypeid",
+      "confidence": 1.0
+    },
+    {
+      "source": "Sales_Customers",
+      "target": "sales_customercategories",
+      "type": "ENUM_REFERENCE",
+      "label": "customercategoryid -> customercategoryid",
+      "confidence": 1.0
+    },
+    {
+      "source": "Sales_Customers",
+      "target": "application_deliverymethods",
+      "type": "ENUM_REFERENCE",
+      "label": "deliverymethodid -> deliverymethodid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_customertransactions",
+      "target": "application_transactiontypes",
+      "type": "ENUM_REFERENCE",
+      "label": "transactiontypeid -> transactiontypeid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_invoicelines",
+      "target": "warehouse_packagetypes",
+      "type": "ENUM_REFERENCE",
+      "label": "packagetypeid -> packagetypeid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_invoices",
+      "target": "application_deliverymethods",
+      "type": "ENUM_REFERENCE",
+      "label": "deliverymethodid -> deliverymethodid",
+      "confidence": 1.0
+    },
+    {
+      "source": "Sales_OrderLines",
+      "target": "warehouse_packagetypes",
+      "type": "ENUM_REFERENCE",
+      "label": "packagetypeid -> packagetypeid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_specialdeals",
+      "target": "sales_buyinggroups",
+      "type": "ENUM_REFERENCE",
+      "label": "buyinggroupid -> buyinggroupid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_specialdeals",
+      "target": "warehouse_stockgroups",
+      "type": "ENUM_REFERENCE",
+      "label": "stockgroupid -> stockgroupid",
+      "confidence": 1.0
+    },
+    {
+      "source": "warehouse_stockitemstockgroups",
+      "target": "warehouse_stockgroups",
+      "type": "ENUM_REFERENCE",
+      "label": "stockgroupid -> stockgroupid",
+      "confidence": 1.0
+    },
+    {
+      "source": "warehouse_stockitemtransactions",
+      "target": "application_transactiontypes",
+      "type": "ENUM_REFERENCE",
+      "label": "transactiontypeid -> transactiontypeid",
+      "confidence": 1.0
+    },
+    {
+      "source": "purchasing_purchaseorderlines",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "label": "stockitemid -> stockitemid",
+      "confidence": 1.0
+    },
+    {
+      "source": "purchasing_purchaseorders",
+      "target": "Purchasing_Suppliers",
+      "type": "FOREIGN_KEY",
+      "label": "supplierid -> supplierid",
+      "confidence": 1.0
+    },
+    {
+      "source": "purchasing_suppliertransactions",
+      "target": "Purchasing_Suppliers",
+      "type": "FOREIGN_KEY",
+      "label": "supplierid -> supplierid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_customertransactions",
+      "target": "Sales_Customers",
+      "type": "FOREIGN_KEY",
+      "label": "customerid -> customerid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_invoicelines",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "label": "stockitemid -> stockitemid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_invoices",
+      "target": "Sales_Customers",
+      "type": "FOREIGN_KEY",
+      "label": "customerid -> customerid",
+      "confidence": 1.0
+    },
+    {
+      "source": "Sales_OrderLines",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "label": "stockitemid -> stockitemid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_orders",
+      "target": "Sales_Customers",
+      "type": "FOREIGN_KEY",
+      "label": "customerid -> customerid",
+      "confidence": 1.0
+    },
+    {
+      "source": "warehouse_stockitemholdings",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "label": "stockitemid -> stockitemid",
+      "confidence": 1.0
+    },
+    {
+      "source": "warehouse_stockitems",
+      "target": "Purchasing_Suppliers",
+      "type": "FOREIGN_KEY",
+      "label": "supplierid -> supplierid",
+      "confidence": 1.0
+    },
+    {
+      "source": "warehouse_stockitemstockgroups",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "label": "stockitemid -> stockitemid",
+      "confidence": 1.0
+    },
+    {
+      "source": "warehouse_stockitemtransactions",
+      "target": "warehouse_stockitems",
+      "type": "FOREIGN_KEY",
+      "label": "stockitemid -> stockitemid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_invoices",
+      "target": "Sales_Customers",
+      "type": "FOREIGN_KEY",
+      "label": "billtocustomerid -> customerid",
+      "confidence": 0.97
+    },
+    {
+      "source": "sales_invoices",
+      "target": "application_people",
+      "type": "FOREIGN_KEY",
+      "label": "contactpersonid -> personid",
+      "confidence": 0.9203
+    },
+    {
+      "source": "sales_orders",
+      "target": "application_people",
+      "type": "FOREIGN_KEY",
+      "label": "contactpersonid -> personid",
+      "confidence": 0.9202
+    },
+    {
+      "source": "Sales_Customers",
+      "target": "application_people",
+      "type": "FOREIGN_KEY",
+      "label": "primarycontactpersonid -> personid",
+      "confidence": 0.9187
+    },
+    {
+      "source": "sales_invoices",
+      "target": "application_people",
+      "type": "FOREIGN_KEY",
+      "label": "accountspersonid -> personid",
+      "confidence": 0.8437
+    },
+    {
+      "source": "Sales_Customers",
+      "target": "Sales_Customers",
+      "type": "SELF_REFERENCE",
+      "label": "billtocustomerid -> customerid",
+      "confidence": 0.9
+    },
+    {
+      "source": "sales_invoicelines",
+      "target": "sales_invoices",
+      "type": "TRANSACTION_REFERENCE",
+      "label": "invoiceid -> invoiceid",
+      "confidence": 1.0
+    },
+    {
+      "source": "sales_invoices",
+      "target": "sales_orders",
+      "type": "TRANSACTION_REFERENCE",
+      "label": "orderid -> orderid",
+      "confidence": 0.9782
+    },
+    {
+      "source": "purchasing_purchaseorderlines",
+      "target": "purchasing_purchaseorders",
+      "type": "TRANSACTION_REFERENCE",
+      "label": "purchaseorderid -> purchaseorderid",
+      "confidence": 0.89
+    },
+    {
+      "source": "Sales_OrderLines",
+      "target": "sales_orders",
+      "type": "TRANSACTION_REFERENCE",
+      "label": "orderid -> orderid",
+      "confidence": 0.87
+    }
+  ]
+}

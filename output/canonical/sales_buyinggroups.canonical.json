@@ -1,106 +1,92 @@
 {
-  "source_path": "data\\sales_buyinggroups.csv",
-  "source_type": "csv",
+  "schema_version": "2.0.0",
+  "artifact_type": "canonical_table",
+  "table_id": "sales_buyinggroups",
+  "table_name": "sales_buyinggroups",
+  "source": {
+    "source_type": "file",
+    "format": "csv",
+    "path": "F:\\agentic_profiler\\new\\data\\sales_buyinggroups.csv",
+    "size_mb": 0.0,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "compression": null
+  },
+  "lineage": {
+    "created_at": "2026-05-20T16:24:53.918327Z",
+    "engine": "csv_engine",
+    "engine_version": "2.0.0"
+  },
+  "sampling": {
+    "strategy": "head",
+    "sample_size": 2,
+    "total_rows_estimate": null,
+    "is_sample": true,
+    "deterministic_seed": "6a4e6c4f38228e35"
+  },
+  "schema": {
+    "column_count": 5
+  },
   "columns": [
     {
-      "column_id": "sales_buyinggroups_buyinggroupid",
+      "column_id": "col_000",
       "original_name": "BuyingGroupID",
       "normalized_name": "buyinggroupid",
       "position": 0,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "1",
         "2"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_buyinggroups_buyinggroupname",
+      "column_id": "col_001",
       "original_name": "BuyingGroupName",
       "normalized_name": "buyinggroupname",
       "position": 1,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "Tailspin Toys",
         "Wingtip Toys"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_buyinggroups_lasteditedby",
+      "column_id": "col_002",
       "original_name": "LastEditedBy",
       "normalized_name": "lasteditedby",
       "position": 2,
       "physical_type": "BOOLEAN",
-      "semantic_type": "identifier",
       "observed_nullable": false,
       "sample_values": [
         "1",
         "1"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_buyinggroups_validfrom",
+      "column_id": "col_003",
       "original_name": "ValidFrom",
       "normalized_name": "validfrom",
       "position": 3,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_start",
       "observed_nullable": false,
       "sample_values": [
         "01-01-2013 00:00:00",
         "01-01-2013 00:00:00"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_buyinggroups_validto",
+      "column_id": "col_004",
       "original_name": "ValidTo",
       "normalized_name": "validto",
       "position": 4,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_end",
       "observed_nullable": false,
       "sample_values": [
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59"
-      ],
-      "statistics": {}
+      ]
     }
-  ],
-  "column_count": 5,
-  "row_count": 2,
-  "rows": [
-    [
-      "1",
-      "Tailspin Toys",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "2",
-      "Wingtip Toys",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ]
-  ],
-  "encoding": "utf-8",
-  "delimiter": ",",
-  "compression": null,
-  "is_sample": true,
-  "sample_size": 2,
-  "sampling_method": null,
-  "table_name": "sales_buyinggroups",
-  "table_id": "sales_buyinggroups",
-  "metadata": {
-    "is_sample": true,
-    "sample_row_count": 2
-  }
+  ]
 }

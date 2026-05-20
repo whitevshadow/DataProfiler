@@ -1,14 +1,39 @@
 {
-  "source_path": "data\\purchasing_suppliercategories.csv",
-  "source_type": "csv",
+  "schema_version": "2.0.0",
+  "artifact_type": "canonical_table",
+  "table_id": "purchasing_suppliercategories",
+  "table_name": "purchasing_suppliercategories",
+  "source": {
+    "source_type": "file",
+    "format": "csv",
+    "path": "F:\\agentic_profiler\\new\\data\\purchasing_suppliercategories.csv",
+    "size_mb": 0.0,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "compression": null
+  },
+  "lineage": {
+    "created_at": "2026-05-20T16:24:50.673779Z",
+    "engine": "csv_engine",
+    "engine_version": "2.0.0"
+  },
+  "sampling": {
+    "strategy": "head",
+    "sample_size": 9,
+    "total_rows_estimate": null,
+    "is_sample": true,
+    "deterministic_seed": "8164199ee050d7a2"
+  },
+  "schema": {
+    "column_count": 5
+  },
   "columns": [
     {
-      "column_id": "purchasing_suppliercategories_suppliercategoryid",
+      "column_id": "col_000",
       "original_name": "SupplierCategoryID",
       "normalized_name": "suppliercategoryid",
       "position": 0,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "1",
@@ -20,16 +45,14 @@
         "7",
         "8",
         "9"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "purchasing_suppliercategories_suppliercategoryname",
+      "column_id": "col_001",
       "original_name": "SupplierCategoryName",
       "normalized_name": "suppliercategoryname",
       "position": 1,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "Other Wholesaler",
@@ -41,16 +64,14 @@
         "Financial Services Supplier",
         "Marketing Services Supplier",
         "Insurance Services Supplier"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "purchasing_suppliercategories_lasteditedby",
+      "column_id": "col_002",
       "original_name": "LastEditedBy",
       "normalized_name": "lasteditedby",
       "position": 2,
       "physical_type": "BOOLEAN",
-      "semantic_type": "identifier",
       "observed_nullable": false,
       "sample_values": [
         "1",
@@ -62,16 +83,14 @@
         "1",
         "1",
         "1"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "purchasing_suppliercategories_validfrom",
+      "column_id": "col_003",
       "original_name": "ValidFrom",
       "normalized_name": "validfrom",
       "position": 3,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_start",
       "observed_nullable": false,
       "sample_values": [
         "01-01-2013 00:00:00",
@@ -83,16 +102,14 @@
         "01-01-2013 00:00:00",
         "01-01-2013 00:00:00",
         "01-01-2013 00:00:00"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "purchasing_suppliercategories_validto",
+      "column_id": "col_004",
       "original_name": "ValidTo",
       "normalized_name": "validto",
       "position": 4,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_end",
       "observed_nullable": false,
       "sample_values": [
         "31-12-9999 23:59:59",
@@ -104,87 +121,7 @@
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59"
-      ],
-      "statistics": {}
+      ]
     }
-  ],
-  "column_count": 5,
-  "row_count": 9,
-  "rows": [
-    [
-      "1",
-      "Other Wholesaler",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "2",
-      "Novelty Goods Supplier",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "3",
-      "Toy Supplier",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "4",
-      "Clothing Supplier",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "5",
-      "Packaging Supplier",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "6",
-      "Courier Services Supplier",
-      "16",
-      "01-01-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "7",
-      "Financial Services Supplier",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "8",
-      "Marketing Services Supplier",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "9",
-      "Insurance Services Supplier",
-      "1",
-      "01-01-2013 00:00:00",
-      "31-12-9999 23:59:59"
-    ]
-  ],
-  "encoding": "utf-8",
-  "delimiter": ",",
-  "compression": null,
-  "is_sample": true,
-  "sample_size": 9,
-  "sampling_method": null,
-  "table_name": "purchasing_suppliercategories",
-  "table_id": "purchasing_suppliercategories",
-  "metadata": {
-    "is_sample": true,
-    "sample_row_count": 9
-  }
+  ]
 }

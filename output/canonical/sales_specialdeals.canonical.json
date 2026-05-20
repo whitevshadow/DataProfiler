@@ -1,250 +1,200 @@
 {
-  "source_path": "data\\sales_specialdeals.csv",
-  "source_type": "csv",
+  "schema_version": "2.0.0",
+  "artifact_type": "canonical_table",
+  "table_id": "sales_specialdeals",
+  "table_name": "sales_specialdeals",
+  "source": {
+    "source_type": "file",
+    "format": "csv",
+    "path": "F:\\agentic_profiler\\new\\data\\sales_specialdeals.csv",
+    "size_mb": 0.0,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "compression": null
+  },
+  "lineage": {
+    "created_at": "2026-05-20T16:26:52.860937Z",
+    "engine": "csv_engine",
+    "engine_version": "2.0.0"
+  },
+  "sampling": {
+    "strategy": "head",
+    "sample_size": 2,
+    "total_rows_estimate": null,
+    "is_sample": true,
+    "deterministic_seed": "34c5778b470fe129"
+  },
+  "schema": {
+    "column_count": 14
+  },
   "columns": [
     {
-      "column_id": "sales_specialdeals_specialdealid",
+      "column_id": "col_000",
       "original_name": "SpecialDealID",
       "normalized_name": "specialdealid",
       "position": 0,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "1",
         "2"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_stockitemid",
+      "column_id": "col_001",
       "original_name": "StockItemID",
       "normalized_name": "stockitemid",
       "position": 1,
       "physical_type": "UNKNOWN",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": true,
       "sample_values": [
         "",
         ""
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_customerid",
+      "column_id": "col_002",
       "original_name": "CustomerID",
       "normalized_name": "customerid",
       "position": 2,
       "physical_type": "UNKNOWN",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": true,
       "sample_values": [
         "",
         ""
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_buyinggroupid",
+      "column_id": "col_003",
       "original_name": "BuyingGroupID",
       "normalized_name": "buyinggroupid",
       "position": 3,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "2",
         "1"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_customercategoryid",
+      "column_id": "col_004",
       "original_name": "CustomerCategoryID",
       "normalized_name": "customercategoryid",
       "position": 4,
       "physical_type": "UNKNOWN",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": true,
       "sample_values": [
         "",
         ""
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_stockgroupid",
+      "column_id": "col_005",
       "original_name": "StockGroupID",
       "normalized_name": "stockgroupid",
       "position": 5,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "7",
         "7"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_dealdescription",
+      "column_id": "col_006",
       "original_name": "DealDescription",
       "normalized_name": "dealdescription",
       "position": 6,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "10% 1st qtr USB Wingtip",
         "15% 2nd qtr USB Tailspin"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_startdate",
+      "column_id": "col_007",
       "original_name": "StartDate",
       "normalized_name": "startdate",
       "position": 7,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_start",
       "observed_nullable": false,
       "sample_values": [
         "01-01-2016 00:00:00",
         "01-04-2016 00:00:00"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_enddate",
+      "column_id": "col_008",
       "original_name": "EndDate",
       "normalized_name": "enddate",
       "position": 8,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_end",
       "observed_nullable": false,
       "sample_values": [
         "31-03-2016 00:00:00",
         "30-06-2016 00:00:00"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_discountamount",
+      "column_id": "col_009",
       "original_name": "DiscountAmount",
       "normalized_name": "discountamount",
       "position": 9,
       "physical_type": "UNKNOWN",
-      "semantic_type": "measure",
       "observed_nullable": true,
       "sample_values": [
         "",
         ""
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_discountpercentage",
+      "column_id": "col_010",
       "original_name": "DiscountPercentage",
       "normalized_name": "discountpercentage",
       "position": 10,
       "physical_type": "FLOAT",
-      "semantic_type": "measure",
       "observed_nullable": false,
       "sample_values": [
         "10.0",
         "15.0"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_unitprice",
+      "column_id": "col_011",
       "original_name": "UnitPrice",
       "normalized_name": "unitprice",
       "position": 11,
       "physical_type": "UNKNOWN",
-      "semantic_type": "measure",
       "observed_nullable": true,
       "sample_values": [
         "",
         ""
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_lasteditedby",
+      "column_id": "col_012",
       "original_name": "LastEditedBy",
       "normalized_name": "lasteditedby",
       "position": 12,
       "physical_type": "INTEGER",
-      "semantic_type": "identifier",
       "observed_nullable": false,
       "sample_values": [
         "2",
         "2"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "sales_specialdeals_lasteditedwhen",
+      "column_id": "col_013",
       "original_name": "LastEditedWhen",
       "normalized_name": "lasteditedwhen",
       "position": 13,
       "physical_type": "DATETIME",
-      "semantic_type": "timestamp",
       "observed_nullable": false,
       "sample_values": [
         "31-12-2015 16:00:00",
         "31-12-2015 16:00:00"
-      ],
-      "statistics": {}
+      ]
     }
-  ],
-  "column_count": 14,
-  "row_count": 2,
-  "rows": [
-    [
-      "1",
-      "",
-      "",
-      "2",
-      "",
-      "7",
-      "10% 1st qtr USB Wingtip",
-      "01-01-2016 00:00:00",
-      "31-03-2016 00:00:00",
-      "",
-      "10.0",
-      "",
-      "2",
-      "31-12-2015 16:00:00"
-    ],
-    [
-      "2",
-      "",
-      "",
-      "1",
-      "",
-      "7",
-      "15% 2nd qtr USB Tailspin",
-      "01-04-2016 00:00:00",
-      "30-06-2016 00:00:00",
-      "",
-      "15.0",
-      "",
-      "2",
-      "31-12-2015 16:00:00"
-    ]
-  ],
-  "encoding": "utf-8",
-  "delimiter": ",",
-  "compression": null,
-  "is_sample": true,
-  "sample_size": 2,
-  "sampling_method": null,
-  "table_name": "sales_specialdeals",
-  "table_id": "sales_specialdeals",
-  "metadata": {
-    "is_sample": true,
-    "sample_row_count": 2
-  }
+  ]
 }

@@ -1,192 +1,164 @@
 {
-  "source_path": "data\\Application_SystemParameters.csv",
-  "source_type": "csv",
+  "schema_version": "2.0.0",
+  "artifact_type": "canonical_table",
+  "table_id": "Application_SystemParameters",
+  "table_name": "Application_SystemParameters",
+  "source": {
+    "source_type": "file",
+    "format": "csv",
+    "path": "F:\\agentic_profiler\\new\\data\\Application_SystemParameters.csv",
+    "size_mb": 0.0,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "compression": null
+  },
+  "lineage": {
+    "created_at": "2026-05-20T16:24:46.352135Z",
+    "engine": "csv_engine",
+    "engine_version": "2.0.0"
+  },
+  "sampling": {
+    "strategy": "head",
+    "sample_size": 1,
+    "total_rows_estimate": null,
+    "is_sample": true,
+    "deterministic_seed": "40b394664e2c02ba"
+  },
+  "schema": {
+    "column_count": 12
+  },
   "columns": [
     {
-      "column_id": "Application_SystemParameters_systemparameterid",
+      "column_id": "col_000",
       "original_name": "SystemParameterID",
       "normalized_name": "systemparameterid",
       "position": 0,
       "physical_type": "BOOLEAN",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "1"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_deliveryaddressline1",
+      "column_id": "col_001",
       "original_name": "DeliveryAddressLine1",
       "normalized_name": "deliveryaddressline1",
       "position": 1,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "Suite 14"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_deliveryaddressline2",
+      "column_id": "col_002",
       "original_name": "DeliveryAddressLine2",
       "normalized_name": "deliveryaddressline2",
       "position": 2,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "1968 Martin Luther King Junior Drive"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_deliverycityid",
+      "column_id": "col_003",
       "original_name": "DeliveryCityID",
       "normalized_name": "deliverycityid",
       "position": 3,
       "physical_type": "INTEGER",
-      "semantic_type": "identifier",
       "observed_nullable": false,
       "sample_values": [
         "30378"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_deliverypostalcode",
+      "column_id": "col_004",
       "original_name": "DeliveryPostalCode",
       "normalized_name": "deliverypostalcode",
       "position": 4,
       "physical_type": "INTEGER",
-      "semantic_type": "zip_code",
       "observed_nullable": false,
       "sample_values": [
         "94129"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_deliverylocation",
+      "column_id": "col_005",
       "original_name": "DeliveryLocation",
       "normalized_name": "deliverylocation",
       "position": 5,
       "physical_type": "STRING",
-      "semantic_type": "geospatial_point",
       "observed_nullable": false,
       "sample_values": [
         "POINT (-122.504086 37.765786)"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_postaladdressline1",
+      "column_id": "col_006",
       "original_name": "PostalAddressLine1",
       "normalized_name": "postaladdressline1",
       "position": 6,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "PO Box 201158"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_postaladdressline2",
+      "column_id": "col_007",
       "original_name": "PostalAddressLine2",
       "normalized_name": "postaladdressline2",
       "position": 7,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "Golden Gate Park"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_postalcityid",
+      "column_id": "col_008",
       "original_name": "PostalCityID",
       "normalized_name": "postalcityid",
       "position": 8,
       "physical_type": "INTEGER",
-      "semantic_type": "identifier",
       "observed_nullable": false,
       "sample_values": [
         "30378"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_postalpostalcode",
+      "column_id": "col_009",
       "original_name": "PostalPostalCode",
       "normalized_name": "postalpostalcode",
       "position": 9,
       "physical_type": "INTEGER",
-      "semantic_type": "zip_code",
       "observed_nullable": false,
       "sample_values": [
         "94129"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_lasteditedby",
+      "column_id": "col_010",
       "original_name": "LastEditedBy",
       "normalized_name": "lasteditedby",
       "position": 10,
       "physical_type": "BOOLEAN",
-      "semantic_type": "identifier",
       "observed_nullable": false,
       "sample_values": [
         "1"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_SystemParameters_lasteditedwhen",
+      "column_id": "col_011",
       "original_name": "LastEditedWhen",
       "normalized_name": "lasteditedwhen",
       "position": 11,
       "physical_type": "DATETIME",
-      "semantic_type": "timestamp",
       "observed_nullable": false,
       "sample_values": [
         "01-01-2013 00:00:00"
-      ],
-      "statistics": {}
+      ]
     }
-  ],
-  "column_count": 12,
-  "row_count": 1,
-  "rows": [
-    [
-      "1",
-      "Suite 14",
-      "1968 Martin Luther King Junior Drive",
-      "30378",
-      "94129",
-      "POINT (-122.504086 37.765786)",
-      "PO Box 201158",
-      "Golden Gate Park",
-      "30378",
-      "94129",
-      "1",
-      "01-01-2013 00:00:00"
-    ]
-  ],
-  "encoding": "utf-8",
-  "delimiter": ",",
-  "compression": null,
-  "is_sample": true,
-  "sample_size": 1,
-  "sampling_method": null,
-  "table_name": "Application_SystemParameters",
-  "table_id": "Application_SystemParameters",
-  "metadata": {
-    "is_sample": true,
-    "sample_row_count": 1
-  }
+  ]
 }

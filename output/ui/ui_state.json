@@ -1,0 +1,15 @@
+{
+  "tables": 31,
+  "rows": 6855215,
+  "columns": 367,
+  "fk_count": 74,
+  "descriptions": 367,
+  "quality_score": 0.0,
+  "profile_complete": true,
+  "quality_complete": false,
+  "pk_complete": false,
+  "relationship_complete": true,
+  "enrichment_complete": true,
+  "status": "Detected 74 validated relationships",
+  "last_updated": "2026-05-20T16:45:45.533433"
+}

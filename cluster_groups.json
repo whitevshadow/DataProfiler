@@ -1,0 +1,316 @@
+[
+  {
+    "cluster_id": 0,
+    "member_count": 25,
+    "members": [
+      {
+        "fk": "Sales_OrderLines.packagetypeid",
+        "pk": "warehouse_packagetypes.packagetypeid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6176371646767647,
+        "confidence": 0.9235274329353529,
+        "accepted": true
+      },
+      {
+        "fk": "Sales_Customers.deliverymethodid",
+        "pk": "application_deliverymethods.deliverymethodid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.64956735678759,
+        "confidence": 0.9299134713575181,
+        "accepted": true
+      },
+      {
+        "fk": "Sales_Customers.customercategoryid",
+        "pk": "sales_customercategories.customercategoryid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6030633008462596,
+        "confidence": 0.9206126601692519,
+        "accepted": true
+      },
+      {
+        "fk": "warehouse_stockitems.supplierid",
+        "pk": "Purchasing_Suppliers.supplierid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6065169044382056,
+        "confidence": 0.9213033808876412,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_purchaseorders.deliverymethodid",
+        "pk": "application_deliverymethods.deliverymethodid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5826952292225587,
+        "confidence": 0.9165390458445117,
+        "accepted": true
+      },
+      {
+        "fk": "Application_Cities.stateprovinceid",
+        "pk": "Application_StateProvinces.stateprovinceid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5601228648808905,
+        "confidence": 0.912024572976178,
+        "accepted": true
+      },
+      {
+        "fk": "sales_invoicelines.invoiceid",
+        "pk": "sales_invoices.invoiceid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6676818844781723,
+        "confidence": 0.9335363768956344,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_purchaseorderlines.purchaseorderid",
+        "pk": "purchasing_purchaseorders.purchaseorderid",
+        "containment_ratio": 0.91,
+        "semantic_similarity": 0.6614427201120523,
+        "confidence": 0.9007885440224106,
+        "accepted": true
+      },
+      {
+        "fk": "sales_specialdeals.stockgroupid",
+        "pk": "warehouse_stockgroups.stockgroupid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5979167725901406,
+        "confidence": 0.9195833545180281,
+        "accepted": true
+      },
+      {
+        "fk": "sales_customertransactions.transactiontypeid",
+        "pk": "application_transactiontypes.transactiontypeid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6444444444444445,
+        "confidence": 0.9288888888888889,
+        "accepted": true
+      },
+      {
+        "fk": "sales_invoices.deliverymethodid",
+        "pk": "application_deliverymethods.deliverymethodid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5757077330897981,
+        "confidence": 0.9151415466179595,
+        "accepted": true
+      },
+      {
+        "fk": "warehouse_stockitemtransactions.transactiontypeid",
+        "pk": "application_transactiontypes.transactiontypeid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5850101213699326,
+        "confidence": 0.9170020242739865,
+        "accepted": true
+      },
+      {
+        "fk": "sales_specialdeals.buyinggroupid",
+        "pk": "sales_buyinggroups.buyinggroupid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.7152738940235288,
+        "confidence": 0.9430547788047057,
+        "accepted": true
+      },
+      {
+        "fk": "sales_invoices.orderid",
+        "pk": "sales_orders.orderid",
+        "containment_ratio": 0.94,
+        "semantic_similarity": 0.7551020408163266,
+        "confidence": 0.9300204081632653,
+        "accepted": true
+      },
+      {
+        "fk": "Sales_OrderLines.orderid",
+        "pk": "sales_orders.orderid",
+        "containment_ratio": 0.93,
+        "semantic_similarity": 0.681468335999936,
+        "confidence": 0.9117936671999873,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_purchaseorders.supplierid",
+        "pk": "Purchasing_Suppliers.supplierid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6190914904639279,
+        "confidence": 0.9238182980927856,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_purchaseorderlines.packagetypeid",
+        "pk": "warehouse_packagetypes.packagetypeid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5798825193638245,
+        "confidence": 0.915976503872765,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_suppliertransactions.paymentmethodid",
+        "pk": "application_paymentmethods.paymentmethodid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5607721540920444,
+        "confidence": 0.9121544308184089,
+        "accepted": true
+      },
+      {
+        "fk": "warehouse_stockitemstockgroups.stockitemid",
+        "pk": "warehouse_stockitemholdings.stockitemid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.7530181208460928,
+        "confidence": 0.9506036241692186,
+        "accepted": true
+      },
+      {
+        "fk": "warehouse_stockitemstockgroups.stockitemid",
+        "pk": "warehouse_stockitems.stockitemid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.7449241729601817,
+        "confidence": 0.9489848345920364,
+        "accepted": true
+      },
+      {
+        "fk": "warehouse_stockitemstockgroups.stockgroupid",
+        "pk": "warehouse_stockgroups.stockgroupid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5394109498457441,
+        "confidence": 0.9078821899691489,
+        "accepted": true
+      },
+      {
+        "fk": "Purchasing_Suppliers.suppliercategoryid",
+        "pk": "purchasing_suppliercategories.suppliercategoryid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6092185652735582,
+        "confidence": 0.9218437130547117,
+        "accepted": true
+      },
+      {
+        "fk": "sales_invoicelines.packagetypeid",
+        "pk": "warehouse_packagetypes.packagetypeid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6167567121055948,
+        "confidence": 0.923351342421119,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_suppliertransactions.transactiontypeid",
+        "pk": "application_transactiontypes.transactiontypeid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6219146064997813,
+        "confidence": 0.9243829212999564,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_suppliertransactions.supplierid",
+        "pk": "Purchasing_Suppliers.supplierid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6457962733644266,
+        "confidence": 0.9291592546728853,
+        "accepted": true
+      }
+    ]
+  },
+  {
+    "cluster_id": 1,
+    "member_count": 3,
+    "members": [
+      {
+        "fk": "Sales_Customers.customercategoryid",
+        "pk": "Sales_Customers.customerid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5799367451304414,
+        "confidence": 0.8493206823594217,
+        "accepted": false
+      },
+      {
+        "fk": "Sales_Customers.billtocustomerid",
+        "pk": "sales_customercategories.customercategoryid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6789237807000136,
+        "confidence": 0.8691180894733361,
+        "accepted": false
+      },
+      {
+        "fk": "warehouse_stockitems.outerpackageid",
+        "pk": "warehouse_stockitems.stockitemid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.538689103670404,
+        "confidence": 0.0,
+        "accepted": false
+      }
+    ]
+  },
+  {
+    "cluster_id": 2,
+    "member_count": 9,
+    "members": [
+      {
+        "fk": "Sales_Customers.billtocustomerid",
+        "pk": "Sales_Customers.customerid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6764814252025462,
+        "confidence": 0.9052962850405093,
+        "accepted": true
+      },
+      {
+        "fk": "sales_invoices.packedbypersonid",
+        "pk": "application_people.personid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5291540297879526,
+        "confidence": 0.8758308059575906,
+        "accepted": true
+      },
+      {
+        "fk": "sales_specialdeals.stockgroupid",
+        "pk": "warehouse_stockitemstockgroups.stockitemstockgroupid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6001482030404226,
+        "confidence": 0.8900296406080845,
+        "accepted": true
+      },
+      {
+        "fk": "sales_invoices.salespersonpersonid",
+        "pk": "application_people.personid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5495480703852018,
+        "confidence": 0.8799096140770404,
+        "accepted": true
+      },
+      {
+        "fk": "Purchasing_Suppliers.primarycontactpersonid",
+        "pk": "application_people.personid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5097533568780935,
+        "confidence": 0.8719506713756187,
+        "accepted": true
+      },
+      {
+        "fk": "warehouse_stockitemstockgroups.stockgroupid",
+        "pk": "warehouse_stockitemstockgroups.stockitemstockgroupid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.6062754572551409,
+        "confidence": 0.8912550914510282,
+        "accepted": true
+      },
+      {
+        "fk": "Purchasing_Suppliers.alternatecontactpersonid",
+        "pk": "application_people.personid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.4913777894236344,
+        "confidence": 0.8682755578847268,
+        "accepted": true
+      },
+      {
+        "fk": "sales_orders.salespersonpersonid",
+        "pk": "application_people.personid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5448462751310045,
+        "confidence": 0.8789692550262009,
+        "accepted": true
+      },
+      {
+        "fk": "purchasing_purchaseorders.contactpersonid",
+        "pk": "application_people.personid",
+        "containment_ratio": 1.0,
+        "semantic_similarity": 0.5931836841290252,
+        "confidence": 0.888636736825805,
+        "accepted": true
+      }
+    ]
+  }
+]

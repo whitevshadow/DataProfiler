@@ -29,7 +29,7 @@ from dataclasses import dataclass
 from datetime import datetime, date
 from enum import Enum
 
-from profiler.profiling.profiling_models import QualityFlag, PhysicalType, SemanticType, RelationalRole
+from profiler.profiling.profiling_models import QualityFlag, PhysicalType, SemanticType
 
 log = logging.getLogger(__name__)
 
@@ -119,7 +119,6 @@ class CompletenessQualityValidator(QualityValidator):
         null_count = context.get("null_count", 0)
         total_count = context.get("total_count", 0)
         column_name = context.get("column_name", "unknown")
-        relational_role = context.get("relational_role")
         
         # FULLY_NULL - 100% nulls
         if null_ratio >= 1.0:
@@ -154,17 +153,6 @@ class CompletenessQualityValidator(QualityValidator):
                 remediation_hint="Consider if this field should be required"
             ))
         
-        # REQUIRED_FIELD_MISSING - PKs should never be null
-        if relational_role == RelationalRole.PRIMARY_KEY and null_ratio > 0:
-            issues.append(QualityIssue(
-                flag=QualityFlag.REQUIRED_FIELD_MISSING,
-                severity=QualitySeverity.CRITICAL,
-                confidence=1.0,
-                message=f"Primary key '{column_name}' has NULL values ({null_ratio:.1%})",
-                affected_count=null_count,
-                remediation_hint="Primary keys must be non-null"
-            ))
-        
         return issues
 
 
@@ -181,23 +169,31 @@ class UniquenessQualityValidator(QualityValidator):
         distinct_count = context.get("distinct_count", 0)
         total_count = context.get("total_count", 0)
         column_name = context.get("column_name", "unknown")
-        relational_role = context.get("relational_role")
         uniqueness_ratio = context.get("uniqueness_ratio", 0.0)
+        logical_type = context.get("logical_type")
+        logical_type_value = getattr(logical_type, "value", logical_type)
+        audit_profile = context.get("audit_profile")
         
         if total_count == 0:
             return issues
-        
-        # PK_DUPLICATION - Primary keys must be unique
-        if relational_role == RelationalRole.PRIMARY_KEY and uniqueness_ratio < 1.0:
-            duplicate_count = total_count - distinct_count
-            issues.append(QualityIssue(
-                flag=QualityFlag.PK_DUPLICATION,
-                severity=QualitySeverity.CRITICAL,
-                confidence=1.0,
-                message=f"Primary key '{column_name}' has {duplicate_count} duplicate values",
-                affected_count=duplicate_count,
-                remediation_hint="Investigate and remove duplicate primary key values"
-            ))
+
+        if logical_type_value == "audit_reference" or audit_profile:
+            if distinct_count > 2:
+                issues.append(QualityIssue(
+                    flag=QualityFlag.DUPLICATE_EXPECTED,
+                    severity=QualitySeverity.INFO,
+                    confidence=0.95,
+                    message=f"Column '{column_name}' is an audit reference; duplicate values are expected",
+                    remediation_hint="Treat as low-cardinality audit identifier rather than boolean"
+                ))
+                issues.append(QualityIssue(
+                    flag=QualityFlag.LOW_CARDINALITY_IDENTIFIER,
+                    severity=QualitySeverity.INFO,
+                    confidence=0.95,
+                    message=f"Column '{column_name}' is a low-cardinality identifier",
+                    remediation_hint="Keep identifier semantics despite duplicate reuse"
+                ))
+            return issues
         
         # DUPLICATE_EXPLOSION - Very low cardinality vs row count
         if distinct_count < (total_count * 0.01) and total_count > 100:
@@ -345,34 +341,7 @@ class SemanticQualityValidator(QualityValidator):
 
 
 # ---------------------------------------------------------------------------
-# 6. RELATIONAL QUALITY VALIDATORS
-# ---------------------------------------------------------------------------
-
-class RelationalQualityValidator(QualityValidator):
-    """Detect relational integrity issues."""
-    
-    def validate(self, context: Dict[str, Any]) -> List[QualityIssue]:
-        issues = []
-        
-        relational_role = context.get("relational_role")
-        fk_confidence = context.get("fk_confidence", 0.0)
-        column_name = context.get("column_name", "unknown")
-        
-        # WEAK_RELATIONSHIP - FK with low confidence
-        if relational_role == RelationalRole.FOREIGN_KEY and fk_confidence < 0.70:
-            issues.append(QualityIssue(
-                flag=QualityFlag.WEAK_RELATIONSHIP,
-                severity=QualitySeverity.MEDIUM,
-                confidence=0.7,
-                message=f"Foreign key '{column_name}' has low relationship confidence ({fk_confidence:.2f})",
-                remediation_hint="Verify referential relationship"
-            ))
-        
-        return issues
-
-
-# ---------------------------------------------------------------------------
-# 7. TEMPORAL QUALITY VALIDATORS
+# 6. TEMPORAL QUALITY VALIDATORS
 # ---------------------------------------------------------------------------
 
 class TemporalQualityValidator(QualityValidator):
@@ -569,7 +538,6 @@ class QualityEngine:
             UniquenessQualityValidator(),
             TypeQualityValidator(),
             SemanticQualityValidator(),
-            RelationalQualityValidator(),
             TemporalQualityValidator(),
             StatisticalQualityValidator(),
             ConsistencyQualityValidator(),
@@ -662,11 +630,22 @@ def detect_quality_flags(
         "total_count": total_count,
         "entropy_normalized": entropy_normalized,
         "skewness": skewness,
-        "uniqueness_ratio": distinct_count / total_count if total_count > 0 else 0.0,
+        "uniqueness_ratio": kwargs.get("uniqueness_ratio", distinct_count / total_count if total_count > 0 else 0.0),
     }
     context.update(kwargs)
     
     flags, quality_score, issues = engine.assess_quality(context)
+
+    duplicate_ratio = float(context.get("duplicate_ratio") or 0.0)
+    kurtosis = context.get("kurtosis")
+    if null_ratio > 0.50 and QualityFlag.HIGH_MISSINGNESS not in flags:
+        flags.append(QualityFlag.HIGH_MISSINGNESS)
+    if duplicate_ratio > 0.50 and QualityFlag.HIGH_DUPLICATION not in flags:
+        flags.append(QualityFlag.HIGH_DUPLICATION)
+    if kurtosis is not None and kurtosis > 10 and QualityFlag.HEAVY_TAIL not in flags:
+        flags.append(QualityFlag.HEAVY_TAIL)
+    if re.search(r'(^id$|id$|_id$|key$|_key$|identifier$)', column_name.lower()) and distinct_count <= 1 and QualityFlag.INVALID_IDENTIFIER not in flags:
+        flags.append(QualityFlag.INVALID_IDENTIFIER)
     
     for issue in issues:
         log.warning(f"Column '{column_name}': {issue.flag.value.upper()}")
@@ -686,8 +665,10 @@ def compute_quality_score(quality_flags: List[QualityFlag]) -> float:
         QualityFlag.PK_DUPLICATION: 0.30,
         QualityFlag.REQUIRED_FIELD_MISSING: 0.30,
         QualityFlag.HIGH_NULL_RATIO: 0.20,
+        QualityFlag.HIGH_MISSINGNESS: 0.22,
         QualityFlag.ZERO_ENTROPY: 0.20,
         QualityFlag.DUPLICATE_EXPLOSION: 0.20,
+        QualityFlag.HIGH_DUPLICATION: 0.15,
         QualityFlag.TYPE_CONFLICT: 0.20,
         QualityFlag.NEGATIVE_PRICE: 0.20,
         QualityFlag.IMPOSSIBLE_AGE: 0.20,
@@ -700,6 +681,10 @@ def compute_quality_score(quality_flags: List[QualityFlag]) -> float:
         QualityFlag.HIGH_CARDINALITY: 0.08,
         QualityFlag.SKEWED_DISTRIBUTION: 0.05,
         QualityFlag.OUTLIER_DETECTED: 0.08,
+        QualityFlag.HEAVY_TAIL: 0.08,
+        QualityFlag.INVALID_IDENTIFIER: 0.20,
+        QualityFlag.TEMPORAL_ANOMALY: 0.15,
+        QualityFlag.GEO_ERROR: 0.15,
     }
     
     total_penalty = sum(severity_weights.get(flag, 0.10) for flag in quality_flags)

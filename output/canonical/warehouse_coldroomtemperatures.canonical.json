@@ -1,150 +1,116 @@
 {
-  "source_path": "data\\warehouse_coldroomtemperatures.csv",
-  "source_type": "csv",
+  "schema_version": "2.0.0",
+  "artifact_type": "canonical_table",
+  "table_id": "warehouse_coldroomtemperatures",
+  "table_name": "warehouse_coldroomtemperatures",
+  "source": {
+    "source_type": "file",
+    "format": "csv",
+    "path": "F:\\agentic_profiler\\new\\data\\warehouse_coldroomtemperatures.csv",
+    "size_mb": 0.0,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "compression": null
+  },
+  "lineage": {
+    "created_at": "2026-05-20T16:26:53.268714Z",
+    "engine": "csv_engine",
+    "engine_version": "2.0.0"
+  },
+  "sampling": {
+    "strategy": "head",
+    "sample_size": 4,
+    "total_rows_estimate": null,
+    "is_sample": true,
+    "deterministic_seed": "34d038c5cd0586cb"
+  },
+  "schema": {
+    "column_count": 6
+  },
   "columns": [
     {
-      "column_id": "warehouse_coldroomtemperatures_coldroomtemperatureid",
+      "column_id": "col_000",
       "original_name": "ColdRoomTemperatureID",
       "normalized_name": "coldroomtemperatureid",
       "position": 0,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "5013685",
         "5013686",
         "5013687",
         "5013688"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "warehouse_coldroomtemperatures_coldroomsensornumber",
+      "column_id": "col_001",
       "original_name": "ColdRoomSensorNumber",
       "normalized_name": "coldroomsensornumber",
       "position": 1,
       "physical_type": "INTEGER",
-      "semantic_type": "numeric",
       "observed_nullable": false,
       "sample_values": [
         "1",
         "2",
         "3",
         "4"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "warehouse_coldroomtemperatures_recordedwhen",
+      "column_id": "col_002",
       "original_name": "RecordedWhen",
       "normalized_name": "recordedwhen",
       "position": 2,
       "physical_type": "DATETIME",
-      "semantic_type": "timestamp",
       "observed_nullable": false,
       "sample_values": [
         "31-07-2016 23:59:02",
         "31-07-2016 23:59:02",
         "31-07-2016 23:59:02",
         "31-07-2016 23:59:02"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "warehouse_coldroomtemperatures_temperature",
+      "column_id": "col_003",
       "original_name": "Temperature",
       "normalized_name": "temperature",
       "position": 3,
       "physical_type": "FLOAT",
-      "semantic_type": "numeric",
       "observed_nullable": false,
       "sample_values": [
         "4.45",
         "3.21",
         "3.33",
         "4.36"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "warehouse_coldroomtemperatures_validfrom",
+      "column_id": "col_004",
       "original_name": "ValidFrom",
       "normalized_name": "validfrom",
       "position": 4,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_start",
       "observed_nullable": false,
       "sample_values": [
         "31-07-2016 23:59:02",
         "31-07-2016 23:59:02",
         "31-07-2016 23:59:02",
         "31-07-2016 23:59:02"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "warehouse_coldroomtemperatures_validto",
+      "column_id": "col_005",
       "original_name": "ValidTo",
       "normalized_name": "validto",
       "position": 5,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_end",
       "observed_nullable": false,
       "sample_values": [
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59"
-      ],
-      "statistics": {}
+      ]
     }
-  ],
-  "column_count": 6,
-  "row_count": 4,
-  "rows": [
-    [
-      "5013685",
-      "1",
-      "31-07-2016 23:59:02",
-      "4.45",
-      "31-07-2016 23:59:02",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "5013686",
-      "2",
-      "31-07-2016 23:59:02",
-      "3.21",
-      "31-07-2016 23:59:02",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "5013687",
-      "3",
-      "31-07-2016 23:59:02",
-      "3.33",
-      "31-07-2016 23:59:02",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "5013688",
-      "4",
-      "31-07-2016 23:59:02",
-      "4.36",
-      "31-07-2016 23:59:02",
-      "31-12-9999 23:59:59"
-    ]
-  ],
-  "encoding": "utf-8",
-  "delimiter": ",",
-  "compression": null,
-  "is_sample": true,
-  "sample_size": 4,
-  "sampling_method": null,
-  "table_name": "warehouse_coldroomtemperatures",
-  "table_id": "warehouse_coldroomtemperatures",
-  "metadata": {
-    "is_sample": true,
-    "sample_row_count": 4
-  }
+  ]
 }

@@ -1,0 +1,396 @@
+{
+  "generated_at": "2026-05-20T10:41:26.689460+00:00",
+  "pipeline_order_expected": [
+    "candidate_generation",
+    "suppression",
+    "containment",
+    "ann",
+    "cluster_validation",
+    "confidence",
+    "llm_explain_only"
+  ],
+  "pipeline_order_observed": [
+    "candidate_generation",
+    "suppression",
+    "containment",
+    "ann",
+    "cluster_validation",
+    "confidence"
+  ],
+  "order_validation": {
+    "ann_before_containment": false,
+    "llm_before_confidence": false,
+    "ann_replaces_containment": false,
+    "ann_creates_fk": false,
+    "containment_authority": true
+  },
+  "counts": {
+    "descriptions": 367,
+    "candidate_raw": 436,
+    "candidate_after_domain_gate": 97,
+    "candidate_after_containment": 37,
+    "candidate_after_ann": 37,
+    "accepted_relationships": 34,
+    "clusters": 3,
+    "ann_calls": 37,
+    "embedding_loads": 1
+  },
+  "description_validation": {
+    "generated_at": "2026-05-20T10:41:26.133519+00:00",
+    "total_descriptions": 367,
+    "missing_required_count": 0,
+    "missing_required_examples": [],
+    "normalized_domain_distribution": {
+      "IDENTIFIER": 30,
+      "GEOSPATIAL": 11,
+      "MEASURE": 42,
+      "DIMENSION": 83,
+      "TEMPORAL_HINT": 68,
+      "AUDIT_HINT": 29,
+      "PRIMARY_KEY": 29,
+      "FOREIGN_KEY": 75
+    },
+    "audit_fk_like_count": 25,
+    "audit_fk_like_examples": [
+      {
+        "table": "Application_StateProvinces",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "application_people",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "application_users.user_id"
+        ]
+      },
+      {
+        "table": "Application_SystemParameters",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "application_transactiontypes",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_purchaseorders",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_suppliercategories",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_purchaseorderlines",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "Purchasing_Suppliers",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "sales_buyinggroups",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "sales_customercategories",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_suppliertransactions",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "Sales_Customers",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "sales_customertransactions",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "sales_invoicelines",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "employees.employee_id"
+        ]
+      },
+      {
+        "table": "sales_invoices",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "sales_orders",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "Sales_OrderLines",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "warehouse_colors",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "sales_specialdeals",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "warehouse_stockgroups",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.id"
+        ]
+      }
+    ],
+    "temporal_fk_like_count": 0,
+    "temporal_fk_like_examples": [],
+    "semantic_hint_only_count": 28,
+    "semantic_hint_only_examples": [
+      {
+        "table": "Application_StateProvinces",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "application_people",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "application_users.user_id"
+        ]
+      },
+      {
+        "table": "Application_StateProvinces",
+        "column": "salesterritory",
+        "domain": "DIMENSION",
+        "likely_relationships": [
+          "SalesTerritories.id"
+        ]
+      },
+      {
+        "table": "Application_SystemParameters",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "application_transactiontypes",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_purchaseorders",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_suppliercategories",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_purchaseorderlines",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "Purchasing_Suppliers",
+        "column": "supplierreference",
+        "domain": "IDENTIFIER",
+        "likely_relationships": [
+          "Supplier_Master.supplier_id",
+          "Vendor_Registry.vendor_code"
+        ]
+      },
+      {
+        "table": "Purchasing_Suppliers",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "sales_buyinggroups",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "sales_customercategories",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "purchasing_suppliertransactions",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "Sales_Customers",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "Users.user_id"
+        ]
+      },
+      {
+        "table": "sales_customertransactions",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "sales_invoicelines",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "employees.employee_id"
+        ]
+      },
+      {
+        "table": "sales_invoices",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "sales_orders",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "Sales_OrderLines",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      },
+      {
+        "table": "warehouse_colors",
+        "column": "lasteditedby",
+        "domain": "AUDIT_HINT",
+        "likely_relationships": [
+          "users.user_id"
+        ]
+      }
+    ]
+  },
+  "domain_validation": {
+    "total_checked": 436,
+    "accepted": 103,
+    "rejected": 333
+  },
+  "signal_weights": {
+    "containment": 0.35,
+    "semantic_similarity": 0.2,
+    "type_compatibility": 0.1,
+    "pk_confidence": 0.0,
+    "naming_similarity": 0.15,
+    "entity_domain": 0.2
+  }
+}

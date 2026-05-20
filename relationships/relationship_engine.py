@@ -28,8 +28,10 @@ Design Principles:
 
 import time
 import uuid
+import json
 from typing import Dict, List, Any, Optional
 from datetime import datetime
+from pathlib import Path
 
 from relationships.relationship_models import (
     Relationship,
@@ -46,6 +48,7 @@ from relationships.type_compatibility import check_type_compatibility
 from relationships.bloom_filter_engine import BloomFilterEngine
 from relationships.containment_validator import ContainmentValidator
 from relationships.confidence_engine import ConfidenceEngine
+from relationships.ann_pruner import AnnPruner
 from relationships.suppression_rules import FKSuppressionEngine
 
 
@@ -82,8 +85,9 @@ class RelationshipEngine:
         self.candidate_generator = CandidatePairGenerator()
         self.bloom_engine = BloomFilterEngine()
         self.containment_validator = ContainmentValidator()
-        self.confidence_engine = ConfidenceEngine()
         self.suppression_engine = FKSuppressionEngine()
+        self.confidence_engine = ConfidenceEngine(use_semantic_signals=True)
+        self.ann_pruner = AnnPruner("output/descriptions/description_embeddings.json")
     
     def detect_relationships(
         self,
@@ -106,6 +110,9 @@ class RelationshipEngine:
         
         # Generate report ID
         report_id = f"rel_{uuid.uuid4().hex[:12]}"
+
+        # Ensure tables with missing PK metadata still contribute a stable anchor.
+        pk_candidates = self._hydrate_missing_pk_candidates(table_profiles, pk_candidates)
         
         # Step 1: Generate candidate pairs
         print(f"Generating candidate FK->PK pairs...")
@@ -150,8 +157,57 @@ class RelationshipEngine:
         )
         
         print(f"Detection complete: {report.total_relationships_accepted} relationships accepted")
+
+        # Persist missing embedding diagnostics for downstream validation.
+        self._write_missing_embeddings_log()
         
         return report
+
+    def _hydrate_missing_pk_candidates(
+        self,
+        table_profiles: Dict[str, Dict[str, Any]],
+        pk_candidates: Dict[str, List[Dict[str, Any]]],
+    ) -> Dict[str, List[Dict[str, Any]]]:
+        """Backfill PK candidates for tables that have no explicit PK metadata."""
+        hydrated: Dict[str, List[Dict[str, Any]]] = {k: list(v) for k, v in pk_candidates.items()}
+
+        for table_name, table_profile in table_profiles.items():
+            existing = hydrated.get(table_name, [])
+            if existing:
+                continue
+
+            best = None
+            for col in table_profile.get("columns", []):
+                col_name = str(col.get("column_name", "")).lower()
+                if not (col_name.endswith("id") or col_name.endswith("_id") or col_name.endswith("key")):
+                    continue
+
+                stats = col.get("statistics", {})
+                uniqueness = float(stats.get("uniqueness_ratio", col.get("uniqueness", 0.0)) or 0.0)
+                null_ratio = float(stats.get("null_ratio", 0.0) or 0.0)
+                score = uniqueness * (1.0 - null_ratio)
+
+                if best is None or score > best["score"]:
+                    best = {
+                        "column": col.get("column_name"),
+                        "physical_type": str(col.get("physical_type", "UNKNOWN")).upper(),
+                        "distinct_count": int(stats.get("distinct_count", 0) or 0),
+                        "confidence": min(0.99, max(0.50, score)),
+                        "score": score,
+                    }
+
+            if best:
+                hydrated[table_name] = [
+                    {
+                        "column": best["column"],
+                        "confidence": best["confidence"],
+                        "accepted": True,
+                        "physical_type": best["physical_type"],
+                        "distinct_count": best["distinct_count"],
+                    }
+                ]
+
+        return hydrated
     
     def _validate_candidate(
         self,
@@ -229,18 +285,31 @@ class RelationshipEngine:
             fk_values=fk_values,
             pk_values=pk_values,
         )
-        
-        # Step 6: Compute confidence
+
+        # Deterministic authority: containment failure cannot be rescued.
+        if not containment.contained:
+            return None
+
+        # Step 6: ANN semantic similarity (advisory only, never authoritative)
+        # Compute similarity between FK and PK column embeddings.
+        # ANN is allowed to prune/rank only after containment pass.
+        fk_id = f"{candidate.fk_table}.{candidate.fk_column}"
+        pk_id = f"{candidate.pk_table}.{candidate.pk_column}"
+        ann_similarity, ann_keep = self.ann_pruner.prune_candidate(fk_id, pk_id)
+        if not ann_keep:
+            return None
+
+        # Continue with confidence computation (pass semantic_similarity)
         null_count = fk_profile.get("null_count", 0)
         total_count = fk_profile.get("row_count", len(fk_values))
         null_ratio = null_count / total_count if total_count > 0 else 0.0
-        
+
         cardinality_ratio = 0.0
         if containment.distinct_pk_values > 0:
             cardinality_ratio = containment.distinct_fk_values / containment.distinct_pk_values
-        
+
         overlap_ratio = containment.containment_ratio  # Simplified
-        
+
         confidence = self.confidence_engine.compute_confidence(
             containment_ratio=containment.containment_ratio,
             overlap_ratio=overlap_ratio,
@@ -249,6 +318,7 @@ class RelationshipEngine:
             naming_similarity=candidate.naming_similarity,
             null_ratio_fk=null_ratio,
             cardinality_ratio=cardinality_ratio,
+            semantic_similarity=ann_similarity,
         )
         
         # Apply suppression penalty
@@ -272,6 +342,7 @@ class RelationshipEngine:
             cardinality_ratio=cardinality_ratio,
             bloom_passed=bloom_passed,
             suppression_reasons=suppression_result.reasons,
+            semantic_similarity=ann_similarity,
         )
         
         return relationship
@@ -324,6 +395,7 @@ class RelationshipEngine:
         cardinality_ratio: float,
         bloom_passed: bool,
         suppression_reasons: List[str],
+        semantic_similarity: Optional[float] = None,
     ) -> Relationship:
         """Create a Relationship object from validation results."""
         
@@ -340,6 +412,7 @@ class RelationshipEngine:
             is_approximate=containment.is_approximate,
             bloom_filter_passed=bloom_passed,
             orphan_count=containment.orphan_count,
+            semantic_similarity=semantic_similarity,
         )
         
         # Build validation
@@ -460,6 +533,17 @@ class RelationshipEngine:
             execution_metadata=exec_metadata,
             suppression_reasons=suppression_reasons,
         )
+
+    def _write_missing_embeddings_log(self) -> None:
+        """Persist missing-embedding diagnostics for ANN validation audits."""
+        missing = self.ann_pruner.get_missing_embeddings_report()
+        path = Path("missing_embeddings.json")
+        payload = {
+            "generated_at": datetime.utcnow().isoformat() + "Z",
+            "missing_pairs_count": len(missing),
+            "missing_pairs": missing,
+        }
+        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 
 def detect_relationships(

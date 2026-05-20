@@ -14,7 +14,7 @@ from unittest.mock import MagicMock
 sys.modules["transformers"] = MagicMock()
 sys.modules["transformers.GPT2TokenizerFast"] = MagicMock()
 
-if sys.platform == "win32":
+if sys.platform == "win32" and sys.version_info < (3, 14):
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
@@ -32,14 +32,42 @@ log = logging.getLogger(__name__)
 MAX_TOOL_CHARS = 12000
 
 
+def _classify_user_intent(user_message: str) -> str:
+    """Backward-compatible intent helper.
+
+    The graph now uses a generic tool-enabled loop by default, but this helper
+    is kept for compatibility with existing tests and external imports.
+    """
+    text = (user_message or "").strip().lower()
+    if not text:
+        return "conversation"
+    if text in {"hi", "hello", "hey", "thanks", "thank you"}:
+        return "conversation"
+    if text.endswith("?") and not any(k in text for k in ("profile", "detect", "generate", "list", "show")):
+        return "conversation"
+    return "data_request"
+
+
+def _tool_routing_guidance(user_message: str) -> str | None:
+    """Return optional per-turn routing guidance.
+
+    Generic chatbot mode does not inject request-specific hard-coded routing.
+    """
+    del user_message
+    return None
+
+
 def create_chat_graph(tools: list[Any], llm: Any):
-    """Create a LangGraph chat graph for the given tools and model."""
+    """Create a generic LangGraph chat graph for the given tools and model."""
     llm_with_tools = llm.bind_tools(tools)
 
     async def agent_node(state: AgentState):
         messages = state["messages"]
+
+        # Add system message if not present
         if not messages or not isinstance(messages[0], SystemMessage):
             messages = [SystemMessage(content=CHATBOT_SYSTEM_PROMPT)] + list(messages)
+
         response = await llm_with_tools.ainvoke(_trim_messages(messages))
         return {"messages": [response]}
 
@@ -52,21 +80,44 @@ def create_chat_graph(tools: list[Any], llm: Any):
     return builder.compile(checkpointer=MemorySaver())
 
 
-async def load_mcp_tools(mcp_url: str, transport: str = "sse") -> list[Any]:
-    """Load LangChain tools from the profiler MCP server."""
+def _infer_transport(url: str) -> str:
+    lowered = (url or "").lower()
+    if "/mcp" in lowered or lowered.endswith("/mcp"):
+        return "streamable_http"
+    return "sse"
+
+
+async def load_mcp_tools(
+    mcp_url: str,
+    transport: str | None = None,
+    extra_servers: dict[str, dict[str, Any]] | None = None,
+) -> list[Any]:
+    """Load and de-duplicate LangChain tools from one or more MCP servers."""
     from langchain_mcp_adapters.client import MultiServerMCPClient
 
-    client = MultiServerMCPClient(
-        {
-            "file-profiler": {
-                "url": mcp_url,
-                "transport": transport,
+    resolved_transport = transport or _infer_transport(mcp_url)
+    servers: dict[str, dict[str, Any]] = {
+        "file-profiler": {
+            "url": mcp_url,
+            "transport": resolved_transport,
+            "timeout": 60,
+            "sse_read_timeout": 3600,
+        }
+    }
+    if extra_servers:
+        for name, cfg in extra_servers.items():
+            merged = {
                 "timeout": 60,
                 "sse_read_timeout": 3600,
+                **cfg,
             }
-        }
+            merged.setdefault("transport", _infer_transport(str(merged.get("url", ""))))
+            servers[name] = merged
+
+    client = MultiServerMCPClient(
+        servers
     )
-    
+
     # Retry connection - server needs time to initialize
     tools = None
     last_error = None
@@ -81,8 +132,17 @@ async def load_mcp_tools(mcp_url: str, transport: str = "sse") -> list[Any]:
     
     if tools is None:
         raise ConnectionError(f"Failed to connect after 15 attempts: {last_error}")
-    
-    return tools
+
+    seen: set[str] = set()
+    unique_tools = []
+    for tool in tools:
+        if tool.name in seen:
+            log.warning("Dropping duplicate tool '%s'", tool.name)
+            continue
+        seen.add(tool.name)
+        unique_tools.append(tool)
+
+    return unique_tools
 
 
 async def run_chatbot(
@@ -193,7 +253,10 @@ def main(argv: list[str] | None = None) -> int:
         parser.print_help()
         return 0
 
-    asyncio.run(run_chatbot(mcp_url=args.mcp_url, provider=args.provider, model=args.model))
+    try:
+        asyncio.run(run_chatbot(mcp_url=args.mcp_url, provider=args.provider, model=args.model))
+    except (KeyboardInterrupt, asyncio.CancelledError):
+        pass  # Clean exit on Ctrl+C or quit
     return 0
 
 
@@ -201,24 +264,21 @@ def _trim_messages(messages: list[Any]) -> list[Any]:
     trimmed = []
     for msg in messages:
         if isinstance(msg, ToolMessage):
-            content = msg.content if isinstance(msg.content, str) else str(msg.content)
+            # Some providers return structured tool payload chunks; normalize to text.
+            content = _normalize_content(msg.content)
             if len(content) > MAX_TOOL_CHARS:
-                msg = ToolMessage(
-                    content=content[:MAX_TOOL_CHARS] + "\n...[truncated]",
-                    tool_call_id=msg.tool_call_id,
-                )
+                content = content[:MAX_TOOL_CHARS] + "\n...[truncated]"
+            msg = ToolMessage(content=content, tool_call_id=msg.tool_call_id)
         elif isinstance(msg, AIMessage):
-            # Filter out MiniMax-specific thinking blocks that aren't OpenAI-compatible
+            # Normalize structured content to plain text for strict OpenAI-compatible APIs.
             if isinstance(msg.content, list):
-                filtered_content = []
-                for item in msg.content:
-                    if isinstance(item, dict) and item.get("type") == "thinking":
-                        continue  # Skip thinking blocks
-                    filtered_content.append(item)
-                if filtered_content != msg.content:
+                content = _normalize_content(msg.content)
+                try:
+                    msg = msg.model_copy(update={"content": content})
+                except Exception:
                     msg = AIMessage(
-                        content=filtered_content if filtered_content else "",
-                        tool_calls=msg.tool_calls if hasattr(msg, "tool_calls") else None,
+                        content=content,
+                        tool_calls=getattr(msg, "tool_calls", None),
                     )
         trimmed.append(msg)
     return trimmed

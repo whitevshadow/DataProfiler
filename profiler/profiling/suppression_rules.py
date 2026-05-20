@@ -78,6 +78,12 @@ class TemporalColumnSuppression(PKSuppressionRule):
     
     TEMPORAL_PATTERNS = [
         r'^valid(from|to)$',
+        r'^timestamp$',
+        r'^effective_date$',
+        r'^effectivedate$',
+        r'^createdat$',
+        r'^updatedat$',
+        r'^deletedat$',
         r'^.*_timestamp$',
         r'^.*_datetime$',
         r'^created_at$',
@@ -140,6 +146,9 @@ class SystemAuditColumnSuppression(PKSuppressionRule):
     AUDIT_PATTERNS = [
         r'^lasteditedby$',
         r'^last_edited_by$',
+        r'^createdby$',
+        r'^modifiedby$',
+        r'^updatedby$',
         r'^created_by$',
         r'^modified_by$',
         r'^updated_by$',
@@ -202,10 +211,35 @@ class LowCardinalitySuppression(PKSuppressionRule):
     
     def evaluate(self, column_data: dict) -> SuppressionResult:
         distinct_count = column_data.get("distinct_count", 0)
-        sample_size = column_data.get("sample_size", 0)
+        column_name = str(column_data.get("normalized_name", "")).lower()
+        is_identifier_name = bool(
+            re.search(r"(^id$|id$|_id$|key$|_key$|code$|identifier$)", column_name)
+        )
         
         # Exemption for dimension tables (small tables where distinct == total)
         uniqueness_ratio = column_data.get("uniqueness_ratio", 0.0)
+        row_count = column_data.get("sample_size", 0)
+        if row_count <= 20 and uniqueness_ratio >= 0.99 and distinct_count >= 2 and is_identifier_name:
+            return SuppressionResult(
+                suppress=False,
+                reason=(
+                    f"Small-table identifier exemption "
+                    f"({distinct_count} distinct, uniqueness {uniqueness_ratio:.2f})"
+                ),
+                severity=SuppressionSeverity.LOW
+            )
+        if row_count < 20 and distinct_count > 10 and uniqueness_ratio > 0.95:
+            return SuppressionResult(
+                suppress=False,
+                reason=f"Small-table dimension exemption ({distinct_count} distinct, uniqueness {uniqueness_ratio:.2f})",
+                severity=SuppressionSeverity.LOW
+            )
+        if uniqueness_ratio >= 0.99 and is_identifier_name:
+            return SuppressionResult(
+                suppress=False,
+                reason="Identifier naming exemption for low-cardinality unique column",
+                severity=SuppressionSeverity.LOW
+            )
         if uniqueness_ratio >= 0.99 and distinct_count > 10:
             # Dimension table PK - allow it but warn
             return SuppressionResult(
@@ -216,9 +250,9 @@ class LowCardinalitySuppression(PKSuppressionRule):
         
         if distinct_count < self.min_distinct_threshold:
             return SuppressionResult(
-                suppress=True,
-                reason=f"Low cardinality ({distinct_count} < {self.min_distinct_threshold})",
-                severity=SuppressionSeverity.MEDIUM
+                suppress=False,
+                reason=f"Low cardinality ({distinct_count} < {self.min_distinct_threshold}); confidence reduced in scorer",
+                severity=SuppressionSeverity.LOW
             )
         
         return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
@@ -460,7 +494,62 @@ class GeospatialFieldSuppression(PKSuppressionRule):
 
 
 # ---------------------------------------------------------------------------
-# Rule 10: Low-Stability Business Attribute Suppression
+# Rule 10: Boolean Column Suppression (NEW)
+# ---------------------------------------------------------------------------
+
+class BooleanColumnSuppression(PKSuppressionRule):
+    """Suppress boolean/flag columns that happen to be unique in sample."""
+    
+    BOOLEAN_PATTERNS = [
+        r'^is[a-z].*',                    # isEmployee, isActive, ispermittedtologon
+        r'^has[a-z].*',                   # hasPermission, hasAccess
+        r'^can[a-z].*',                   # canEdit, canDelete
+        r'^.*_(flag|enabled|disabled)$',  # status_flag, is_enabled
+        r'^.*preferences$',               # userpreferences (JSON/TEXT)
+        r'^.*fields$',                    # customfields (JSON/TEXT)
+        r'^.*languages$',                 # otherlanguages (JSON/TEXT)
+    ]
+
+    IDENTIFIER_EXEMPT_PATTERNS = [
+        r'(id|key|code|identifier|number)$',
+        r'(createdby|modifiedby|lasteditedby|editedby|approvedby|deletedby|reviewedby|insertedby|updatedby)$',
+        r'(userid|editorid|creatorid)$',
+    ]
+    
+    def __init__(self):
+        super().__init__("boolean_column_suppression")
+    
+    def evaluate(self, column_data: dict) -> SuppressionResult:
+        column_name = column_data.get("normalized_name", "")
+        distinct_count = column_data.get("distinct_count", 0)
+        sample_size = column_data.get("sample_size", 0)
+        uniqueness_ratio = column_data.get("uniqueness_ratio", 0.0)
+        
+        # Check boolean naming patterns
+        for pattern in self.BOOLEAN_PATTERNS:
+            if re.match(pattern, column_name):
+                # Boolean columns should NEVER be PK candidates
+                return SuppressionResult(
+                    suppress=True,
+                    reason=f"Boolean/flag column pattern '{column_name}' - not a stable identifier",
+                    severity=SuppressionSeverity.CRITICAL
+                )
+        
+        # Suppress columns with accidental uniqueness in small samples (non-ID names)
+        if uniqueness_ratio == 1.0 and sample_size < 200:
+            # Check if name suggests it's NOT meant to be an identifier
+            if not any(re.search(pattern, column_name) for pattern in self.IDENTIFIER_EXEMPT_PATTERNS):
+                return SuppressionResult(
+                    suppress=True,
+                    reason=f"Accidental uniqueness in small sample (n={sample_size}) for non-ID column '{column_name}'",
+                    severity=SuppressionSeverity.HIGH
+                )
+        
+        return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+
+
+# ---------------------------------------------------------------------------
+# Rule 11: Low-Stability Business Attribute Suppression
 # ---------------------------------------------------------------------------
 
 class LowStabilityBusinessAttributeSuppression(PKSuppressionRule):
@@ -520,6 +609,117 @@ class LowStabilityBusinessAttributeSuppression(PKSuppressionRule):
         return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
 
 
+class TransactionalIdentifierSuppression(PKSuppressionRule):
+    """Suppress highly unique identifiers on transactional tables."""
+
+    TRANSACTIONAL_PATTERNS = [
+        r'^orderid$',
+        r'^invoiceid$',
+        r'^transactionid$',
+        r'^.*order.*id$',
+        r'^.*invoice.*id$',
+        r'^.*transaction.*id$',
+        r'^.*line.*id$',
+    ]
+
+    def __init__(self):
+        super().__init__("transactional_identifier_suppression")
+
+    def evaluate(self, column_data: dict) -> SuppressionResult:
+        column_name = column_data.get("normalized_name", "")
+        sample_size = column_data.get("sample_size", 0)
+        distinct_count = column_data.get("distinct_count", 0)
+        uniqueness_ratio = column_data.get("uniqueness_ratio", 0.0)
+
+        if sample_size < 20:
+            return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+
+        if not any(re.match(pattern, column_name) for pattern in self.TRANSACTIONAL_PATTERNS):
+            return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+
+        if distinct_count > 100 and uniqueness_ratio >= 0.95:
+            return SuppressionResult(
+                suppress=False,
+                reason=f"Transactional identifier '{column_name}' handled by table-root ownership scoring",
+                severity=SuppressionSeverity.LOW
+            )
+
+        return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+
+
+class NonRootIdentifierSuppression(PKSuppressionRule):
+    """Suppress identifier columns that don't match the table root.
+    
+    When a table has multiple ID-like columns, only the table-root identifier
+    should be considered for PK. All others are FK candidates.
+    
+    Example:
+        Table: sales_orders (root: order)
+        - orderid -> allowed (matches root)
+        - customerid -> suppress (FK candidate)
+        - salespersonpersonid -> suppress (FK candidate)
+    """
+    
+    def __init__(self):
+        super().__init__("non_root_identifier_suppression")
+    
+    def _extract_table_root(self, table_name: str) -> str:
+        """Extract table root name."""
+        normalized = table_name.lower().strip()
+        irregular = {
+            'people': 'person',
+            'men': 'man',
+            'women': 'woman',
+            'children': 'child',
+        }
+        for prefix in ['sales_', 'purchasing_', 'warehouse_', 'application_']:
+            if normalized.startswith(prefix):
+                normalized = normalized[len(prefix):]
+                break
+        if normalized in irregular:
+            return irregular[normalized]
+        if normalized.endswith('ies'):
+            return normalized[:-3] + 'y'
+        if normalized.endswith('s') and not normalized.endswith('ss'):
+            return normalized[:-1]
+        return normalized
+    
+    def evaluate(self, column_data: dict) -> SuppressionResult:
+        column_name = column_data.get("normalized_name", "")
+        table_name = column_data.get("table_name", "")
+        
+        if not table_name:
+            return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+        
+        col_lower = column_name.lower()
+        
+        # Check if column is identifier-like
+        if not (col_lower.endswith('id') or col_lower.endswith('key')):
+            return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+        
+        # Extract table root
+        table_root = self._extract_table_root(table_name)
+        
+        # Check for exact root match
+        if col_lower == f"{table_root}id":
+            return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+
+        # Allow prefix-root identifiers (defensive match for mildly varied naming).
+        if col_lower.startswith(table_root) and (col_lower.endswith("id") or col_lower.endswith("key")):
+            return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+        
+        # Check for generic standalone ID (allowed as potential PK)
+        if col_lower == "id":
+            return SuppressionResult(suppress=False, reason="", severity=SuppressionSeverity.LOW)
+        
+        # Non-root identifier: suppress as PK, it's likely an FK
+        return SuppressionResult(
+            suppress=True,
+            reason=f"Non-root identifier '{column_name}' in table '{table_name}' (root: '{table_root}') - likely FK",
+            severity=SuppressionSeverity.HIGH
+        )
+
+
 # ---------------------------------------------------------------------------
 # Suppression Engine
 # ---------------------------------------------------------------------------
@@ -542,7 +742,9 @@ class PKSuppressionEngine:
                 TypeAffinityRule(),                    # Rule 7: Type preferences
                 MeasureMetricSuppression(),            # Rule 8: Measures/metrics
                 GeospatialFieldSuppression(),          # Rule 9: Geospatial data
-                LowStabilityBusinessAttributeSuppression(),  # Rule 10: Phone/email/address
+                BooleanColumnSuppression(),            # Rule 10: Boolean/flag columns
+                LowStabilityBusinessAttributeSuppression(),  # Rule 11: Phone/email/address
+                NonRootIdentifierSuppression(),        # Rule 12: Non-root identifiers (FK candidates)
             ]
         else:
             self.rules = rules

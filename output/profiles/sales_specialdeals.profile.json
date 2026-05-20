@@ -1,10 +1,10 @@
 {
-  "profile_id": "prof_sales_specialdeals_20260518130907",
+  "profile_id": "prof_sales_specialdeals_20260520162653",
   "table_name": "sales_specialdeals",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.514884",
+    "profiled_at": "2026-05-20T16:26:53.263830",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 39.6575927734375,
+    "execution_time_ms": 401.28540992736816,
     "sample_based": true,
     "sample_size": 2,
     "canonical_table_id": "sales_specialdeals"
@@ -12,21 +12,13 @@
   "table_profile": {
     "row_count_estimate": 2,
     "column_count": 14,
-    "completeness_score": 1.0,
-    "quality_score": 0.8357142857142856,
+    "completeness_score": 0.6428571428571429,
+    "quality_score": 0.8285714285714285,
     "pk_candidates": [
-      "specialdealid",
-      "startdate",
-      "enddate"
+      "specialdealid"
     ],
-    "fk_candidates": [
-      "buyinggroupid",
-      "stockgroupid",
-      "stockitemid",
-      "customerid",
-      "customercategoryid"
-    ],
-    "total_quality_flags": 12,
+    "composite_pk_candidates": [],
+    "total_quality_flags": 31,
     "columns_with_issues": 8
   },
   "columns": [
@@ -35,37 +27,68 @@
       "original_name": "SpecialDealID",
       "position": 0,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
+      "semantic_type": "identifier",
       "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "primary_key",
+      "cardinality_class": "high",
       "pk_candidate": true,
-      "pk_confidence": 0.84,
+      "pk_score": 0.9775000000000001,
+      "pk_confidence": 0.9775000000000001,
       "pk_evidence": {
+        "pk_score": 0.9775000000000001,
+        "pk_candidate": true,
+        "pk_confidence": 0.9775000000000001,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Owner identifier match: 'specialdealid' owns 'sales_specialdeals'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Small-sample uniqueness may be unstable"
+        ],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
         "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
+        "name_pattern_score": 1.0,
         "reasons": [
           "All values are unique",
           "No null values",
-          "High entropy (low redundancy)"
+          "High entropy (low redundancy)",
+          "Owner identifier match: 'specialdealid' owns 'sales_specialdeals'",
+          "Integer/UUID identifier type"
         ],
         "warnings": [
-          "cardinality_threshold: FAILED"
+          "Small-sample uniqueness may be unstable"
         ]
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -84,9 +107,9 @@
         "std_dev": 0.7071067811865476,
         "variance": 0.5,
         "quantiles": {
-          "p25": 0.75,
+          "p25": 1.25,
           "p50": 1.5,
-          "p75": 2.25,
+          "p75": 1.75,
           "p90": 1.9,
           "p99": 1.99
         },
@@ -101,11 +124,30 @@
             "2",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 1
+          },
+          {
+            "value": "2",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "2"
+        1,
+        2
       ]
     },
     {
@@ -113,40 +155,85 @@
       "original_name": "StockItemID",
       "position": 1,
       "physical_type": "unknown",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.7000000000000001,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "stockitem",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'stockitem' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: stockitem",
-          "Type affinity (INTEGER/UUID preferred): 0.50",
-          "Moderate uniqueness (0.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'stockitemid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "Generic identifier pattern: 'stockitemid'"
+        ],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'stockitemid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "Generic identifier pattern: 'stockitemid'"
+        ],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'stockitemid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
       },
-      "quality_flags": [
-        "weak_identifier",
-        "zero_entropy"
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Non-root identifier 'stockitemid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "weak_identifier",
+        "type_conflict",
+        "zero_entropy",
+        "high_missingness",
+        "invalid_identifier"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 2,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 2,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -165,11 +252,21 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        ""
+        null,
+        null
       ]
     },
     {
@@ -177,40 +274,85 @@
       "original_name": "CustomerID",
       "position": 2,
       "physical_type": "unknown",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.7000000000000001,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "customer",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'customer' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: customer",
-          "Type affinity (INTEGER/UUID preferred): 0.50",
-          "Moderate uniqueness (0.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'customerid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "Generic identifier pattern: 'customerid'"
+        ],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'customerid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "Generic identifier pattern: 'customerid'"
+        ],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'customerid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
       },
-      "quality_flags": [
-        "weak_identifier",
-        "zero_entropy"
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Non-root identifier 'customerid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "weak_identifier",
+        "type_conflict",
+        "zero_entropy",
+        "high_missingness",
+        "invalid_identifier"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 2,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 2,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -229,11 +371,21 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        ""
+        null,
+        null
       ]
     },
     {
@@ -241,51 +393,74 @@
       "original_name": "BuyingGroupID",
       "position": 3,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "foreign_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.84,
+      "cardinality_class": "high",
+      "pk_candidate": false,
+      "pk_score": 0.08499999999999996,
+      "pk_confidence": 0.08499999999999996,
       "pk_evidence": {
+        "pk_score": 0.08499999999999996,
+        "pk_candidate": false,
+        "pk_confidence": 0.08499999999999996,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'buyinggroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)",
+          "Generic identifier pattern: 'buyinggroupid'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'buyinggroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Small-sample uniqueness may be unstable"
+        ],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
         "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
+        "name_pattern_score": 0.7,
         "reasons": [
           "All values are unique",
           "No null values",
-          "High entropy (low redundancy)"
+          "High entropy (low redundancy)",
+          "Generic identifier pattern: 'buyinggroupid'",
+          "Integer/UUID identifier type"
         ],
         "warnings": [
-          "cardinality_threshold: FAILED"
+          "Non-root identifier 'buyinggroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Small-sample uniqueness may be unstable"
         ]
       },
-      "fk_candidate": true,
-      "fk_confidence": 0.9,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "buyinggroup",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'buyinggroup' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: buyinggroup",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
-        ],
-        "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
-        ]
-      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'buyinggroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -304,9 +479,9 @@
         "std_dev": 0.7071067811865476,
         "variance": 0.5,
         "quantiles": {
-          "p25": 0.75,
+          "p25": 1.25,
           "p50": 1.5,
-          "p75": 2.25,
+          "p75": 1.75,
           "p90": 1.9,
           "p99": 1.99
         },
@@ -314,18 +489,37 @@
         "kurtosis": null,
         "top_values": [
           [
-            "2",
+            "1",
             1
           ],
           [
-            "1",
+            "2",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 1
+          },
+          {
+            "value": "2",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "2",
-        "1"
+        2,
+        1
       ]
     },
     {
@@ -333,40 +527,85 @@
       "original_name": "CustomerCategoryID",
       "position": 4,
       "physical_type": "unknown",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.7000000000000001,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "customercategory",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'customercategory' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: customercategory",
-          "Type affinity (INTEGER/UUID preferred): 0.50",
-          "Moderate uniqueness (0.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'customercategoryid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "Generic identifier pattern: 'customercategoryid'"
+        ],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'customercategoryid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "Generic identifier pattern: 'customercategoryid'"
+        ],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'customercategoryid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
       },
-      "quality_flags": [
-        "weak_identifier",
-        "zero_entropy"
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Non-root identifier 'customercategoryid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "weak_identifier",
+        "type_conflict",
+        "zero_entropy",
+        "high_missingness",
+        "invalid_identifier"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 2,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 2,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -385,11 +624,21 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        ""
+        null,
+        null
       ]
     },
     {
@@ -397,38 +646,84 @@
       "original_name": "StockGroupID",
       "position": 5,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 0.5,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "foreign_key",
+      "cardinality_class": "medium",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.78,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "stockgroup",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'stockgroup' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: stockgroup",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "Moderate uniqueness (50.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'stockgroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'stockgroupid'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'stockgroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.5,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'stockgroupid'",
+          "Integer/UUID identifier type"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'stockgroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.00)"
+        ]
       },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Non-root identifier 'stockgroupid' in table 'sales_specialdeals' (root: 'specialdeal') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "weak_identifier",
-        "constant_column"
+        "constant_column",
+        "invalid_identifier"
       ],
-      "quality_score": 0.6,
+      "quality_score": 0.9,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.5,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.5,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -460,11 +755,26 @@
             "7",
             2
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "7",
+            "frequency": 2
+          }
+        ],
+        "duplicate_density": 0.5
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "7",
-        "7"
+        7,
+        7
       ]
     },
     {
@@ -472,23 +782,74 @@
       "original_name": "DealDescription",
       "position": 6,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "description",
+      "logical_type": "description",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
-      "pk_confidence": 0.59,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'dealdescription'",
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'dealdescription'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'dealdescription'",
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'dealdescription'",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "Semantically unstable descriptive field 'dealdescription'",
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'dealdescription'",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'dealdescription'",
+        "Accidental uniqueness in small sample (n=2) for non-ID column 'dealdescription'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -518,7 +879,26 @@
             "15% 2nd qtr USB Tailspin",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "10% 1st qtr USB Wingtip",
+            "frequency": 1
+          },
+          {
+            "value": "15% 2nd qtr USB Tailspin",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "10% 1st qtr USB Wingtip",
@@ -530,17 +910,33 @@
       "original_name": "StartDate",
       "position": 7,
       "physical_type": "datetime",
-      "semantic_type": "temporal_start",
-      "logical_type": "identifier",
+      "semantic_type": "temporal",
+      "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "primary_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.84,
+      "cardinality_class": "high",
+      "pk_candidate": false,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
       "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'startdate'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "negative_evidence": [
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'startdate'",
+          "Small-sample uniqueness may be unstable"
+        ],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
@@ -552,15 +948,38 @@
           "High entropy (low redundancy)"
         ],
         "warnings": [
-          "cardinality_threshold: FAILED"
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'startdate'",
+          "Small-sample uniqueness may be unstable"
         ]
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [
+        "Accidental uniqueness in small sample (n=2) for non-ID column 'startdate'"
+      ],
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": false
+      },
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -583,18 +1002,37 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-01-2016 00:00:00",
+            "2016-01-01 00:00:00",
             1
           ],
           [
-            "01-04-2016 00:00:00",
+            "2016-04-01 00:00:00",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-01-01 00:00:00",
+            "frequency": 1
+          },
+          {
+            "value": "2016-04-01 00:00:00",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-01-2016 00:00:00",
-        "01-04-2016 00:00:00"
+        "2016-01-01T00:00:00",
+        "2016-04-01T00:00:00"
       ]
     },
     {
@@ -602,17 +1040,33 @@
       "original_name": "EndDate",
       "position": 8,
       "physical_type": "datetime",
-      "semantic_type": "temporal_end",
-      "logical_type": "identifier",
+      "semantic_type": "temporal",
+      "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "primary_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.84,
+      "cardinality_class": "high",
+      "pk_candidate": false,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
       "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'enddate'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "negative_evidence": [
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'enddate'",
+          "Small-sample uniqueness may be unstable"
+        ],
         "uniqueness_score": 1.0,
         "non_null_score": 1.0,
         "entropy_score": 1.0,
@@ -624,15 +1078,38 @@
           "High entropy (low redundancy)"
         ],
         "warnings": [
-          "cardinality_threshold: FAILED"
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'enddate'",
+          "Small-sample uniqueness may be unstable"
         ]
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "suppressed": false,
+      "suppression_reasons": [
+        "Accidental uniqueness in small sample (n=2) for non-ID column 'enddate'"
+      ],
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": true
+      },
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -655,18 +1132,37 @@
         "kurtosis": null,
         "top_values": [
           [
-            "31-03-2016 00:00:00",
+            "2016-03-31 00:00:00",
             1
           ],
           [
-            "30-06-2016 00:00:00",
+            "2016-06-30 00:00:00",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-03-31 00:00:00",
+            "frequency": 1
+          },
+          {
+            "value": "2016-06-30 00:00:00",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "31-03-2016 00:00:00",
-        "30-06-2016 00:00:00"
+        "2016-03-31T00:00:00",
+        "2016-06-30T00:00:00"
       ]
     },
     {
@@ -676,25 +1172,73 @@
       "physical_type": "unknown",
       "semantic_type": "measure",
       "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.8,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "type_conflict",
+        "zero_entropy",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 2,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 2,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -713,11 +1257,21 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": true,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        ""
+        null,
+        null
       ]
     },
     {
@@ -731,17 +1285,68 @@
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 1.0,
-      "cardinality_class": "low",
-      "relational_role": "measure",
+      "cardinality_class": "high",
       "pk_candidate": false,
-      "pk_confidence": 0.59,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Measure/metric column 'discountpercentage' - not a stable identifier",
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'discountpercentage'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "negative_evidence": [
+          "Measure/metric column 'discountpercentage' - not a stable identifier",
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'discountpercentage'",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 1.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "High entropy (low redundancy)"
+        ],
+        "warnings": [
+          "Measure/metric column 'discountpercentage' - not a stable identifier",
+          "Accidental uniqueness in small sample (n=2) for non-ID column 'discountpercentage'",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Measure/metric column 'discountpercentage' - not a stable identifier",
+        "Accidental uniqueness in small sample (n=2) for non-ID column 'discountpercentage'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [],
       "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 2,
@@ -760,9 +1365,9 @@
         "std_dev": 3.5355339059327378,
         "variance": 12.5,
         "quantiles": {
-          "p25": 8.75,
+          "p25": 11.25,
           "p50": 12.5,
-          "p75": 16.25,
+          "p75": 13.75,
           "p90": 14.5,
           "p99": 14.95
         },
@@ -777,11 +1382,30 @@
             "15.0",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "10.0",
+            "frequency": 1
+          },
+          {
+            "value": "15.0",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": true,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "10.0",
-        "15.0"
+        10.0,
+        15.0
       ]
     },
     {
@@ -791,25 +1415,73 @@
       "physical_type": "unknown",
       "semantic_type": "measure",
       "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 2 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.8,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "type_conflict",
+        "zero_entropy",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 2,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 2,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -828,11 +1500,21 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": true,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        ""
+        null,
+        null
       ]
     },
     {
@@ -841,24 +1523,86 @@
       "position": 12,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "audit",
-      "type_confidence": 0.9,
+      "logical_type": "audit_reference",
+      "type_confidence": 0.95,
       "completeness": 1.0,
       "uniqueness": 0.5,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "audit_field",
+      "cardinality_class": "medium",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.00)",
+          "Audit field suppressed for PK scoring"
+        ],
+        "uniqueness_score": 0.5,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type"
+        ],
+        "warnings": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "System audit column pattern 'lasteditedby'",
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": {
+        "role": "user_reference",
+        "audit_type": "editor",
+        "system_generated": true
+      },
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 0.9,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.5,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.5,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -890,11 +1634,26 @@
             "2",
             2
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2",
+            "frequency": 2
+          }
+        ],
+        "duplicate_density": 0.5
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "2",
-        "2"
+        2,
+        2
       ]
     },
     {
@@ -902,25 +1661,74 @@
       "original_name": "LastEditedWhen",
       "position": 13,
       "physical_type": "datetime",
-      "semantic_type": "timestamp",
-      "logical_type": "timestamp",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 0.5,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "temporal_field",
+      "cardinality_class": "medium",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.5,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 50.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 0.9,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.5,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 2,
+        "non_null_count": 2,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.5,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -943,16 +1751,31 @@
         "kurtosis": null,
         "top_values": [
           [
-            "31-12-2015 16:00:00",
+            "2015-12-31 16:00:00",
             2
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2015-12-31 16:00:00",
+            "frequency": 2
+          }
+        ],
+        "duplicate_density": 0.5
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "31-12-2015 16:00:00",
-        "31-12-2015 16:00:00"
+        "2015-12-31T16:00:00",
+        "2015-12-31T16:00:00"
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\sales_specialdeals.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\sales_specialdeals.canonical.json"
 }

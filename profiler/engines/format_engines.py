@@ -171,8 +171,9 @@ class CanonicalTable:
             # Non-null values
             non_null_values = [v for v in values if v is not None and v != '' and v != 'null' and v != 'NULL']
             
-            # Store ALL sample values (cap at 100 for JSON size)
-            col.sample_values = list(set(non_null_values))[:100]
+            # Store raw observed samples, preserving duplicates and nulls so
+            # profiling can compute completeness and uniqueness correctly.
+            col.sample_values = values[:1000]
             
             # PHYSICAL TYPE INFERENCE ONLY
             col.data_type = self._infer_physical_type(non_null_values)
@@ -244,8 +245,8 @@ class CanonicalTable:
         total = len(sample)
         threshold = 0.8  # 80% must match for type assignment
         
-        # Boolean (highest priority for small sets)
-        if bool_count >= total * threshold and total < 10:
+        # Boolean
+        if bool_count >= total * threshold:
             return ColumnType.BOOLEAN
         
         # Integer
@@ -369,7 +370,7 @@ class CanonicalTable:
             
             # Add ALL sample values (not truncated)
             if col.sample_values:
-                col_data["sample_values"] = [str(v) for v in col.sample_values]
+                col_data["sample_values"] = col.sample_values
             
             canonical["columns"].append(col_data)
         

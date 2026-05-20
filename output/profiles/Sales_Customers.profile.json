@@ -1,34 +1,30 @@
 {
-  "profile_id": "prof_Sales_Customers_20260518130907",
+  "profile_id": "prof_Sales_Customers_20260520162502",
   "table_name": "Sales_Customers",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.471856",
+    "profiled_at": "2026-05-20T16:25:02.567986",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 102.58841514587402,
+    "execution_time_ms": 8239.421129226685,
     "sample_based": true,
-    "sample_size": 100,
+    "sample_size": 1000,
     "canonical_table_id": "Sales_Customers"
   },
   "table_profile": {
-    "row_count_estimate": 100,
+    "row_count_estimate": 3784,
     "column_count": 31,
-    "completeness_score": 1.0,
-    "quality_score": 0.7919354838709678,
+    "completeness_score": 0.8918877446634386,
+    "quality_score": 0.7837612903225807,
     "pk_candidates": [
-      "customerid",
-      "alternatecontactpersonid"
+      "customerid"
     ],
-    "fk_candidates": [
-      "primarycontactpersonid",
-      "deliverycityid",
-      "postalcityid",
-      "billtocustomerid",
-      "customercategoryid",
-      "deliverymethodid",
-      "buyinggroupid"
+    "composite_pk_candidates": [
+      [
+        "customerid",
+        "validfrom"
+      ]
     ],
-    "total_quality_flags": 37,
-    "columns_with_issues": 16
+    "total_quality_flags": 93,
+    "columns_with_issues": 31
   },
   "columns": [
     {
@@ -36,116 +32,198 @@
       "original_name": "CustomerID",
       "position": 0,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
+      "semantic_type": "identifier",
       "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.39217758985200846,
+      "entropy_normalized": 0.8840259454098433,
       "cardinality_class": "medium",
-      "relational_role": "primary_key",
       "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "pk_score": 0.8618381125113861,
+      "pk_confidence": 0.8618381125113861,
       "pk_evidence": {
-        "uniqueness_score": 1.0,
-        "non_null_score": 1.0,
-        "entropy_score": 1.0,
-        "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
-        "reasons": [
-          "All values are unique",
+        "pk_score": 0.8618381125113861,
+        "pk_candidate": true,
+        "pk_confidence": 0.8618381125113861,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
           "No null values",
-          "High entropy (low redundancy)",
-          "All 100 values are distinct"
+          "Owner identifier match: 'customerid' owns 'Sales_Customers'",
+          "Integer/UUID identifier type"
         ],
-        "warnings": []
+        "negative_evidence": [
+          "Uniqueness only 39.2%"
+        ],
+        "uniqueness_score": 0.39217758985200846,
+        "non_null_score": 1.0,
+        "entropy_score": 0.8840259454098433,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 1.0,
+        "reasons": [
+          "No null values",
+          "Owner identifier match: 'customerid' owns 'Sales_Customers'",
+          "Integer/UUID identifier type"
+        ],
+        "warnings": [
+          "Uniqueness only 39.2%"
+        ]
       },
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8784,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.3922,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 1484,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.6078224101479915,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
+        "distinct_count": 1484,
+        "uniqueness_ratio": 0.39217758985200846,
+        "cardinality_ratio": 0.39217758985200846,
+        "duplicate_count": 2300,
+        "entropy": 10.507263973295705,
+        "entropy_normalized": 0.8840259454098433,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 1.0,
-        "max_value": 100.0,
-        "mean": 50.5,
-        "median": 50.5,
-        "std_dev": 29.011491975882016,
-        "variance": 841.6666666666666,
+        "max_value": 2034.0,
+        "mean": 1018.2481501057082,
+        "median": 1029.0,
+        "std_dev": 592.1636389606991,
+        "variance": 350657.7753071772,
         "quantiles": {
-          "p25": 25.25,
-          "p50": 50.5,
-          "p75": 75.75,
-          "p90": 90.10000000000001,
-          "p99": 99.01
+          "p25": 515.0,
+          "p50": 1029.0,
+          "p75": 1485.25,
+          "p90": 1908.0,
+          "p99": 2022.0
         },
-        "skewness": 0.0,
-        "kurtosis": -1.2360552475247524,
+        "skewness": -0.06459864470474602,
+        "kurtosis": -1.0291695408008736,
         "top_values": [
           [
             "1",
-            1
-          ],
-          [
-            "2",
-            1
-          ],
-          [
-            "3",
-            1
-          ],
-          [
-            "4",
-            1
-          ],
-          [
-            "5",
-            1
-          ],
-          [
-            "6",
-            1
-          ],
-          [
-            "7",
-            1
-          ],
-          [
-            "8",
-            1
-          ],
-          [
-            "9",
-            1
+            3
           ],
           [
             "10",
-            1
+            3
+          ],
+          [
+            "100",
+            3
+          ],
+          [
+            "1000",
+            3
+          ],
+          [
+            "1001",
+            3
+          ],
+          [
+            "1002",
+            3
+          ],
+          [
+            "1003",
+            3
+          ],
+          [
+            "1004",
+            3
+          ],
+          [
+            "1005",
+            3
+          ],
+          [
+            "1006",
+            3
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 3
+          },
+          {
+            "value": "10",
+            "frequency": 3
+          },
+          {
+            "value": "100",
+            "frequency": 3
+          },
+          {
+            "value": "1000",
+            "frequency": 3
+          },
+          {
+            "value": "1001",
+            "frequency": 3
+          },
+          {
+            "value": "1002",
+            "frequency": 3
+          },
+          {
+            "value": "1003",
+            "frequency": 3
+          },
+          {
+            "value": "1004",
+            "frequency": 3
+          },
+          {
+            "value": "1005",
+            "frequency": 3
+          },
+          {
+            "value": "1006",
+            "frequency": 3
+          }
+        ],
+        "duplicate_density": 0.6078224101479915
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10"
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ]
     },
     {
@@ -153,34 +231,79 @@
       "original_name": "CustomerName",
       "position": 1,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "name",
+      "logical_type": "description",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.39217758985200846,
+      "entropy_normalized": 0.8840259454098451,
       "cardinality_class": "medium",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.011838112511386223,
+      "pk_confidence": 0.011838112511386223,
+      "pk_evidence": {
+        "pk_score": 0.011838112511386223,
+        "pk_candidate": false,
+        "pk_confidence": 0.011838112511386223,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Semantically unstable descriptive field 'customername'"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Semantically unstable descriptive field 'customername'",
+          "Uniqueness only 39.2%"
+        ],
+        "uniqueness_score": 0.39217758985200846,
+        "non_null_score": 1.0,
+        "entropy_score": 0.8840259454098451,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Semantically unstable descriptive field 'customername'",
+          "Uniqueness only 39.2%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Semantically unstable descriptive field 'customername'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8784,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.3922,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 1484,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.6078224101479915,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 24,
-        "max_length": 38,
-        "avg_length": 29.13,
+        "distinct_count": 1484,
+        "uniqueness_ratio": 0.39217758985200846,
+        "cardinality_ratio": 0.39217758985200846,
+        "duplicate_count": 2300,
+        "entropy": 10.507263973295727,
+        "entropy_normalized": 0.8840259454098451,
+        "min_length": 6,
+        "max_length": 48,
+        "avg_length": 26.4492600422833,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -192,46 +315,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "Tailspin Toys (Head Office)",
-            1
+            "Aakriti Byrraju",
+            3
           ],
           [
-            "Tailspin Toys (Sylvanite, MT)",
-            1
+            "Abel Spirlea",
+            3
           ],
           [
-            "Tailspin Toys (Peeples Valley, AZ)",
-            1
+            "Abel Tatarescu",
+            3
           ],
           [
-            "Tailspin Toys (Medicine Lodge, KS)",
-            1
+            "Abhra Ganguly",
+            3
           ],
           [
-            "Tailspin Toys (Gasport, NY)",
-            1
+            "Adrian Andreasson",
+            3
           ],
           [
-            "Tailspin Toys (Jessie, ND)",
-            1
+            "Adriana Pena",
+            3
           ],
           [
-            "Tailspin Toys (Frankewing, TN)",
-            1
+            "Agrita Abele",
+            3
           ],
           [
-            "Tailspin Toys (Bow Mar, CO)",
-            1
+            "Agrita Kanepa",
+            3
           ],
           [
-            "Tailspin Toys (Netcong, NJ)",
-            1
+            "Aishwarya Dantuluri",
+            3
           ],
           [
-            "Tailspin Toys (Wimbledon, ND)",
-            1
+            "Aive Petrov",
+            3
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Aakriti Byrraju",
+            "frequency": 3
+          },
+          {
+            "value": "Abel Spirlea",
+            "frequency": 3
+          },
+          {
+            "value": "Abel Tatarescu",
+            "frequency": 3
+          },
+          {
+            "value": "Abhra Ganguly",
+            "frequency": 3
+          },
+          {
+            "value": "Adrian Andreasson",
+            "frequency": 3
+          },
+          {
+            "value": "Adriana Pena",
+            "frequency": 3
+          },
+          {
+            "value": "Agrita Abele",
+            "frequency": 3
+          },
+          {
+            "value": "Agrita Kanepa",
+            "frequency": 3
+          },
+          {
+            "value": "Aishwarya Dantuluri",
+            "frequency": 3
+          },
+          {
+            "value": "Aive Petrov",
+            "frequency": 3
+          }
+        ],
+        "duplicate_density": 0.6078224101479915
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": true
       },
       "sample_values": [
         "Tailspin Toys (Head Office)",
@@ -251,83 +425,202 @@
       "original_name": "BillToCustomerID",
       "position": 2,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.07029598308668077,
+      "entropy_normalized": 0.36803347507151346,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.78,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "billtocustomer",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'billtocustomer' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: billtocustomer",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "Moderate uniqueness (1.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'billtocustomerid' in table 'Sales_Customers' (root: 'customer') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'billtocustomerid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'billtocustomerid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 7.0%",
+          "Low entropy (0.37)"
+        ],
+        "uniqueness_score": 0.07029598308668077,
+        "non_null_score": 1.0,
+        "entropy_score": 0.36803347507151346,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'billtocustomerid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Non-root identifier 'billtocustomerid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 7.0%",
+          "Low entropy (0.37)"
+        ]
       },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'billtocustomerid' in table 'Sales_Customers' (root: 'customer') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+        "high_duplication"
       ],
-      "quality_score": 0.5,
+      "quality_score": 0.8141,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0703,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 266,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9297040169133193,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 266,
+        "uniqueness_ratio": 0.07029598308668077,
+        "cardinality_ratio": 0.07029598308668077,
+        "duplicate_count": 3518,
+        "entropy": 4.374334139924983,
+        "entropy_normalized": 0.36803347507151346,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 1.0,
-        "max_value": 1.0,
-        "mean": 1.0,
-        "median": 1.0,
-        "std_dev": 0.0,
-        "variance": 0.0,
-        "quantiles": {
-          "p25": 1.0,
-          "p50": 1.0,
-          "p75": 1.0,
-          "p90": 1.0,
-          "p99": 1.0
-        },
+        "min_value": null,
+        "max_value": null,
+        "mean": null,
+        "median": null,
+        "std_dev": null,
+        "variance": null,
+        "quantiles": null,
         "skewness": null,
         "kurtosis": null,
         "top_values": [
           [
             "1",
-            100
+            1459
+          ],
+          [
+            "401",
+            1005
+          ],
+          [
+            "1000",
+            5
+          ],
+          [
+            "1001",
+            5
+          ],
+          [
+            "1002",
+            5
+          ],
+          [
+            "1003",
+            5
+          ],
+          [
+            "1004",
+            5
+          ],
+          [
+            "1005",
+            5
+          ],
+          [
+            "1006",
+            5
+          ],
+          [
+            "1007",
+            5
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 1459
+          },
+          {
+            "value": "401",
+            "frequency": 1005
+          },
+          {
+            "value": "1000",
+            "frequency": 5
+          },
+          {
+            "value": "1001",
+            "frequency": 5
+          },
+          {
+            "value": "1002",
+            "frequency": 5
+          },
+          {
+            "value": "1003",
+            "frequency": 5
+          },
+          {
+            "value": "1004",
+            "frequency": 5
+          },
+          {
+            "value": "1005",
+            "frequency": 5
+          },
+          {
+            "value": "1006",
+            "frequency": 5
+          },
+          {
+            "value": "1007",
+            "frequency": 5
+          }
+        ],
+        "duplicate_density": 0.9297040169133193
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1"
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -335,167 +628,322 @@
       "original_name": "CustomerCategoryID",
       "position": 3,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.0015856236786469344,
+      "entropy_normalized": 0.11885908212909027,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
-      "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.78,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "customercategory",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'customercategory' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: customercategory",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "Moderate uniqueness (1.00%) - typical FK pattern"
+      "pk_score": 0.22720303294863842,
+      "pk_confidence": 0.22720303294863842,
+      "pk_evidence": {
+        "pk_score": 0.22720303294863842,
+        "pk_candidate": false,
+        "pk_confidence": 0.22720303294863842,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values",
+          "Partial table-root match: 'customercategoryid' in 'Sales_Customers'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
         ],
-        "warnings": []
+        "negative_evidence": [
+          "Uniqueness only 0.2%",
+          "Low entropy (0.12)"
+        ],
+        "uniqueness_score": 0.0015856236786469344,
+        "non_null_score": 1.0,
+        "entropy_score": 0.11885908212909027,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Partial table-root match: 'customercategoryid' in 'Sales_Customers'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Uniqueness only 0.2%",
+          "Low entropy (0.12)"
+        ]
       },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
+        "duplicate_explosion",
         "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+        "high_duplication"
       ],
-      "quality_score": 0.5,
+      "quality_score": 0.8003,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0016,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 6,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9984143763213531,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 6,
+        "uniqueness_ratio": 0.0015856236786469344,
+        "cardinality_ratio": 0.0015856236786469344,
+        "duplicate_count": 3778,
+        "entropy": 1.4127229614001777,
+        "entropy_normalized": 0.11885908212909027,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 3.0,
-        "max_value": 3.0,
-        "mean": 3.0,
+        "min_value": 1.0,
+        "max_value": 7.0,
+        "mean": 3.6501057082452433,
         "median": 3.0,
-        "std_dev": 0.0,
-        "variance": 0.0,
+        "std_dev": 1.229724803433654,
+        "variance": 1.5122230921799393,
         "quantiles": {
           "p25": 3.0,
           "p50": 3.0,
-          "p75": 3.0,
-          "p90": 3.0,
-          "p99": 3.0
+          "p75": 4.0,
+          "p90": 6.0,
+          "p99": 7.0
         },
-        "skewness": null,
-        "kurtosis": null,
+        "skewness": 1.6658643686169075,
+        "kurtosis": 1.5011439340560844,
         "top_values": [
           [
             "3",
-            100
+            2744
+          ],
+          [
+            "4",
+            295
+          ],
+          [
+            "5",
+            255
+          ],
+          [
+            "6",
+            245
+          ],
+          [
+            "7",
+            235
+          ],
+          [
+            "1",
+            10
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "3",
+            "frequency": 2744
+          },
+          {
+            "value": "4",
+            "frequency": 295
+          },
+          {
+            "value": "5",
+            "frequency": 255
+          },
+          {
+            "value": "6",
+            "frequency": 245
+          },
+          {
+            "value": "7",
+            "frequency": 235
+          },
+          {
+            "value": "1",
+            "frequency": 10
+          }
+        ],
+        "duplicate_density": 0.9984143763213531
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3"
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
       ]
     },
     {
       "column_name": "buyinggroupid",
       "original_name": "BuyingGroupID",
       "position": 4,
-      "physical_type": "float",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "physical_type": "integer",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
+      "type_confidence": 0.95,
+      "completeness": 0.6485200845665962,
+      "uniqueness": 0.0008149959250203749,
+      "entropy_normalized": 0.08669415427481875,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.7000000000000001,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "buyinggroup",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'buyinggroup' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: buyinggroup",
-          "Type affinity (INTEGER/UUID preferred): 0.50",
-          "Moderate uniqueness (1.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'buyinggroupid' in table 'Sales_Customers' (root: 'customer') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "Consistent data type",
+          "Generic identifier pattern: 'buyinggroupid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'buyinggroupid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 0.1%",
+          "Contains 1330 nulls (35.1%)",
+          "Low entropy (0.09)"
+        ],
+        "uniqueness_score": 0.0008149959250203749,
+        "non_null_score": 0.6485200845665962,
+        "entropy_score": 0.08669415427481875,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "Consistent data type",
+          "Generic identifier pattern: 'buyinggroupid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Non-root identifier 'buyinggroupid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 0.1%",
+          "Contains 1330 nulls (35.1%)",
+          "Low entropy (0.09)"
+        ]
       },
-      "quality_flags": [
-        "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'buyinggroupid' in table 'Sales_Customers' (root: 'customer') - likely FK"
       ],
-      "quality_score": 0.5,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "sparsity_detected",
+        "duplicate_explosion",
+        "weak_identifier",
+        "entropy_collapse",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.6947,
+      "quality_breakdown": {
+        "completeness": 0.6485,
+        "uniqueness": 0.0008,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "total_count": 3784,
+        "non_null_count": 2454,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 0.6485200845665962,
+        "duplicate_ratio": 0.9991850040749797,
+        "null_count": 1330,
+        "null_ratio": 0.3514799154334038,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.0008149959250203749,
+        "cardinality_ratio": 0.0005285412262156448,
+        "duplicate_count": 2452,
+        "entropy": 0.9762558953276919,
+        "entropy_normalized": 0.08669415427481875,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 1.0,
-        "max_value": 1.0,
-        "mean": 1.0,
+        "max_value": 2.0,
+        "mean": 1.4095354523227384,
         "median": 1.0,
-        "std_dev": 0.0,
-        "variance": 0.0,
+        "std_dev": 0.49184829508639333,
+        "variance": 0.24191474537939184,
         "quantiles": {
           "p25": 1.0,
           "p50": 1.0,
-          "p75": 1.0,
-          "p90": 1.0,
-          "p99": 1.0
+          "p75": 2.0,
+          "p90": 2.0,
+          "p99": 2.0
         },
-        "skewness": null,
-        "kurtosis": null,
+        "skewness": 0.3681555347723636,
+        "kurtosis": -1.8659829356998683,
         "top_values": [
           [
             "1.0",
-            100
+            1449
+          ],
+          [
+            "2.0",
+            1005
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1.0",
+            "frequency": 1449
+          },
+          {
+            "value": "2.0",
+            "frequency": 1005
+          }
+        ],
+        "duplicate_density": 0.9991850040749797
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1.0",
-        "1.0",
-        "1.0",
-        "1.0",
-        "1.0",
-        "1.0",
-        "1.0",
-        "1.0",
-        "1.0",
-        "1.0"
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
       ]
     },
     {
@@ -503,261 +951,416 @@
       "original_name": "PrimaryContactPersonID",
       "position": 5,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "foreign_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "uniqueness": 0.17626849894291755,
+      "entropy_normalized": 0.7865722812191785,
+      "cardinality_class": "low",
+      "pk_candidate": false,
+      "pk_score": 0.02891092791050137,
+      "pk_confidence": 0.02891092791050137,
       "pk_evidence": {
-        "uniqueness_score": 1.0,
-        "non_null_score": 1.0,
-        "entropy_score": 1.0,
-        "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
-        "reasons": [
-          "All values are unique",
-          "No null values",
-          "High entropy (low redundancy)",
-          "All 100 values are distinct"
+        "pk_score": 0.02891092791050137,
+        "pk_candidate": false,
+        "pk_confidence": 0.02891092791050137,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'primarycontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK"
         ],
-        "warnings": []
-      },
-      "fk_candidate": true,
-      "fk_confidence": 0.9,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "primarycontactperson",
-        "entity_mismatch_score": 1.0,
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'primarycontactpersonid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'primarycontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 17.6%"
+        ],
+        "uniqueness_score": 0.17626849894291755,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7865722812191785,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
         "reasons": [
-          "FK pattern detected: references 'primarycontactperson' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: primarycontactperson",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
+          "No null values",
+          "Generic identifier pattern: 'primarycontactpersonid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
         ],
         "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
+          "Non-root identifier 'primarycontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 17.6%"
         ]
       },
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'primarycontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8353,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1763,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 667,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8237315010570825,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
+        "distinct_count": 667,
+        "uniqueness_ratio": 0.17626849894291755,
+        "cardinality_ratio": 0.17626849894291755,
+        "duplicate_count": 3117,
+        "entropy": 9.348959310256086,
+        "entropy_normalized": 0.7865722812191785,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 1001.0,
-        "max_value": 1199.0,
-        "mean": 1100.0,
-        "median": 1100.0,
-        "std_dev": 58.02298395176403,
-        "variance": 3366.6666666666665,
+        "min_value": 1.0,
+        "max_value": 3264.0,
+        "mean": 2137.1982029598307,
+        "median": 2173.0,
+        "std_dev": 839.7970405694086,
+        "variance": 705259.0693491369,
         "quantiles": {
-          "p25": 1049.5,
-          "p50": 1100.0,
-          "p75": 1150.5,
-          "p90": 1179.2,
-          "p99": 1197.02
+          "p25": 1261.0,
+          "p50": 2173.0,
+          "p75": 3075.0,
+          "p90": 3189.0,
+          "p99": 3257.0
         },
-        "skewness": 0.0,
-        "kurtosis": -1.2360552475247524,
+        "skewness": -0.006189846165466756,
+        "kurtosis": -1.5301122954044102,
         "top_values": [
           [
+            "1",
+            10
+          ],
+          [
             "1001",
-            1
+            8
           ],
           [
             "1003",
-            1
+            8
           ],
           [
             "1005",
-            1
-          ],
-          [
-            "1007",
-            1
-          ],
-          [
-            "1009",
-            1
+            8
           ],
           [
             "1011",
-            1
+            8
           ],
           [
             "1013",
-            1
+            8
           ],
           [
             "1015",
-            1
+            8
           ],
           [
             "1017",
-            1
+            8
           ],
           [
-            "1019",
-            1
+            "1021",
+            8
+          ],
+          [
+            "1023",
+            8
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 10
+          },
+          {
+            "value": "1001",
+            "frequency": 8
+          },
+          {
+            "value": "1003",
+            "frequency": 8
+          },
+          {
+            "value": "1005",
+            "frequency": 8
+          },
+          {
+            "value": "1011",
+            "frequency": 8
+          },
+          {
+            "value": "1013",
+            "frequency": 8
+          },
+          {
+            "value": "1015",
+            "frequency": 8
+          },
+          {
+            "value": "1017",
+            "frequency": 8
+          },
+          {
+            "value": "1021",
+            "frequency": 8
+          },
+          {
+            "value": "1023",
+            "frequency": 8
+          }
+        ],
+        "duplicate_density": 0.8237315010570825
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1001",
-        "1003",
-        "1005",
-        "1007",
-        "1009",
-        "1011",
-        "1013",
-        "1015",
-        "1017",
-        "1019"
+        1001,
+        1003,
+        1005,
+        1007,
+        1009,
+        1011,
+        1013,
+        1015,
+        1017,
+        1019
       ]
     },
     {
       "column_name": "alternatecontactpersonid",
       "original_name": "AlternateContactPersonID",
       "position": 6,
-      "physical_type": "float",
-      "semantic_type": "foreign_key_candidate",
+      "physical_type": "integer",
+      "semantic_type": "identifier",
       "logical_type": "identifier",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "primary_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "type_confidence": 0.95,
+      "completeness": 0.6511627906976745,
+      "uniqueness": 0.16355519480519481,
+      "entropy_normalized": 0.7646344601926016,
+      "cardinality_class": "low",
+      "pk_candidate": false,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
       "pk_evidence": {
-        "uniqueness_score": 1.0,
-        "non_null_score": 1.0,
-        "entropy_score": 1.0,
-        "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
-        "reasons": [
-          "All values are unique",
-          "No null values",
-          "High entropy (low redundancy)",
-          "All 100 values are distinct"
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'alternatecontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK"
         ],
-        "warnings": []
-      },
-      "fk_candidate": true,
-      "fk_confidence": 0.8200000000000001,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "alternatecontactperson",
-        "entity_mismatch_score": 1.0,
+        "positive_evidence": [
+          "Consistent data type",
+          "Generic identifier pattern: 'alternatecontactpersonid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'alternatecontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 16.4%",
+          "Contains 1320 nulls (34.9%)"
+        ],
+        "uniqueness_score": 0.16355519480519481,
+        "non_null_score": 0.6511627906976745,
+        "entropy_score": 0.7646344601926016,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.7,
         "reasons": [
-          "FK pattern detected: references 'alternatecontactperson' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: alternatecontactperson",
-          "Type affinity (INTEGER/UUID preferred): 0.50",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
+          "Consistent data type",
+          "Generic identifier pattern: 'alternatecontactpersonid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
         ],
         "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
+          "Non-root identifier 'alternatecontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 16.4%",
+          "Contains 1320 nulls (34.9%)"
         ]
       },
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'alternatecontactpersonid' in table 'Sales_Customers' (root: 'customer') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "sparsity_detected",
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.7281,
+      "quality_breakdown": {
+        "completeness": 0.6512,
+        "uniqueness": 0.1636,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
+        "total_count": 3784,
+        "non_null_count": 2464,
+        "distinct_non_null_count": 403,
+        "coverage_ratio": 0.6511627906976745,
+        "duplicate_ratio": 0.8364448051948052,
+        "null_count": 1320,
+        "null_ratio": 0.3488372093023256,
+        "distinct_count": 403,
+        "uniqueness_ratio": 0.16355519480519481,
+        "cardinality_ratio": 0.10650105708245243,
+        "duplicate_count": 2061,
+        "entropy": 8.614973244649516,
+        "entropy_normalized": 0.7646344601926016,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 1002.0,
-        "max_value": 1200.0,
-        "mean": 1101.0,
-        "median": 1101.0,
-        "std_dev": 58.02298395176403,
-        "variance": 3366.6666666666665,
+        "min_value": 2.0,
+        "max_value": 2402.0,
+        "mean": 1605.0008116883116,
+        "median": 1338.0,
+        "std_dev": 514.5818732353814,
+        "variance": 264794.50426243414,
         "quantiles": {
-          "p25": 1050.5,
-          "p50": 1101.0,
-          "p75": 1151.5,
-          "p90": 1180.2,
-          "p99": 1198.02
+          "p25": 1170.0,
+          "p50": 1338.0,
+          "p75": 2156.0,
+          "p90": 2304.0,
+          "p99": 2392.74
         },
-        "skewness": 0.0,
-        "kurtosis": -1.2360552475247524,
+        "skewness": 0.2341356224391454,
+        "kurtosis": -1.3745850635687462,
         "top_values": [
           [
+            "2.0",
+            10
+          ],
+          [
             "1002.0",
-            1
+            8
           ],
           [
             "1004.0",
-            1
+            8
           ],
           [
             "1006.0",
-            1
-          ],
-          [
-            "1008.0",
-            1
-          ],
-          [
-            "1010.0",
-            1
+            8
           ],
           [
             "1012.0",
-            1
+            8
           ],
           [
             "1014.0",
-            1
+            8
           ],
           [
             "1016.0",
-            1
+            8
           ],
           [
             "1018.0",
-            1
+            8
           ],
           [
-            "1020.0",
-            1
+            "1022.0",
+            8
+          ],
+          [
+            "1024.0",
+            8
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2.0",
+            "frequency": 10
+          },
+          {
+            "value": "1002.0",
+            "frequency": 8
+          },
+          {
+            "value": "1004.0",
+            "frequency": 8
+          },
+          {
+            "value": "1006.0",
+            "frequency": 8
+          },
+          {
+            "value": "1012.0",
+            "frequency": 8
+          },
+          {
+            "value": "1014.0",
+            "frequency": 8
+          },
+          {
+            "value": "1016.0",
+            "frequency": 8
+          },
+          {
+            "value": "1018.0",
+            "frequency": 8
+          },
+          {
+            "value": "1022.0",
+            "frequency": 8
+          },
+          {
+            "value": "1024.0",
+            "frequency": 8
+          }
+        ],
+        "duplicate_density": 0.8364448051948052
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1002.0",
-        "1004.0",
-        "1006.0",
-        "1008.0",
-        "1010.0",
-        "1012.0",
-        "1014.0",
-        "1016.0",
-        "1018.0",
-        "1020.0"
+        1002.0,
+        1004.0,
+        1006.0,
+        1008.0,
+        1010.0,
+        1012.0,
+        1014.0,
+        1016.0,
+        1018.0,
+        1020.0
       ]
     },
     {
@@ -765,56 +1368,103 @@
       "original_name": "DeliveryMethodID",
       "position": 7,
       "physical_type": "integer",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "reference",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.0005285412262156448,
+      "entropy_normalized": 0.002224446837141032,
       "cardinality_class": "low",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.78,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "deliverymethod",
-        "entity_mismatch_score": 1.0,
-        "reasons": [
-          "FK pattern detected: references 'deliverymethod' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: deliverymethod",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "Moderate uniqueness (1.00%) - typical FK pattern"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0022)",
+          "Non-root identifier 'deliverymethodid' in table 'Sales_Customers' (root: 'customer') - likely FK"
         ],
-        "warnings": []
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'deliverymethodid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0022)",
+          "Non-root identifier 'deliverymethodid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.0005285412262156448,
+        "non_null_score": 1.0,
+        "entropy_score": 0.002224446837141032,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'deliverymethodid'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0022)",
+          "Non-root identifier 'deliverymethodid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.00)"
+        ]
       },
-      "quality_flags": [
-        "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0022)",
+        "Non-root identifier 'deliverymethodid' in table 'Sales_Customers' (root: 'customer') - likely FK"
       ],
-      "quality_score": 0.5,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "weak_identifier",
+        "zero_entropy",
+        "extreme_skewness",
+        "low_cardinality",
+        "high_duplication",
+        "heavy_tail"
+      ],
+      "quality_score": 0.7101,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0005,
+        "consistency": 1.0,
+        "validity": 0.8,
+        "anomaly_score": 0.5
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9994714587737844,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.0005285412262156448,
+        "cardinality_ratio": 0.0005285412262156448,
+        "duplicate_count": 3782,
+        "entropy": 0.026439099704893453,
+        "entropy_normalized": 0.002224446837141032,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 3.0,
+        "min_value": 1.0,
         "max_value": 3.0,
-        "mean": 3.0,
+        "mean": 2.9947145877378434,
         "median": 3.0,
-        "std_dev": 0.0,
-        "variance": 0.0,
+        "std_dev": 0.10269214114894798,
+        "variance": 0.010545675853755454,
         "quantiles": {
           "p25": 3.0,
           "p50": 3.0,
@@ -822,26 +1472,49 @@
           "p90": 3.0,
           "p99": 3.0
         },
-        "skewness": null,
-        "kurtosis": null,
+        "skewness": -19.382994692629982,
+        "kurtosis": 373.8981035638941,
         "top_values": [
           [
             "3",
-            100
+            3774
+          ],
+          [
+            "1",
+            10
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "3",
+            "frequency": 3774
+          },
+          {
+            "value": "1",
+            "frequency": 10
+          }
+        ],
+        "duplicate_density": 0.9994714587737844
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3",
-        "3"
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
       ]
     },
     {
@@ -850,129 +1523,203 @@
       "position": 8,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "reference",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.3427589852008457,
+      "entropy_normalized": 0.8071672537746574,
       "cardinality_class": "medium",
-      "relational_role": "foreign_key",
-      "pk_candidate": true,
-      "pk_confidence": 0.94,
+      "pk_candidate": false,
+      "pk_score": 0.06426852241763492,
+      "pk_confidence": 0.06426852241763492,
       "pk_evidence": {
-        "uniqueness_score": 1.0,
-        "non_null_score": 1.0,
-        "entropy_score": 1.0,
-        "type_stability_score": 0.9,
-        "name_pattern_score": 0.0,
-        "reasons": [
-          "All values are unique",
-          "No null values",
-          "High entropy (low redundancy)",
-          "All 100 values are distinct"
+        "pk_score": 0.06426852241763492,
+        "pk_candidate": false,
+        "pk_confidence": 0.06426852241763492,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Non-root identifier 'deliverycityid' in table 'Sales_Customers' (root: 'customer') - likely FK"
         ],
-        "warnings": []
-      },
-      "fk_candidate": true,
-      "fk_confidence": 0.9,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "deliverycity",
-        "entity_mismatch_score": 1.0,
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'deliverycityid'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Non-root identifier 'deliverycityid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 34.3%"
+        ],
+        "uniqueness_score": 0.3427589852008457,
+        "non_null_score": 1.0,
+        "entropy_score": 0.8071672537746574,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
         "reasons": [
-          "FK pattern detected: references 'deliverycity' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: deliverycity",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
+          "No null values",
+          "Generic identifier pattern: 'deliverycityid'",
+          "Integer/UUID identifier type"
         ],
         "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
+          "Non-root identifier 'deliverycityid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 34.3%"
         ]
       },
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "suppressed": false,
+      "suppression_reasons": [
+        "Non-root identifier 'deliverycityid' in table 'Sales_Customers' (root: 'customer') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8686,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.3428,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 1297,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.6572410147991543,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
+        "distinct_count": 1297,
+        "uniqueness_ratio": 0.3427589852008457,
+        "cardinality_ratio": 0.3427589852008457,
+        "duplicate_count": 2487,
+        "entropy": 9.593744900867765,
+        "entropy_normalized": 0.8071672537746574,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 49.0,
-        "max_value": 38042.0,
-        "mean": 17908.68,
-        "median": 17023.0,
-        "std_dev": 10804.701279301964,
-        "variance": 116741569.7349495,
+        "min_value": 15.0,
+        "max_value": 38185.0,
+        "mean": 20024.192917547567,
+        "median": 21367.5,
+        "std_dev": 10659.20055218135,
+        "variance": 113618556.41162321,
         "quantiles": {
-          "p25": 9586.0,
-          "p50": 17023.0,
-          "p75": 25793.75,
-          "p90": 34212.8,
-          "p99": 37478.69
+          "p25": 10263.0,
+          "p50": 21367.5,
+          "p75": 27420.0,
+          "p90": 34060.0,
+          "p99": 37898.0
         },
-        "skewness": 0.15213022906531695,
-        "kurtosis": -1.0313205186514307,
+        "skewness": -0.23033966447202625,
+        "kurtosis": -1.125585973623677,
         "top_values": [
           [
-            "19586",
-            1
+            "27420",
+            450
           ],
           [
-            "33475",
-            1
+            "1245",
+            7
           ],
           [
-            "26483",
-            1
+            "16702",
+            6
           ],
           [
-            "21692",
-            1
+            "242",
+            6
           ],
           [
-            "12748",
-            1
+            "26010",
+            6
           ],
           [
-            "17054",
-            1
+            "29320",
+            6
           ],
           [
-            "12152",
-            1
+            "31685",
+            6
           ],
           [
-            "3673",
-            1
+            "33832",
+            6
           ],
           [
-            "23805",
-            1
+            "6221",
+            6
           ],
           [
-            "37403",
-            1
+            "9791",
+            6
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "27420",
+            "frequency": 450
+          },
+          {
+            "value": "1245",
+            "frequency": 7
+          },
+          {
+            "value": "16702",
+            "frequency": 6
+          },
+          {
+            "value": "242",
+            "frequency": 6
+          },
+          {
+            "value": "26010",
+            "frequency": 6
+          },
+          {
+            "value": "29320",
+            "frequency": 6
+          },
+          {
+            "value": "31685",
+            "frequency": 6
+          },
+          {
+            "value": "33832",
+            "frequency": 6
+          },
+          {
+            "value": "6221",
+            "frequency": 6
+          },
+          {
+            "value": "9791",
+            "frequency": 6
+          }
+        ],
+        "duplicate_density": 0.6572410147991543
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "19586",
-        "33475",
-        "26483",
-        "21692",
-        "12748",
-        "17054",
-        "12152",
-        "3673",
-        "23805",
-        "37403"
+        19586,
+        33475,
+        26483,
+        21692,
+        12748,
+        17054,
+        12152,
+        3673,
+        23805,
+        37403
       ]
     },
     {
@@ -981,176 +1728,407 @@
       "position": 9,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "reference",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.3427589852008457,
+      "entropy_normalized": 0.8071672537746605,
       "cardinality_class": "medium",
-      "relational_role": "foreign_key",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.9,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "postalcity",
-        "entity_mismatch_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Postal/zip code 'postalcityid' - mutable business attribute",
+          "Non-root identifier 'postalcityid' in table 'Sales_Customers' (root: 'customer') - likely FK"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'postalcityid'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Postal/zip code 'postalcityid' - mutable business attribute",
+          "Non-root identifier 'postalcityid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 34.3%"
+        ],
+        "uniqueness_score": 0.3427589852008457,
+        "non_null_score": 1.0,
+        "entropy_score": 0.8071672537746605,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
         "reasons": [
-          "FK pattern detected: references 'postalcity' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: postalcity",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
+          "No null values",
+          "Generic identifier pattern: 'postalcityid'",
+          "Integer/UUID identifier type"
         ],
         "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
+          "Postal/zip code 'postalcityid' - mutable business attribute",
+          "Non-root identifier 'postalcityid' in table 'Sales_Customers' (root: 'customer') - likely FK",
+          "Uniqueness only 34.3%"
         ]
       },
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "suppressed": true,
+      "suppression_reasons": [
+        "Postal/zip code 'postalcityid' - mutable business attribute",
+        "Non-root identifier 'postalcityid' in table 'Sales_Customers' (root: 'customer') - likely FK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8686,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.3428,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 1297,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.6572410147991543,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
+        "distinct_count": 1297,
+        "uniqueness_ratio": 0.3427589852008457,
+        "cardinality_ratio": 0.3427589852008457,
+        "duplicate_count": 2487,
+        "entropy": 9.593744900867803,
+        "entropy_normalized": 0.8071672537746605,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 49.0,
-        "max_value": 38042.0,
-        "mean": 17908.68,
-        "median": 17023.0,
-        "std_dev": 10804.701279301964,
-        "variance": 116741569.7349495,
+        "min_value": 15.0,
+        "max_value": 38185.0,
+        "mean": 17061.086152219872,
+        "median": 16703.0,
+        "std_dev": 11612.315757841941,
+        "variance": 134845877.25982425,
         "quantiles": {
-          "p25": 9586.0,
-          "p50": 17023.0,
-          "p75": 25793.75,
-          "p90": 34212.8,
-          "p99": 37478.69
+          "p25": 5682.0,
+          "p50": 16703.0,
+          "p75": 26770.0,
+          "p90": 34060.0,
+          "p99": 37898.0
         },
-        "skewness": 0.15213022906531695,
-        "kurtosis": -1.0313205186514307,
+        "skewness": 0.16482674731066044,
+        "kurtosis": -1.2991689503188537,
         "top_values": [
           [
-            "19586",
-            1
+            "2505",
+            450
           ],
           [
-            "33475",
-            1
+            "1245",
+            7
           ],
           [
-            "26483",
-            1
+            "16702",
+            6
           ],
           [
-            "21692",
-            1
+            "242",
+            6
           ],
           [
-            "12748",
-            1
+            "26010",
+            6
           ],
           [
-            "17054",
-            1
+            "29320",
+            6
           ],
           [
-            "12152",
-            1
+            "31685",
+            6
           ],
           [
-            "3673",
-            1
+            "33832",
+            6
           ],
           [
-            "23805",
-            1
+            "6221",
+            6
           ],
           [
-            "37403",
-            1
+            "9791",
+            6
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2505",
+            "frequency": 450
+          },
+          {
+            "value": "1245",
+            "frequency": 7
+          },
+          {
+            "value": "16702",
+            "frequency": 6
+          },
+          {
+            "value": "242",
+            "frequency": 6
+          },
+          {
+            "value": "26010",
+            "frequency": 6
+          },
+          {
+            "value": "29320",
+            "frequency": 6
+          },
+          {
+            "value": "31685",
+            "frequency": 6
+          },
+          {
+            "value": "33832",
+            "frequency": 6
+          },
+          {
+            "value": "6221",
+            "frequency": 6
+          },
+          {
+            "value": "9791",
+            "frequency": 6
+          }
+        ],
+        "duplicate_density": 0.6572410147991543
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "19586",
-        "33475",
-        "26483",
-        "21692",
-        "12748",
-        "17054",
-        "12152",
-        "3673",
-        "23805",
-        "37403"
+        19586,
+        33475,
+        26483,
+        21692,
+        12748,
+        17054,
+        12152,
+        3673,
+        23805,
+        37403
       ]
     },
     {
       "column_name": "creditlimit",
       "original_name": "CreditLimit",
       "position": 10,
-      "physical_type": "unknown",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
+      "physical_type": "float",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
-      "completeness": 1.0,
-      "uniqueness": 0.0,
-      "entropy_normalized": 0.0,
+      "completeness": 0.35147991543340384,
+      "uniqueness": 0.04285714285714286,
+      "entropy_normalized": 0.5280365170217258,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
-      "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_score": 0.12909706758861175,
+      "pk_confidence": 0.12909706758861175,
+      "pk_evidence": {
+        "pk_score": 0.12909706758861175,
+        "pk_candidate": false,
+        "pk_confidence": 0.12909706758861175,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 4.3%",
+          "Contains 2454 nulls (64.9%)"
+        ],
+        "uniqueness_score": 0.04285714285714286,
+        "non_null_score": 0.35147991543340384,
+        "entropy_score": 0.5280365170217258,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Uniqueness only 4.3%",
+          "Contains 2454 nulls (64.9%)"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
-        "zero_entropy",
-        "low_cardinality"
+        "high_null_ratio",
+        "extreme_skewness",
+        "high_missingness",
+        "high_duplication",
+        "heavy_tail"
       ],
-      "quality_score": 0.7,
+      "quality_score": 0.564,
+      "quality_breakdown": {
+        "completeness": 0.3515,
+        "uniqueness": 0.0429,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 0.5
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
-        "distinct_count": 0,
-        "uniqueness_ratio": 0.0,
-        "cardinality_ratio": 0.0,
-        "duplicate_count": 0,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "total_count": 3784,
+        "non_null_count": 1330,
+        "distinct_non_null_count": 57,
+        "coverage_ratio": 0.3514799154334038,
+        "duplicate_ratio": 0.9571428571428572,
+        "null_count": 2454,
+        "null_ratio": 0.6485200845665962,
+        "distinct_count": 57,
+        "uniqueness_ratio": 0.04285714285714286,
+        "cardinality_ratio": 0.015063424947145878,
+        "duplicate_count": 1273,
+        "entropy": 5.479546104867548,
+        "entropy_normalized": 0.5280365170217258,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": null,
-        "max_value": null,
-        "mean": null,
-        "median": null,
-        "std_dev": null,
-        "variance": null,
-        "quantiles": null,
-        "skewness": null,
-        "kurtosis": null,
-        "top_values": null
+        "min_value": 1100.0,
+        "max_value": 50000.0,
+        "mean": 2971.793345864661,
+        "median": 2600.0,
+        "std_dev": 4179.917595460311,
+        "variance": 17471711.104838707,
+        "quantiles": {
+          "p25": 1900.0,
+          "p50": 2600.0,
+          "p75": 3300.0,
+          "p90": 3800.0,
+          "p99": 4862.03
+        },
+        "skewness": 10.72207983451106,
+        "kurtosis": 118.11320057082112,
+        "top_values": [
+          [
+            "3300.0",
+            85
+          ],
+          [
+            "2000.0",
+            55
+          ],
+          [
+            "3000.0",
+            55
+          ],
+          [
+            "3500.0",
+            55
+          ],
+          [
+            "2100.0",
+            50
+          ],
+          [
+            "1600.0",
+            45
+          ],
+          [
+            "2300.0",
+            45
+          ],
+          [
+            "2400.0",
+            45
+          ],
+          [
+            "1800.0",
+            40
+          ],
+          [
+            "2200.0",
+            40
+          ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "3300.0",
+            "frequency": 85
+          },
+          {
+            "value": "2000.0",
+            "frequency": 55
+          },
+          {
+            "value": "3000.0",
+            "frequency": 55
+          },
+          {
+            "value": "3500.0",
+            "frequency": 55
+          },
+          {
+            "value": "2100.0",
+            "frequency": 50
+          },
+          {
+            "value": "1600.0",
+            "frequency": 45
+          },
+          {
+            "value": "2300.0",
+            "frequency": 45
+          },
+          {
+            "value": "2400.0",
+            "frequency": 45
+          },
+          {
+            "value": "1800.0",
+            "frequency": 40
+          },
+          {
+            "value": "2200.0",
+            "frequency": 40
+          }
+        ],
+        "duplicate_density": 0.9571428571428572
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     },
     {
@@ -1158,34 +2136,75 @@
       "original_name": "AccountOpenedDate",
       "position": 11,
       "physical_type": "datetime",
-      "semantic_type": "measure",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.01744186046511628,
+      "entropy_normalized": 0.08006011991683522,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
-      "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_score": 0.17649438408470677,
+      "pk_confidence": 0.17649438408470677,
+      "pk_evidence": {
+        "pk_score": 0.17649438408470677,
+        "pk_candidate": false,
+        "pk_confidence": 0.17649438408470677,
+        "suppressed": false,
+        "suppression_reasons": [],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Uniqueness only 1.7%",
+          "Low entropy (0.08)"
+        ],
+        "uniqueness_score": 0.01744186046511628,
+        "non_null_score": 1.0,
+        "entropy_score": 0.08006011991683522,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Uniqueness only 1.7%",
+          "Low entropy (0.08)"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+        "entropy_collapse",
+        "high_duplication"
       ],
-      "quality_score": 0.6,
+      "quality_score": 0.8035,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0174,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 66,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9825581395348837,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 66,
+        "uniqueness_ratio": 0.01744186046511628,
+        "cardinality_ratio": 0.01744186046511628,
+        "duplicate_count": 3718,
+        "entropy": 0.9515702769446455,
+        "entropy_normalized": 0.08006011991683522,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -1200,22 +2219,109 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-01-2013 00:00:00",
-            100
+            "2013-01-01 00:00:00",
+            3454
+          ],
+          [
+            "2021-07-01 00:00:00",
+            10
+          ],
+          [
+            "2013-01-27 00:00:00",
+            5
+          ],
+          [
+            "2013-02-22 00:00:00",
+            5
+          ],
+          [
+            "2013-03-25 00:00:00",
+            5
+          ],
+          [
+            "2013-04-01 00:00:00",
+            5
+          ],
+          [
+            "2013-04-06 00:00:00",
+            5
+          ],
+          [
+            "2013-04-10 00:00:00",
+            5
+          ],
+          [
+            "2013-04-13 00:00:00",
+            5
+          ],
+          [
+            "2013-04-14 00:00:00",
+            5
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2013-01-01 00:00:00",
+            "frequency": 3454
+          },
+          {
+            "value": "2021-07-01 00:00:00",
+            "frequency": 10
+          },
+          {
+            "value": "2013-01-27 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2013-02-22 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2013-03-25 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2013-04-01 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2013-04-06 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2013-04-10 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2013-04-13 00:00:00",
+            "frequency": 5
+          },
+          {
+            "value": "2013-04-14 00:00:00",
+            "frequency": 5
+          }
+        ],
+        "duplicate_density": 0.9825581395348837
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00",
-        "01-01-2013 00:00:00"
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00",
+        "2013-01-01T00:00:00"
       ]
     },
     {
@@ -1227,28 +2333,85 @@
       "logical_type": "measure",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.0002642706131078224,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Measure/metric column 'standarddiscountpercentage' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Measure/metric column 'standarddiscountpercentage' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.0002642706131078224,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Measure/metric column 'standarddiscountpercentage' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Measure/metric column 'standarddiscountpercentage' - not a stable identifier"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "constant_column",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0003,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9997357293868921,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.0002642706131078224,
+        "cardinality_ratio": 0.0002642706131078224,
+        "duplicate_count": 3783,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
         "min_length": null,
@@ -1272,59 +2435,131 @@
         "top_values": [
           [
             "0.0",
-            100
+            3784
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "0.0",
+            "frequency": 3784
+          }
+        ],
+        "duplicate_density": 0.9997357293868921
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": true,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "0.0",
-        "0.0",
-        "0.0",
-        "0.0",
-        "0.0",
-        "0.0",
-        "0.0",
-        "0.0",
-        "0.0",
-        "0.0"
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
       ]
     },
     {
       "column_name": "isstatementsent",
       "original_name": "IsStatementSent",
       "position": 13,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.0002642706131078224,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isstatementsent' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isstatementsent' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.0002642706131078224,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isstatementsent' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Boolean/flag column pattern 'isstatementsent' - not a stable identifier"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "constant_column",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0003,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9997357293868921,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.0002642706131078224,
+        "cardinality_ratio": 0.0002642706131078224,
+        "duplicate_count": 3783,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
-        "min_length": 5,
-        "max_length": 5,
-        "avg_length": 5.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1336,60 +2571,132 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            100
+            "false",
+            3784
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 3784
+          }
+        ],
+        "duplicate_density": 0.9997357293868921
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False"
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
       ]
     },
     {
       "column_name": "isoncredithold",
       "original_name": "IsOnCreditHold",
       "position": 14,
-      "physical_type": "string",
-      "semantic_type": "dimension",
+      "physical_type": "boolean",
+      "semantic_type": "boolean_flag",
       "logical_type": "category",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
+      "uniqueness": 0.0002642706131078224,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "dimension",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isoncredithold' - not a stable identifier"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isoncredithold' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.0002642706131078224,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Boolean/flag column pattern 'isoncredithold' - not a stable identifier",
+          "Uniqueness only 0.0%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Boolean/flag column pattern 'isoncredithold' - not a stable identifier"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "constant_column",
+        "low_cardinality",
+        "high_duplication"
+      ],
+      "quality_score": 0.8001,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0003,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9997357293868921,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
+        "uniqueness_ratio": 0.0002642706131078224,
+        "cardinality_ratio": 0.0002642706131078224,
+        "duplicate_count": 3783,
         "entropy": 0.0,
         "entropy_normalized": 0.0,
-        "min_length": 5,
-        "max_length": 5,
-        "avg_length": 5.0,
+        "min_length": null,
+        "max_length": null,
+        "avg_length": null,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1401,22 +2708,37 @@
         "kurtosis": null,
         "top_values": [
           [
-            "False",
-            100
+            "false",
+            3784
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "false",
+            "frequency": 3784
+          }
+        ],
+        "duplicate_density": 0.9997357293868921
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": true,
+        "is_text": false
       },
       "sample_values": [
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False",
-        "False"
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
       ]
     },
     {
@@ -1424,43 +2746,96 @@
       "original_name": "PaymentDays",
       "position": 15,
       "physical_type": "integer",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.0005285412262156448,
+      "entropy_normalized": 0.002224446837141032,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0022)"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0022)",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.00)"
+        ],
+        "uniqueness_score": 0.0005285412262156448,
+        "non_null_score": 1.0,
+        "entropy_score": 0.002224446837141032,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0022)",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0022)"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "zero_entropy",
+        "extreme_skewness",
+        "low_cardinality",
+        "high_duplication",
+        "heavy_tail"
+      ],
+      "quality_score": 0.7101,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0005,
+        "consistency": 1.0,
+        "validity": 0.8,
+        "anomaly_score": 0.5
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 2,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9994714587737844,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 2,
+        "uniqueness_ratio": 0.0005285412262156448,
+        "cardinality_ratio": 0.0005285412262156448,
+        "duplicate_count": 3782,
+        "entropy": 0.026439099704893453,
+        "entropy_normalized": 0.002224446837141032,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 7.0,
-        "max_value": 7.0,
-        "mean": 7.0,
+        "max_value": 30.0,
+        "mean": 7.060782241014799,
         "median": 7.0,
-        "std_dev": 0.0,
-        "variance": 0.0,
+        "std_dev": 1.180959623212903,
+        "variance": 1.3946656316591615,
         "quantiles": {
           "p25": 7.0,
           "p50": 7.0,
@@ -1468,26 +2843,49 @@
           "p90": 7.0,
           "p99": 7.0
         },
-        "skewness": null,
-        "kurtosis": null,
+        "skewness": 19.382994692622532,
+        "kurtosis": 373.89810356454956,
         "top_values": [
           [
             "7",
-            100
+            3774
+          ],
+          [
+            "30",
+            10
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "7",
+            "frequency": 3774
+          },
+          {
+            "value": "30",
+            "frequency": 10
+          }
+        ],
+        "duplicate_density": 0.9994714587737844
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "7",
-        "7",
-        "7",
-        "7",
-        "7",
-        "7",
-        "7",
-        "7",
-        "7",
-        "7"
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
       ]
     },
     {
@@ -1495,36 +2893,81 @@
       "original_name": "PhoneNumber",
       "position": 16,
       "physical_type": "string",
-      "semantic_type": "phone",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.26215644820295986,
+      "entropy_normalized": 0.7492415442215528,
       "cardinality_class": "medium",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "pii_exposure_risk"
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'phonenumber' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'phonenumber' - high mutability",
+          "Uniqueness only 26.2%"
+        ],
+        "uniqueness_score": 0.26215644820295986,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7492415442215528,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'phonenumber' - high mutability",
+          "Uniqueness only 26.2%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'phonenumber' - high mutability"
       ],
-      "quality_score": 0.85,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8524,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.2622,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 992,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.7378435517970401,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 8,
-        "max_length": 8,
-        "avg_length": 8.0,
+        "distinct_count": 992,
+        "uniqueness_ratio": 0.26215644820295986,
+        "cardinality_ratio": 0.26215644820295986,
+        "duplicate_count": 2792,
+        "entropy": 8.905257504909319,
+        "entropy_normalized": 0.7492415442215528,
+        "min_length": 7,
+        "max_length": 14,
+        "avg_length": 10.696088794926004,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1536,46 +2979,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "090-1001",
-            1
+            "(210) 555-0100",
+            117
           ],
           [
-            "090-1002",
-            1
+            "(215) 555-0100",
+            99
           ],
           [
-            "090-1003",
-            1
+            "(212) 555-0100",
+            78
           ],
           [
-            "090-1004",
-            1
+            "(209) 555-0100",
+            75
           ],
           [
-            "090-1005",
-            1
+            "(405) 555-0100",
+            54
           ],
           [
-            "090-1006",
-            1
+            "(217) 555-0100",
+            51
           ],
           [
-            "090-1007",
-            1
+            "(239) 555-0100",
+            51
           ],
           [
-            "090-1008",
-            1
+            "(216) 555-0100",
+            48
           ],
           [
-            "090-1009",
-            1
+            "(252) 555-0100",
+            45
           ],
           [
-            "090-1010",
-            1
+            "(505) 555-0100",
+            45
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "(210) 555-0100",
+            "frequency": 117
+          },
+          {
+            "value": "(215) 555-0100",
+            "frequency": 99
+          },
+          {
+            "value": "(212) 555-0100",
+            "frequency": 78
+          },
+          {
+            "value": "(209) 555-0100",
+            "frequency": 75
+          },
+          {
+            "value": "(405) 555-0100",
+            "frequency": 54
+          },
+          {
+            "value": "(217) 555-0100",
+            "frequency": 51
+          },
+          {
+            "value": "(239) 555-0100",
+            "frequency": 51
+          },
+          {
+            "value": "(216) 555-0100",
+            "frequency": 48
+          },
+          {
+            "value": "(252) 555-0100",
+            "frequency": 45
+          },
+          {
+            "value": "(505) 555-0100",
+            "frequency": 45
+          }
+        ],
+        "duplicate_density": 0.7378435517970401
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "090-1001",
@@ -1595,34 +3089,81 @@
       "original_name": "FaxNumber",
       "position": 17,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
+      "uniqueness": 0.25977801268498946,
+      "entropy_normalized": 0.7479584114509467,
       "cardinality_class": "medium",
-      "relational_role": "dimension",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'faxnumber' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'faxnumber' - high mutability",
+          "Uniqueness only 26.0%"
+        ],
+        "uniqueness_score": 0.25977801268498946,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7479584114509467,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'faxnumber' - high mutability",
+          "Uniqueness only 26.0%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'faxnumber' - high mutability"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.852,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.2598,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 983,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.7402219873150105,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 8,
-        "max_length": 8,
-        "avg_length": 8.0,
+        "distinct_count": 983,
+        "uniqueness_ratio": 0.25977801268498946,
+        "cardinality_ratio": 0.25977801268498946,
+        "duplicate_count": 2801,
+        "entropy": 8.890006578391212,
+        "entropy_normalized": 0.7479584114509467,
+        "min_length": 7,
+        "max_length": 14,
+        "avg_length": 10.696088794926004,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1634,46 +3175,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "090-1001",
-            1
+            "(210) 555-0101",
+            117
           ],
           [
-            "090-1002",
-            1
+            "(215) 555-0101",
+            99
           ],
           [
-            "090-1003",
-            1
+            "(212) 555-0101",
+            78
           ],
           [
-            "090-1004",
-            1
+            "(209) 555-0101",
+            75
           ],
           [
-            "090-1005",
-            1
+            "(405) 555-0101",
+            54
           ],
           [
-            "090-1006",
-            1
+            "(217) 555-0101",
+            51
           ],
           [
-            "090-1007",
-            1
+            "(239) 555-0101",
+            51
           ],
           [
-            "090-1008",
-            1
+            "(216) 555-0101",
+            48
           ],
           [
-            "090-1009",
-            1
+            "(252) 555-0101",
+            45
           ],
           [
-            "090-1010",
-            1
+            "(505) 555-0101",
+            45
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "(210) 555-0101",
+            "frequency": 117
+          },
+          {
+            "value": "(215) 555-0101",
+            "frequency": 99
+          },
+          {
+            "value": "(212) 555-0101",
+            "frequency": 78
+          },
+          {
+            "value": "(209) 555-0101",
+            "frequency": 75
+          },
+          {
+            "value": "(405) 555-0101",
+            "frequency": 54
+          },
+          {
+            "value": "(217) 555-0101",
+            "frequency": 51
+          },
+          {
+            "value": "(239) 555-0101",
+            "frequency": 51
+          },
+          {
+            "value": "(216) 555-0101",
+            "frequency": 48
+          },
+          {
+            "value": "(252) 555-0101",
+            "frequency": 45
+          },
+          {
+            "value": "(505) 555-0101",
+            "frequency": 45
+          }
+        ],
+        "duplicate_density": 0.7402219873150105
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "090-1001",
@@ -1693,28 +3285,77 @@
       "original_name": "DeliveryRun",
       "position": 18,
       "physical_type": "unknown",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 3784 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 3784 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "duplicate_explosion",
+        "type_conflict",
+        "zero_entropy",
+        "low_cardinality",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 3784,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 3784,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -1733,19 +3374,29 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     },
     {
@@ -1753,28 +3404,77 @@
       "original_name": "RunPosition",
       "position": 19,
       "physical_type": "unknown",
-      "semantic_type": "numeric",
-      "logical_type": "measure",
-      "type_confidence": 0.9,
-      "completeness": 1.0,
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
+      "type_confidence": 0.0,
+      "completeness": 0.0,
       "uniqueness": 0.0,
       "entropy_normalized": 0.0,
       "cardinality_class": "low",
-      "relational_role": "measure",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "zero_entropy",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [],
+        "negative_evidence": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 3784 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ],
+        "uniqueness_score": 0.0,
+        "non_null_score": 0.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.0,
+        "name_pattern_score": 0.0,
+        "reasons": [],
+        "warnings": [
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Uniqueness only 0.0%",
+          "Contains 3784 nulls (100.0%)",
+          "Low entropy (0.00)",
+          "Type inconsistency detected (0.00)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "fully_null",
+        "duplicate_explosion",
+        "type_conflict",
+        "zero_entropy",
+        "low_cardinality",
+        "high_missingness"
+      ],
+      "quality_score": 0.58,
+      "quality_breakdown": {
+        "completeness": 0.0,
+        "uniqueness": 1.0,
+        "consistency": 0.6,
+        "validity": 0.8,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
+        "total_count": 3784,
+        "non_null_count": 0,
+        "distinct_non_null_count": 0,
+        "coverage_ratio": 0.0,
+        "duplicate_ratio": 0.0,
+        "null_count": 3784,
+        "null_ratio": 1.0,
         "distinct_count": 0,
         "uniqueness_ratio": 0.0,
         "cardinality_ratio": 0.0,
@@ -1793,19 +3493,29 @@
         "quantiles": null,
         "skewness": null,
         "kurtosis": null,
-        "top_values": null
+        "top_values": [],
+        "frequency_distribution": [],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     },
     {
@@ -1813,34 +3523,79 @@
       "original_name": "WebsiteURL",
       "position": 20,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.15961945031712474,
+      "entropy_normalized": 0.7438823486120213,
+      "cardinality_class": "low",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'websiteurl' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'websiteurl' - high mutability",
+          "Uniqueness only 16.0%"
+        ],
+        "uniqueness_score": 0.15961945031712474,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7438823486120213,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'websiteurl' - high mutability",
+          "Uniqueness only 16.0%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'websiteurl' - high mutability"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8319,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1596,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 604,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8403805496828752,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 27,
-        "max_length": 44,
-        "avg_length": 36.65,
+        "distinct_count": 604,
+        "uniqueness_ratio": 0.15961945031712474,
+        "cardinality_ratio": 0.15961945031712474,
+        "duplicate_count": 3180,
+        "entropy": 8.841559733089094,
+        "entropy_normalized": 0.7438823486120213,
+        "min_length": 19,
+        "max_length": 52,
+        "avg_length": 35.98625792811839,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1852,46 +3607,97 @@
         "kurtosis": null,
         "top_values": [
           [
+            "http://www.microsoft.com/",
+            320
+          ],
+          [
+            "www.newcustomer.com",
+            10
+          ],
+          [
             "http://www.tailspintoys.com",
-            1
+            8
           ],
           [
-            "http://www.tailspintoys.com/Sylvanite",
-            1
+            "http://www.tailspintoys.com/Absecon",
+            8
           ],
           [
-            "http://www.tailspintoys.com/PeeplesValley",
-            1
+            "http://www.tailspintoys.com/Aceitunas",
+            8
           ],
           [
-            "http://www.tailspintoys.com/MedicineLodge",
-            1
+            "http://www.tailspintoys.com/AirportDrive",
+            8
           ],
           [
-            "http://www.tailspintoys.com/Gasport",
-            1
+            "http://www.tailspintoys.com/Alstead",
+            8
           ],
           [
-            "http://www.tailspintoys.com/Jessie",
-            1
+            "http://www.tailspintoys.com/AmandaPark",
+            8
           ],
           [
-            "http://www.tailspintoys.com/Frankewing",
-            1
+            "http://www.tailspintoys.com/Andrix",
+            8
           ],
           [
-            "http://www.tailspintoys.com/BowMar",
-            1
-          ],
-          [
-            "http://www.tailspintoys.com/Netcong",
-            1
-          ],
-          [
-            "http://www.tailspintoys.com/Wimbledon",
-            1
+            "http://www.tailspintoys.com/Annamoriah",
+            8
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "http://www.microsoft.com/",
+            "frequency": 320
+          },
+          {
+            "value": "www.newcustomer.com",
+            "frequency": 10
+          },
+          {
+            "value": "http://www.tailspintoys.com",
+            "frequency": 8
+          },
+          {
+            "value": "http://www.tailspintoys.com/Absecon",
+            "frequency": 8
+          },
+          {
+            "value": "http://www.tailspintoys.com/Aceitunas",
+            "frequency": 8
+          },
+          {
+            "value": "http://www.tailspintoys.com/AirportDrive",
+            "frequency": 8
+          },
+          {
+            "value": "http://www.tailspintoys.com/Alstead",
+            "frequency": 8
+          },
+          {
+            "value": "http://www.tailspintoys.com/AmandaPark",
+            "frequency": 8
+          },
+          {
+            "value": "http://www.tailspintoys.com/Andrix",
+            "frequency": 8
+          },
+          {
+            "value": "http://www.tailspintoys.com/Annamoriah",
+            "frequency": 8
+          }
+        ],
+        "duplicate_density": 0.8403805496828752
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "http://www.tailspintoys.com",
@@ -1911,34 +3717,79 @@
       "original_name": "DeliveryAddressLine1",
       "position": 21,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.92,
-      "entropy_normalized": 0.9747813814393683,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.09619450317124736,
+      "entropy_normalized": 0.6914230236144054,
+      "cardinality_class": "low",
       "pk_candidate": false,
-      "pk_confidence": 0.5502172072159053,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'deliveryaddressline1' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'deliveryaddressline1' - high mutability",
+          "Uniqueness only 9.6%"
+        ],
+        "uniqueness_score": 0.09619450317124736,
+        "non_null_score": 1.0,
+        "entropy_score": 0.6914230236144054,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'deliveryaddressline1' - high mutability",
+          "Uniqueness only 9.6%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'deliveryaddressline1' - high mutability"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8192,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0962,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 364,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9038054968287527,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 92,
-        "uniqueness_ratio": 0.92,
-        "cardinality_ratio": 0.92,
-        "duplicate_count": 8,
-        "entropy": 6.476307314753104,
-        "entropy_normalized": 0.9747813814393683,
+        "distinct_count": 364,
+        "uniqueness_ratio": 0.09619450317124736,
+        "cardinality_ratio": 0.09619450317124736,
+        "duplicate_count": 3420,
+        "entropy": 8.218044124217098,
+        "entropy_normalized": 0.6914230236144054,
         "min_length": 6,
-        "max_length": 9,
-        "avg_length": 7.83,
+        "max_length": 14,
+        "avg_length": 7.656976744186046,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -1950,46 +3801,97 @@
         "kurtosis": null,
         "top_values": [
           [
+            "Unit 7",
+            53
+          ],
+          [
+            "Suite 13",
+            45
+          ],
+          [
             "Suite 157",
-            3
+            40
           ],
           [
-            "Unit 176",
-            2
+            "Unit 23",
+            36
           ],
           [
-            "Shop 282",
-            2
+            "Shop 10",
+            35
           ],
           [
-            "Shop 151",
-            2
+            "Shop 23",
+            35
           ],
           [
-            "Shop 37",
-            2
+            "Suite 24",
+            35
           ],
           [
-            "Shop 2",
-            2
+            "Unit 17",
+            35
           ],
           [
-            "Unit 91",
-            2
+            "Shop 13",
+            33
           ],
           [
-            "Shop 38",
-            1
-          ],
-          [
-            "Shop 245",
-            1
-          ],
-          [
-            "Unit 217",
-            1
+            "Shop 9",
+            30
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Unit 7",
+            "frequency": 53
+          },
+          {
+            "value": "Suite 13",
+            "frequency": 45
+          },
+          {
+            "value": "Suite 157",
+            "frequency": 40
+          },
+          {
+            "value": "Unit 23",
+            "frequency": 36
+          },
+          {
+            "value": "Shop 10",
+            "frequency": 35
+          },
+          {
+            "value": "Shop 23",
+            "frequency": 35
+          },
+          {
+            "value": "Suite 24",
+            "frequency": 35
+          },
+          {
+            "value": "Unit 17",
+            "frequency": 35
+          },
+          {
+            "value": "Shop 13",
+            "frequency": 33
+          },
+          {
+            "value": "Shop 9",
+            "frequency": 30
+          }
+        ],
+        "duplicate_density": 0.9038054968287527
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "Shop 38",
@@ -2009,34 +3911,79 @@
       "original_name": "DeliveryAddressLine2",
       "position": 22,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.17626849894291755,
+      "entropy_normalized": 0.7865722812191808,
+      "cardinality_class": "low",
       "pk_candidate": false,
-      "pk_confidence": 0.69,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_score": 0.0,
+      "pk_confidence": 0.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": false,
+        "suppression_reasons": [
+          "Low-stability business attribute 'deliveryaddressline2' - high mutability"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Low-stability business attribute 'deliveryaddressline2' - high mutability",
+          "Uniqueness only 17.6%"
+        ],
+        "uniqueness_score": 0.17626849894291755,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7865722812191808,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Low-stability business attribute 'deliveryaddressline2' - high mutability",
+          "Uniqueness only 17.6%"
+        ]
+      },
+      "suppressed": false,
+      "suppression_reasons": [
+        "Low-stability business attribute 'deliveryaddressline2' - high mutability"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8353,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1763,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 667,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8237315010570825,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 12,
+        "distinct_count": 667,
+        "uniqueness_ratio": 0.17626849894291755,
+        "cardinality_ratio": 0.17626849894291755,
+        "duplicate_count": 3117,
+        "entropy": 9.348959310256113,
+        "entropy_normalized": 0.7865722812191808,
+        "min_length": 11,
         "max_length": 26,
-        "avg_length": 18.12,
+        "avg_length": 18.10438689217759,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -2048,46 +3995,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "1877 Mittal Road",
-            1
+            "Address Line 2",
+            10
           ],
           [
-            "705 Dita Lane",
-            1
+            "1022 Folliero Street",
+            8
           ],
           [
-            "1970 Khandke Road",
-            1
+            "103 Pulido Road",
+            8
           ],
           [
-            "967 Riutta Boulevard",
-            1
+            "1032 Duperre Street",
+            8
           ],
           [
-            "1674 Skujins Boulevard",
-            1
+            "1052 Hoa Lane",
+            8
           ],
           [
-            "483 Raut Lane",
-            1
+            "1059 Kamasamudram Avenue",
+            8
           ],
           [
-            "904 Kellnerova Street",
-            1
+            "1096 Poursokh Crescent",
+            8
           ],
           [
-            "752 Shaker Doust Boulevard",
-            1
+            "1119 Friar Boulevard",
+            8
           ],
           [
-            "25 Kasesalu Street",
-            1
+            "1143 Caune Crescent",
+            8
           ],
           [
-            "372 Joo Lane",
-            1
+            "1148 Khalsa Boulevard",
+            8
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Address Line 2",
+            "frequency": 10
+          },
+          {
+            "value": "1022 Folliero Street",
+            "frequency": 8
+          },
+          {
+            "value": "103 Pulido Road",
+            "frequency": 8
+          },
+          {
+            "value": "1032 Duperre Street",
+            "frequency": 8
+          },
+          {
+            "value": "1052 Hoa Lane",
+            "frequency": 8
+          },
+          {
+            "value": "1059 Kamasamudram Avenue",
+            "frequency": 8
+          },
+          {
+            "value": "1096 Poursokh Crescent",
+            "frequency": 8
+          },
+          {
+            "value": "1119 Friar Boulevard",
+            "frequency": 8
+          },
+          {
+            "value": "1143 Caune Crescent",
+            "frequency": 8
+          },
+          {
+            "value": "1148 Khalsa Boulevard",
+            "frequency": 8
+          }
+        ],
+        "duplicate_density": 0.8237315010570825
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "1877 Mittal Road",
@@ -2107,103 +4105,207 @@
       "original_name": "DeliveryPostalCode",
       "position": 23,
       "physical_type": "integer",
-      "semantic_type": "zip_code",
-      "logical_type": "unknown",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.96,
-      "entropy_normalized": 0.9879588001734431,
-      "cardinality_class": "medium",
-      "relational_role": "attribute",
+      "uniqueness": 0.12050739957716702,
+      "entropy_normalized": 0.7288870735594932,
+      "cardinality_class": "low",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Postal/zip code 'deliverypostalcode' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'deliverypostalcode'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Postal/zip code 'deliverypostalcode' - mutable business attribute",
+          "Uniqueness only 12.1%"
+        ],
+        "uniqueness_score": 0.12050739957716702,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7288870735594932,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'deliverypostalcode'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Postal/zip code 'deliverypostalcode' - mutable business attribute",
+          "Uniqueness only 12.1%"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Postal/zip code 'deliverypostalcode' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "extreme_skewness",
+        "high_duplication",
+        "heavy_tail"
+      ],
+      "quality_score": 0.7741,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1205,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 0.5
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 456,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.879492600422833,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 96,
-        "uniqueness_ratio": 0.96,
-        "cardinality_ratio": 0.96,
-        "duplicate_count": 4,
-        "entropy": 6.563856189774739,
-        "entropy_normalized": 0.9879588001734431,
+        "distinct_count": 456,
+        "uniqueness_ratio": 0.12050739957716702,
+        "cardinality_ratio": 0.12050739957716702,
+        "duplicate_count": 3328,
+        "entropy": 8.663330446780034,
+        "entropy_normalized": 0.7288870735594932,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 90019.0,
-        "max_value": 90798.0,
-        "mean": 90412.26,
-        "median": 90402.0,
-        "std_dev": 237.3667247534962,
-        "variance": 56342.96202020202,
+        "min_value": 90002.0,
+        "max_value": 560001.0,
+        "mean": 91648.88979915433,
+        "median": 90400.5,
+        "std_dev": 24112.889056467215,
+        "variance": 581431418.6494964,
         "quantiles": {
-          "p25": 90211.5,
-          "p50": 90402.0,
-          "p75": 90627.0,
-          "p90": 90721.1,
-          "p99": 90795.03
+          "p25": 90213.0,
+          "p50": 90400.5,
+          "p75": 90623.0,
+          "p90": 90735.0,
+          "p99": 90797.0
         },
-        "skewness": 0.007380852238737106,
-        "kurtosis": -1.2568358991232518,
+        "skewness": 19.38025953511818,
+        "kurtosis": 373.8275685646973,
         "top_values": [
           [
-            "90050",
-            2
+            "90683",
+            28
           ],
           [
             "90087",
-            2
-          ],
-          [
-            "90686",
-            2
-          ],
-          [
-            "90326",
-            2
-          ],
-          [
-            "90410",
-            1
-          ],
-          [
-            "90216",
-            1
-          ],
-          [
-            "90205",
-            1
-          ],
-          [
-            "90152",
-            1
-          ],
-          [
-            "90261",
-            1
+            26
           ],
           [
             "90298",
-            1
+            26
+          ],
+          [
+            "90686",
+            26
+          ],
+          [
+            "90179",
+            24
+          ],
+          [
+            "90005",
+            23
+          ],
+          [
+            "90747",
+            23
+          ],
+          [
+            "90761",
+            23
+          ],
+          [
+            "90067",
+            20
+          ],
+          [
+            "90400",
+            20
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "90683",
+            "frequency": 28
+          },
+          {
+            "value": "90087",
+            "frequency": 26
+          },
+          {
+            "value": "90298",
+            "frequency": 26
+          },
+          {
+            "value": "90686",
+            "frequency": 26
+          },
+          {
+            "value": "90179",
+            "frequency": 24
+          },
+          {
+            "value": "90005",
+            "frequency": 23
+          },
+          {
+            "value": "90747",
+            "frequency": 23
+          },
+          {
+            "value": "90761",
+            "frequency": 23
+          },
+          {
+            "value": "90067",
+            "frequency": 20
+          },
+          {
+            "value": "90400",
+            "frequency": 20
+          }
+        ],
+        "duplicate_density": 0.879492600422833
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "90410",
-        "90216",
-        "90205",
-        "90152",
-        "90261",
-        "90298",
-        "90761",
-        "90484",
-        "90129",
-        "90061"
+        90410,
+        90216,
+        90205,
+        90152,
+        90261,
+        90298,
+        90761,
+        90484,
+        90129,
+        90061
       ]
     },
     {
@@ -2211,34 +4313,114 @@
       "original_name": "DeliveryLocation",
       "position": 24,
       "physical_type": "string",
-      "semantic_type": "geospatial_point",
+      "semantic_type": "GEO_POINT",
       "logical_type": "geospatial",
       "type_confidence": 0.9,
-      "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "geo_field",
+      "completeness": 0.9973572938689218,
+      "uniqueness": 0.17435082140964495,
+      "entropy_normalized": 0.7846721199291841,
+      "cardinality_class": "low",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Geospatial field 'deliverylocation' - not suitable as PK"
+        ],
+        "positive_evidence": [
+          "Very few nulls (0.3%)"
+        ],
+        "negative_evidence": [
+          "Geospatial field 'deliverylocation' - not suitable as PK",
+          "Uniqueness only 17.4%"
+        ],
+        "uniqueness_score": 0.17435082140964495,
+        "non_null_score": 0.9973572938689218,
+        "entropy_score": 0.7846721199291841,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "Very few nulls (0.3%)"
+        ],
+        "warnings": [
+          "Geospatial field 'deliverylocation' - not suitable as PK",
+          "Uniqueness only 17.4%"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Geospatial field 'deliverylocation' - not suitable as PK"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": {
+        "format": "WKT",
+        "subtype": "POINT",
+        "latitude_range": [
+          17.9941326,
+          65.2097222
+        ],
+        "longitude_range": [
+          -166.2080556,
+          -65.797939
+        ],
+        "extracted_lat": [
+          41.4972022,
+          48.7163356,
+          34.2689145,
+          37.2811339,
+          43.1992244,
+          47.542218,
+          35.19258,
+          39.628321,
+          40.8989877,
+          47.1697143
+        ],
+        "extracted_lon": [
+          -102.6201979,
+          -115.8743507,
+          -112.7271223,
+          -98.580361,
+          -78.5761394,
+          -98.2381519,
+          -86.8511135,
+          -105.0499841,
+          -74.7065516,
+          -98.4598177
+        ]
+      },
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8341,
+      "quality_breakdown": {
+        "completeness": 0.9974,
+        "uniqueness": 0.1744,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
-        "null_count": 0,
-        "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 26,
-        "max_length": 36,
-        "avg_length": 30.1,
+        "total_count": 3784,
+        "non_null_count": 3774,
+        "distinct_non_null_count": 658,
+        "coverage_ratio": 0.9973572938689218,
+        "duplicate_ratio": 0.825649178590355,
+        "null_count": 10,
+        "null_ratio": 0.002642706131078224,
+        "distinct_count": 658,
+        "uniqueness_ratio": 0.17435082140964495,
+        "cardinality_ratio": 0.17389006342494714,
+        "duplicate_count": 3116,
+        "entropy": 9.323378954234276,
+        "entropy_normalized": 0.7846721199291841,
+        "min_length": 22,
+        "max_length": 38,
+        "avg_length": 30.229464758876524,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -2250,46 +4432,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "POINT (-102.6201979 41.4972022)",
-            1
+            "POINT (-107.113103 41.7749592)",
+            13
           ],
           [
-            "POINT (-115.8743507 48.7163356)",
-            1
+            "POINT (-78.6427922 33.8273947)",
+            13
           ],
           [
-            "POINT (-112.7271223 34.2689145)",
-            1
+            "POINT (-82.1220868 39.8500679)",
+            13
           ],
           [
-            "POINT (-98.580361 37.2811339)",
-            1
+            "POINT (-96.4597089 32.9312336)",
+            13
           ],
           [
-            "POINT (-78.5761394 43.1992244)",
-            1
+            "POINT (-154.1702778 56.9455556)",
+            10
           ],
           [
-            "POINT (-98.2381519 47.542218)",
-            1
+            "POINT (-65.797939 18.0819088)",
+            10
           ],
           [
-            "POINT (-86.8511135 35.19258)",
-            1
+            "POINT (-67.0243462 18.500776)",
+            10
           ],
           [
-            "POINT (-105.0499841 39.628321)",
-            1
+            "POINT (-88.4719918 39.1330967)",
+            10
           ],
           [
-            "POINT (-74.7065516 40.8989877)",
-            1
+            "POINT (-101.0196016 40.5108385)",
+            8
           ],
           [
-            "POINT (-98.4598177 47.1697143)",
-            1
+            "POINT (-102.2243041 31.1359813)",
+            8
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "POINT (-107.113103 41.7749592)",
+            "frequency": 13
+          },
+          {
+            "value": "POINT (-78.6427922 33.8273947)",
+            "frequency": 13
+          },
+          {
+            "value": "POINT (-82.1220868 39.8500679)",
+            "frequency": 13
+          },
+          {
+            "value": "POINT (-96.4597089 32.9312336)",
+            "frequency": 13
+          },
+          {
+            "value": "POINT (-154.1702778 56.9455556)",
+            "frequency": 10
+          },
+          {
+            "value": "POINT (-65.797939 18.0819088)",
+            "frequency": 10
+          },
+          {
+            "value": "POINT (-67.0243462 18.500776)",
+            "frequency": 10
+          },
+          {
+            "value": "POINT (-88.4719918 39.1330967)",
+            "frequency": 10
+          },
+          {
+            "value": "POINT (-101.0196016 40.5108385)",
+            "frequency": 8
+          },
+          {
+            "value": "POINT (-102.2243041 31.1359813)",
+            "frequency": 8
+          }
+        ],
+        "duplicate_density": 0.825649178590355
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "POINT (-102.6201979 41.4972022)",
@@ -2309,34 +4542,79 @@
       "original_name": "PostalAddressLine1",
       "position": 25,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 1.0,
-      "entropy_normalized": 1.0,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.17124735729386892,
+      "entropy_normalized": 0.7818258604050452,
+      "cardinality_class": "low",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Postal/zip code 'postaladdressline1' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Postal/zip code 'postaladdressline1' - mutable business attribute",
+          "Uniqueness only 17.1%"
+        ],
+        "uniqueness_score": 0.17124735729386892,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7818258604050452,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Postal/zip code 'postaladdressline1' - mutable business attribute",
+          "Uniqueness only 17.1%"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Postal/zip code 'postaladdressline1' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8342,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1712,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 648,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.8287526427061311,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 100,
-        "uniqueness_ratio": 1.0,
-        "cardinality_ratio": 1.0,
-        "duplicate_count": 0,
-        "entropy": 6.6438561897747395,
-        "entropy_normalized": 1.0,
-        "min_length": 10,
-        "max_length": 11,
-        "avg_length": 10.89,
+        "distinct_count": 648,
+        "uniqueness_ratio": 0.17124735729386892,
+        "cardinality_ratio": 0.17124735729386892,
+        "duplicate_count": 3136,
+        "entropy": 9.292544793599198,
+        "entropy_normalized": 0.7818258604050452,
+        "min_length": 9,
+        "max_length": 21,
+        "avg_length": 10.884249471458773,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -2348,46 +4626,97 @@
         "kurtosis": null,
         "top_values": [
           [
-            "PO Box 8975",
-            1
+            "PO Box 1292",
+            16
           ],
           [
-            "PO Box 259",
-            1
+            "PO Box 2827",
+            13
           ],
           [
-            "PO Box 3648",
-            1
+            "PO Box 4268",
+            13
           ],
           [
-            "PO Box 5065",
-            1
+            "PO Box 6430",
+            13
           ],
           [
-            "PO Box 6294",
-            1
+            "PO Box 7167",
+            13
           ],
           [
-            "PO Box 571",
-            1
+            "PO Box 7396",
+            13
           ],
           [
-            "PO Box 5684",
-            1
+            "PO Box 8084",
+            13
           ],
           [
-            "PO Box 614",
-            1
+            "PO Box 8794",
+            13
           ],
           [
-            "PO Box 8369",
-            1
+            "PO Box 1203",
+            10
           ],
           [
-            "PO Box 8702",
-            1
+            "PO Box 1620",
+            10
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "PO Box 1292",
+            "frequency": 16
+          },
+          {
+            "value": "PO Box 2827",
+            "frequency": 13
+          },
+          {
+            "value": "PO Box 4268",
+            "frequency": 13
+          },
+          {
+            "value": "PO Box 6430",
+            "frequency": 13
+          },
+          {
+            "value": "PO Box 7167",
+            "frequency": 13
+          },
+          {
+            "value": "PO Box 7396",
+            "frequency": 13
+          },
+          {
+            "value": "PO Box 8084",
+            "frequency": 13
+          },
+          {
+            "value": "PO Box 8794",
+            "frequency": 13
+          },
+          {
+            "value": "PO Box 1203",
+            "frequency": 10
+          },
+          {
+            "value": "PO Box 1620",
+            "frequency": 10
+          }
+        ],
+        "duplicate_density": 0.8287526427061311
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "PO Box 8975",
@@ -2407,34 +4736,79 @@
       "original_name": "PostalAddressLine2",
       "position": 26,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.86,
-      "entropy_normalized": 0.9555833627920138,
-      "cardinality_class": "medium",
-      "relational_role": "dimension",
+      "uniqueness": 0.12050739957716702,
+      "entropy_normalized": 0.7252280415608587,
+      "cardinality_class": "low",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Postal/zip code 'postaladdressline2' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Postal/zip code 'postaladdressline2' - mutable business attribute",
+          "Uniqueness only 12.1%"
+        ],
+        "uniqueness_score": 0.12050739957716702,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7252280415608587,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values"
+        ],
+        "warnings": [
+          "Postal/zip code 'postaladdressline2' - mutable business attribute",
+          "Uniqueness only 12.1%"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Postal/zip code 'postaladdressline2' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "high_duplication"
+      ],
+      "quality_score": 0.8241,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1205,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 456,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.879492600422833,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 86,
-        "uniqueness_ratio": 0.86,
-        "cardinality_ratio": 0.86,
-        "duplicate_count": 14,
-        "entropy": 6.348758439731467,
-        "entropy_normalized": 0.9555833627920138,
+        "distinct_count": 456,
+        "uniqueness_ratio": 0.12050739957716702,
+        "cardinality_ratio": 0.12050739957716702,
+        "duplicate_count": 3328,
+        "entropy": 8.619840303423931,
+        "entropy_normalized": 0.7252280415608587,
         "min_length": 7,
-        "max_length": 17,
-        "avg_length": 11.03,
+        "max_length": 21,
+        "avg_length": 11.348837209302326,
         "min_value": null,
         "max_value": null,
         "mean": null,
@@ -2446,46 +4820,97 @@
         "kurtosis": null,
         "top_values": [
           [
+            "Rautville",
+            36
+          ],
+          [
             "Ghoshville",
-            3
+            33
           ],
           [
             "Tonville",
-            3
+            29
           ],
           [
-            "Viidingville",
-            2
+            "Kommineniville",
+            28
           ],
           [
-            "Kasesaluville",
-            2
+            "Linnaville",
+            28
           ],
           [
-            "Mitraville",
-            2
+            "Brasseurville",
+            26
           ],
           [
-            "Ghatakville",
-            2
+            "Deyville",
+            26
           ],
           [
-            "Pasekville",
-            2
+            "Naickerville",
+            26
           ],
           [
-            "Ghateville",
-            2
+            "Rajuville",
+            25
           ],
           [
-            "Javanville",
-            2
-          ],
-          [
-            "Sikdarville",
-            2
+            "Bachville",
+            24
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Rautville",
+            "frequency": 36
+          },
+          {
+            "value": "Ghoshville",
+            "frequency": 33
+          },
+          {
+            "value": "Tonville",
+            "frequency": 29
+          },
+          {
+            "value": "Kommineniville",
+            "frequency": 28
+          },
+          {
+            "value": "Linnaville",
+            "frequency": 28
+          },
+          {
+            "value": "Brasseurville",
+            "frequency": 26
+          },
+          {
+            "value": "Deyville",
+            "frequency": 26
+          },
+          {
+            "value": "Naickerville",
+            "frequency": 26
+          },
+          {
+            "value": "Rajuville",
+            "frequency": 25
+          },
+          {
+            "value": "Bachville",
+            "frequency": 24
+          }
+        ],
+        "duplicate_density": 0.879492600422833
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "Ribeiroville",
@@ -2505,103 +4930,207 @@
       "original_name": "PostalPostalCode",
       "position": 27,
       "physical_type": "integer",
-      "semantic_type": "zip_code",
-      "logical_type": "unknown",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.96,
-      "entropy_normalized": 0.9879588001734431,
-      "cardinality_class": "medium",
-      "relational_role": "attribute",
+      "uniqueness": 0.12050739957716702,
+      "entropy_normalized": 0.7288870735594926,
+      "cardinality_class": "low",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [],
-      "quality_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Postal/zip code 'postalpostalcode' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Generic identifier pattern: 'postalpostalcode'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Postal/zip code 'postalpostalcode' - mutable business attribute",
+          "Uniqueness only 12.1%"
+        ],
+        "uniqueness_score": 0.12050739957716702,
+        "non_null_score": 1.0,
+        "entropy_score": 0.7288870735594926,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "No null values",
+          "Generic identifier pattern: 'postalpostalcode'",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Postal/zip code 'postalpostalcode' - mutable business attribute",
+          "Uniqueness only 12.1%"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Postal/zip code 'postalpostalcode' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "extreme_skewness",
+        "high_duplication",
+        "heavy_tail"
+      ],
+      "quality_score": 0.7741,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.1205,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 0.5
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 456,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.879492600422833,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 96,
-        "uniqueness_ratio": 0.96,
-        "cardinality_ratio": 0.96,
-        "duplicate_count": 4,
-        "entropy": 6.563856189774739,
-        "entropy_normalized": 0.9879588001734431,
+        "distinct_count": 456,
+        "uniqueness_ratio": 0.12050739957716702,
+        "cardinality_ratio": 0.12050739957716702,
+        "duplicate_count": 3328,
+        "entropy": 8.663330446780027,
+        "entropy_normalized": 0.7288870735594926,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": 90019.0,
-        "max_value": 90798.0,
-        "mean": 90412.26,
-        "median": 90402.0,
-        "std_dev": 237.3667247534962,
-        "variance": 56342.96202020202,
+        "min_value": 90002.0,
+        "max_value": 560002.0,
+        "mean": 91648.89244186046,
+        "median": 90400.5,
+        "std_dev": 24112.94040013527,
+        "variance": 581433894.7404758,
         "quantiles": {
-          "p25": 90211.5,
-          "p50": 90402.0,
-          "p75": 90627.0,
-          "p90": 90721.1,
-          "p99": 90795.03
+          "p25": 90213.0,
+          "p50": 90400.5,
+          "p75": 90623.0,
+          "p90": 90735.0,
+          "p99": 90797.0
         },
-        "skewness": 0.007380852238737106,
-        "kurtosis": -1.2568358991232518,
+        "skewness": 19.38025954676587,
+        "kurtosis": 373.8275688650633,
         "top_values": [
           [
-            "90050",
-            2
+            "90683",
+            28
           ],
           [
             "90087",
-            2
-          ],
-          [
-            "90686",
-            2
-          ],
-          [
-            "90326",
-            2
-          ],
-          [
-            "90410",
-            1
-          ],
-          [
-            "90216",
-            1
-          ],
-          [
-            "90205",
-            1
-          ],
-          [
-            "90152",
-            1
-          ],
-          [
-            "90261",
-            1
+            26
           ],
           [
             "90298",
-            1
+            26
+          ],
+          [
+            "90686",
+            26
+          ],
+          [
+            "90179",
+            24
+          ],
+          [
+            "90005",
+            23
+          ],
+          [
+            "90747",
+            23
+          ],
+          [
+            "90761",
+            23
+          ],
+          [
+            "90067",
+            20
+          ],
+          [
+            "90400",
+            20
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "90683",
+            "frequency": 28
+          },
+          {
+            "value": "90087",
+            "frequency": 26
+          },
+          {
+            "value": "90298",
+            "frequency": 26
+          },
+          {
+            "value": "90686",
+            "frequency": 26
+          },
+          {
+            "value": "90179",
+            "frequency": 24
+          },
+          {
+            "value": "90005",
+            "frequency": 23
+          },
+          {
+            "value": "90747",
+            "frequency": 23
+          },
+          {
+            "value": "90761",
+            "frequency": 23
+          },
+          {
+            "value": "90067",
+            "frequency": 20
+          },
+          {
+            "value": "90400",
+            "frequency": 20
+          }
+        ],
+        "duplicate_density": 0.879492600422833
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "90410",
-        "90216",
-        "90205",
-        "90152",
-        "90261",
-        "90298",
-        "90761",
-        "90484",
-        "90129",
-        "90061"
+        90410,
+        90216,
+        90205,
+        90152,
+        90261,
+        90298,
+        90761,
+        90484,
+        90129,
+        90061
       ]
     },
     {
@@ -2610,69 +5139,176 @@
       "position": 28,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "audit",
-      "type_confidence": 0.9,
+      "logical_type": "audit_reference",
+      "type_confidence": 0.95,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.001321353065539112,
+      "entropy_normalized": 0.04376127923920716,
       "cardinality_class": "low",
-      "relational_role": "audit_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "System audit column pattern 'lasteditedby'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.04)",
+          "Audit field suppressed for PK scoring"
+        ],
+        "uniqueness_score": 0.001321353065539112,
+        "non_null_score": 1.0,
+        "entropy_score": 0.04376127923920716,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "System audit column pattern 'lasteditedby'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.04)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "System audit column pattern 'lasteditedby'"
       ],
-      "quality_score": 0.6,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": {
+        "role": "user_reference",
+        "audit_type": "editor",
+        "system_generated": true
+      },
+      "quality_flags": [
+        "duplicate_expected",
+        "low_cardinality_identifier",
+        "entropy_collapse",
+        "skewed_distribution",
+        "high_duplication",
+        "heavy_tail"
+      ],
+      "quality_score": 0.7503,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0013,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 0.5
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 5,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9986786469344608,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 5,
+        "uniqueness_ratio": 0.001321353065539112,
+        "cardinality_ratio": 0.001321353065539112,
+        "duplicate_count": 3779,
+        "entropy": 0.5201332779461372,
+        "entropy_normalized": 0.04376127923920716,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
         "min_value": 1.0,
-        "max_value": 1.0,
-        "mean": 1.0,
+        "max_value": 20.0,
+        "mean": 1.8218816067653276,
         "median": 1.0,
-        "std_dev": 0.0,
-        "variance": 0.0,
+        "std_dev": 3.395038760421356,
+        "variance": 11.526288184763377,
         "quantiles": {
           "p25": 1.0,
           "p50": 1.0,
           "p75": 1.0,
           "p90": 1.0,
-          "p99": 1.0
+          "p99": 20.0
         },
-        "skewness": null,
-        "kurtosis": null,
+        "skewness": 4.373292821683087,
+        "kurtosis": 18.31826753803563,
         "top_values": [
           [
             "1",
-            100
+            3509
+          ],
+          [
+            "15",
+            80
+          ],
+          [
+            "20",
+            75
+          ],
+          [
+            "8",
+            65
+          ],
+          [
+            "3",
+            55
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 3509
+          },
+          {
+            "value": "15",
+            "frequency": 80
+          },
+          {
+            "value": "20",
+            "frequency": 75
+          },
+          {
+            "value": "8",
+            "frequency": 65
+          },
+          {
+            "value": "3",
+            "frequency": 55
+          }
+        ],
+        "duplicate_density": 0.9986786469344608
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1",
-        "1"
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -2680,35 +5316,88 @@
       "original_name": "ValidFrom",
       "position": 29,
       "physical_type": "datetime",
-      "semantic_type": "temporal_start",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.0007928118393234672,
+      "entropy_normalized": 0.12056632472042547,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validfrom'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.12)"
+        ],
+        "uniqueness_score": 0.0007928118393234672,
+        "non_null_score": 1.0,
+        "entropy_score": 0.12056632472042547,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validfrom'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.12)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validfrom'"
       ],
-      "quality_score": 0.5,
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": false
+      },
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8002,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0008,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 3,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9992071881606766,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 3,
+        "uniqueness_ratio": 0.0007928118393234672,
+        "cardinality_ratio": 0.0007928118393234672,
+        "duplicate_count": 3781,
+        "entropy": 1.433014728476421,
+        "entropy_normalized": 0.12056632472042547,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -2723,22 +5412,53 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-07-2016 00:00:00",
-            100
+            "2016-07-01 00:00:00",
+            1784
+          ],
+          [
+            "2016-08-01 00:00:00",
+            1484
+          ],
+          [
+            "2021-06-29 00:00:00",
+            516
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-07-01 00:00:00",
+            "frequency": 1784
+          },
+          {
+            "value": "2016-08-01 00:00:00",
+            "frequency": 1484
+          },
+          {
+            "value": "2021-06-29 00:00:00",
+            "frequency": 516
+          }
+        ],
+        "duplicate_density": 0.9992071881606766
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00",
-        "01-07-2016 00:00:00"
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00",
+        "2016-07-01T00:00:00"
       ]
     },
     {
@@ -2746,35 +5466,88 @@
       "original_name": "ValidTo",
       "position": 30,
       "physical_type": "datetime",
-      "semantic_type": "temporal_end",
+      "semantic_type": "temporal",
       "logical_type": "timestamp",
       "type_confidence": 0.9,
       "completeness": 1.0,
-      "uniqueness": 0.01,
-      "entropy_normalized": 0.0,
+      "uniqueness": 0.0010570824524312897,
+      "entropy_normalized": 0.14648736620837466,
       "cardinality_class": "low",
-      "relational_role": "temporal_field",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "weak_identifier",
-        "constant_column",
-        "low_cardinality"
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Temporal audit column pattern 'validto'"
+        ],
+        "positive_evidence": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "negative_evidence": [
+          "Temporal audit column pattern 'validto'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.15)"
+        ],
+        "uniqueness_score": 0.0010570824524312897,
+        "non_null_score": 1.0,
+        "entropy_score": 0.14648736620837466,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "No null values",
+          "Consistent formatting"
+        ],
+        "warnings": [
+          "Temporal audit column pattern 'validto'",
+          "Uniqueness only 0.1%",
+          "Low entropy (0.15)"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Temporal audit column pattern 'validto'"
       ],
-      "quality_score": 0.5,
+      "temporal_pattern": {
+        "type": "effective_dating",
+        "subtype": "SCD2",
+        "start_column": "validfrom",
+        "end_column": "validto",
+        "open_ended": true
+      },
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "duplicate_explosion",
+        "weak_identifier",
+        "high_duplication"
+      ],
+      "quality_score": 0.8002,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 0.0011,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 3784,
+        "non_null_count": 3784,
+        "distinct_non_null_count": 4,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.9989429175475687,
         "null_count": 0,
         "null_ratio": 0.0,
-        "distinct_count": 1,
-        "uniqueness_ratio": 0.01,
-        "cardinality_ratio": 0.01,
-        "duplicate_count": 99,
-        "entropy": 0.0,
-        "entropy_normalized": 0.0,
+        "distinct_count": 4,
+        "uniqueness_ratio": 0.0010570824524312897,
+        "cardinality_ratio": 0.0010570824524312897,
+        "duplicate_count": 3780,
+        "entropy": 1.7411043572829188,
+        "entropy_normalized": 0.14648736620837466,
         "min_length": null,
         "max_length": null,
         "avg_length": null,
@@ -2789,24 +5562,63 @@
         "kurtosis": null,
         "top_values": [
           [
-            "31-12-9999 00:00:00",
-            100
+            "2016-07-31 23:59:59",
+            1484
+          ],
+          [
+            "2016-08-31 23:59:59",
+            1484
+          ],
+          [
+            "2021-06-30 00:00:00",
+            516
+          ],
+          [
+            "9999-12-31 00:00:00",
+            300
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2016-07-31 23:59:59",
+            "frequency": 1484
+          },
+          {
+            "value": "2016-08-31 23:59:59",
+            "frequency": 1484
+          },
+          {
+            "value": "2021-06-30 00:00:00",
+            "frequency": 516
+          },
+          {
+            "value": "9999-12-31 00:00:00",
+            "frequency": 300
+          }
+        ],
+        "duplicate_density": 0.9989429175475687
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": true,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00",
-        "31-12-9999 00:00:00"
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00",
+        "9999-12-31T00:00:00"
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\Sales_Customers.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\Sales_Customers.canonical.json"
 }

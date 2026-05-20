@@ -1,0 +1,2959 @@
+{
+  "application_deliverymethods.deliverymethodid": {
+    "column": "deliverymethodid",
+    "table": "application_deliverymethods",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "purchasing_purchaseorders.deliverymethodid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "Sales_Customers.deliverymethodid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "sales_invoices.deliverymethodid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "application_deliverymethods.deliverymethodname": {
+    "column": "deliverymethodname",
+    "table": "application_deliverymethods",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_deliverymethods.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "application_deliverymethods",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "application_deliverymethods.validfrom": {
+    "column": "validfrom",
+    "table": "application_deliverymethods",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "application_deliverymethods.validto": {
+    "column": "validto",
+    "table": "application_deliverymethods",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "application_transactiontypes.transactiontypeid": {
+    "column": "transactiontypeid",
+    "table": "application_transactiontypes",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "purchasing_suppliertransactions.transactiontypeid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "sales_customertransactions.transactiontypeid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "warehouse_stockitemtransactions.transactiontypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "application_transactiontypes.transactiontypename": {
+    "column": "transactiontypename",
+    "table": "application_transactiontypes",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_transactiontypes.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "application_transactiontypes",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "application_transactiontypes.validfrom": {
+    "column": "validfrom",
+    "table": "application_transactiontypes",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "application_transactiontypes.validto": {
+    "column": "validto",
+    "table": "application_transactiontypes",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.stateprovinceid": {
+    "column": "stateprovinceid",
+    "table": "Application_StateProvinces",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "Application_Cities.stateprovinceid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Application_StateProvinces.stateprovincecode": {
+    "column": "stateprovincecode",
+    "table": "Application_StateProvinces",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.stateprovincename": {
+    "column": "stateprovincename",
+    "table": "Application_StateProvinces",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.countryid": {
+    "column": "countryid",
+    "table": "Application_StateProvinces",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Application_Countries.countryid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Application_StateProvinces.salesterritory": {
+    "column": "salesterritory",
+    "table": "Application_StateProvinces",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.border": {
+    "column": "border",
+    "table": "Application_StateProvinces",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.latestrecordedpopulation": {
+    "column": "latestrecordedpopulation",
+    "table": "Application_StateProvinces",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "Application_StateProvinces",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.validfrom": {
+    "column": "validfrom",
+    "table": "Application_StateProvinces",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_StateProvinces.validto": {
+    "column": "validto",
+    "table": "Application_StateProvinces",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Cities.cityid": {
+    "column": "cityid",
+    "table": "Application_Cities",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "Application_Cities.cityname": {
+    "column": "cityname",
+    "table": "Application_Cities",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Cities.stateprovinceid": {
+    "column": "stateprovinceid",
+    "table": "Application_Cities",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Application_StateProvinces.stateprovinceid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Application_Cities.location": {
+    "column": "location",
+    "table": "Application_Cities",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Cities.latestrecordedpopulation": {
+    "column": "latestrecordedpopulation",
+    "table": "Application_Cities",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Cities.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "Application_Cities",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Cities.validfrom": {
+    "column": "validfrom",
+    "table": "Application_Cities",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Cities.validto": {
+    "column": "validto",
+    "table": "Application_Cities",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.countryid": {
+    "column": "countryid",
+    "table": "Application_Countries",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "Application_StateProvinces.countryid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Application_Countries.countryname": {
+    "column": "countryname",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.formalname": {
+    "column": "formalname",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.isoalpha3code": {
+    "column": "isoalpha3code",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.isonumericcode": {
+    "column": "isonumericcode",
+    "table": "Application_Countries",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.countrytype": {
+    "column": "countrytype",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.latestrecordedpopulation": {
+    "column": "latestrecordedpopulation",
+    "table": "Application_Countries",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.continent": {
+    "column": "continent",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.region": {
+    "column": "region",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.subregion": {
+    "column": "subregion",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.border": {
+    "column": "border",
+    "table": "Application_Countries",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "Application_Countries",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.validfrom": {
+    "column": "validfrom",
+    "table": "Application_Countries",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_Countries.validto": {
+    "column": "validto",
+    "table": "Application_Countries",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "application_paymentmethods.paymentmethodid": {
+    "column": "paymentmethodid",
+    "table": "application_paymentmethods",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "purchasing_suppliertransactions.paymentmethodid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "application_paymentmethods.paymentmethodname": {
+    "column": "paymentmethodname",
+    "table": "application_paymentmethods",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_paymentmethods.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "application_paymentmethods",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "application_paymentmethods.validfrom": {
+    "column": "validfrom",
+    "table": "application_paymentmethods",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "application_paymentmethods.validto": {
+    "column": "validto",
+    "table": "application_paymentmethods",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.personid": {
+    "column": "personid",
+    "table": "application_people",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "application_people.fullname": {
+    "column": "fullname",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.preferredname": {
+    "column": "preferredname",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.searchname": {
+    "column": "searchname",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.ispermittedtologon": {
+    "column": "ispermittedtologon",
+    "table": "application_people",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.logonname": {
+    "column": "logonname",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.isexternallogonprovider": {
+    "column": "isexternallogonprovider",
+    "table": "application_people",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.hashedpassword": {
+    "column": "hashedpassword",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.issystemuser": {
+    "column": "issystemuser",
+    "table": "application_people",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.isemployee": {
+    "column": "isemployee",
+    "table": "application_people",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.issalesperson": {
+    "column": "issalesperson",
+    "table": "application_people",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.userpreferences": {
+    "column": "userpreferences",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.phonenumber": {
+    "column": "phonenumber",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.faxnumber": {
+    "column": "faxnumber",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.emailaddress": {
+    "column": "emailaddress",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.photo": {
+    "column": "photo",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.customfields": {
+    "column": "customfields",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.otherlanguages": {
+    "column": "otherlanguages",
+    "table": "application_people",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "application_people",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.validfrom": {
+    "column": "validfrom",
+    "table": "application_people",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "application_people.validto": {
+    "column": "validto",
+    "table": "application_people",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.systemparameterid": {
+    "column": "systemparameterid",
+    "table": "Application_SystemParameters",
+    "type": "boolean",
+    "pk": true,
+    "nullable": true
+  },
+  "Application_SystemParameters.deliveryaddressline1": {
+    "column": "deliveryaddressline1",
+    "table": "Application_SystemParameters",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.deliveryaddressline2": {
+    "column": "deliveryaddressline2",
+    "table": "Application_SystemParameters",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.deliverycityid": {
+    "column": "deliverycityid",
+    "table": "Application_SystemParameters",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.deliverypostalcode": {
+    "column": "deliverypostalcode",
+    "table": "Application_SystemParameters",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.deliverylocation": {
+    "column": "deliverylocation",
+    "table": "Application_SystemParameters",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.postaladdressline1": {
+    "column": "postaladdressline1",
+    "table": "Application_SystemParameters",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.postaladdressline2": {
+    "column": "postaladdressline2",
+    "table": "Application_SystemParameters",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.postalcityid": {
+    "column": "postalcityid",
+    "table": "Application_SystemParameters",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.postalpostalcode": {
+    "column": "postalpostalcode",
+    "table": "Application_SystemParameters",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "Application_SystemParameters",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Application_SystemParameters.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "Application_SystemParameters",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.suppliertransactionid": {
+    "column": "suppliertransactionid",
+    "table": "purchasing_suppliertransactions",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.supplierid": {
+    "column": "supplierid",
+    "table": "purchasing_suppliertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Purchasing_Suppliers.supplierid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_suppliertransactions.transactiontypeid": {
+    "column": "transactiontypeid",
+    "table": "purchasing_suppliertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "application_transactiontypes.transactiontypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_suppliertransactions.purchaseorderid": {
+    "column": "purchaseorderid",
+    "table": "purchasing_suppliertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.paymentmethodid": {
+    "column": "paymentmethodid",
+    "table": "purchasing_suppliertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "application_paymentmethods.paymentmethodid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_suppliertransactions.supplierinvoicenumber": {
+    "column": "supplierinvoicenumber",
+    "table": "purchasing_suppliertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.transactiondate": {
+    "column": "transactiondate",
+    "table": "purchasing_suppliertransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.amountexcludingtax": {
+    "column": "amountexcludingtax",
+    "table": "purchasing_suppliertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.taxamount": {
+    "column": "taxamount",
+    "table": "purchasing_suppliertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.transactionamount": {
+    "column": "transactionamount",
+    "table": "purchasing_suppliertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.outstandingbalance": {
+    "column": "outstandingbalance",
+    "table": "purchasing_suppliertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.finalizationdate": {
+    "column": "finalizationdate",
+    "table": "purchasing_suppliertransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.isfinalized": {
+    "column": "isfinalized",
+    "table": "purchasing_suppliertransactions",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "purchasing_suppliertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliertransactions.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "purchasing_suppliertransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.purchaseorderid": {
+    "column": "purchaseorderid",
+    "table": "purchasing_purchaseorders",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.supplierid": {
+    "column": "supplierid",
+    "table": "purchasing_purchaseorders",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Purchasing_Suppliers.supplierid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_purchaseorders.orderdate": {
+    "column": "orderdate",
+    "table": "purchasing_purchaseorders",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.deliverymethodid": {
+    "column": "deliverymethodid",
+    "table": "purchasing_purchaseorders",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "application_deliverymethods.deliverymethodid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_purchaseorders.contactpersonid": {
+    "column": "contactpersonid",
+    "table": "purchasing_purchaseorders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.expecteddeliverydate": {
+    "column": "expecteddeliverydate",
+    "table": "purchasing_purchaseorders",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.supplierreference": {
+    "column": "supplierreference",
+    "table": "purchasing_purchaseorders",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.isorderfinalized": {
+    "column": "isorderfinalized",
+    "table": "purchasing_purchaseorders",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.comments": {
+    "column": "comments",
+    "table": "purchasing_purchaseorders",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.internalcomments": {
+    "column": "internalcomments",
+    "table": "purchasing_purchaseorders",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "purchasing_purchaseorders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorders.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "purchasing_purchaseorders",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.supplierid": {
+    "column": "supplierid",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "purchasing_purchaseorders.supplierid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "purchasing_suppliertransactions.supplierid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "warehouse_stockitems.supplierid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Purchasing_Suppliers.suppliername": {
+    "column": "suppliername",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.suppliercategoryid": {
+    "column": "suppliercategoryid",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "purchasing_suppliercategories.suppliercategoryid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Purchasing_Suppliers.primarycontactpersonid": {
+    "column": "primarycontactpersonid",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.alternatecontactpersonid": {
+    "column": "alternatecontactpersonid",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.deliverymethodid": {
+    "column": "deliverymethodid",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.deliverycityid": {
+    "column": "deliverycityid",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.postalcityid": {
+    "column": "postalcityid",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.supplierreference": {
+    "column": "supplierreference",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.bankaccountname": {
+    "column": "bankaccountname",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.bankaccountbranch": {
+    "column": "bankaccountbranch",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.bankaccountcode": {
+    "column": "bankaccountcode",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.bankaccountnumber": {
+    "column": "bankaccountnumber",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.bankinternationalcode": {
+    "column": "bankinternationalcode",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.paymentdays": {
+    "column": "paymentdays",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.internalcomments": {
+    "column": "internalcomments",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.phonenumber": {
+    "column": "phonenumber",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.faxnumber": {
+    "column": "faxnumber",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.websiteurl": {
+    "column": "websiteurl",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.deliveryaddressline1": {
+    "column": "deliveryaddressline1",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.deliveryaddressline2": {
+    "column": "deliveryaddressline2",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.deliverypostalcode": {
+    "column": "deliverypostalcode",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.deliverylocation": {
+    "column": "deliverylocation",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.postaladdressline1": {
+    "column": "postaladdressline1",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.postaladdressline2": {
+    "column": "postaladdressline2",
+    "table": "Purchasing_Suppliers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.postalpostalcode": {
+    "column": "postalpostalcode",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "Purchasing_Suppliers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.validfrom": {
+    "column": "validfrom",
+    "table": "Purchasing_Suppliers",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Purchasing_Suppliers.validto": {
+    "column": "validto",
+    "table": "Purchasing_Suppliers",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliercategories.suppliercategoryid": {
+    "column": "suppliercategoryid",
+    "table": "purchasing_suppliercategories",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "Purchasing_Suppliers.suppliercategoryid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_suppliercategories.suppliercategoryname": {
+    "column": "suppliercategoryname",
+    "table": "purchasing_suppliercategories",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliercategories.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "purchasing_suppliercategories",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliercategories.validfrom": {
+    "column": "validfrom",
+    "table": "purchasing_suppliercategories",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_suppliercategories.validto": {
+    "column": "validto",
+    "table": "purchasing_suppliercategories",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.purchaseorderlineid": {
+    "column": "purchaseorderlineid",
+    "table": "purchasing_purchaseorderlines",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.purchaseorderid": {
+    "column": "purchaseorderid",
+    "table": "purchasing_purchaseorderlines",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.stockitemid": {
+    "column": "stockitemid",
+    "table": "purchasing_purchaseorderlines",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockitems.stockitemid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_purchaseorderlines.orderedouters": {
+    "column": "orderedouters",
+    "table": "purchasing_purchaseorderlines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.description": {
+    "column": "description",
+    "table": "purchasing_purchaseorderlines",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.receivedouters": {
+    "column": "receivedouters",
+    "table": "purchasing_purchaseorderlines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.packagetypeid": {
+    "column": "packagetypeid",
+    "table": "purchasing_purchaseorderlines",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_packagetypes.packagetypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "purchasing_purchaseorderlines.expectedunitpriceperouter": {
+    "column": "expectedunitpriceperouter",
+    "table": "purchasing_purchaseorderlines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.lastreceiptdate": {
+    "column": "lastreceiptdate",
+    "table": "purchasing_purchaseorderlines",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.isorderlinefinalized": {
+    "column": "isorderlinefinalized",
+    "table": "purchasing_purchaseorderlines",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "purchasing_purchaseorderlines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "purchasing_purchaseorderlines.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "purchasing_purchaseorderlines",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.customerid": {
+    "column": "customerid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "sales_customertransactions.customerid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "sales_invoices.customerid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "sales_orders.customerid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Sales_Customers.customername": {
+    "column": "customername",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.billtocustomerid": {
+    "column": "billtocustomerid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.customercategoryid": {
+    "column": "customercategoryid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "sales_customercategories.customercategoryid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Sales_Customers.buyinggroupid": {
+    "column": "buyinggroupid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.primarycontactpersonid": {
+    "column": "primarycontactpersonid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.alternatecontactpersonid": {
+    "column": "alternatecontactpersonid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.deliverymethodid": {
+    "column": "deliverymethodid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "application_deliverymethods.deliverymethodid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Sales_Customers.deliverycityid": {
+    "column": "deliverycityid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.postalcityid": {
+    "column": "postalcityid",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.creditlimit": {
+    "column": "creditlimit",
+    "table": "Sales_Customers",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.accountopeneddate": {
+    "column": "accountopeneddate",
+    "table": "Sales_Customers",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.standarddiscountpercentage": {
+    "column": "standarddiscountpercentage",
+    "table": "Sales_Customers",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.isstatementsent": {
+    "column": "isstatementsent",
+    "table": "Sales_Customers",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.isoncredithold": {
+    "column": "isoncredithold",
+    "table": "Sales_Customers",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.paymentdays": {
+    "column": "paymentdays",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.phonenumber": {
+    "column": "phonenumber",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.faxnumber": {
+    "column": "faxnumber",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.deliveryrun": {
+    "column": "deliveryrun",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.runposition": {
+    "column": "runposition",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.websiteurl": {
+    "column": "websiteurl",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.deliveryaddressline1": {
+    "column": "deliveryaddressline1",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.deliveryaddressline2": {
+    "column": "deliveryaddressline2",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.deliverypostalcode": {
+    "column": "deliverypostalcode",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.deliverylocation": {
+    "column": "deliverylocation",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.postaladdressline1": {
+    "column": "postaladdressline1",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.postaladdressline2": {
+    "column": "postaladdressline2",
+    "table": "Sales_Customers",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.postalpostalcode": {
+    "column": "postalpostalcode",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "Sales_Customers",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.validfrom": {
+    "column": "validfrom",
+    "table": "Sales_Customers",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_Customers.validto": {
+    "column": "validto",
+    "table": "Sales_Customers",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.invoiceid": {
+    "column": "invoiceid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "sales_invoicelines.invoiceid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_invoices.customerid": {
+    "column": "customerid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Sales_Customers.customerid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_invoices.billtocustomerid": {
+    "column": "billtocustomerid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.orderid": {
+    "column": "orderid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.deliverymethodid": {
+    "column": "deliverymethodid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "application_deliverymethods.deliverymethodid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_invoices.contactpersonid": {
+    "column": "contactpersonid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.accountspersonid": {
+    "column": "accountspersonid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.salespersonpersonid": {
+    "column": "salespersonpersonid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.packedbypersonid": {
+    "column": "packedbypersonid",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.invoicedate": {
+    "column": "invoicedate",
+    "table": "sales_invoices",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.customerpurchaseordernumber": {
+    "column": "customerpurchaseordernumber",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.iscreditnote": {
+    "column": "iscreditnote",
+    "table": "sales_invoices",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.creditnotereason": {
+    "column": "creditnotereason",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.comments": {
+    "column": "comments",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.deliveryinstructions": {
+    "column": "deliveryinstructions",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.internalcomments": {
+    "column": "internalcomments",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.totaldryitems": {
+    "column": "totaldryitems",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.totalchilleritems": {
+    "column": "totalchilleritems",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.deliveryrun": {
+    "column": "deliveryrun",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.runposition": {
+    "column": "runposition",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.returneddeliverydata": {
+    "column": "returneddeliverydata",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.confirmeddeliverytime": {
+    "column": "confirmeddeliverytime",
+    "table": "sales_invoices",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.confirmedreceivedby": {
+    "column": "confirmedreceivedby",
+    "table": "sales_invoices",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "sales_invoices",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoices.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "sales_invoices",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.customertransactionid": {
+    "column": "customertransactionid",
+    "table": "sales_customertransactions",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "sales_customertransactions.customerid": {
+    "column": "customerid",
+    "table": "sales_customertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Sales_Customers.customerid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_customertransactions.transactiontypeid": {
+    "column": "transactiontypeid",
+    "table": "sales_customertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "application_transactiontypes.transactiontypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_customertransactions.invoiceid": {
+    "column": "invoiceid",
+    "table": "sales_customertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.paymentmethodid": {
+    "column": "paymentmethodid",
+    "table": "sales_customertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.transactiondate": {
+    "column": "transactiondate",
+    "table": "sales_customertransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.amountexcludingtax": {
+    "column": "amountexcludingtax",
+    "table": "sales_customertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.taxamount": {
+    "column": "taxamount",
+    "table": "sales_customertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.transactionamount": {
+    "column": "transactionamount",
+    "table": "sales_customertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.outstandingbalance": {
+    "column": "outstandingbalance",
+    "table": "sales_customertransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.finalizationdate": {
+    "column": "finalizationdate",
+    "table": "sales_customertransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.isfinalized": {
+    "column": "isfinalized",
+    "table": "sales_customertransactions",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "sales_customertransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customertransactions.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "sales_customertransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.specialdealid": {
+    "column": "specialdealid",
+    "table": "sales_specialdeals",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "sales_specialdeals.stockitemid": {
+    "column": "stockitemid",
+    "table": "sales_specialdeals",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.customerid": {
+    "column": "customerid",
+    "table": "sales_specialdeals",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.buyinggroupid": {
+    "column": "buyinggroupid",
+    "table": "sales_specialdeals",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "sales_buyinggroups.buyinggroupid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_specialdeals.customercategoryid": {
+    "column": "customercategoryid",
+    "table": "sales_specialdeals",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.stockgroupid": {
+    "column": "stockgroupid",
+    "table": "sales_specialdeals",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockgroups.stockgroupid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_specialdeals.dealdescription": {
+    "column": "dealdescription",
+    "table": "sales_specialdeals",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.startdate": {
+    "column": "startdate",
+    "table": "sales_specialdeals",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.enddate": {
+    "column": "enddate",
+    "table": "sales_specialdeals",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.discountamount": {
+    "column": "discountamount",
+    "table": "sales_specialdeals",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.discountpercentage": {
+    "column": "discountpercentage",
+    "table": "sales_specialdeals",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.unitprice": {
+    "column": "unitprice",
+    "table": "sales_specialdeals",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "sales_specialdeals",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_specialdeals.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "sales_specialdeals",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_buyinggroups.buyinggroupid": {
+    "column": "buyinggroupid",
+    "table": "sales_buyinggroups",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "sales_specialdeals.buyinggroupid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_buyinggroups.buyinggroupname": {
+    "column": "buyinggroupname",
+    "table": "sales_buyinggroups",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_buyinggroups.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "sales_buyinggroups",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_buyinggroups.validfrom": {
+    "column": "validfrom",
+    "table": "sales_buyinggroups",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_buyinggroups.validto": {
+    "column": "validto",
+    "table": "sales_buyinggroups",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customercategories.customercategoryid": {
+    "column": "customercategoryid",
+    "table": "sales_customercategories",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "Sales_Customers.customercategoryid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_customercategories.customercategoryname": {
+    "column": "customercategoryname",
+    "table": "sales_customercategories",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customercategories.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "sales_customercategories",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customercategories.validfrom": {
+    "column": "validfrom",
+    "table": "sales_customercategories",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_customercategories.validto": {
+    "column": "validto",
+    "table": "sales_customercategories",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.invoicelineid": {
+    "column": "invoicelineid",
+    "table": "sales_invoicelines",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "sales_invoicelines.invoiceid": {
+    "column": "invoiceid",
+    "table": "sales_invoicelines",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "sales_invoices.invoiceid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_invoicelines.stockitemid": {
+    "column": "stockitemid",
+    "table": "sales_invoicelines",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockitems.stockitemid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_invoicelines.description": {
+    "column": "description",
+    "table": "sales_invoicelines",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.packagetypeid": {
+    "column": "packagetypeid",
+    "table": "sales_invoicelines",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_packagetypes.packagetypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_invoicelines.quantity": {
+    "column": "quantity",
+    "table": "sales_invoicelines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.unitprice": {
+    "column": "unitprice",
+    "table": "sales_invoicelines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.taxrate": {
+    "column": "taxrate",
+    "table": "sales_invoicelines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.taxamount": {
+    "column": "taxamount",
+    "table": "sales_invoicelines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.lineprofit": {
+    "column": "lineprofit",
+    "table": "sales_invoicelines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.extendedprice": {
+    "column": "extendedprice",
+    "table": "sales_invoicelines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "sales_invoicelines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_invoicelines.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "sales_invoicelines",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.orderid": {
+    "column": "orderid",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "sales_orders.customerid": {
+    "column": "customerid",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Sales_Customers.customerid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "sales_orders.salespersonpersonid": {
+    "column": "salespersonpersonid",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.pickedbypersonid": {
+    "column": "pickedbypersonid",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.contactpersonid": {
+    "column": "contactpersonid",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.backorderorderid": {
+    "column": "backorderorderid",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.orderdate": {
+    "column": "orderdate",
+    "table": "sales_orders",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.expecteddeliverydate": {
+    "column": "expecteddeliverydate",
+    "table": "sales_orders",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.customerpurchaseordernumber": {
+    "column": "customerpurchaseordernumber",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.isundersupplybackordered": {
+    "column": "isundersupplybackordered",
+    "table": "sales_orders",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.comments": {
+    "column": "comments",
+    "table": "sales_orders",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.deliveryinstructions": {
+    "column": "deliveryinstructions",
+    "table": "sales_orders",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.internalcomments": {
+    "column": "internalcomments",
+    "table": "sales_orders",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.pickingcompletedwhen": {
+    "column": "pickingcompletedwhen",
+    "table": "sales_orders",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "sales_orders",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "sales_orders.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "sales_orders",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.orderlineid": {
+    "column": "orderlineid",
+    "table": "Sales_OrderLines",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "Sales_OrderLines.orderid": {
+    "column": "orderid",
+    "table": "Sales_OrderLines",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "Sales_OrderLines.stockitemid": {
+    "column": "stockitemid",
+    "table": "Sales_OrderLines",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockitems.stockitemid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Sales_OrderLines.description": {
+    "column": "description",
+    "table": "Sales_OrderLines",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.packagetypeid": {
+    "column": "packagetypeid",
+    "table": "Sales_OrderLines",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_packagetypes.packagetypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "Sales_OrderLines.quantity": {
+    "column": "quantity",
+    "table": "Sales_OrderLines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.unitprice": {
+    "column": "unitprice",
+    "table": "Sales_OrderLines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.taxrate": {
+    "column": "taxrate",
+    "table": "Sales_OrderLines",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.pickedquantity": {
+    "column": "pickedquantity",
+    "table": "Sales_OrderLines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.pickingcompletedwhen": {
+    "column": "pickingcompletedwhen",
+    "table": "Sales_OrderLines",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "Sales_OrderLines",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "Sales_OrderLines.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "Sales_OrderLines",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.stockitemid": {
+    "column": "stockitemid",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "purchasing_purchaseorderlines.stockitemid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "sales_invoicelines.stockitemid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "Sales_OrderLines.stockitemid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "warehouse_stockitemholdings.stockitemid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "warehouse_stockitemstockgroups.stockitemid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "warehouse_stockitemtransactions.stockitemid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockitems.stockitemname": {
+    "column": "stockitemname",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.supplierid": {
+    "column": "supplierid",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "Purchasing_Suppliers.supplierid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockitems.colorid": {
+    "column": "colorid",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.unitpackageid": {
+    "column": "unitpackageid",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.outerpackageid": {
+    "column": "outerpackageid",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.brand": {
+    "column": "brand",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.size": {
+    "column": "size",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.leadtimedays": {
+    "column": "leadtimedays",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.quantityperouter": {
+    "column": "quantityperouter",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.ischillerstock": {
+    "column": "ischillerstock",
+    "table": "warehouse_stockitems",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.barcode": {
+    "column": "barcode",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.taxrate": {
+    "column": "taxrate",
+    "table": "warehouse_stockitems",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.unitprice": {
+    "column": "unitprice",
+    "table": "warehouse_stockitems",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.recommendedretailprice": {
+    "column": "recommendedretailprice",
+    "table": "warehouse_stockitems",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.typicalweightperunit": {
+    "column": "typicalweightperunit",
+    "table": "warehouse_stockitems",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.marketingcomments": {
+    "column": "marketingcomments",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.internalcomments": {
+    "column": "internalcomments",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.photo": {
+    "column": "photo",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.customfields": {
+    "column": "customfields",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.tags": {
+    "column": "tags",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.searchdetails": {
+    "column": "searchdetails",
+    "table": "warehouse_stockitems",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "warehouse_stockitems",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.validfrom": {
+    "column": "validfrom",
+    "table": "warehouse_stockitems",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitems.validto": {
+    "column": "validto",
+    "table": "warehouse_stockitems",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_packagetypes.packagetypeid": {
+    "column": "packagetypeid",
+    "table": "warehouse_packagetypes",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "purchasing_purchaseorderlines.packagetypeid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "sales_invoicelines.packagetypeid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "Sales_OrderLines.packagetypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_packagetypes.packagetypename": {
+    "column": "packagetypename",
+    "table": "warehouse_packagetypes",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_packagetypes.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "warehouse_packagetypes",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_packagetypes.validfrom": {
+    "column": "validfrom",
+    "table": "warehouse_packagetypes",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_packagetypes.validto": {
+    "column": "validto",
+    "table": "warehouse_packagetypes",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockgroups.stockgroupid": {
+    "column": "stockgroupid",
+    "table": "warehouse_stockgroups",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "incoming",
+        "source": "sales_specialdeals.stockgroupid",
+        "type": "TRUE_FK"
+      },
+      {
+        "direction": "incoming",
+        "source": "warehouse_stockitemstockgroups.stockgroupid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockgroups.stockgroupname": {
+    "column": "stockgroupname",
+    "table": "warehouse_stockgroups",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockgroups.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "warehouse_stockgroups",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockgroups.validfrom": {
+    "column": "validfrom",
+    "table": "warehouse_stockgroups",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockgroups.validto": {
+    "column": "validto",
+    "table": "warehouse_stockgroups",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_coldroomtemperatures.coldroomtemperatureid": {
+    "column": "coldroomtemperatureid",
+    "table": "warehouse_coldroomtemperatures",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "warehouse_coldroomtemperatures.coldroomsensornumber": {
+    "column": "coldroomsensornumber",
+    "table": "warehouse_coldroomtemperatures",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_coldroomtemperatures.recordedwhen": {
+    "column": "recordedwhen",
+    "table": "warehouse_coldroomtemperatures",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_coldroomtemperatures.temperature": {
+    "column": "temperature",
+    "table": "warehouse_coldroomtemperatures",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_coldroomtemperatures.validfrom": {
+    "column": "validfrom",
+    "table": "warehouse_coldroomtemperatures",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_coldroomtemperatures.validto": {
+    "column": "validto",
+    "table": "warehouse_coldroomtemperatures",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_colors.colorid": {
+    "column": "colorid",
+    "table": "warehouse_colors",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "warehouse_colors.colorname": {
+    "column": "colorname",
+    "table": "warehouse_colors",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_colors.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "warehouse_colors",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_colors.validfrom": {
+    "column": "validfrom",
+    "table": "warehouse_colors",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_colors.validto": {
+    "column": "validto",
+    "table": "warehouse_colors",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemstockgroups.stockitemstockgroupid": {
+    "column": "stockitemstockgroupid",
+    "table": "warehouse_stockitemstockgroups",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "warehouse_stockitemstockgroups.stockitemid": {
+    "column": "stockitemid",
+    "table": "warehouse_stockitemstockgroups",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockitems.stockitemid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockitemstockgroups.stockgroupid": {
+    "column": "stockgroupid",
+    "table": "warehouse_stockitemstockgroups",
+    "type": "int",
+    "pk": true,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockgroups.stockgroupid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockitemstockgroups.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "warehouse_stockitemstockgroups",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemstockgroups.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "warehouse_stockitemstockgroups",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.stockitemtransactionid": {
+    "column": "stockitemtransactionid",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.stockitemid": {
+    "column": "stockitemid",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockitems.stockitemid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockitemtransactions.transactiontypeid": {
+    "column": "transactiontypeid",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "application_transactiontypes.transactiontypeid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockitemtransactions.customerid": {
+    "column": "customerid",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.invoiceid": {
+    "column": "invoiceid",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.supplierid": {
+    "column": "supplierid",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.purchaseorderid": {
+    "column": "purchaseorderid",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.transactionoccurredwhen": {
+    "column": "transactionoccurredwhen",
+    "table": "warehouse_stockitemtransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.quantity": {
+    "column": "quantity",
+    "table": "warehouse_stockitemtransactions",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "warehouse_stockitemtransactions",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemtransactions.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "warehouse_stockitemtransactions",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.stockitemid": {
+    "column": "stockitemid",
+    "table": "warehouse_stockitemholdings",
+    "type": "int",
+    "pk": false,
+    "nullable": true,
+    "relationships": [
+      {
+        "direction": "outgoing",
+        "target": "warehouse_stockitems.stockitemid",
+        "type": "TRUE_FK"
+      }
+    ]
+  },
+  "warehouse_stockitemholdings.quantityonhand": {
+    "column": "quantityonhand",
+    "table": "warehouse_stockitemholdings",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.binlocation": {
+    "column": "binlocation",
+    "table": "warehouse_stockitemholdings",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.laststocktakequantity": {
+    "column": "laststocktakequantity",
+    "table": "warehouse_stockitemholdings",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.lastcostprice": {
+    "column": "lastcostprice",
+    "table": "warehouse_stockitemholdings",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.reorderlevel": {
+    "column": "reorderlevel",
+    "table": "warehouse_stockitemholdings",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.targetstocklevel": {
+    "column": "targetstocklevel",
+    "table": "warehouse_stockitemholdings",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.lasteditedby": {
+    "column": "lasteditedby",
+    "table": "warehouse_stockitemholdings",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_stockitemholdings.lasteditedwhen": {
+    "column": "lasteditedwhen",
+    "table": "warehouse_stockitemholdings",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.vehicletemperatureid": {
+    "column": "vehicletemperatureid",
+    "table": "warehouse_vehicletemperatures",
+    "type": "int",
+    "pk": true,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.vehicleregistration": {
+    "column": "vehicleregistration",
+    "table": "warehouse_vehicletemperatures",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.chillersensornumber": {
+    "column": "chillersensornumber",
+    "table": "warehouse_vehicletemperatures",
+    "type": "int",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.recordedwhen": {
+    "column": "recordedwhen",
+    "table": "warehouse_vehicletemperatures",
+    "type": "timestamp",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.temperature": {
+    "column": "temperature",
+    "table": "warehouse_vehicletemperatures",
+    "type": "float",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.fullsensordata": {
+    "column": "fullsensordata",
+    "table": "warehouse_vehicletemperatures",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.iscompressed": {
+    "column": "iscompressed",
+    "table": "warehouse_vehicletemperatures",
+    "type": "boolean",
+    "pk": false,
+    "nullable": true
+  },
+  "warehouse_vehicletemperatures.compressedsensordata": {
+    "column": "compressedsensordata",
+    "table": "warehouse_vehicletemperatures",
+    "type": "varchar",
+    "pk": false,
+    "nullable": true
+  }
+}

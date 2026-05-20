@@ -1,10 +1,10 @@
 {
-  "profile_id": "prof_Application_SystemParameters_20260518130907",
+  "profile_id": "prof_Application_SystemParameters_20260520162446",
   "table_name": "Application_SystemParameters",
   "profiling_metadata": {
-    "profiled_at": "2026-05-18T13:09:07.346252",
+    "profiled_at": "2026-05-20T16:24:46.880438",
     "profiler_version": "1.0.0",
-    "execution_time_ms": 53.597450256347656,
+    "execution_time_ms": 527.2402763366699,
     "sample_based": true,
     "sample_size": 1,
     "canonical_table_id": "Application_SystemParameters"
@@ -13,13 +13,12 @@
     "row_count_estimate": 1,
     "column_count": 12,
     "completeness_score": 1.0,
-    "quality_score": 0.6999999999999998,
-    "pk_candidates": [],
-    "fk_candidates": [
-      "deliverycityid",
-      "postalcityid"
+    "quality_score": 1.0,
+    "pk_candidates": [
+      "systemparameterid"
     ],
-    "total_quality_flags": 12,
+    "composite_pk_candidates": [],
+    "total_quality_flags": 15,
     "columns_with_issues": 12
   },
   "columns": [
@@ -28,25 +27,79 @@
       "original_name": "SystemParameterID",
       "position": 0,
       "physical_type": "boolean",
-      "semantic_type": "foreign_key_candidate",
-      "logical_type": "unknown",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "attribute",
-      "pk_candidate": false,
-      "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
-      "quality_flags": [
-        "constant_column"
+      "cardinality_class": "high",
+      "pk_candidate": true,
+      "pk_score": 0.75,
+      "pk_confidence": 0.75,
+      "pk_evidence": {
+        "pk_score": 0.75,
+        "pk_candidate": true,
+        "pk_confidence": 0.75,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "Owner identifier match: 'systemparameterid' owns 'Application_SystemParameters'"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 1.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "Owner identifier match: 'systemparameterid' owns 'Application_SystemParameters'"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "constant_column",
+        "invalid_identifier"
+      ],
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -72,10 +125,25 @@
             "1",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1"
+        1
       ]
     },
     {
@@ -83,25 +151,84 @@
       "original_name": "DeliveryAddressLine1",
       "position": 1,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline1'",
+          "Low-stability business attribute 'deliveryaddressline1' - high mutability"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline1'",
+          "Low-stability business attribute 'deliveryaddressline1' - high mutability",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline1'",
+          "Low-stability business attribute 'deliveryaddressline1' - high mutability",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline1'",
+        "Low-stability business attribute 'deliveryaddressline1' - high mutability"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -127,7 +254,22 @@
             "Suite 14",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Suite 14",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "Suite 14"
@@ -138,25 +280,84 @@
       "original_name": "DeliveryAddressLine2",
       "position": 2,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline2'",
+          "Low-stability business attribute 'deliveryaddressline2' - high mutability"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline2'",
+          "Low-stability business attribute 'deliveryaddressline2' - high mutability",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline2'",
+          "Low-stability business attribute 'deliveryaddressline2' - high mutability",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Accidental uniqueness in small sample (n=1) for non-ID column 'deliveryaddressline2'",
+        "Low-stability business attribute 'deliveryaddressline2' - high mutability"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -182,7 +383,22 @@
             "1968 Martin Luther King Junior Drive",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1968 Martin Luther King Junior Drive",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "1968 Martin Luther King Junior Drive"
@@ -194,38 +410,84 @@
       "position": 3,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "reference",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "foreign_key",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.78,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "deliverycity",
-        "entity_mismatch_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'deliverycityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'deliverycityid'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'deliverycityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
         "reasons": [
-          "FK pattern detected: references 'deliverycity' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: deliverycity",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'deliverycityid'",
+          "Integer/UUID identifier type"
         ],
         "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Non-root identifier 'deliverycityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
         ]
       },
-      "quality_flags": [
-        "constant_column"
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Non-root identifier 'deliverycityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "constant_column",
+        "invalid_identifier"
+      ],
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -243,7 +505,13 @@
         "median": 30378.0,
         "std_dev": null,
         "variance": null,
-        "quantiles": {},
+        "quantiles": {
+          "p25": 30378.0,
+          "p50": 30378.0,
+          "p75": 30378.0,
+          "p90": 30378.0,
+          "p99": 30378.0
+        },
         "skewness": null,
         "kurtosis": null,
         "top_values": [
@@ -251,10 +519,25 @@
             "30378",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "30378",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "30378"
+        30378
       ]
     },
     {
@@ -262,25 +545,84 @@
       "original_name": "DeliveryPostalCode",
       "position": 4,
       "physical_type": "integer",
-      "semantic_type": "zip_code",
-      "logical_type": "unknown",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "attribute",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'deliverypostalcode' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'deliverypostalcode'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'deliverypostalcode' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'deliverypostalcode'",
+          "Integer/UUID identifier type"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'deliverypostalcode' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Postal/zip code 'deliverypostalcode' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -298,7 +640,13 @@
         "median": 94129.0,
         "std_dev": null,
         "variance": null,
-        "quantiles": {},
+        "quantiles": {
+          "p25": 94129.0,
+          "p50": 94129.0,
+          "p75": 94129.0,
+          "p90": 94129.0,
+          "p99": 94129.0
+        },
         "skewness": null,
         "kurtosis": null,
         "top_values": [
@@ -306,10 +654,25 @@
             "94129",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "94129",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "94129"
+        94129
       ]
     },
     {
@@ -317,25 +680,101 @@
       "original_name": "DeliveryLocation",
       "position": 5,
       "physical_type": "string",
-      "semantic_type": "geospatial_point",
+      "semantic_type": "GEO_POINT",
       "logical_type": "geospatial",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "geo_field",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Geospatial field 'deliverylocation' - not suitable as PK",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliverylocation'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Geospatial field 'deliverylocation' - not suitable as PK",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliverylocation'",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Geospatial field 'deliverylocation' - not suitable as PK",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'deliverylocation'",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Geospatial field 'deliverylocation' - not suitable as PK",
+        "Accidental uniqueness in small sample (n=1) for non-ID column 'deliverylocation'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": {
+        "format": "WKT",
+        "subtype": "POINT",
+        "latitude_range": [
+          37.765786,
+          37.765786
+        ],
+        "longitude_range": [
+          -122.504086,
+          -122.504086
+        ],
+        "extracted_lat": [
+          37.765786
+        ],
+        "extracted_lon": [
+          -122.504086
+        ]
+      },
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -361,7 +800,22 @@
             "POINT (-122.504086 37.765786)",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "POINT (-122.504086 37.765786)",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "POINT (-122.504086 37.765786)"
@@ -372,25 +826,84 @@
       "original_name": "PostalAddressLine1",
       "position": 6,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline1'",
+          "Postal/zip code 'postaladdressline1' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline1'",
+          "Postal/zip code 'postaladdressline1' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline1'",
+          "Postal/zip code 'postaladdressline1' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline1'",
+        "Postal/zip code 'postaladdressline1' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -416,7 +929,22 @@
             "PO Box 201158",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "PO Box 201158",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "PO Box 201158"
@@ -427,25 +955,84 @@
       "original_name": "PostalAddressLine2",
       "position": 7,
       "physical_type": "string",
-      "semantic_type": "dimension",
-      "logical_type": "category",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "dimension",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline2'",
+          "Postal/zip code 'postaladdressline2' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline2'",
+          "Postal/zip code 'postaladdressline2' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline2'",
+          "Postal/zip code 'postaladdressline2' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Accidental uniqueness in small sample (n=1) for non-ID column 'postaladdressline2'",
+        "Postal/zip code 'postaladdressline2' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -471,7 +1058,22 @@
             "Golden Gate Park",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "Golden Gate Park",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
         "Golden Gate Park"
@@ -483,38 +1085,88 @@
       "position": 8,
       "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "reference",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "foreign_key",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": true,
-      "fk_confidence": 0.78,
-      "fk_evidence": {
-        "fk_pattern_match": 0.9,
-        "referenced_entity": "postalcity",
-        "entity_mismatch_score": 1.0,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'postalcityid' - mutable business attribute",
+          "Non-root identifier 'postalcityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'postalcityid'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'postalcityid' - mutable business attribute",
+          "Non-root identifier 'postalcityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
         "reasons": [
-          "FK pattern detected: references 'postalcity' entity",
-          "FK naming pattern confidence: 0.90",
-          "References external entity: postalcity",
-          "Type affinity (INTEGER/UUID preferred): 0.90",
-          "High uniqueness (100.00%) - likely unique FK or small sample"
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'postalcityid'",
+          "Integer/UUID identifier type"
         ],
         "warnings": [
-          "High uniqueness in sample - may be unique FK or small sample size"
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'postalcityid' - mutable business attribute",
+          "Non-root identifier 'postalcityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
         ]
       },
-      "quality_flags": [
-        "constant_column"
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Postal/zip code 'postalcityid' - mutable business attribute",
+        "Non-root identifier 'postalcityid' in table 'Application_SystemParameters' (root: 'systemparameter') - likely FK"
       ],
-      "quality_score": 0.7,
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
+      "quality_flags": [
+        "constant_column",
+        "invalid_identifier"
+      ],
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -532,7 +1184,13 @@
         "median": 30378.0,
         "std_dev": null,
         "variance": null,
-        "quantiles": {},
+        "quantiles": {
+          "p25": 30378.0,
+          "p50": 30378.0,
+          "p75": 30378.0,
+          "p90": 30378.0,
+          "p99": 30378.0
+        },
         "skewness": null,
         "kurtosis": null,
         "top_values": [
@@ -540,10 +1198,25 @@
             "30378",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "30378",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "30378"
+        30378
       ]
     },
     {
@@ -551,25 +1224,84 @@
       "original_name": "PostalPostalCode",
       "position": 9,
       "physical_type": "integer",
-      "semantic_type": "zip_code",
-      "logical_type": "unknown",
+      "semantic_type": "identifier",
+      "logical_type": "identifier",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "attribute",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'postalpostalcode' - mutable business attribute"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'postalpostalcode'",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'postalpostalcode' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.7,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "Generic identifier pattern: 'postalpostalcode'",
+          "Integer/UUID identifier type"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Postal/zip code 'postalpostalcode' - mutable business attribute",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Postal/zip code 'postalpostalcode' - mutable business attribute"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -587,7 +1319,13 @@
         "median": 94129.0,
         "std_dev": null,
         "variance": null,
-        "quantiles": {},
+        "quantiles": {
+          "p25": 94129.0,
+          "p50": 94129.0,
+          "p75": 94129.0,
+          "p90": 94129.0,
+          "p99": 94129.0
+        },
         "skewness": null,
         "kurtosis": null,
         "top_values": [
@@ -595,36 +1333,115 @@
             "94129",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "94129",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "94129"
+        94129
       ]
     },
     {
       "column_name": "lasteditedby",
       "original_name": "LastEditedBy",
       "position": 10,
-      "physical_type": "boolean",
+      "physical_type": "integer",
       "semantic_type": "identifier",
-      "logical_type": "audit",
-      "type_confidence": 0.9,
+      "logical_type": "audit_reference",
+      "type_confidence": 0.95,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "audit_field",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type"
+        ],
+        "negative_evidence": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable",
+          "Audit field suppressed for PK scoring"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.95,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values",
+          "Consistent data type",
+          "Integer/UUID identifier type"
+        ],
+        "warnings": [
+          "System audit column pattern 'lasteditedby'",
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "System audit column pattern 'lasteditedby'",
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": {
+        "role": "user_reference",
+        "audit_type": "editor",
+        "system_generated": true
+      },
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -636,13 +1453,19 @@
         "min_length": null,
         "max_length": null,
         "avg_length": null,
-        "min_value": null,
-        "max_value": null,
-        "mean": null,
-        "median": null,
+        "min_value": 1.0,
+        "max_value": 1.0,
+        "mean": 1.0,
+        "median": 1.0,
         "std_dev": null,
         "variance": null,
-        "quantiles": null,
+        "quantiles": {
+          "p25": 1.0,
+          "p50": 1.0,
+          "p75": 1.0,
+          "p90": 1.0,
+          "p99": 1.0
+        },
         "skewness": null,
         "kurtosis": null,
         "top_values": [
@@ -650,10 +1473,25 @@
             "1",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "1",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": true,
+        "is_temporal": false,
+        "is_audit": true,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "1"
+        1
       ]
     },
     {
@@ -661,25 +1499,80 @@
       "original_name": "LastEditedWhen",
       "position": 11,
       "physical_type": "datetime",
-      "semantic_type": "timestamp",
-      "logical_type": "timestamp",
+      "semantic_type": "unknown",
+      "logical_type": "unknown",
       "type_confidence": 0.9,
       "completeness": 1.0,
       "uniqueness": 1.0,
       "entropy_normalized": 0.0,
-      "cardinality_class": "low",
-      "relational_role": "temporal_field",
+      "cardinality_class": "high",
       "pk_candidate": false,
+      "pk_score": 0.0,
       "pk_confidence": 0.0,
-      "pk_evidence": null,
-      "fk_candidate": false,
-      "fk_confidence": 0.0,
-      "fk_evidence": null,
+      "pk_evidence": {
+        "pk_score": 0.0,
+        "pk_candidate": false,
+        "pk_confidence": 0.0,
+        "suppressed": true,
+        "suppression_reasons": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'lasteditedwhen'"
+        ],
+        "positive_evidence": [
+          "All values are unique",
+          "No null values"
+        ],
+        "negative_evidence": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'lasteditedwhen'",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ],
+        "uniqueness_score": 1.0,
+        "non_null_score": 1.0,
+        "entropy_score": 0.0,
+        "type_stability_score": 0.9,
+        "name_pattern_score": 0.0,
+        "reasons": [
+          "All values are unique",
+          "No null values"
+        ],
+        "warnings": [
+          "Constant column (1 distinct value)",
+          "Zero entropy (entropy_normalized=0.0000)",
+          "Accidental uniqueness in small sample (n=1) for non-ID column 'lasteditedwhen'",
+          "Low entropy (0.00)",
+          "Small-sample uniqueness may be unstable"
+        ]
+      },
+      "suppressed": true,
+      "suppression_reasons": [
+        "Constant column (1 distinct value)",
+        "Zero entropy (entropy_normalized=0.0000)",
+        "Accidental uniqueness in small sample (n=1) for non-ID column 'lasteditedwhen'"
+      ],
+      "temporal_pattern": null,
+      "geo_profile": null,
+      "audit_profile": null,
       "quality_flags": [
         "constant_column"
       ],
-      "quality_score": 0.7,
+      "quality_score": 1.0,
+      "quality_breakdown": {
+        "completeness": 1.0,
+        "uniqueness": 1.0,
+        "consistency": 1.0,
+        "validity": 1.0,
+        "anomaly_score": 1.0
+      },
       "statistics": {
+        "total_count": 1,
+        "non_null_count": 1,
+        "distinct_non_null_count": 1,
+        "coverage_ratio": 1.0,
+        "duplicate_ratio": 0.0,
         "null_count": 0,
         "null_ratio": 0.0,
         "distinct_count": 1,
@@ -702,15 +1595,30 @@
         "kurtosis": null,
         "top_values": [
           [
-            "01-01-2013 00:00:00",
+            "2013-01-01 00:00:00",
             1
           ]
-        ]
+        ],
+        "frequency_distribution": [
+          {
+            "value": "2013-01-01 00:00:00",
+            "frequency": 1
+          }
+        ],
+        "duplicate_density": 0.0
+      },
+      "profile_hints": {
+        "is_identifier": false,
+        "is_temporal": false,
+        "is_audit": false,
+        "is_measure": false,
+        "is_dimension": false,
+        "is_text": false
       },
       "sample_values": [
-        "01-01-2013 00:00:00"
+        "2013-01-01T00:00:00"
       ]
     }
   ],
-  "source_canonical_path": "output\\canonical\\Application_SystemParameters.canonical.json"
+  "source_canonical_path": "F:\\agentic_profiler\\new\\output\\canonical\\Application_SystemParameters.canonical.json"
 }

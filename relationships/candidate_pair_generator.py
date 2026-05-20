@@ -39,16 +39,26 @@ class CandidatePairGenerator:
     - Filtering by cardinality ratios
     """
     
+    # Columns that look like FK references (used to gate type-compat fallback)
+    FK_NAME_SUFFIXES = ("_id", "id", "_key", "key", "_fk", "_ref", "_code", "_num", "_no")
+
+    # Audit / noise columns — never generate as FK candidates
+    SKIP_COLUMN_PATTERNS = [
+        r"^validfrom$", r"^validto$", r"^lasteditedby$", r"^createdby$",
+        r"^modifiedby$", r"^rowguid$", r".*guid.*", r".*uuid.*",
+        r"^is_", r"^has_",
+    ]
+
     def __init__(
         self,
         min_type_compatibility: float = 0.5,
-        max_cardinality_ratio: float = 0.95,  # FK distinct / PK distinct
+        max_cardinality_ratio: float = 1.05,  # FK distinct / PK distinct (sample tolerant)
         enable_naming_heuristics: bool = True,
         enable_self_referential: bool = True,
     ):
         """
         Initialize candidate pair generator.
-        
+
         Args:
             min_type_compatibility: Minimum type compatibility score (0.0-1.0)
             max_cardinality_ratio: Max ratio of FK distinct / PK distinct
@@ -59,6 +69,7 @@ class CandidatePairGenerator:
         self.max_cardinality_ratio = max_cardinality_ratio
         self.enable_naming_heuristics = enable_naming_heuristics
         self.enable_self_referential = enable_self_referential
+        self._skip_re = [re.compile(p, re.IGNORECASE) for p in self.SKIP_COLUMN_PATTERNS]
     
     def generate_candidates(
         self,
@@ -83,16 +94,20 @@ class CandidatePairGenerator:
         # For each table, generate FK candidates from its columns
         for fk_table, fk_profile in table_profiles.items():
             fk_columns = fk_profile.get("columns", [])
-            
+
             for fk_col_profile in fk_columns:
                 fk_col = fk_col_profile["column_name"]
                 fk_type = fk_col_profile.get("physical_type", "UNKNOWN")
                 fk_distinct = fk_col_profile.get("distinct_count", 0)
-                
+
+                # Skip audit/noise/GUID columns entirely
+                if self._is_skip_column(fk_col):
+                    continue
+
                 # Skip if this column is already a PK in its own table
                 if self._is_column_pk(fk_table, fk_col, pk_candidates):
                     continue
-                
+
                 # Generate candidates for this FK column
                 column_candidates = self._generate_candidates_for_column(
                     fk_table=fk_table,
@@ -102,7 +117,7 @@ class CandidatePairGenerator:
                     pk_index=pk_index,
                     pk_candidates=pk_candidates,
                 )
-                
+
                 candidates.update(column_candidates)
         
         return list(candidates)
@@ -177,9 +192,11 @@ class CandidatePairGenerator:
             )
             candidates.update(naming_candidates)
         
-        # Strategy 2: Type-compatible scan (fallback if naming fails)
-        # Only scan if naming heuristics found < 2 candidates
-        if len(candidates) < 2:
+        # Strategy 2: Type-compatible scan — ONLY when:
+        #   a) naming found zero candidates (no naming signal at all), AND
+        #   b) the column name looks like a FK reference (_id, _key, etc.)
+        # This prevents O(n²) explosion for generic columns.
+        if len(candidates) == 0 and self._is_fk_name_pattern(fk_col):
             type_candidates = self._generate_type_compatible_candidates(
                 fk_table=fk_table,
                 fk_col=fk_col,
@@ -188,7 +205,7 @@ class CandidatePairGenerator:
                 pk_index=pk_index,
             )
             candidates.update(type_candidates)
-        
+
         return candidates
     
     def _generate_naming_candidates(
@@ -323,10 +340,22 @@ class CandidatePairGenerator:
         
         return candidates
     
+    def _is_skip_column(self, col: str) -> bool:
+        """Return True if the column should be skipped entirely as a FK candidate."""
+        for pattern in self._skip_re:
+            if pattern.search(col):
+                return True
+        return False
+
+    def _is_fk_name_pattern(self, col: str) -> bool:
+        """Return True if the column name suggests it could be a FK reference."""
+        c = col.lower().strip()
+        return any(c.endswith(s) for s in self.FK_NAME_SUFFIXES)
+
     def _extract_entity_name(self, column_name: str) -> Optional[str]:
         """
         Extract entity name from FK column.
-        
+
         Examples:
         - customer_id → customer
         - cityid → city
@@ -334,7 +363,7 @@ class CandidatePairGenerator:
         - parent_item_id → item
         """
         col_lower = column_name.lower().strip()
-        
+
         # Remove common FK suffixes
         suffixes = ["_id", "id", "_key", "key", "_fk", "fk"]
         for suffix in suffixes:
@@ -342,7 +371,7 @@ class CandidatePairGenerator:
                 entity = col_lower[: -len(suffix)]
                 if entity:
                     return entity
-        
+
         return None
     
     def _compute_naming_similarity(

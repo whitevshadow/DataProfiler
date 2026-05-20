@@ -1,0 +1,3097 @@
+{
+  "nodes": [
+    {
+      "id": "application_deliverymethods",
+      "name": "application_deliverymethods",
+      "type": "table",
+      "columns": [
+        {
+          "name": "deliverymethodid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverymethodname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "application_transactiontypes",
+      "name": "application_transactiontypes",
+      "type": "table",
+      "columns": [
+        {
+          "name": "transactiontypeid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactiontypename",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "Application_StateProvinces",
+      "name": "Application_StateProvinces",
+      "type": "table",
+      "columns": [
+        {
+          "name": "stateprovinceid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stateprovincecode",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stateprovincename",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "countryid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "salesterritory",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "border",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "latestrecordedpopulation",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "Application_Cities",
+      "name": "Application_Cities",
+      "type": "table",
+      "columns": [
+        {
+          "name": "cityid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "cityname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stateprovinceid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "location",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "latestrecordedpopulation",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "Application_Countries",
+      "name": "Application_Countries",
+      "type": "table",
+      "columns": [
+        {
+          "name": "countryid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "countryname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "formalname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isoalpha3code",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isonumericcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "countrytype",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "latestrecordedpopulation",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "continent",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "region",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "subregion",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "border",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "application_paymentmethods",
+      "name": "application_paymentmethods",
+      "type": "table",
+      "columns": [
+        {
+          "name": "paymentmethodid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "paymentmethodname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "application_people",
+      "name": "application_people",
+      "type": "table",
+      "columns": [
+        {
+          "name": "personid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "fullname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "preferredname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "searchname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "ispermittedtologon",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "logonname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isexternallogonprovider",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "hashedpassword",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "issystemuser",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isemployee",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "issalesperson",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "userpreferences",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "phonenumber",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "faxnumber",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "emailaddress",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "photo",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customfields",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "otherlanguages",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "Application_SystemParameters",
+      "name": "Application_SystemParameters",
+      "type": "table",
+      "columns": [
+        {
+          "name": "systemparameterid",
+          "type": "boolean",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryaddressline1",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryaddressline2",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverycityid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverypostalcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverylocation",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postaladdressline1",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postaladdressline2",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postalcityid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postalpostalcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "purchasing_suppliertransactions",
+      "name": "purchasing_suppliertransactions",
+      "type": "table",
+      "columns": [
+        {
+          "name": "suppliertransactionid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "supplierid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactiontypeid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "purchaseorderid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "paymentmethodid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "supplierinvoicenumber",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactiondate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "amountexcludingtax",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "taxamount",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactionamount",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "outstandingbalance",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "finalizationdate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isfinalized",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "purchasing_purchaseorders",
+      "name": "purchasing_purchaseorders",
+      "type": "table",
+      "columns": [
+        {
+          "name": "purchaseorderid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "supplierid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "orderdate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverymethodid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "contactpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "expecteddeliverydate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "supplierreference",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isorderfinalized",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "comments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "internalcomments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "Purchasing_Suppliers",
+      "name": "Purchasing_Suppliers",
+      "type": "table",
+      "columns": [
+        {
+          "name": "supplierid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "suppliername",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "suppliercategoryid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "primarycontactpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "alternatecontactpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverymethodid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverycityid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postalcityid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "supplierreference",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "bankaccountname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "bankaccountbranch",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "bankaccountcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "bankaccountnumber",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "bankinternationalcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "paymentdays",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "internalcomments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "phonenumber",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "faxnumber",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "websiteurl",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryaddressline1",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryaddressline2",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverypostalcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverylocation",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postaladdressline1",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postaladdressline2",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postalpostalcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "purchasing_suppliercategories",
+      "name": "purchasing_suppliercategories",
+      "type": "table",
+      "columns": [
+        {
+          "name": "suppliercategoryid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "suppliercategoryname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "purchasing_purchaseorderlines",
+      "name": "purchasing_purchaseorderlines",
+      "type": "table",
+      "columns": [
+        {
+          "name": "purchaseorderlineid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "purchaseorderid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockitemid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "orderedouters",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "description",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "receivedouters",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "packagetypeid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "expectedunitpriceperouter",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lastreceiptdate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isorderlinefinalized",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "Sales_Customers",
+      "name": "Sales_Customers",
+      "type": "table",
+      "columns": [
+        {
+          "name": "customerid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customername",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "billtocustomerid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customercategoryid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "buyinggroupid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "primarycontactpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "alternatecontactpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverymethodid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverycityid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postalcityid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "creditlimit",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "accountopeneddate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "standarddiscountpercentage",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isstatementsent",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isoncredithold",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "paymentdays",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "phonenumber",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "faxnumber",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryrun",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "runposition",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "websiteurl",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryaddressline1",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryaddressline2",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverypostalcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverylocation",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postaladdressline1",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postaladdressline2",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "postalpostalcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "sales_invoices",
+      "name": "sales_invoices",
+      "type": "table",
+      "columns": [
+        {
+          "name": "invoiceid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customerid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "billtocustomerid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "orderid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliverymethodid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "contactpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "accountspersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "salespersonpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "packedbypersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "invoicedate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customerpurchaseordernumber",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "iscreditnote",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "creditnotereason",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "comments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryinstructions",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "internalcomments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "totaldryitems",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "totalchilleritems",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryrun",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "runposition",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "returneddeliverydata",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "confirmeddeliverytime",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "confirmedreceivedby",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "sales_customertransactions",
+      "name": "sales_customertransactions",
+      "type": "table",
+      "columns": [
+        {
+          "name": "customertransactionid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customerid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactiontypeid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "invoiceid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "paymentmethodid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactiondate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "amountexcludingtax",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "taxamount",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactionamount",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "outstandingbalance",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "finalizationdate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isfinalized",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "sales_specialdeals",
+      "name": "sales_specialdeals",
+      "type": "table",
+      "columns": [
+        {
+          "name": "specialdealid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockitemid",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customerid",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "buyinggroupid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customercategoryid",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockgroupid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "dealdescription",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "startdate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "enddate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "discountamount",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "discountpercentage",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "unitprice",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "sales_buyinggroups",
+      "name": "sales_buyinggroups",
+      "type": "table",
+      "columns": [
+        {
+          "name": "buyinggroupid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "buyinggroupname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "sales_customercategories",
+      "name": "sales_customercategories",
+      "type": "table",
+      "columns": [
+        {
+          "name": "customercategoryid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customercategoryname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "sales_invoicelines",
+      "name": "sales_invoicelines",
+      "type": "table",
+      "columns": [
+        {
+          "name": "invoicelineid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "invoiceid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockitemid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "description",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "packagetypeid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "quantity",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "unitprice",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "taxrate",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "taxamount",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lineprofit",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "extendedprice",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "sales_orders",
+      "name": "sales_orders",
+      "type": "table",
+      "columns": [
+        {
+          "name": "orderid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customerid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "salespersonpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "pickedbypersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "contactpersonid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "backorderorderid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "orderdate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "expecteddeliverydate",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customerpurchaseordernumber",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "isundersupplybackordered",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "comments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "deliveryinstructions",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "internalcomments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "pickingcompletedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "Sales_OrderLines",
+      "name": "Sales_OrderLines",
+      "type": "table",
+      "columns": [
+        {
+          "name": "orderlineid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "orderid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockitemid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "description",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "packagetypeid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "quantity",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "unitprice",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "taxrate",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "pickedquantity",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "pickingcompletedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_stockitems",
+      "name": "warehouse_stockitems",
+      "type": "table",
+      "columns": [
+        {
+          "name": "stockitemid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockitemname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "supplierid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "colorid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "unitpackageid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "outerpackageid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "brand",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "size",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "leadtimedays",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "quantityperouter",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "ischillerstock",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "barcode",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "taxrate",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "unitprice",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "recommendedretailprice",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "typicalweightperunit",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "marketingcomments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "internalcomments",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "photo",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customfields",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "tags",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "searchdetails",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_packagetypes",
+      "name": "warehouse_packagetypes",
+      "type": "table",
+      "columns": [
+        {
+          "name": "packagetypeid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "packagetypename",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_stockgroups",
+      "name": "warehouse_stockgroups",
+      "type": "table",
+      "columns": [
+        {
+          "name": "stockgroupid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockgroupname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_coldroomtemperatures",
+      "name": "warehouse_coldroomtemperatures",
+      "type": "table",
+      "columns": [
+        {
+          "name": "coldroomtemperatureid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "coldroomsensornumber",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "recordedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "temperature",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_colors",
+      "name": "warehouse_colors",
+      "type": "table",
+      "columns": [
+        {
+          "name": "colorid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "colorname",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validfrom",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "validto",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_stockitemstockgroups",
+      "name": "warehouse_stockitemstockgroups",
+      "type": "table",
+      "columns": [
+        {
+          "name": "stockitemstockgroupid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockitemid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockgroupid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_stockitemtransactions",
+      "name": "warehouse_stockitemtransactions",
+      "type": "table",
+      "columns": [
+        {
+          "name": "stockitemtransactionid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "stockitemid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactiontypeid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "customerid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "invoiceid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "supplierid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "purchaseorderid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "transactionoccurredwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "quantity",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_stockitemholdings",
+      "name": "warehouse_stockitemholdings",
+      "type": "table",
+      "columns": [
+        {
+          "name": "stockitemid",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "quantityonhand",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "binlocation",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "laststocktakequantity",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lastcostprice",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "reorderlevel",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "targetstocklevel",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedby",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "lasteditedwhen",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    },
+    {
+      "id": "warehouse_vehicletemperatures",
+      "name": "warehouse_vehicletemperatures",
+      "type": "table",
+      "columns": [
+        {
+          "name": "vehicletemperatureid",
+          "type": "int",
+          "pk": true,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "vehicleregistration",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "chillersensornumber",
+          "type": "int",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "recordedwhen",
+          "type": "timestamp",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "temperature",
+          "type": "float",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "fullsensordata",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "iscompressed",
+          "type": "boolean",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        },
+        {
+          "name": "compressedsensordata",
+          "type": "varchar",
+          "pk": false,
+          "fk": false,
+          "nullable": true
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "Application_Cities.stateprovinceid-Application_StateProvinces.stateprovinceid",
+      "source": "Application_Cities",
+      "sourceColumn": "stateprovinceid",
+      "target": "Application_StateProvinces",
+      "targetColumn": "stateprovinceid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "Application_StateProvinces.countryid-Application_Countries.countryid",
+      "source": "Application_StateProvinces",
+      "sourceColumn": "countryid",
+      "target": "Application_Countries",
+      "targetColumn": "countryid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "purchasing_purchaseorderlines.packagetypeid-warehouse_packagetypes.packagetypeid",
+      "source": "purchasing_purchaseorderlines",
+      "sourceColumn": "packagetypeid",
+      "target": "warehouse_packagetypes",
+      "targetColumn": "packagetypeid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "purchasing_purchaseorderlines.stockitemid-warehouse_stockitems.stockitemid",
+      "source": "purchasing_purchaseorderlines",
+      "sourceColumn": "stockitemid",
+      "target": "warehouse_stockitems",
+      "targetColumn": "stockitemid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "purchasing_purchaseorders.deliverymethodid-application_deliverymethods.deliverymethodid",
+      "source": "purchasing_purchaseorders",
+      "sourceColumn": "deliverymethodid",
+      "target": "application_deliverymethods",
+      "targetColumn": "deliverymethodid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "purchasing_purchaseorders.supplierid-Purchasing_Suppliers.supplierid",
+      "source": "purchasing_purchaseorders",
+      "sourceColumn": "supplierid",
+      "target": "Purchasing_Suppliers",
+      "targetColumn": "supplierid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "Purchasing_Suppliers.suppliercategoryid-purchasing_suppliercategories.suppliercategoryid",
+      "source": "Purchasing_Suppliers",
+      "sourceColumn": "suppliercategoryid",
+      "target": "purchasing_suppliercategories",
+      "targetColumn": "suppliercategoryid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "purchasing_suppliertransactions.paymentmethodid-application_paymentmethods.paymentmethodid",
+      "source": "purchasing_suppliertransactions",
+      "sourceColumn": "paymentmethodid",
+      "target": "application_paymentmethods",
+      "targetColumn": "paymentmethodid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "purchasing_suppliertransactions.transactiontypeid-application_transactiontypes.transactiontypeid",
+      "source": "purchasing_suppliertransactions",
+      "sourceColumn": "transactiontypeid",
+      "target": "application_transactiontypes",
+      "targetColumn": "transactiontypeid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "purchasing_suppliertransactions.supplierid-Purchasing_Suppliers.supplierid",
+      "source": "purchasing_suppliertransactions",
+      "sourceColumn": "supplierid",
+      "target": "Purchasing_Suppliers",
+      "targetColumn": "supplierid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "Sales_Customers.deliverymethodid-application_deliverymethods.deliverymethodid",
+      "source": "Sales_Customers",
+      "sourceColumn": "deliverymethodid",
+      "target": "application_deliverymethods",
+      "targetColumn": "deliverymethodid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "Sales_Customers.customercategoryid-sales_customercategories.customercategoryid",
+      "source": "Sales_Customers",
+      "sourceColumn": "customercategoryid",
+      "target": "sales_customercategories",
+      "targetColumn": "customercategoryid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_customertransactions.transactiontypeid-application_transactiontypes.transactiontypeid",
+      "source": "sales_customertransactions",
+      "sourceColumn": "transactiontypeid",
+      "target": "application_transactiontypes",
+      "targetColumn": "transactiontypeid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_customertransactions.customerid-Sales_Customers.customerid",
+      "source": "sales_customertransactions",
+      "sourceColumn": "customerid",
+      "target": "Sales_Customers",
+      "targetColumn": "customerid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_invoicelines.invoiceid-sales_invoices.invoiceid",
+      "source": "sales_invoicelines",
+      "sourceColumn": "invoiceid",
+      "target": "sales_invoices",
+      "targetColumn": "invoiceid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_invoicelines.packagetypeid-warehouse_packagetypes.packagetypeid",
+      "source": "sales_invoicelines",
+      "sourceColumn": "packagetypeid",
+      "target": "warehouse_packagetypes",
+      "targetColumn": "packagetypeid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_invoicelines.stockitemid-warehouse_stockitems.stockitemid",
+      "source": "sales_invoicelines",
+      "sourceColumn": "stockitemid",
+      "target": "warehouse_stockitems",
+      "targetColumn": "stockitemid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_invoices.deliverymethodid-application_deliverymethods.deliverymethodid",
+      "source": "sales_invoices",
+      "sourceColumn": "deliverymethodid",
+      "target": "application_deliverymethods",
+      "targetColumn": "deliverymethodid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_invoices.customerid-Sales_Customers.customerid",
+      "source": "sales_invoices",
+      "sourceColumn": "customerid",
+      "target": "Sales_Customers",
+      "targetColumn": "customerid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "Sales_OrderLines.packagetypeid-warehouse_packagetypes.packagetypeid",
+      "source": "Sales_OrderLines",
+      "sourceColumn": "packagetypeid",
+      "target": "warehouse_packagetypes",
+      "targetColumn": "packagetypeid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "Sales_OrderLines.stockitemid-warehouse_stockitems.stockitemid",
+      "source": "Sales_OrderLines",
+      "sourceColumn": "stockitemid",
+      "target": "warehouse_stockitems",
+      "targetColumn": "stockitemid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_orders.customerid-Sales_Customers.customerid",
+      "source": "sales_orders",
+      "sourceColumn": "customerid",
+      "target": "Sales_Customers",
+      "targetColumn": "customerid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_specialdeals.buyinggroupid-sales_buyinggroups.buyinggroupid",
+      "source": "sales_specialdeals",
+      "sourceColumn": "buyinggroupid",
+      "target": "sales_buyinggroups",
+      "targetColumn": "buyinggroupid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "sales_specialdeals.stockgroupid-warehouse_stockgroups.stockgroupid",
+      "source": "sales_specialdeals",
+      "sourceColumn": "stockgroupid",
+      "target": "warehouse_stockgroups",
+      "targetColumn": "stockgroupid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "warehouse_stockitemholdings.stockitemid-warehouse_stockitems.stockitemid",
+      "source": "warehouse_stockitemholdings",
+      "sourceColumn": "stockitemid",
+      "target": "warehouse_stockitems",
+      "targetColumn": "stockitemid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "warehouse_stockitems.supplierid-Purchasing_Suppliers.supplierid",
+      "source": "warehouse_stockitems",
+      "sourceColumn": "supplierid",
+      "target": "Purchasing_Suppliers",
+      "targetColumn": "supplierid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "warehouse_stockitemstockgroups.stockgroupid-warehouse_stockgroups.stockgroupid",
+      "source": "warehouse_stockitemstockgroups",
+      "sourceColumn": "stockgroupid",
+      "target": "warehouse_stockgroups",
+      "targetColumn": "stockgroupid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "warehouse_stockitemstockgroups.stockitemid-warehouse_stockitems.stockitemid",
+      "source": "warehouse_stockitemstockgroups",
+      "sourceColumn": "stockitemid",
+      "target": "warehouse_stockitems",
+      "targetColumn": "stockitemid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "warehouse_stockitemtransactions.transactiontypeid-application_transactiontypes.transactiontypeid",
+      "source": "warehouse_stockitemtransactions",
+      "sourceColumn": "transactiontypeid",
+      "target": "application_transactiontypes",
+      "targetColumn": "transactiontypeid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    },
+    {
+      "id": "warehouse_stockitemtransactions.stockitemid-warehouse_stockitems.stockitemid",
+      "source": "warehouse_stockitemtransactions",
+      "sourceColumn": "stockitemid",
+      "target": "warehouse_stockitems",
+      "targetColumn": "stockitemid",
+      "type": "TRUE_FK",
+      "cardinality": "1-N",
+      "status": "resolved"
+    }
+  ],
+  "metadata": {
+    "tables": 31,
+    "relationships": 30,
+    "parsedAt": "2026-05-20T17:19:13.268554"
+  }
+}

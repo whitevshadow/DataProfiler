@@ -38,11 +38,12 @@ class ConfidenceEngine:
     
     def __init__(
         self,
-        containment_weight: float = 0.45,
+        containment_weight: float = 0.35,
         semantic_similarity_weight: float = 0.20,
-        type_compatibility_weight: float = 0.15,
-        pk_confidence_weight: float = 0.10,
-        naming_similarity_weight: float = 0.10,
+        type_compatibility_weight: float = 0.10,
+        pk_confidence_weight: float = 0.0,
+        naming_similarity_weight: float = 0.15,
+        entity_domain_weight: float = 0.20,
         use_semantic_signals: bool = False,
     ):
         """
@@ -66,6 +67,7 @@ class ConfidenceEngine:
                 "type_compatibility": type_compatibility_weight,
                 "pk_confidence": pk_confidence_weight,
                 "naming_similarity": naming_similarity_weight,
+                "entity_domain": entity_domain_weight,
             }
         else:
             # Traditional weighting (backward compatible)
@@ -75,6 +77,7 @@ class ConfidenceEngine:
                 "type_compatibility": type_compatibility_weight,
                 "pk_confidence": pk_confidence_weight,
                 "naming_similarity": naming_similarity_weight,
+                "entity_domain": entity_domain_weight,
             }
     
     def compute_confidence(
@@ -84,6 +87,7 @@ class ConfidenceEngine:
         type_compatibility_score: float,
         pk_confidence: float,
         naming_similarity: float,
+        entity_domain_score: float = 1.0,
         null_ratio_fk: float = 0.0,
         cardinality_ratio: Optional[float] = None,
         semantic_similarity: Optional[float] = None,
@@ -97,6 +101,7 @@ class ConfidenceEngine:
             type_compatibility_score: Type compatibility (0.0-1.0)
             pk_confidence: PK candidate confidence (0.0-1.0)
             naming_similarity: Column naming similarity (0.0-1.0)
+            entity_domain_score: Entity-domain compatibility (0.0-1.0)
             null_ratio_fk: Ratio of nulls in FK column (0.0-1.0)
             cardinality_ratio: |FK distinct| / |PK distinct| (optional)
             semantic_similarity: ANN semantic similarity (0.0-1.0, optional)
@@ -104,6 +109,10 @@ class ConfidenceEngine:
         Returns:
             Confidence score from 0.0 to 1.0
         """
+        # Hard reject for semantic impossibility at domain layer.
+        if entity_domain_score <= 0.0:
+            return 0.0
+
         # Weighted sum of evidence signals
         if self.use_semantic_signals and semantic_similarity is not None:
             # Semantic-enhanced scoring
@@ -112,7 +121,8 @@ class ConfidenceEngine:
                 semantic_similarity * self.weights["semantic_similarity"] +
                 type_compatibility_score * self.weights["type_compatibility"] +
                 pk_confidence * self.weights["pk_confidence"] +
-                naming_similarity * self.weights["naming_similarity"]
+                naming_similarity * self.weights["naming_similarity"] +
+                entity_domain_score * self.weights["entity_domain"]
             )
         else:
             # Traditional scoring (backward compatible)
@@ -121,7 +131,8 @@ class ConfidenceEngine:
                 overlap_ratio * self.weights["overlap"] +
                 type_compatibility_score * self.weights["type_compatibility"] +
                 pk_confidence * self.weights["pk_confidence"] +
-                naming_similarity * self.weights["naming_similarity"]
+                naming_similarity * self.weights["naming_similarity"] +
+                entity_domain_score * self.weights["entity_domain"]
             )
         
         # Apply penalties
@@ -277,6 +288,7 @@ class ConfidenceEngine:
         type_compatibility_score: float,
         pk_confidence: float,
         naming_similarity: float,
+        entity_domain_score: float = 1.0,
         semantic_similarity: Optional[float] = None,
     ) -> Dict[str, Any]:
         """
@@ -293,7 +305,7 @@ class ConfidenceEngine:
         Returns:
             Dict with per-signal contributions
         """
-        contributions = {
+        contributions: Dict[str, Any] = {
             "containment_contribution": round(
                 containment_ratio * self.weights["containment"], 4
             ),
@@ -316,6 +328,9 @@ class ConfidenceEngine:
         )
         contributions["naming_contribution"] = round(
             naming_similarity * self.weights["naming_similarity"], 4
+        )
+        contributions["entity_domain_contribution"] = round(
+            entity_domain_score * self.weights["entity_domain"], 4
         )
         
         total = sum(contributions.values())
@@ -351,6 +366,7 @@ def compute_fk_confidence(
     type_compatibility_score: float,
     pk_confidence: float,
     naming_similarity: float,
+    entity_domain_score: float = 1.0,
     null_ratio_fk: float = 0.0,
     cardinality_ratio: Optional[float] = None,
     semantic_similarity: Optional[float] = None,
@@ -365,6 +381,7 @@ def compute_fk_confidence(
         type_compatibility_score: Type compatibility
         pk_confidence: PK confidence
         naming_similarity: Naming similarity
+        entity_domain_score: Entity-domain compatibility score
         null_ratio_fk: FK null ratio
         cardinality_ratio: FK distinct / PK distinct
         semantic_similarity: ANN semantic similarity (optional)
@@ -380,6 +397,7 @@ def compute_fk_confidence(
         type_compatibility_score=type_compatibility_score,
         pk_confidence=pk_confidence,
         naming_similarity=naming_similarity,
+        entity_domain_score=entity_domain_score,
         null_ratio_fk=null_ratio_fk,
         cardinality_ratio=cardinality_ratio,
         semantic_similarity=semantic_similarity,

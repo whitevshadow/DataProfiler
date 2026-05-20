@@ -3,9 +3,11 @@ Profiling Agent — Master Orchestrator
 
 Single command to run the complete profiling pipeline:
     1. Generate Canonical JSON from CSV files
-    2. Generate Profile JSON from Canonical JSON  
+    2. Generate Profile JSON from Canonical JSON
     3. Generate LLM Descriptions from Profile JSON
     4. Detect Relationships using Semantic Pipeline
+    5. Enrich Low-Cardinality Columns (LCIL)
+    6. Generate ERD DBML schema
 
 Usage:
     python profiling_agent.py
@@ -19,6 +21,7 @@ import json
 import time
 import logging
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any
 from dataclasses import asdict
@@ -61,22 +64,29 @@ class ProfilingAgent:
         self.output_base = Path(output_base)
         self.sample_size = sample_size
         self.max_workers = max_workers
-        
+
         # Output directories
         self.canonical_dir = self.output_base / "canonical"
         self.profiles_dir = self.output_base / "profiles"
         self.descriptions_dir = self.output_base / "descriptions"
         self.relationships_dir = self.output_base / "relationships"
-        
+        self.enrichment_dir = self.output_base / "enrichment"
+        self.tree_dir = self.output_base / "tree"
+        self.ui_dir = self.output_base / "ui"
+
         # Create directories
-        for dir_path in [self.canonical_dir, self.profiles_dir, 
-                         self.descriptions_dir, self.relationships_dir]:
+        for dir_path in [
+            self.canonical_dir, self.profiles_dir,
+            self.descriptions_dir, self.relationships_dir,
+            self.enrichment_dir, self.tree_dir, self.ui_dir,
+        ]:
             dir_path.mkdir(parents=True, exist_ok=True)
-    
+
     def run_full_pipeline(self) -> Dict[str, Any]:
         """
-        Run the complete pipeline from CSV to relationships.
-        
+        Run the original 5-stage pipeline from CSV to relationships.
+        Kept for backward compatibility. Use run_full_pipeline_v2() for the full 9-stage chain.
+
         Returns:
             Summary dictionary with statistics from all stages
         """
@@ -92,29 +102,34 @@ class ProfilingAgent:
         
         try:
             # Stage 1: Generate Canonical JSON
-            log.info("\n[STAGE 1/5] Generating Canonical JSON from CSV files...")
+            log.info("\n[STAGE 1/6] Generating Canonical JSON from CSV files...")
             stage1_result = self._stage1_canonical_generation()
             summary["stages"]["canonical_generation"] = stage1_result
             
             # Stage 2: Generate Profile JSON
-            log.info("\n[STAGE 2/5] Generating Profile JSON from Canonical JSON...")
+            log.info("\n[STAGE 2/6] Generating Profile JSON from Canonical JSON...")
             stage2_result = self._stage2_profile_generation()
             summary["stages"]["profile_generation"] = stage2_result
             
             # Stage 3: Generate LLM Descriptions
-            log.info("\n[STAGE 3/5] Generating LLM Descriptions from Profile JSON...")
+            log.info("\n[STAGE 3/6] Generating LLM Descriptions from Profile JSON...")
             stage3_result = self._stage3_llm_descriptions()
             summary["stages"]["llm_descriptions"] = stage3_result
             
             # Stage 4: Detect Relationships
-            log.info("\n[STAGE 4/5] Detecting Relationships using Semantic Pipeline...")
+            log.info("\n[STAGE 4/6] Detecting Relationships using Semantic Pipeline...")
             stage4_result = self._stage4_relationship_detection()
             summary["stages"]["relationship_detection"] = stage4_result
             
             # Stage 5: Low Cardinality Intelligence Layer (LCIL)
-            log.info("\n[STAGE 5/5] Enriching Low Cardinality Columns with LCIL...")
+            log.info("\n[STAGE 5/6] Enriching Low Cardinality Columns with LCIL...")
             stage5_result = self._stage5_low_cardinality_enrichment()
             summary["stages"]["low_cardinality_enrichment"] = stage5_result
+
+            # Stage 6: ERD DBML generation
+            log.info("\n[STAGE 6/6] Generating ERD DBML from relationships...")
+            stage6_result = self._stage6_generate_erd_dbml()
+            summary["stages"]["erd_dbml_generation"] = stage6_result
             
             # Calculate total time
             summary["total_time_seconds"] = time.time() - pipeline_start
@@ -187,28 +202,24 @@ class ProfilingAgent:
         }
     
     def _stage2_profile_generation(self) -> Dict[str, Any]:
-        """Stage 2: Generate profile JSON files from canonical JSON."""
-        from profiler.profiling.profiling_engine import batch_profile
-        
+        """Stage 2: Generate canonical+profile JSON files using the stable services pipeline."""
+        from profiler import services
+
         stage_start = time.time()
-        
-        # Transform canonical files to profiling-compatible format
-        self._transform_canonical_for_profiling()
-        
-        # Batch profile all canonical files
-        profiles = batch_profile(
-            canonical_dir=self.canonical_dir,
-            output_dir=self.profiles_dir,
-            parallel=True,
-            max_workers=4
+        result = services.profile_directory(
+            path=str(self.data_dir),
+            output_base=str(self.output_base),
+            sample_size=self.sample_size,
         )
-        
-        log.info(f"Generated {len(profiles)} profile files")
-        
+
+        generated = int(result.get("profiles_generated", 0))
+        log.info("Generated %d profile files via profiler.services.profile_directory", generated)
+
         return {
-            "profiles_generated": len(profiles),
+            "profiles_generated": generated,
             "output_dir": str(self.profiles_dir),
             "time_seconds": time.time() - stage_start,
+            "source": "profiler.services.profile_directory",
         }
     
     def _transform_canonical_for_profiling(self):
@@ -369,7 +380,11 @@ class ProfilingAgent:
         
         # Generate descriptions in parallel
         log.info(f"Generating descriptions with {self.max_workers} workers...")
-        all_descriptions = llm_generator.generate_descriptions_for_tables(table_profiles)
+        try:
+            all_descriptions = llm_generator.generate_descriptions_for_tables(table_profiles)
+        except Exception as e:
+            log.warning("LLM description generation failed, switching to deterministic fallback: %s", e)
+            all_descriptions = self._generate_fallback_descriptions(table_profiles)
         
         # Save descriptions
         descriptions_file = self.descriptions_dir / "descriptions.json"
@@ -381,213 +396,58 @@ class ProfilingAgent:
             "output_file": str(descriptions_file),
             "time_seconds": time.time() - stage_start,
         }
+
+    def _generate_fallback_descriptions(self, table_profiles: Dict[str, Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Deterministic description fallback when LLM is unavailable."""
+        rows: List[Dict[str, Any]] = []
+        for table_name, table_data in table_profiles.items():
+            for col in table_data.get("columns", []):
+                col_name = str(col.get("column_name", ""))
+                lower = col_name.lower()
+                if lower.endswith("id") or lower.endswith("_id"):
+                    domain = "PRIMARY_KEY" if lower == f"{table_name.lower()}id" else "FOREIGN_KEY"
+                elif any(x in lower for x in ["validfrom", "validto", "date", "time", "timestamp"]):
+                    domain = "TEMPORAL"
+                elif any(x in lower for x in ["lasteditedby", "createdby", "modifiedby", "updatedby"]):
+                    domain = "AUDIT"
+                elif any(x in lower for x in ["amount", "price", "cost", "quantity", "count", "total", "tax"]):
+                    domain = "MEASURE"
+                elif any(x in lower for x in ["location", "latitude", "longitude", "geom", "point", "polygon"]):
+                    domain = "GEOSPATIAL"
+                elif str(col.get("physical_type", "")).lower() in {"string", "varchar", "text"}:
+                    domain = "DIMENSION"
+                else:
+                    domain = "IDENTIFIER"
+
+                rows.append(
+                    {
+                        "table_name": table_name,
+                        "column_name": col_name,
+                        "semantic_description": f"Semantic profile for {table_name}.{col_name}",
+                        "business_purpose": f"Supports analytics and joins for {table_name}",
+                        "data_domain": domain,
+                        "likely_relationships": [],
+                    }
+                )
+        return rows
     
     def _stage4_relationship_detection(self) -> Dict[str, Any]:
-        """Stage 4: Detect relationships using semantic pipeline."""
-        from relationships.semantic_embedding_engine import (
-            SemanticEmbeddingEngine,
-            ANNCandidateRetriever,
-        )
-        from relationships.semantic_clustering import (
-            SemanticClusteringEngine,
-            SemanticRelationshipAdjudicator,
-            RelationshipClass,
-        )
-        from relationships.llm_description_generator import load_descriptions_from_json
-        from relationships.containment_validator import ContainmentValidator
-        from relationships.confidence_engine import ConfidenceEngine
-        
+        """Stage 4: Detect relationships using the validated Chroma+ANN pipeline."""
+        from run_neuleap_relationship_validation import _ensure_dirs, _run_relationship_validation
+
         stage_start = time.time()
-        
-        # Load descriptions
-        descriptions_file = self.descriptions_dir / "descriptions.json"
-        all_descriptions = load_descriptions_from_json(str(descriptions_file))
-        log.info(f"Loaded {len(all_descriptions)} descriptions")
-        
-        # Load profile data to get PK candidates
-        pk_candidate_set = set()
-        profile_columns = {}
-        for profile_file in self.profiles_dir.glob("*.profile.json"):
-            with open(profile_file, 'r', encoding='utf-8') as f:
-                profile_data = json.load(f)
-                table_name = profile_data["table_name"]
-                for col in profile_data["columns"]:
-                    profile_columns[(table_name, col["column_name"])] = col
-                    if col.get("pk_candidate", False):  # Fixed: was is_pk_candidate
-                        pk_candidate_set.add((table_name, col["column_name"]))
-        
-        log.info(f"Found {len(pk_candidate_set)} PK candidates")
-        
-        # Separate FK and PK descriptions
-        fk_descriptions = [
-            d for d in all_descriptions 
-            if (d.table_name, d.column_name) not in pk_candidate_set
-        ]
-        pk_descriptions = [
-            d for d in all_descriptions 
-            if (d.table_name, d.column_name) in pk_candidate_set
-        ]
-        
-        log.info(f"FK candidates: {len(fk_descriptions)}, PK candidates: {len(pk_descriptions)}")
-        
-        # Safety check: if no PK candidates found, skip semantic matching
-        if len(pk_descriptions) == 0:
-            log.warning("No PK candidates found in profiling stage. Skipping semantic relationship detection.")
-            log.warning("This usually means the profiling stage needs tuning to identify primary keys.")
-            relationships_file = self.relationships_dir / "relationships.json"  # Fixed: was output_dir
-            relationships_file.parent.mkdir(parents=True, exist_ok=True)
-            with open(relationships_file, 'w', encoding='utf-8') as f:
-                json.dump({"relationships": [], "note": "No PK candidates found"}, f, indent=2)
-            return {"relationships_found": 0}
-        
-        # Generate embeddings using NVIDIA model
-        embedding_engine = SemanticEmbeddingEngine()
-        all_descs_for_fitting = fk_descriptions + pk_descriptions
-        all_embeddings = embedding_engine.fit_and_transform(all_descs_for_fitting)
-        
-        fk_embeddings = all_embeddings[:len(fk_descriptions)]
-        pk_embeddings = all_embeddings[len(fk_descriptions):]
-        
-        log.info(f"Generated embeddings: {all_embeddings.shape}")
-        
-        # ANN retrieval
-        ann_retriever = ANNCandidateRetriever(min_similarity=0.30)
-        semantic_candidates = ann_retriever.retrieve_candidates(
-            fk_descriptions,
-            pk_descriptions,
-            fk_embeddings,
-            pk_embeddings,
-        )
-        log.info(f"Found {len(semantic_candidates)} semantic candidates")
-        
-        # Clustering
-        clustering_engine = SemanticClusteringEngine()
-        clusters = clustering_engine.cluster_columns(all_descriptions, all_embeddings)
-        log.info(f"Clustered into {len(clusters)} semantic groups")
-        
-        # Load canonical tables for containment validation
-        canonical_tables = {}
-        for canonical_file in self.canonical_dir.glob("*.canonical.json"):
-            with open(canonical_file, 'r', encoding='utf-8') as f:
-                table_data = json.load(f)
-                canonical_tables[table_data["table_name"]] = table_data
-        
-        # Validate and adjudicate
-        containment_validator = ContainmentValidator()
-        adjudicator = SemanticRelationshipAdjudicator()
-        confidence_engine = ConfidenceEngine(use_semantic_signals=True)
-        description_lookup = {
-            (d.table_name, d.column_name): d
-            for d in all_descriptions
-        }
-        
-        adjudicated_relationships = []
-        for candidate in semantic_candidates:
-            # Get sample values for containment check
-            fk_table = canonical_tables.get(candidate.fk_table)
-            pk_table = canonical_tables.get(candidate.pk_table)
-            
-            if not fk_table or not pk_table:
-                continue
-            
-            fk_col = next((
-                c for c in fk_table["columns"]
-                if c.get("column_name") == candidate.fk_column
-                or c.get("normalized_name") == candidate.fk_column
-            ), None)
-            pk_col = next((
-                c for c in pk_table["columns"]
-                if c.get("column_name") == candidate.pk_column
-                or c.get("normalized_name") == candidate.pk_column
-            ), None)
-            
-            if not fk_col or not pk_col:
-                continue
-            
-            # Containment validation
-            containment_result = containment_validator.validate_containment_full(
-                fk_values=fk_col.get("sample_values", []),
-                pk_values=pk_col.get("sample_values", []),
-            )
+        _ensure_dirs()
+        summary = _run_relationship_validation()
 
-            fk_profile = profile_columns.get((candidate.fk_table, candidate.fk_column), {})
-            pk_profile = profile_columns.get((candidate.pk_table, candidate.pk_column), {})
-            fk_type = str(fk_profile.get("physical_type") or fk_col.get("physical_type") or "").lower()
-            pk_type = str(pk_profile.get("physical_type") or pk_col.get("physical_type") or "").lower()
-            type_compatibility_score = self._type_compatibility_score(fk_type, pk_type)
-            overlap_ratio = self._overlap_ratio(
-                fk_col.get("sample_values", []),
-                pk_col.get("sample_values", []),
-            )
-            naming_similarity = self._name_similarity(candidate.fk_column, candidate.pk_column)
-            pk_confidence = float(pk_profile.get("pk_confidence") or 0.0)
-            
-            # Compute confidence
-            confidence = confidence_engine.compute_confidence(
-                containment_ratio=containment_result.containment_ratio,
-                overlap_ratio=overlap_ratio,
-                type_compatibility_score=type_compatibility_score,
-                pk_confidence=pk_confidence,
-                naming_similarity=naming_similarity,
-                semantic_similarity=candidate.semantic_similarity
-            )
+        relationships_file = self.relationships_dir / "relationship.json"
+        log.info("Saved domain-aware relationship output to %s", relationships_file)
 
-            fk_description = description_lookup.get((candidate.fk_table, candidate.fk_column))
-            pk_description = description_lookup.get((candidate.pk_table, candidate.pk_column))
-            if not fk_description or not pk_description:
-                continue
-            
-            # Adjudicate relationship
-            adjudicated = adjudicator.adjudicate(
-                fk_table=candidate.fk_table,
-                fk_column=candidate.fk_column,
-                pk_table=candidate.pk_table,
-                pk_column=candidate.pk_column,
-                semantic_similarity=candidate.semantic_similarity,
-                containment_ratio=containment_result.containment_ratio,
-                type_compatibility=type_compatibility_score,
-                confidence=confidence,
-                fk_description=fk_description,
-                pk_description=pk_description,
-            )
-            adjudicated_relationships.append(adjudicated)
-        
-        # Save relationships
-        relationships_file = self.relationships_dir / "relationships.json"
-        relationships_data = {
-            "metadata": {
-                "total_candidates": len(semantic_candidates),
-                "total_relationships": len(adjudicated_relationships),
-                "true_fk_count": sum(1 for r in adjudicated_relationships if r.relationship_class == RelationshipClass.TRUE_FK),
-                "clusters_found": len(clusters),
-                "generation_timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
-            },
-            "relationships": [
-                {
-                    "fk_table": r.fk_table,
-                    "fk_column": r.fk_column,
-                    "pk_table": r.pk_table,
-                    "pk_column": r.pk_column,
-                    "relationship_class": r.relationship_class.value,
-                    "confidence_score": r.confidence,
-                    "semantic_similarity": r.semantic_similarity,
-                    "containment_ratio": r.containment_ratio,
-                    "reasoning": r.adjudication_reasoning,
-                }
-                for r in adjudicated_relationships
-            ]
-        }
-        
-        with open(relationships_file, 'w', encoding='utf-8') as f:
-            json.dump(relationships_data, f, indent=2)
-        
-        log.info(f"Saved {len(adjudicated_relationships)} relationships to {relationships_file}")
-        
         return {
-            "relationships_detected": len(adjudicated_relationships),
-            "true_fk_count": relationships_data["metadata"]["true_fk_count"],
+            "relationships_detected": int(summary.get("accepted", 0)),
+            "true_fk_count": int(summary.get("accepted", 0)),
             "output_file": str(relationships_file),
             "time_seconds": time.time() - stage_start,
+            "mode": "chroma_ann_domain_validated",
         }
     
     def _stage5_low_cardinality_enrichment(self) -> Dict[str, Any]:
@@ -621,6 +481,38 @@ class ProfilingAgent:
                 "error": str(e),
                 "time_seconds": time.time() - stage_start,
             }
+
+    def _stage6_generate_erd_dbml(self) -> Dict[str, Any]:
+        """Stage 6: Generate ERD artifacts (DBML + graph/html) from validated relationships."""
+        from profiler import services
+
+        stage_start = time.time()
+        relationship_file = self.relationships_dir / "relationship.json"
+        erve_result = services.generate_er_visualizations(
+            relationships_path=str(relationship_file),
+            output_base=str(self.output_base),
+            mode="full",
+            min_confidence=0.5,
+        )
+
+        diagram_state = services.build_diagram_state(output_base=str(self.output_base), min_confidence=0.5)
+        erd_json = self.output_base / "erd" / "erd.json"
+        erd_json.parent.mkdir(parents=True, exist_ok=True)
+        with open(erd_json, "w", encoding="utf-8") as f:
+            json.dump(diagram_state, f, indent=2)
+
+        dbml_file = self.output_base / "erd" / "schema.dbml"
+        graph_json = self.output_base / "graph" / "graph.json"
+        graph_html = self.output_base / "graph" / "graph.html"
+        return {
+            "success": dbml_file.exists(),
+            "dbml_file": str(dbml_file),
+            "erd_json": str(erd_json),
+            "graph_json": str(graph_json),
+            "graph_html": str(graph_html),
+            "erve_outputs": erve_result.get("outputs", {}),
+            "time_seconds": time.time() - stage_start,
+        }
 
     @staticmethod
     def _type_compatibility_score(fk_type: str, pk_type: str) -> float:
@@ -725,6 +617,17 @@ class ProfilingAgent:
             log.info(f"  Insights generated: {s5.get('insights_count', 0)}")
             log.info(f"  Success: {'✓' if s5.get('success') else '✗'}")
             log.info(f"  Time: {s5['time_seconds']:.2f}s")
+
+        # Stage 6
+        if "erd_dbml_generation" in stages:
+            s6 = stages["erd_dbml_generation"]
+            log.info(f"\n[STAGE 6] ERD DBML Generation:")
+            log.info(f"  Success: {'✓' if s6.get('success') else '✗'}")
+            log.info(f"  DBML file: {s6.get('dbml_file', 'output/erd/schema.dbml')}")
+            log.info(f"  ERD JSON: {s6.get('erd_json', 'output/erd/erd.json')}")
+            log.info(f"  Graph JSON: {s6.get('graph_json', 'output/graph/graph.json')}")
+            log.info(f"  Graph HTML: {s6.get('graph_html', 'output/graph/graph.html')}")
+            log.info(f"  Time: {s6['time_seconds']:.2f}s")
         
         # Total
         log.info(f"\n{'=' * 80}")
@@ -737,7 +640,10 @@ class ProfilingAgent:
         log.info(f"  Profiles:      {self.profiles_dir}/*.profile.json")
         log.info(f"  LCIL Insights: output/low_cardinality/low_cardinality_insights.json")
         log.info(f"  Descriptions:  {self.descriptions_dir}/descriptions.json")
-        log.info(f"  Relationships: {self.relationships_dir}/relationships.json")
+        log.info(f"  Relationships: {self.relationships_dir}/relationship.json")
+        log.info(f"  ERD DBML:      output/erd/schema.dbml")
+        log.info(f"  ERD JSON:      output/erd/erd.json")
+        log.info(f"  ER Graph:      output/graph/graph.json, output/graph/graph.html")
 
 
 def main():

@@ -1,0 +1,63 @@
+[
+  {
+    "cluster": "Geography",
+    "tables": [
+      "Application_Cities",
+      "Application_Countries",
+      "Application_StateProvinces"
+    ]
+  },
+  {
+    "cluster": "Methods",
+    "tables": [
+      "application_deliverymethods",
+      "application_paymentmethods",
+      "application_transactiontypes"
+    ]
+  },
+  {
+    "cluster": "Purchasing",
+    "tables": [
+      "Purchasing_Suppliers",
+      "purchasing_purchaseorders",
+      "purchasing_suppliercategories",
+      "purchasing_suppliertransactions"
+    ]
+  },
+  {
+    "cluster": "Reference",
+    "tables": [
+      "Application_SystemParameters",
+      "Sales_OrderLines",
+      "application_people",
+      "purchasing_purchaseorderlines",
+      "sales_customertransactions",
+      "sales_invoicelines",
+      "warehouse_stockitemstockgroups"
+    ]
+  },
+  {
+    "cluster": "Sales",
+    "tables": [
+      "Sales_Customers",
+      "sales_buyinggroups",
+      "sales_customercategories",
+      "sales_invoices",
+      "sales_orders",
+      "sales_specialdeals"
+    ]
+  },
+  {
+    "cluster": "Warehouse",
+    "tables": [
+      "warehouse_coldroomtemperatures",
+      "warehouse_colors",
+      "warehouse_packagetypes",
+      "warehouse_stockgroups",
+      "warehouse_stockitemholdings",
+      "warehouse_stockitems",
+      "warehouse_stockitemtransactions",
+      "warehouse_vehicletemperatures"
+    ]
+  }
+]

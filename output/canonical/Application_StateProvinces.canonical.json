@@ -1,14 +1,39 @@
 {
-  "source_path": "data\\Application_StateProvinces.csv",
-  "source_type": "csv",
+  "schema_version": "2.0.0",
+  "artifact_type": "canonical_table",
+  "table_id": "Application_StateProvinces",
+  "table_name": "Application_StateProvinces",
+  "source": {
+    "source_type": "file",
+    "format": "csv",
+    "path": "F:\\agentic_profiler\\new\\data\\Application_StateProvinces.csv",
+    "size_mb": 0.0,
+    "encoding": "utf-8",
+    "delimiter": ",",
+    "compression": null
+  },
+  "lineage": {
+    "created_at": "2026-05-20T16:24:45.812802Z",
+    "engine": "csv_engine",
+    "engine_version": "2.0.0"
+  },
+  "sampling": {
+    "strategy": "head",
+    "sample_size": 53,
+    "total_rows_estimate": null,
+    "is_sample": true,
+    "deterministic_seed": "84ca24fc174fe9b3"
+  },
+  "schema": {
+    "column_count": 10
+  },
   "columns": [
     {
-      "column_id": "Application_StateProvinces_stateprovinceid",
+      "column_id": "col_000",
       "original_name": "StateProvinceID",
       "normalized_name": "stateprovinceid",
       "position": 0,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "1",
@@ -64,16 +89,14 @@
         "51",
         "52",
         "53"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_stateprovincecode",
+      "column_id": "col_001",
       "original_name": "StateProvinceCode",
       "normalized_name": "stateprovincecode",
       "position": 1,
       "physical_type": "STRING",
-      "semantic_type": "state_province",
       "observed_nullable": false,
       "sample_values": [
         "AL",
@@ -129,16 +152,14 @@
         "WV",
         "WI",
         "WY"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_stateprovincename",
+      "column_id": "col_002",
       "original_name": "StateProvinceName",
       "normalized_name": "stateprovincename",
       "position": 2,
       "physical_type": "STRING",
-      "semantic_type": "state_province",
       "observed_nullable": false,
       "sample_values": [
         "Alabama",
@@ -194,16 +215,14 @@
         "West Virginia",
         "Wisconsin",
         "Wyoming"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_countryid",
+      "column_id": "col_003",
       "original_name": "CountryID",
       "normalized_name": "countryid",
       "position": 3,
       "physical_type": "INTEGER",
-      "semantic_type": "foreign_key_candidate",
       "observed_nullable": false,
       "sample_values": [
         "230",
@@ -259,16 +278,14 @@
         "230",
         "230",
         "230"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_salesterritory",
+      "column_id": "col_004",
       "original_name": "SalesTerritory",
       "normalized_name": "salesterritory",
       "position": 4,
       "physical_type": "STRING",
-      "semantic_type": "dimension",
       "observed_nullable": false,
       "sample_values": [
         "Southeast",
@@ -324,16 +341,14 @@
         "Southeast",
         "Great Lakes",
         "Rocky Mountain"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_border",
+      "column_id": "col_005",
       "original_name": "Border",
       "normalized_name": "border",
       "position": 5,
       "physical_type": "UNKNOWN",
-      "semantic_type": "numeric",
       "observed_nullable": true,
       "sample_values": [
         "",
@@ -389,16 +404,14 @@
         "",
         "",
         ""
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_latestrecordedpopulation",
+      "column_id": "col_006",
       "original_name": "LatestRecordedPopulation",
       "normalized_name": "latestrecordedpopulation",
       "position": 6,
       "physical_type": "INTEGER",
-      "semantic_type": "measure",
       "observed_nullable": false,
       "sample_values": [
         "5437278",
@@ -454,16 +467,14 @@
         "2169272",
         "6211317",
         "630202"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_lasteditedby",
+      "column_id": "col_007",
       "original_name": "LastEditedBy",
       "normalized_name": "lasteditedby",
       "position": 7,
       "physical_type": "INTEGER",
-      "semantic_type": "identifier",
       "observed_nullable": false,
       "sample_values": [
         "15",
@@ -519,16 +530,14 @@
         "3",
         "15",
         "3"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_validfrom",
+      "column_id": "col_008",
       "original_name": "ValidFrom",
       "normalized_name": "validfrom",
       "position": 8,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_start",
       "observed_nullable": false,
       "sample_values": [
         "01-07-2015 16:00:00",
@@ -584,16 +593,14 @@
         "01-07-2016 16:00:00",
         "01-07-2015 16:00:00",
         "01-07-2016 16:00:00"
-      ],
-      "statistics": {}
+      ]
     },
     {
-      "column_id": "Application_StateProvinces_validto",
+      "column_id": "col_009",
       "original_name": "ValidTo",
       "normalized_name": "validto",
       "position": 9,
       "physical_type": "DATETIME",
-      "semantic_type": "temporal_end",
       "observed_nullable": false,
       "sample_values": [
         "31-12-9999 23:59:59",
@@ -649,660 +656,7 @@
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59",
         "31-12-9999 23:59:59"
-      ],
-      "statistics": {}
+      ]
     }
-  ],
-  "column_count": 10,
-  "row_count": 53,
-  "rows": [
-    [
-      "1",
-      "AL",
-      "Alabama",
-      "230",
-      "Southeast",
-      "",
-      "5437278",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "2",
-      "AK",
-      "Alaska",
-      "230",
-      "Far West",
-      "",
-      "735132",
-      "1",
-      "01-01-2013 00:05:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "3",
-      "AZ",
-      "Arizona",
-      "230",
-      "Southwest",
-      "",
-      "6891688",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "4",
-      "AR",
-      "Arkansas",
-      "230",
-      "Southeast",
-      "",
-      "3077747",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "5",
-      "CA",
-      "California",
-      "230",
-      "Far West",
-      "",
-      "41460453",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "6",
-      "CO",
-      "Colorado",
-      "230",
-      "Rocky Mountain",
-      "",
-      "5698265",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "7",
-      "CT",
-      "Connecticut",
-      "230",
-      "New England",
-      "",
-      "3739923",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "8",
-      "DE",
-      "Delaware",
-      "230",
-      "Mideast",
-      "",
-      "1001289",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "9",
-      "DC",
-      "District of Columbia",
-      "230",
-      "Mideast",
-      "",
-      "685248",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "10",
-      "FL",
-      "Florida",
-      "230",
-      "Southeast",
-      "",
-      "21148372",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "11",
-      "GA",
-      "Georgia",
-      "230",
-      "Southeast",
-      "",
-      "9992167",
-      "1",
-      "01-01-2013 00:02:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "12",
-      "HI",
-      "Hawaii",
-      "230",
-      "Far West",
-      "",
-      "1404054",
-      "1",
-      "01-01-2013 00:01:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "13",
-      "ID",
-      "Idaho",
-      "230",
-      "Rocky Mountain",
-      "",
-      "1612136",
-      "1",
-      "01-01-2013 00:01:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "14",
-      "IL",
-      "Illinois",
-      "230",
-      "Great Lakes",
-      "",
-      "13397420",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "15",
-      "IN",
-      "Indiana",
-      "230",
-      "Great Lakes",
-      "",
-      "6570902",
-      "1",
-      "01-01-2013 00:02:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "16",
-      "IA",
-      "Iowa",
-      "230",
-      "Plains",
-      "",
-      "3214032",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "17",
-      "KS",
-      "Kansas",
-      "230",
-      "Plains",
-      "",
-      "2893957",
-      "1",
-      "01-01-2013 00:04:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "18",
-      "KY",
-      "Kentucky",
-      "230",
-      "Southeast",
-      "",
-      "4571106",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "19",
-      "LA",
-      "Louisiana",
-      "230",
-      "Southeast",
-      "",
-      "4810488",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "20",
-      "ME",
-      "Maine",
-      "230",
-      "New England",
-      "",
-      "1381434",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "21",
-      "MD",
-      "Maryland",
-      "230",
-      "Mideast",
-      "",
-      "5928814",
-      "1",
-      "01-01-2013 00:04:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "22",
-      "MA",
-      "Massachusetts[E]",
-      "230",
-      "New England",
-      "",
-      "6960536",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "23",
-      "MI",
-      "Michigan",
-      "230",
-      "Great Lakes",
-      "",
-      "9895622",
-      "1",
-      "01-01-2013 00:01:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "24",
-      "MN",
-      "Minnesota",
-      "230",
-      "Plains",
-      "",
-      "5637195",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "25",
-      "MS",
-      "Mississippi",
-      "230",
-      "Southeast",
-      "",
-      "2991207",
-      "1",
-      "01-01-2013 00:04:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "26",
-      "MO",
-      "Missouri",
-      "230",
-      "Plains",
-      "",
-      "6262867",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "27",
-      "MT",
-      "Montana",
-      "230",
-      "Rocky Mountain",
-      "",
-      "1187597",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "28",
-      "NE",
-      "Nebraska",
-      "230",
-      "Plains",
-      "",
-      "1943256",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "29",
-      "NV",
-      "Nevada",
-      "230",
-      "Far West",
-      "",
-      "2790136",
-      "1",
-      "01-01-2013 00:03:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "30",
-      "NH",
-      "New Hampshire",
-      "230",
-      "New England",
-      "",
-      "1431452",
-      "3",
-      "01-07-2016 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "31",
-      "NJ",
-      "New Jersey",
-      "230",
-      "Mideast",
-      "",
-      "8899339",
-      "1",
-      "01-01-2013 00:02:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "32",
-      "NM",
-      "New Mexico",
-      "230",
-      "Southwest",
-      "",
-      "2345662",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "33",
-      "NY",
-      "New York",
-      "230",
-      "Mideast",
-      "",
-      "20437172",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "34",
-      "NC",
-      "North Carolina",
-      "230",
-      "Southeast",
-      "",
-      "10241982",
-      "8",
-      "01-07-2014 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "35",
-      "ND",
-      "North Dakota",
-      "230",
-      "Plains",
-      "",
-      "723393",
-      "1",
-      "01-01-2013 00:02:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "36",
-      "OH",
-      "Ohio",
-      "230",
-      "Great Lakes",
-      "",
-      "12514985",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "37",
-      "OK",
-      "Oklahoma",
-      "230",
-      "Southwest",
-      "",
-      "3850568",
-      "1",
-      "01-01-2013 00:01:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "38",
-      "OR",
-      "Oregon",
-      "230",
-      "Far West",
-      "",
-      "4250757",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "39",
-      "PA",
-      "Pennsylvania",
-      "230",
-      "Mideast",
-      "",
-      "13816143",
-      "3",
-      "01-07-2016 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "40",
-      "PR",
-      "Puerto Rico (US Territory)",
-      "230",
-      "External",
-      "",
-      "3613149",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "41",
-      "RI",
-      "Rhode Island",
-      "230",
-      "New England",
-      "",
-      "1051511",
-      "1",
-      "01-01-2013 00:04:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "42",
-      "SC",
-      "South Carolina",
-      "230",
-      "Southeast",
-      "",
-      "4774839",
-      "1",
-      "01-01-2013 00:03:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "43",
-      "SD",
-      "South Dakota",
-      "230",
-      "Plains",
-      "",
-      "844877",
-      "1",
-      "01-01-2013 00:04:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "44",
-      "TN",
-      "Tennessee",
-      "230",
-      "Southeast",
-      "",
-      "6495978",
-      "1",
-      "01-01-2013 00:05:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "45",
-      "TX",
-      "Texas",
-      "230",
-      "Southwest",
-      "",
-      "27506120",
-      "20",
-      "01-07-2013 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "46",
-      "UT",
-      "Utah",
-      "230",
-      "Rocky Mountain",
-      "",
-      "3137582",
-      "3",
-      "01-07-2016 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "47",
-      "VT",
-      "Vermont",
-      "230",
-      "New England",
-      "",
-      "677762",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "48",
-      "VI",
-      "Virgin Islands (US Territory)",
-      "230",
-      "External",
-      "",
-      "108926",
-      "3",
-      "01-07-2016 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "49",
-      "VA",
-      "Virginia",
-      "230",
-      "Southeast",
-      "",
-      "8260405",
-      "1",
-      "01-01-2013 00:03:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "50",
-      "WA",
-      "Washington",
-      "230",
-      "Far West",
-      "",
-      "7540272",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "51",
-      "WV",
-      "West Virginia",
-      "230",
-      "Southeast",
-      "",
-      "2169272",
-      "3",
-      "01-07-2016 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "52",
-      "WI",
-      "Wisconsin",
-      "230",
-      "Great Lakes",
-      "",
-      "6211317",
-      "15",
-      "01-07-2015 16:00:00",
-      "31-12-9999 23:59:59"
-    ],
-    [
-      "53",
-      "WY",
-      "Wyoming",
-      "230",
-      "Rocky Mountain",
-      "",
-      "630202",
-      "3",
-      "01-07-2016 16:00:00",
-      "31-12-9999 23:59:59"
-    ]
-  ],
-  "encoding": "utf-8",
-  "delimiter": ",",
-  "compression": null,
-  "is_sample": true,
-  "sample_size": 53,
-  "sampling_method": null,
-  "table_name": "Application_StateProvinces",
-  "table_id": "Application_StateProvinces",
-  "metadata": {
-    "is_sample": true,
-    "sample_row_count": 53
-  }
+  ]
 }

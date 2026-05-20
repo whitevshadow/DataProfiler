@@ -17,10 +17,14 @@ import logging
 import os
 import time
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Optional
 from urllib.parse import urlsplit
 
-from file_profiler.connectors.base import ConnectorError, SourceDescriptor
+try:
+    from connector.base import ConnectorError, SourceDescriptor
+except ImportError:
+    from file_profiler.connectors.base import ConnectorError, SourceDescriptor
 
 log = logging.getLogger(__name__)
 
@@ -129,8 +133,8 @@ class ConnectionManager:
 
         Args:
             connection_id: Unique name (e.g. "prod-s3", "analytics-pg").
-            scheme: Source type: "s3", "minio", "abfss", "gs", "snowflake",
-                    or "postgresql".
+            scheme: Source type: "csv", "file", "s3", "minio", "abfss",
+                    "gs", "snowflake", or "postgresql".
             credentials: Auth credentials (scheme-specific).
             display_name: Human-readable label for UI.
 
@@ -199,7 +203,10 @@ class ConnectionManager:
         Delegates to the appropriate connector's test_connection().
         Updates the connection's last_tested and is_healthy fields.
         """
-        from file_profiler.connectors.registry import registry
+        try:
+            from connector.registry import registry
+        except ImportError:
+            from file_profiler.connectors.registry import registry
 
         info = self.get(connection_id)
         connector = registry.get(info.scheme)
@@ -230,6 +237,31 @@ class ConnectionManager:
                     message=str(exc),
                     latency_ms=0.0,
                 )
+        elif info.scheme in {"csv", "file"}:
+            file_path = (
+                info.credentials.get("path")
+                or info.credentials.get("file_path")
+                or info.credentials.get("csv_path")
+                or ""
+            ).strip()
+            if not file_path:
+                latency = 0.0
+                info.last_tested = time.time()
+                info.is_healthy = False
+                self._persist()
+                return TestResult(
+                    success=False,
+                    message="CSV connection requires a path to a CSV file or directory",
+                    latency_ms=latency,
+                )
+            path = Path(file_path).expanduser()
+            descriptor = SourceDescriptor(
+                scheme=info.scheme,
+                bucket_or_host="localhost",
+                path=str(path),
+                raw_uri=f"file://{path.as_posix()}",
+                connection_id=connection_id,
+            )
         else:
             descriptor = SourceDescriptor(
                 scheme=info.scheme,
